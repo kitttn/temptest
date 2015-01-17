@@ -55,7 +55,6 @@ cd nuttx
 
 Now you'll configure and build for APBridge 2 on the BDB 1B
 ````
-cd $HOME/project-ara-nuttx-bdb1b-v0.1
 cd tools
 ./configure.sh bdb/apb2
 cd ..
