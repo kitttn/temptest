@@ -68,7 +68,7 @@ Note that there is a nuttx subdirectory in the repository where <make> is run, a
 cp nuttx $HOME/nuttx.apb2
 ````
 
-**DON'T COPY nuttx.bin.**
+**Don't copy nuttx.bin.**
 
 Next, you'll configure and build for AP Bridge 1 on the BDB 1B.  When switching between build types, you'll want to run <make distclean> first, as shown here:
 ````
