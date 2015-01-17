@@ -26,11 +26,12 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to create a working directory and then untar the contents of the tarball (substituting `/path/to/project-ara-nuttx-bdb1b-v0.1.tgz` with the path to the actual file):
+To start, you'll want to create a working directory and then untar the contents of the tarball (these instructions assume the tarball is in `$HOME/project-ara-nuttx-bdb1b-v0.1.tar.gz` with the path to the directory containing the actual file):
 
 ````
-tar xfz /path/to/project-ara-nuttx-bdb1b-v0.1.tgz
-cd /path/to/project-ara-nuttx-bdb1b-v0.1
+cd $HOME
+tar xzf project-ara-nuttx-bdb1b-v0.1.tar.gz
+cd project-ara-nuttx-bdb1b-v0.1
 ````
 If you haven't already, you'll need to build and install kconfig support (this step typically is only required once for a given build machine):
 ````
@@ -48,11 +49,13 @@ Now you're ready to build firmware for the APBridge 1 and APBridge 2 chips on th
 
 First, cd into the nuttx subdirectory of your working directory
 ````
-cd /path/to/project-ara-nuttx-bdb1b-v0.1/nuttx
+cd $HOME/project-ara-nuttx-bdb1b-v0.1/
+cd nuttx
 ````
 
 Now you'll configure and build for APBridge 2 on the BDB 1B
 ````
+cd $HOME/project-ara-nuttx-bdb1b-v0.1
 cd tools
 ./configure.sh bdb/apb2
 cd ..
@@ -65,6 +68,9 @@ Note that there is a nuttx subdirectory in the repository where <make> is run, a
 ````
 cp nuttx $HOME/nuttx.apb2
 ````
+
+**DON'T COPY nuttx.bin.**
+
 Next, you'll configure and build for AP Bridge 1 on the BDB 1B.  When switching between build types, you'll want to run <make distclean> first, as shown here:
 ````
 make distclean
