@@ -36,7 +36,7 @@ If you run into problems, disconnect the AP from the BDB 1B, and return to step 
 
 #### Check that the USB Connection is Established
 
-The example firmware for AP Bridge 1 will output the following when a connection is established with the AP and a successful Greybus handshake has occurred:
+The example firmware for AP Bridge 1 will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
 ````
 [I] GB: MID-1 module inserted                                              	 
 [I] GB: AP handshake complete  	
