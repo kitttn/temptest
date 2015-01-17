@@ -49,7 +49,7 @@ Now you're ready to build firmware for the APBridge 1 and APBridge 2 chips on th
 
 First, cd into the nuttx subdirectory of your working directory
 ````
-cd $HOME/project-ara-nuttx-bdb1b-v0.1/
+cd $HOME/project-ara-nuttx-bdb1b-v0.1
 cd nuttx
 ````
 
