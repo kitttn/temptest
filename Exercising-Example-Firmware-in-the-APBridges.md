@@ -144,7 +144,8 @@ You can also use i2cget to read a specfic value, e.g.:
 ````
 $ i2cget 2 0x29 3 c                                 
 WARNING! This program can confuse your I2C bus, cause data loss and worse!      
-I will read from device file /dev/i2c-1, chip address 0x29, data address 0x03, using write byte/read byte.                                           
+I will read from device file /dev/i2c-1, chip address 0x29,
+data address 0x03, using write byte/read byte.                                           
 Continue? [Y/n] y                                                           
 0x14
 ````
