@@ -36,7 +36,7 @@ At this point, if you have a terminal emulator open and successfully connected t
 1. Identify the serial number of the JLink Pro that's attached to AP Bridge 1.  This numeric value follows the S/N: marking on the bottom of the device.  We'll call that the "jlink_apb1_sn".
 2. Open a separate terminal window and start the JLink gdbserver, specifying the serial number and a unique port number that GDB will use when attaching to the server (2331 in this example, which happens to be JLinkGDBServer's default)
 
-   JLinkGDBServer -select usb=jlink_apb1_sn1 -port 2331
+   JLinkGDBServer -select usb=jlink_apb1_sn -port 2331
 3. From the terminal window where you built a nuttx ELF file for the bridge, start GDB
 
     arm-none-eabi-gdb
