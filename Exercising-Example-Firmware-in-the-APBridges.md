@@ -100,16 +100,16 @@ Note: On BDB 1 Rev B, AP Bridge 2’s GPIO 0 (mapped on Linux as 239) is availab
 
 Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-2 for example) when it receives a manifest with the I2C Protocol enabled. 
 
-Here is an **example** of how to find the I2C adapter:
+Here is some example output showing to find the I2C adapter:
 
     # cat /sys/class/i2c-adapter/i2c-*/name
     OMAP I2C adapter
-    Greybus i2c adapter
     OMAP I2C adapter
-    # cat /sys/class/i2c-adapter/i2c-1/name
+    Greybus i2c adapter
+    # cat /sys/class/i2c-adapter/i2c-2/name
     Greybus i2c adapter
 
-So in this case, the I2C device is /dev/i2c-1. **It may be different on your machine.**
+So in this case, the I2C device is /dev/i2c-2. **It may be different on your machine.**
 
 ##### I2C Tools
 A quick way to test i2c is to use i2c-tools.
