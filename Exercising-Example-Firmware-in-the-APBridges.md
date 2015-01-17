@@ -118,7 +118,7 @@ A quick way to test i2c is to use i2c-tools.
 
 It will install i2cdetect, i2cdump, i2cget, i2cset
 
-i2cdetect is the perfect tool to test i2c. 
+Next, use i2cdetect to test i2c. 
 ````
 $ i2cdetect -r 2
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
