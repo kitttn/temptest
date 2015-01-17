@@ -1,0 +1,1 @@
+Copyright ©2015 Google Inc. All rights reserved. Your use of this Ara Module Developers Kit (MDK) is expressly subject to the terms of the MDK License Agreement found at http://projectara.com/mdk-license.txt.
