@@ -26,7 +26,7 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to create a working directory and then untar the contents of the tarball (these instructions assume the tarball is in `$HOME/devcon2-v0.1.tar.gz`):
+To start, you'll want to create a working directory and then untar the contents of the tarball (these instructions assume the tarball is in `$HOME/devcon2-v0.2.tar.gz`):
 
 ````
 cd $HOME
