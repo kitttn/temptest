@@ -81,7 +81,7 @@ cp nuttx $HOME/nuttx.apb1
 
 **Note:** there are issues with the build system dependency tracker that have led us to deprecate the use of parallel make (`make -jN`) in the above step.
 
-The builds should complete successfully if the necessary prerequisites have been installed.  As a general note, if you're in a compile-load-test cycle, if a build fails, you'll want to ensure that old build products have been cleaned up.  Your safest bet will be `make distclean` followed by a reconfigure, as `make clean` doesn't always work due to unknown causes.
+The builds should complete successfully if the necessary prerequisites have been installed.  As a general note, if you're in a compile-load-test cycle, and a build fails, you'll want to ensure that old build products have been cleaned up.  Your safest bet will be `make distclean` followed by a reconfigure, as `make clean` doesn't always work due to unknown causes.
 
 #### Next Steps
 
