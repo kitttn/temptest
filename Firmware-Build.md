@@ -1,4 +1,4 @@
-The developer release includes a tarball with the necessary source and tools to build firmware for APBridge1 and AP Bridge 2.  The tarball is available here:
+The developer release includes a tarball with the necessary source and tools to build firmware for APBridge1 and AP Bridge 2.  The tarball is available for download from here:
 
 http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz
 
@@ -8,7 +8,7 @@ The firmware tarball contains:
 
 1. RTOS support for the Toshiba Bridge ASICs.
 2. A development snapshot of firmware libraries supporting the Greybus Specification for UniPro communication by Project Ara modules using Toshiba Bridge ASICs.
-3. Example programs which exercise these libraries.
+3. Example programs that exercise these libraries.
 
 At the moment, the firmware uses a version of an open source (BSD Licensed) RTOS called [NuttX](http://www.nuttx.org/). Though this release is based on NuttX, the libraries we are developing have minimal dependency on that RTOS, and we expect they will port to other RTOSes straightforwardly.
 
