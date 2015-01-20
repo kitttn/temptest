@@ -7,7 +7,7 @@ For simplicity, the instructions on this page will assume this naming, and assum
 
 #### Loading Firmware into APBridge 2
 1. Identify the serial number of the J-Link Pro that's attached to APBridge 2.  This numeric value follows the S/N: marking on the bottom of the device.  We'll call that the "jlink_apb2_sn".
-2. Open a separate terminal window and start the J-Link gdbserver, specifying the serial number and a unique port number that GDB will use when attaching to the server (2341 in this example)
+2. Open a separate terminal window and start the J-Link GDB server, specifying the serial number and a unique port number that GDB will use when attaching to the server (2341 in this example)
 
    `JLinkGDBServer -select usb=jlink_apb2_sn -port 2341`
 3. From the terminal window where you built the firmware image for the bridge, start GDB
@@ -34,7 +34,7 @@ At this point, if you have a terminal emulator open and successfully connected t
 
 #### Loading Firmware into APBridge 1
 1. Identify the serial number of the J-Link Pro that's attached to APBridge 1.  This numeric value follows the S/N: marking on the bottom of the device.  We'll call that the "jlink_apb1_sn".
-2. Open a separate terminal window and start the J-Link gdbserver, specifying the serial number and a unique port number that GDB will use when attaching to the server (2331 in this example, which happens to be JLinkGDBServer's default)
+2. Open a separate terminal window and start the J-Link GDB server, specifying the serial number and a unique port number that GDB will use when attaching to the server (2331 in this example, which happens to be JLinkGDBServer's default)
 
    `JLinkGDBServer -select usb=jlink_apb1_sn -port 2331`
 3. From the terminal window where you built the firmware image for the bridge, start GDB
