@@ -44,7 +44,7 @@ cd ../../..
 ````
 Note: The above instructions assume that /usr/local exists on your system, and is referenced by the system path and by the dynamic linker configuration database.
 
-Now you're ready to build firmware for the APBridge 1 and APBridge 2 chips on the BDB 1B!
+Now you're ready to build firmware for the APBridge 1 and APBridge 2 chips on the BDB1B!
 
 First, cd into the nuttx subdirectory of your working directory
 ````
@@ -52,7 +52,7 @@ cd $HOME/unipro_bridge_firmware_devcon2_v0.2
 cd nuttx
 ````
 
-Now you'll configure and build for APBridge 2 on the BDB 1B
+Now you'll configure and build for APBridge 2 on the BDB1B
 ````
 cd tools
 ./configure.sh bdb/apb2
@@ -69,7 +69,7 @@ cp nuttx $HOME/nuttx.apb2
 
 **Don't copy nuttx.bin.**
 
-Next, you'll configure and build for AP Bridge 1 on the BDB 1B.  When switching between build types, you'll want to run `make distclean` first, as shown here:
+Next, you'll configure and build for AP Bridge 1 on the BDB1B.  When switching between build types, you'll want to run `make distclean` first, as shown here:
 ````
 make distclean
 cd tools
