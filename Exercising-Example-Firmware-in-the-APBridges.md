@@ -4,7 +4,7 @@ It's time for all your hard work to pay off, in that you now have the opportunit
 
 You need to prepare an Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP. This procedure is not documented here, but it will be familiar to Linux kernel programmers; see the README in the greybus repository for more details.
 
-**DO NOT CONNECT THE BDB 1B AND AP VIA USB UNTIL INSTRUCTED TO BELOW.**
+**DO NOT CONNECT THE BDB1B AND AP VIA USB UNTIL INSTRUCTED TO BELOW.**
 
 Ready to continue?  OK!
 
@@ -12,7 +12,7 @@ Ready to continue?  OK!
 
 The following sequence represents the present "best practice" for bringing up a connection from the AP to APBridge 1:
 
-1. Have everything connected (JTAG to APBridge 1, JTAG to APBridge 2) **except** the AP to the BDB 1B
+1. Have everything connected (JTAG to APBridge 1, JTAG to APBridge 2) **except** the AP to the BDB1B
 2. Reboot the AP, or if the AP's console is nonresponsive, reset the AP to force a reboot.
 3. Load the greybus, gb-phy, gb-es1 modules (in that order) into the AP's kernel.
 
@@ -22,17 +22,17 @@ The following sequence represents the present "best practice" for bringing up a 
 
     ```insmod gb-es1.ko```
  
-    **Note**: If you've arrived at this wiki page, have satisfied the prerequisites, and are running through this sequence for the first time, you may skip to step 9 since the BDB 1B is in a known state with firmware already running on both APBridges.
+    **Note**: If you've arrived at this wiki page, have satisfied the prerequisites, and are running through this sequence for the first time, you may skip to step 9 since the BDB1B is in a known state with firmware already running on both APBridges.
 
 4. Reset the Supervisiory Controller (SVC) by pressing and releasing SW11 (also labeled SVC Reset) on the BDB.  This also resets the APBridges.
 5. If APBridge 2 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C to return to a (gdb) prompt.
 6. Load and run the bdb/apb2 firmware on APBridge 2, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
 7. If APBridge 1 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C to return to a (gdb) prompt.
 8. Load and run the bdb/apb1 firmware on APBridge 1, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
-9. Connect the AP to the BDB 1B using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
-the [BDB 1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).
+9. Connect the AP to the BDB1B using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
+the [BDB1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).
 
-If you run into problems, disconnect the AP from the BDB 1B, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB 1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
+If you run into problems, disconnect the AP from the BDB1B, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
 
 #### Check that the USB Connection is Established
 
@@ -92,7 +92,7 @@ To get the value, execute:
 To change the value:
 
     $ echo 1 > /sys/class/gpio/gpio239/value
-Note: On BDB 1 Rev B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79.  The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
+Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79.  The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
 
     $ echo 0 > /sys/class/gpio/gpio239/value
 
