@@ -116,7 +116,7 @@ A quick way to test i2c is to use i2c-tools.
 
     $ apt-get install i2c-tools  
 
-It will install i2cdetect, i2cdump, i2cget, i2cset
+It will install i2cdetect, i2cdump, i2cget, and i2cset.
 
 Next, use i2cdetect to test i2c. 
 ````
@@ -136,7 +136,7 @@ Continue? [Y/n] Y
 70: -- -- -- -- -- -- -- --                             
 ````
 Note: 
-* The “-r” argument forces i2cdetect to probe i2c devices using read method (actually, the only method supported).
+* The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
 * “1” is the i2c bus number, which could be different on your AP (e.g. “2” rather than “1”).
 * On some APs, you may have to load i2c-dev kernel module before using the i2c-tools.
 
