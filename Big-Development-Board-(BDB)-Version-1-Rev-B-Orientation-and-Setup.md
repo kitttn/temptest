@@ -23,16 +23,16 @@ Please verify that your Debug Adapter Boards are configured properly for JTAG us
 [[Debug board setup for JTAG|Debug-Adapter-Board-Rev-B-Setup-For-JTAG]]
 
 Before applying power, you'll want to cable everything together:
-* Attach the micro USB end of a USB cable to the connector on the BDB 1B labeled CON 28 (USB to APB1 HSIC).  Leave the other end of this cable unconnected, until instructioned to attach it to your AP.
-* Attach one end of a Debug FPC cable (the end labeled BDB) to the BDB 1B connector labeled CON17 (APB1 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on one of the Debug Adapter Boards.
-* Attach one end of a Debug FPC cable (the end labeled BDB) to the BDB 1B connector labeled CON19 (APB2 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on the other Debug Adapter Board.
+* Attach the micro USB end of a USB cable to the connector on the BDB1B labeled CON 28 (USB to APB1 HSIC).  Leave the other end of this cable unconnected, until instructioned to attach it to your AP.
+* Attach one end of a Debug FPC cable (the end labeled BDB) to the BDB1B connector labeled CON17 (APB1 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on one of the Debug Adapter Boards.
+* Attach one end of a Debug FPC cable (the end labeled BDB) to the BDB1B connector labeled CON19 (APB2 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on the other Debug Adapter Board.
 * Attach the micro USB end of a USB cable to the connector labeled CON6 (UART) on each Debug Adapter Board.  These cables will provide access to the consoles for APBridge 1 and APBridge 2.
 * Connect a JTAG debugger to the 20-pin connector labeled CON3 (Bridge) on the each Debug Adapter Board. **Note**: Please visually verify that you are plugging into CON3, not CON2.
 * Connect each JTAG debugger to the build machine via a direct USB connection.  The Segger JTAG Debugger also supports connections via Ethernet, but the present document assumes USB.
 
 If the 2 USB console cables are connected to a PC, the APBridge 1 and APBridge 2 consoles may be accessed (when code is running) via a terminal emulator such as minicom: 115200, 8N1, no hardware flow control.
 
-You may apply power at this point by attaching the provided 12V Adapter to CON27 (DC Jack 12V) on the BDB 1B.
+You may apply power at this point by attaching the provided 12V Adapter to CON27 (DC Jack 12V) on the BDB1B.
 
 #### Next Steps
 
