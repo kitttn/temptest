@@ -28,7 +28,7 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to untar the contents of the tarball (these instructions assume that you've downloaded the tarball to `$HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz`):
+To start, you'll want to untar the contents of the tarball then cd into the working directory that's created (these instructions assume that you've downloaded the tarball to `$HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz`):
 
 ````
 cd $HOME
