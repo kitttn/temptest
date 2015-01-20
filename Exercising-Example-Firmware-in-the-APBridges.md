@@ -138,7 +138,7 @@ Continue? [Y/n] Y
 Note: 
 * The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
 * “1” is the i2c bus number, which could be different on your AP (e.g. “2” rather than “1”).
-* On some APs, you may have to load i2c-dev kernel module before using the i2c-tools.
+* On some APs, you may have to load the i2c-dev kernel module before using the i2c-tools.
 
 You can also use i2cget to read a specfic value, e.g.:
 ````
