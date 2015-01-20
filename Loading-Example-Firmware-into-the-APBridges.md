@@ -13,7 +13,7 @@ For simplicity, the instructions on this page will assume this naming, and assum
 3. Open another terminal window start GDB
 
     `arm-none-eabi-gdb`  
-4. Connect to your gdbserver (this and the steps that follows are commands issued to GDB)
+4. Connect to your gdbserver (this and the steps that follow are commands issued to GDB)
 
     `target remote localhost:2341`
 5. Reset your target
@@ -40,7 +40,7 @@ At this point, if you have a terminal emulator open and successfully connected t
 3. Open another terminal window and start GDB
 
     `arm-none-eabi-gdb`
-4. Connect to your gdbserver (this and the steps that follows are commands issued to GDB)
+4. Connect to your gdbserver (this and the steps that follow are commands issued to GDB)
 
     `target remote localhost:2331`
 5. Reset your target
