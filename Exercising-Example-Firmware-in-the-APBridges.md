@@ -25,9 +25,9 @@ The following sequence represents the present "best practice" for bringing up a 
     **Note**: If you've arrived at this wiki page, have satisfied the prerequisites, and are running through this sequence for the first time, you may skip to step 9 since the BDB1B is in a known state with firmware already running on both APBridges.
 
 4. Reset the Supervisory Controller (SVC) by pressing and releasing SW11 (also labeled SVC Reset) on the BDB1B.  This also resets the APBridges.
-5. If APBridge 2 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C where you started the associated GDB to return to a (gdb) prompt.
+5. If APBridge 2 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C in the window where you started the associated GDB, to return to a (gdb) prompt.
 6. Load and run the bdb/apb2 firmware on APBridge 2, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
-7. If APBridge 1 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C in the window where you started the associated GDB to return to a (gdb) prompt.
+7. If APBridge 1 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C in the window where you started the associated GDB, to return to a (gdb) prompt.
 8. Load and run the bdb/apb1 firmware on APBridge 1, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
 9. Connect the AP to the BDB1B using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
 the [BDB1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).
