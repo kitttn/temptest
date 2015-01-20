@@ -59,4 +59,4 @@ At this point, if you have a terminal emulator open and successfully connected t
 
 At this point, if you have a terminal emulator open and successfully connected to the AP Bridge 1 console, you would see some initial output followed by an "nsh>" prompt.  There may be some errors output regarding unsuccessful connections to certain CPorts: this is normal and anticipated.
 
-Great!  You've got the example firmware built, loaded, and running in APBridge 1 and APBridge 2.  Now it's time to [[Exercising-Example-Firmware-in-the-APBridges]]
+Great!  You've got the example firmware built, loaded, and running in APBridge 1 and APBridge 2.  Now it's time to [Exercise the Example Firmware in the AP Bridges](Exercising-Example-Firmware-in-the-APBridges).
