@@ -98,18 +98,18 @@ Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available 
 
 #### Find the I2C Adapter
 
-Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-2 for example) when it receives a manifest with the I2C Protocol enabled. 
+Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-1 for example) when it receives a manifest with the I2C Protocol enabled. 
 
 Here is some example output showing how to find the I2C adapter:
 
     # cat /sys/class/i2c-adapter/i2c-*/name
     OMAP I2C adapter
-    OMAP I2C adapter
     Greybus i2c adapter
-    # cat /sys/class/i2c-adapter/i2c-2/name
+    OMAP I2C adapter
+    # cat /sys/class/i2c-adapter/i2c-1/name
     Greybus i2c adapter
 
-So in this case, the I2C device is /dev/i2c-2. **It may be different on your machine.**
+So in this case, the I2C device is /dev/i2c-1. **It may be different on your machine.**
 
 ##### I2C Tools
 A quick way to test i2c is to use i2c-tools.
@@ -120,9 +120,9 @@ It will install i2cdetect, i2cdump, i2cget, i2cset
 
 Next, use i2cdetect to test i2c. 
 ````
-$ i2cdetect -r 2
+$ i2cdetect -r 1
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
-I will probe file /dev/i2c-2 using read byte commands.
+I will probe file /dev/i2c-1 using read byte commands.
 I will probe address range 0x03-0x77.
 Continue? [Y/n] Y
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
@@ -137,12 +137,12 @@ Continue? [Y/n] Y
 ````
 Note: 
 * The “-r” argument forces i2cdetect to probe i2c devices using read method (actually, the only method supported).
-* “2” is the i2c bus number, which could be different on your AP (e.g. “1” rather than “2”).
+* “1” is the i2c bus number, which could be different on your AP (e.g. “2” rather than “1”).
 * On some APs, you may have to load i2c-dev kernel module before using the i2c-tools.
 
 You can also use i2cget to read a specfic value, e.g.:
 ````
-$ i2cget 2 0x29 3 c                                 
+$ i2cget 1 0x29 3 c                                 
 WARNING! This program can confuse your I2C bus, cause data loss and worse!      
 I will read from device file /dev/i2c-1, chip address 0x29,
 data address 0x03, using write byte/read byte.                                           
@@ -150,7 +150,7 @@ Continue? [Y/n] y
 0x14
 ````
 Notes:
-* As with i2cdetect “2” is the i2c bus number, which could be different on your AP (e.g. “1”)
+* As with i2cdetect “1” is the i2c bus number, which could be different on your AP (e.g. “2”)
 * 0x29 is the chip address
 * 3 is the data address
 * The last argument is the mode, which is read/write (“c”) in this example
