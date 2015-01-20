@@ -100,7 +100,7 @@ Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available 
 
 Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-2 for example) when it receives a manifest with the I2C Protocol enabled. 
 
-Here is some example output showing to find the I2C adapter:
+Here is some example output showing how to find the I2C adapter:
 
     # cat /sys/class/i2c-adapter/i2c-*/name
     OMAP I2C adapter
