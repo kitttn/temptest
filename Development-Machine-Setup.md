@@ -51,7 +51,7 @@ export PATH=$PATH:$HOME/manifesto/
 to your .profile or similar configuration file.
 #### JTAG Programming and Debugging
 
-These instructions describe how to use the [J-Link Pro JTAG programmer](http://www.segger.com/jlink-pro.html) from Segger for use with BDB1B. Software can be obtained from the [downloads](http://www.segger.com/jlink-software.html) section on the Segger website. It launches a GDB server that can be connected to using ‘arm-none-eabi-gdb’ included with the toolchain above.
+These instructions describe how to use the [J-Link Pro JTAG programmer](http://www.segger.com/jlink-pro.html) from Segger for use with BDB1B. Software can be obtained from the [downloads](http://www.segger.com/jlink-software.html) section on the Segger website.  The J-Link software includes a GDB server that can be connected to using ‘arm-none-eabi-gdb’ included with the toolchain above.
 
 For a build machine running Ubuntu, you would download the DEB Installer for the Software And Documentation Pack for Linux, the 64-bit version if you have a 64-bit Ubuntu installation, and the 32-bit version if you have a legacy 32-bit installation.  If uncertain of the Ubuntu installation type, run “uname -m” on your build machine.  An output of “x86_64” indicates that you have a 64-bit install.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.
 
