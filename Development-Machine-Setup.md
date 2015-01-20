@@ -26,6 +26,11 @@ sudo apt-get install git golang
 mkdir $HOME/go
 export GOPATH=$HOME/go
 ````
+You'll also want GOPATH to be defined during future logins, so you'll want to add
+````
+export GOPATH=$HOME/go
+````
+to your .profile or similar configuration file.
 
 #### Manifesto
 
@@ -39,7 +44,11 @@ cd manifesto
 go build manifesto.go
 export PATH=$PATH:$HOME/manifesto/
 ````
-
+You'll also want manifesto to be on your path during future logins, so you'll want to add
+````
+export PATH=$PATH:$HOME/manifesto/
+````
+to your .profile or similar configuration file.
 #### JTAG Programming and Debugging
 
 These instructions describe how to use the [J-Link Pro JTAG programmer](http://www.segger.com/jlink-pro.html) from Segger for use with BDB1B. Software can be obtained from the [downloads](http://www.segger.com/jlink-software.html) section on the Segger website. It launches a GDB server that can be connected to using ‘arm-none-eabi-gdb’ included with the toolchain above.
