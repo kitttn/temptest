@@ -29,10 +29,10 @@ The following sequence represents the present "best practice" for bringing up a 
 6. Load and run the bdb/apb2 firmware on AP Bridge 2, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
 7. If AP Bridge 1 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C to return to a (gdb) prompt.
 8. Load and run the bdb/apb1 firmware on AP Bridge 1, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
-9. Connect the AP to the BDB B1 using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
+9. Connect the AP to the BDB 1B using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
 the [BDB 1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).
 
-If you run into problems, disconnect the AP from the BDB 1B, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB B1 and reapply power.  This fallback typically requires that the JLink gdb servers and the gdb clients be stopped and restarted as well.
+If you run into problems, disconnect the AP from the BDB 1B, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB 1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
 
 #### Check that the USB Connection is Established
 
