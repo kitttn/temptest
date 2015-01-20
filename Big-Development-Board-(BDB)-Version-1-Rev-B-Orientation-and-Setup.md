@@ -8,7 +8,7 @@ Congratulations!  You've received Version 1 Rev B of the Project Ara development
 
 You'll also want to have:
 
-* 2 [J-Link Pro JTAG programmers](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB.
+* 2 [J-Link Pro JTAG programmers](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB1B.
 * 1 micro USB to USB A cable, to connect to your Application Processor (AP).  Don't connect the USB A end of the cable to your AP until instructed during the bring up procedure.
 * 2 micro USB to USB A cables, to provide access to the AP Bridge 1, and AP Bridge 2 consoles.
 
