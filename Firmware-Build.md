@@ -26,8 +26,7 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to untar the contents of the tarball then cd into the working directory that's created (these instructions assume that you've downloaded the tarball to `$HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz`):
-
+To start, you'll want to untar the contents of the [tarball](http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz) then cd into the working directory that's created (these instructions assume that you've downloaded the file to `$HOME/Downloads`):
 ````
 cd $HOME
 tar xzf $HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz
@@ -70,7 +69,7 @@ cp nuttx $HOME/nuttx.apb2
 
 **Don't copy nuttx.bin.**
 
-Next, you'll configure and build for AP Bridge 1 on the BDB 1B.  When switching between build types, you'll want to run <make distclean> first, as shown here:
+Next, you'll configure and build for AP Bridge 1 on the BDB 1B.  When switching between build types, you'll want to run `make distclean` first, as shown here:
 ````
 make distclean
 cd tools
