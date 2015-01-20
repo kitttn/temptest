@@ -28,12 +28,12 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to create a working directory and then untar the contents of the tarball (these instructions assume the tarball is in `$HOME/devcon2_v0.2.tar.gz`):
+To start, you'll want to untar the contents of the tarball (these instructions assume the tarball is in `$HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz`):
 
 ````
 cd $HOME
-tar xzf devcon2_v0.2.tar.gz
-cd devcon2_v0.2
+tar xzf $HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz
+cd unipro_bridge_firmware_devcon2_v0.2
 ````
 If you haven't already, you'll need to build and install kconfig support (this step typically is only required once for a given build machine):
 ````
@@ -51,7 +51,7 @@ Now you're ready to build firmware for the APBridge 1 and APBridge 2 chips on th
 
 First, cd into the nuttx subdirectory of your working directory
 ````
-cd $HOME/devcon2_v0.2
+cd $HOME/unipro_bridge_firmware_devcon2_v0.2
 cd nuttx
 ````
 
