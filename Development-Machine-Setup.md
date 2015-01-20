@@ -1,4 +1,4 @@
-You'll need a development machine or VM to configure, build and load the firmware for the Application Processor (AP) bridges on BDB1B.
+You'll need a development machine or VM to configure, build and load the firmware for the Application Processor (AP) bridges on the BDB1B.
 
 These instructions assume a 64-bit installation of Ubuntu 14.04, and only need to be applied once for a given development machine.
 
