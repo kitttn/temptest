@@ -16,7 +16,7 @@ You will now build two of these example programs, which allow you to tunnel I2C 
 
 This is an **early snapshot release**, meant to get early-stage module developers up and running, and let you familiarize yourself with our code base, while we continue platform development in parallel. As such, the release contains some limitations that you should know about.
 
-- The Supervisory Controller (SVC) on your BDB1B has been pre-flashed with firmware which establishes routes on the UniPro switch for these example programs. They are the only UniPro CPort connections which may be used at the present time. An upcoming release will relax this requirement and let you set your own routes, so you can use other bridges and other CPorts.
+- The Supervisory Controller (SVC) on your BDB1B has been pre-flashed with firmware that establishes routes on the UniPro switch for these example programs. They are the only UniPro CPort connections which may be used at the present time. An upcoming release will relax this requirement and let you set your own routes, so you can use other bridges and other CPorts.
 
 - The APBridge to SVC, and AP to module, communication paths needed to fully implement module manifest passing from modules and other Greybus Control Protocol features are unimplemented. These are required for hotplug and module discovery and enumeration as described in the Greybus Specification. For now, we hard-code module manifests for other bridges on the network in the APBridge attached to the AP. These issues will also be addressed in upcoming releases.
 
