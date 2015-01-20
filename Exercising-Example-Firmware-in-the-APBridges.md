@@ -62,13 +62,13 @@ To get the offset, run:
 For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 239 on Linux.
 
 ##### Export / Unexport a GPIO
-The first thing to do is export the gpio to use.
+The first thing to do is export the gpio that you want to use.
 
     $ echo 239 > /sys/class/gpio/export  
 
 This command will add a new entry in /sys/class/gpio/ (usually gpion where n is the exported gpio number).
 
-When you have finish using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
+When you have finished using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
     
     $ echo 239 > /sys/class/gpio/unexport
 
