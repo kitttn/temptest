@@ -96,7 +96,9 @@ Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available 
 
     $ echo 0 > /sys/class/gpio/gpio239/value
 
-#### Find the I2C Adapter
+#### I2C
+
+##### Find the I2C Adapter
 
 Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-1 for example) when it receives a manifest with the I2C Protocol enabled. 
 
