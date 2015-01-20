@@ -1,4 +1,4 @@
-The developer release includes a tarball with the necessary source and tools to build firmware for APBridge1 and AP Bridge 2.  The tarball is available for download from here:
+The developer release includes a tarball with the necessary source and tools to build firmware for APBridge1 and AP Bridge 2.  The tarball is available for download here:
 
 http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz
 
