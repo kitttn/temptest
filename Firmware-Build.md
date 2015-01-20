@@ -1,4 +1,4 @@
-The developer release includes a [tarball](http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz) with the necessary source and tools to build firmware for APBridge1 and APBridge 2.
+The developer release includes a [tarball](http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz) with the necessary source and tools to build firmware for APBridge 1 and APBridge 2.
 
 #### What's Inside
 
