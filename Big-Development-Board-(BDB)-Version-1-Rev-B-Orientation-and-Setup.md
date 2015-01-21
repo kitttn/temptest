@@ -34,6 +34,9 @@ If the 2 USB console cables are connected to a PC, the APBridge 1 and APBridge 2
 
 You may apply power at this point by attaching the provided 12V Adapter to CON27 (DC Jack 12V) on the BDB1B.
 
+Here's a bird's eye view of the overal setup:
+![BDB1B Setup Bird's Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
+
 #### Next Steps
 
 The next step in bringing up your development board is to finish the [Development Machine Setup](Development-Machine-Setup).
