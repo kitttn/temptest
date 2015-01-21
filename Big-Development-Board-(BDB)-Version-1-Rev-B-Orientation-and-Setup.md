@@ -36,7 +36,7 @@ If the 2 USB console cables are connected to a PC, the APBridge 1 and APBridge 2
 You may apply power at this point by attaching the provided 12V Adapter to CON27 (DC Jack 12V) on the BDB1B:
 ![BDB1B Power Connection](images/BDB1-POWER-CONNECTION.png)
 
-Here's a bird's-eye view of the overall setup:
+For your reference, here's a bird's-eye view of the overall setup:
 ![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
 
 #### Next Steps
