@@ -4,5 +4,5 @@ To enable JTAG debugging via a Debug Adapter Board Rev B, there are two essentia
 
 2. The switch labeled SW5 (RST_40uS) must be be positioned **away** from the SW5 label, towards the labels 3 and 6 on the board.  This allows the ARM processor in the bridge chip to run: otherwise, it's held in reset and JTAG debugging won't be possible.
 
-This configuration is illustrated here:
+The proper configuration is illustrated here:
 ![Debug Adapter Board Rev B Setup](images/Debug-Adpater-Board-Rev-B-Setup.png)
