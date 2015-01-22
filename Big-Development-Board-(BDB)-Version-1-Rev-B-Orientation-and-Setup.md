@@ -27,7 +27,7 @@ Before applying power, you'll want to cable everything together:
 ![BDB1 AP USB Connection](images/BDB1B-AP-USB.png)
 * Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON17 (APB1 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on one of the Debug Adapter Boards:
 ![BDB1B APBridge 1 JTAG and Reset](images/BDB1B-APBridge-1-JTAG-And-Reset.png)
-Please double-check that you're connecting to CON17, not CON15, which is nearby.  Please also take a moment to verify that SW8 (APB1 RESET) on the BDB1B is in the position shown, so that APBridge 1 will be operational later on.
+Please double-check that you're connecting to CON17, not to CON15, which is in the same neighborhood.  Please also take a moment to verify that SW8 (APB1 RESET) on the BDB1B is in the position shown, so that APBridge 1 will be operational later on.
 * Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON19 (APB2 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on the other Debug Adapter Board:
 ![BDB1B APBridge 2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)
 Please take a moment to verify that SW9 (APB2 RESET) on the BDB1B is in the position shown, so that APBridge 2 will be operational later on.
