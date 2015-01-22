@@ -2,9 +2,9 @@
 
 Congratulations!  You've received Version 1 Rev B of the Project Ara development hardware, a "Big Development Board" as we like to call it.  We typically use the shorthand "BDB 1 Rev B" or "BDB1B":
 ![BDB1B PCB](images/BDB1B-Board.png)
-Here's another picture of the BDB1B, this time with a PC-BASE plate installed:
-![BDB1B PCB with PCB-BASE](images/BDB1B-Board-With-PCB-BASE.png):
-Images in this wiki may vary in whether they show the PCB-BASE plate installed.
+Here's an alternate image of the BDB1B, this time with a PC-BASE plate installed:
+![BDB1B PCB with PCB-BASE](images/BDB1B-Board-With-PCB-BASE.png)
+Images in this wiki may vary as to whether they show the PCB-BASE plate.
 
 Your kit should also contain:
 
