@@ -95,7 +95,9 @@ To get the value, execute:
 To change the value:
 
     $ echo 1 > /sys/class/gpio/gpio239/value
-Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79.  The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
+Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
+![BDB1B Pin 1 of Header J79](images/BDB1B-Header-J79.png)
+The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
 
     $ echo 0 > /sys/class/gpio/gpio239/value
 
