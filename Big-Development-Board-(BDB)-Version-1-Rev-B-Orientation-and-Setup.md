@@ -28,7 +28,7 @@ Now what? Let's start with some setup.
 
 Please take a moment to verify that your Debug Adapter Boards are configured properly for JTAG use:
 
-[[Debug board setup for JTAG|Debug-Adapter-Board-Rev-B-Setup-For-JTAG]]
+[[Debug board config for JTAG|Debug-Adapter-Board-Rev-B-Setup-For-JTAG]]
 
 We'll begin with at a bird's-eye view of the setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
 ![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
