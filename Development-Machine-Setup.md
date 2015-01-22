@@ -5,7 +5,7 @@ These instructions assume a 64-bit installation of Ubuntu 14.04, and only need t
 You'll need various Ubuntu packages:
 
 ````
-sudo apt-get install autoconf libtoolize libtool gperf
+sudo apt-get install autoconf libtool gperf
 sudo apt-get install flex bison libncurses5-dev libncurses5:i386
 sudo apt-get install libusb-dev libpci-dev
 ````
