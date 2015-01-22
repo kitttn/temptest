@@ -32,7 +32,7 @@ Please double-check that you're connecting to CON17, not to CON15, which is in t
 ![BDB1B APBridge 2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)
 Please take a moment to verify that SW9 (APB2 RESET) on the BDB1B is in the position shown, so that APBridge 2 will be operational later on.
 * Attach the micro USB end of a USB cable to the connector labeled CON6 (UART) on each Debug Adapter Board.  These cables will provide access to the consoles for APBridge 1 and APBridge 2:
-![Debug Adapter Board Rev B[(images/Debug-Adapter-Board-Rev-B-Setup.png)
+![Debug Adapter Board Rev B](images/Debug-Adapter-Board-Rev-B-Setup.png)
 * Connect a JTAG debugger to the 20-pin connector labeled CON3 (Bridge) on the each Debug Adapter Board. **Note**: Please visually verify that you are plugging into CON3, not CON2.
 * Connect each JTAG debugger to the build machine via a direct USB connection.  The J-Link Pro JTAG Debugger also supports connections via Ethernet, but the present document assumes USB.
 
