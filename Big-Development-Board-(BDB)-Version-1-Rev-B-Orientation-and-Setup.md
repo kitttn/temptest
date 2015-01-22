@@ -6,6 +6,8 @@ Congratulations!  You've received Version 1 Rev B of the Project Ara development
 * Two Debug Flat Printed Circuit (FPC) cables Rev B
 * A 12V power source
 
+![BDB1B Accessories](images/BDB1B-Accessories.png)
+
 You'll also want to have:
 
 * 2 [J-Link Pro JTAG programmers](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB1B.
