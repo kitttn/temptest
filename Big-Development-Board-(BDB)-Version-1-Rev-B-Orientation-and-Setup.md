@@ -23,7 +23,7 @@ Please verify that your Debug Adapter Boards are configured properly for JTAG us
 [[Debug board setup for JTAG|Debug-Adapter-Board-Rev-B-Setup-For-JTAG]]
 
 Before applying power, you'll want to cable everything together:
-* Attach the micro USB end of a USB cable to the connector on the BDB1B labeled CON 28 (USB to APB1 HSIC).  Leave the other end of this cable unconnected, until instructioned to attach it to your AP:
+* Attach the micro USB end of a USB cable to the connector on the BDB1B labeled CON 28 (USB to APB1 HSIC).  Leave the other end of this cable unconnected, until instructed to attach it to your AP:
 ![BDB1 AP USB Connection](images/BDB1B-AP-USB.png)
 * Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON17 (APB1 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on one of the Debug Adapter Boards.
 * Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON19 (APB2 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on the other Debug Adapter Board:
