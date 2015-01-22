@@ -22,13 +22,13 @@ You'll also want to have:
 
 As with any development board, you'll ideally want to work in an ESD-safe environment that provides a controlled path for dissipating static buildup. 
 
-#### One-Time Setup
+#### One-Time Setupboard configuration for
 
 Now what? Let's start with some setup.
 
 Please take a moment to verify that your Debug Adapter Boards are configured properly for JTAG use, as documented here:
 
-[Debug board configuration for JTAG](Debug-Adapter-Board-Rev-B-Setup-For-JTAG)
+[Debug Adapter Board Configuration for JTAG](Debug-Adapter-Board-Rev-B-Setup-For-JTAG)
 
 We'll begin with at a bird's-eye view of the BDB1B setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
 ![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
