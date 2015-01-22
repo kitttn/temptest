@@ -10,7 +10,7 @@ Your kit should also contain:
 
 * Two Debug Adapter Boards Rev B
 * Two Debug Flat Printed Circuit (FPC) cables Rev B
-* A 12V power source
+* A 12V DC power source
 
 ![BDB1B Accessories](images/BDB1B-Accessories.png)
 
@@ -49,7 +49,7 @@ Please take a moment to verify that SW9 (APB2 RESET) on the BDB1B is in the posi
 
 If the 2 USB console cables are connected to a PC, the APBridge 1 and APBridge 2 consoles may be accessed (when code is running) via a terminal emulator such as minicom: 115200, 8N1, no hardware flow control.
 
-You may apply power at this point by attaching the provided 12V Adapter to CON27 (DC Jack 12V) on the BDB1B:
+You may apply power at this point by attaching the provided 12V DC power source to CON27 (DC Jack 12V) on the BDB1B:
 ![BDB1B Power Connection](images/BDB1B-Power-Connection.png)
 
 As a result of following the procedure detailed above, your setup should now match the bird's eye view that first appeared towards the top of the present page:
