@@ -8,7 +8,7 @@ The firmware tarball contains:
 2. A development snapshot of firmware libraries supporting the Greybus Specification for UniPro communication by Project Ara modules using Toshiba Bridge ASICs.
 3. Example programs that exercise these libraries.
 
-The firmware currently is based on an open source (BSD Licensed) RTOS called [NuttX](http://www.nuttx.org/). However, our libraries have minimal dependency on that RTOS, and we expect they will port to other RTOSes straightforwardly.
+The firmware currently is based on an open source (BSD Licensed) RTOS called [NuttX](http://www.nuttx.org/). However, our libraries have minimal dependency on that RTOS, and we expect they will port to other RTOSes with POSIX APIs straightforwardly.
 
 You will now build two of these example programs, which allow you to tunnel I2C and GPIO traffic through UniPro.
 
@@ -26,7 +26,7 @@ Please finish the [Development Machine Setup](Development-Machine-Setup) before 
 
 #### Building the Firmware
 
-To start, you'll want to untar the contents of the [tarball](http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz) then cd into the working directory that's created (these instructions assume that you've downloaded the file to `$HOME/Downloads`):
+First, extract the [tarball](http://storage.googleapis.com/mdk/unipro_bridge_firmware_devcon2_v0.2.tar.gz), then cd into the resulting directory (these instructions assume that you've downloaded the file to `$HOME/Downloads`):
 ````
 cd $HOME
 tar xzf $HOME/Downloads/unipro_bridge_firmware_devcon2_v0.2.tar.gz
