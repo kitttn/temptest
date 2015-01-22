@@ -26,7 +26,7 @@ As with any development board, you'll ideally want to work in an ESD-safe enviro
 
 Now what? Let's start with some setup.
 
-Please take a moment to verify that your Debug Adapter Boards are configured properly for JTAG use, as documented here:
+Please take a few moments to verify that both of your Debug Adapter Boards are configured properly for JTAG use, as documented here:
 
 [Debug Adapter Board Configuration for JTAG](Debug-Adapter-Board-Rev-B-Setup-For-JTAG)
 
