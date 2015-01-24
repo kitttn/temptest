@@ -48,7 +48,7 @@ With the AP to APBridge 1 link successfully established, you'll now be able to c
 
 #### GPIO
 
-Greybus creates an entry in /sys/class/gpio/ (gpiochip239 for example) when it receives a manifest with GPIO Protocol enabled.  If there is several gpiochips, you can use the label attribute to find the one associated with Greybus:
+Greybus creates an entry in /sys/class/gpio/ (gpiochip239 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
 
     $ cat /sys/class/gpio/gpiochip239/label  
     greybus_gpio
