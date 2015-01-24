@@ -159,6 +159,6 @@ Notes:
 * As with i2cdetect “1” is the i2c bus number, which could be different on your AP (e.g. “2”)
 * 0x29 is the chip address
 * 3 is the data address
-* The last argument is the mode, which is read/write (“c”) in this example
+* The last argument is the mode, which is write byte/read byte (“c”) in this example
                          
 
