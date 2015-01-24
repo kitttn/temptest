@@ -120,7 +120,7 @@ So in this case, the I2C device is /dev/i2c-1. **It may be different on your mac
 ##### I2C Tools
 A quick way to test i2c is to use i2c-tools.  You may install that package as follows:
 
-    $ apt-get install i2c-tools  
+    $ sudo apt-get install i2c-tools  
 
 This will install i2cdetect, i2cdump, i2cget, and i2cset.
 
