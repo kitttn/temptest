@@ -118,7 +118,7 @@ Here is some example output showing how to find the I2C adapter:
 So in this case, the I2C device is /dev/i2c-1. **It may be different on your machine.**
 
 ##### I2C Tools
-A quick way to test i2c is to use i2c-tools.  You may install this package as follows:
+A quick way to test i2c is to use i2c-tools.  You may install that package as follows:
 
     $ apt-get install i2c-tools  
 
