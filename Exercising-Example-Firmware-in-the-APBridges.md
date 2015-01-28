@@ -66,6 +66,8 @@ Greybus creates an entry in /sys/class/gpio/ (gpiochip239 for example) when it r
     $ cat /sys/class/gpio/gpiochip999/label  
     greybus_gpio
 
+So in this case, gpiochip999 is associated with Greybus.  **It may be different on your machine.**
+
 
 ##### GPIO Number
 The GPIO number assigned by Linux will differ from the APBridge 2 GPIO number.
