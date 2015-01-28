@@ -4,7 +4,7 @@ It's time for all your hard work to pay off, in that you now have the opportunit
 
 You need to prepare an Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP. This procedure is not documented here, but it will be familiar to Linux kernel programmers; see the README in the greybus repository for more details.
 
-When using a Jetson TK1 as an AP, you have the option of loading a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+When using a Jetson TK1 as your AP, you have the option of loading a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
 
 **DO NOT CONNECT THE BDB1B AND AP VIA USB UNTIL INSTRUCTED TO BELOW.**
 
