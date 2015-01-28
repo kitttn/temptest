@@ -119,7 +119,7 @@ Here is some example output showing how to find the I2C adapter:
 So in this case, the I2C device is /dev/i2c-1. **It may be different on your machine.**
 
 ##### I2C Tools
-A quick way to test i2c is to use i2c-tools.  You may install that package as follows:
+A quick way to test i2c is to use i2c-tools.  These tools are already incuded in the Android image for the Jetson TK1.  If the i2c-tools are not present on your AP, you may install that package as follows:
 
     $ sudo apt-get install i2c-tools  
 
@@ -127,9 +127,9 @@ This will install i2cdetect, i2cdump, i2cget, and i2cset.
 
 Next, use i2cdetect to test i2c. 
 ````
-$ i2cdetect -r 1
+$ i2cdetect -r 6
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
-I will probe file /dev/i2c-1 using read byte commands.
+I will probe file /dev/i2c-6 using read byte commands.
 I will probe address range 0x03-0x77.
 Continue? [Y/n] Y
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
@@ -144,20 +144,20 @@ Continue? [Y/n] Y
 ````
 Note: 
 * The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
-* “1” is the i2c bus number, which could be different on your AP (e.g. “2” rather than “1”).
+* “6” is the i2c bus number, which could be different on your AP (e.g. “1” rather than “6”).
 * On some APs, you may have to load the i2c-dev kernel module before using the i2c-tools.
 
 You can also use i2cget to read a specfic value, e.g.:
 ````
-$ i2cget 1 0x29 3 c                                 
+$ i2cget 6 0x29 3 c                                 
 WARNING! This program can confuse your I2C bus, cause data loss and worse!      
-I will read from device file /dev/i2c-1, chip address 0x29,
+I will read from device file /dev/i2c-6, chip address 0x29,
 data address 0x03, using write byte/read byte.                                           
 Continue? [Y/n] y                                                           
 0x14
 ````
 Notes:
-* As with i2cdetect “1” is the i2c bus number, which could be different on your AP (e.g. “2”)
+* As with i2cdetect “6” is the i2c bus number, which could be different on your AP (e.g. “1”)
 * 0x29 is the chip address
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
