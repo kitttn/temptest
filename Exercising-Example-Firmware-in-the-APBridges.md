@@ -57,7 +57,11 @@ With the AP to APBridge 1 link successfully established, you'll now be able to c
 
 Greybus creates an entry in /sys/class/gpio/ (gpiochip239 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
 
-    $ cat /sys/class/gpio/gpiochip239/label  
+    $ cat /sys/class/gpio/gpiochip*/label
+    tegra-gpio                                                                      
+    as3722-gpio                                                                     
+    greybus_gpio       
+    $ cat /sys/class/gpio/gpiochip999/label  
     greybus_gpio
 
 
@@ -66,47 +70,47 @@ The GPIO number assigned by Linux will differ from the APBridge 2 GPIO number.
 You have to apply an offset from the APBridge 2 GPIO number to get the Linux one.
 To get the offset, run:
 
-    $ cat /sys/class/gpio/gpiochip239/base  
-    239
+    $ cat /sys/class/gpio/gpiochip999/base  
+    999
 
-For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 239 on Linux.
+For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 999 on Linux.
 
 ##### Export / Unexport a GPIO
 The first thing to do is export the gpio that you want to use.
 
-    $ echo 239 > /sys/class/gpio/export  
+    $ echo 999 > /sys/class/gpio/export  
 
 This command will add a new entry in /sys/class/gpio/ (usually gpion where n is the exported gpio number).
 
 When you have finished using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
     
-    $ echo 239 > /sys/class/gpio/unexport
+    $ echo 999 > /sys/class/gpio/unexport
 
 ##### GPIO Direction
 To get the direction, just run:
 
-    $ cat /sys/class/gpio/gpio239/direction  
+    $ cat /sys/class/gpio/gpio999/direction  
     in
 
 To change the direction:
 
-    $ echo out > /sys/class/gpio/gpio239/direction
+    $ echo out > /sys/class/gpio/gpio999/direction
 
 
 ##### GPIO Value
 To get the value, execute:
 
-    $ cat /sys/class/gpio/gpio239/value  
+    $ cat /sys/class/gpio/gpio999/value  
     0
 
 To change the value:
 
-    $ echo 1 > /sys/class/gpio/gpio239/value
-Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 239) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
+    $ echo 1 > /sys/class/gpio/gpio999/value
+Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 999) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
 ![BDB1B Pin 1 of Header J79](images/BDB1B-Header-J79.png)
 The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
 
-    $ echo 0 > /sys/class/gpio/gpio239/value
+    $ echo 0 > /sys/class/gpio/gpio999/value
 
 #### I2C
 
