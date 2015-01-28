@@ -33,7 +33,7 @@ Please note that SW11 may be partially covered or obscured by the FPC cable runn
 7. If APBridge 1 is presently running (perhaps because you’ve iterated through this sequence already), stop it with a CTRL-C in the window where you started the associated GDB, to return to a (gdb) prompt.
 8. Load and run the bdb/apb1 firmware on APBridge 1, as documented in [[Loading-Example-Firmware-into-the-APBridges]].
 9. Connect the AP to the BDB1B using the USB cable that you attached to CON28 (USB1 to ADB1 HSIC) during 
-the [BDB1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).  When using a Jetson TK1 as your AP, you will use the main USB port, as circled in green here:
+the [BDB1B Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup).  When using a Jetson TK1 as your AP, you will connect to the main USB port, as circled in green here:
 ![Jetson TK1 Connectors](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg)
 
 If you run into problems, disconnect the AP from the BDB1B, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
