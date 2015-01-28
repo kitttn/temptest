@@ -137,7 +137,7 @@ Here is some example output showing how to find the I2C adapter:
 So in this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
 
 ##### I2C Tools
-A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the Android image for the Jetson TK1.  If you were using a Debian-derived Linux distribution on some other AP and found that the tools weren't present, you could install the i2c-tools package as follows:
+A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the [pre-built Android image for the Jetson TK1](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  If you were using a Debian-derived Linux distribution on some other AP and found that the tools weren't present, you could install the i2c-tools package as follows:
 
     $ sudo apt-get install i2c-tools  
 
