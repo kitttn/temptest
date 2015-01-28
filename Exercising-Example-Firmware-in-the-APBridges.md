@@ -118,7 +118,7 @@ The pin should read approximately 1.8V to ground when the GPIO’s value is 1, a
 
 #### I2C
 
-Greybus creates an entry in /sys/class/i2c-adapter/ (i2c-1 for example) when it receives a manifest with the I2C Protocol enabled. 
+Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
 
 ##### Find the I2C Adapter
 Here is some example output showing how to find the I2C adapter:
