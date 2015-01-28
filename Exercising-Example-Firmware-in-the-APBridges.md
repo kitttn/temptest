@@ -27,6 +27,7 @@ The following sequence represents the present "best practice" for bringing up a 
     insmod greybus.ko
     insmod gb-phy.ko
     insmod gb-es1.ko
+    ````
  
     **Note**: If you've arrived at this wiki page, have satisfied the prerequisites, and are running through this sequence for the first time, you may skip to step 9 since the BDB1B is in a known state with firmware already running on both APBridges.
 
