@@ -17,18 +17,16 @@ The following sequence represents the present "best practice" for bringing up a 
 1. Have everything connected (JTAG to APBridge 1, JTAG to APBridge 2) **except** the AP to the BDB1B
 2. Reboot the AP, or if the AP's console is nonresponsive, reset the AP to force a reboot.
 3. Load the greybus, gb-phy, gb-es1 modules (in that order) into the AP's kernel.  When using the [pre-built Android image for the Jetson TK1](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform), you'll need to run `su` and `cd` to the modules' location:
-
-    ```su ```
-
-    ```cd /lib/modules```
-
+    ````
+    su
+    cd /lib/modules
+    ````
     before you load the modules:
 
-    ```insmod greybus.ko```
-
-    ```insmod gb-phy.ko```
-
-    ```insmod gb-es1.ko```
+    ````
+    insmod greybus.ko
+    insmod gb-phy.ko
+    insmod gb-es1.ko
  
     **Note**: If you've arrived at this wiki page, have satisfied the prerequisites, and are running through this sequence for the first time, you may skip to step 9 since the BDB1B is in a known state with firmware already running on both APBridges.
 
