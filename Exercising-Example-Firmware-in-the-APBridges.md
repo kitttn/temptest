@@ -1,4 +1,4 @@
-It's time for all your hard work to pay off, in that you now have the opportunity to experience the exciting functionality built into the example firmware that you've just [Loaded into the APBridges](Loading-Example-Firmware-into-the-APBridges)!
+Now it's time to test out the example firmware that you've just [Loaded into the APBridges](Loading-Example-Firmware-into-the-APBridges).
 
 **Note:** Make sure to successfully load the firmware into both bridges before proceeding here.
 
