@@ -2,9 +2,9 @@ Now it's time to test out the example firmware that you've just [Loaded into the
 
 **Note:** Make sure to successfully load the firmware into both bridges before proceeding here.
 
-You need to prepare an Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP. This procedure is not documented here, but it will be familiar to Linux kernel programmers; see the README in the greybus repository for more details.
+You need to prepare an Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP.
 
-When using a Jetson TK1 as your AP, you have the option of loading a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+Project Ara provides a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform) for the Jetson TK1 development board.  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
 
 **DO NOT CONNECT THE BDB1B AND AP VIA USB UNTIL INSTRUCTED TO BELOW.**
 
@@ -177,4 +177,3 @@ Notes:
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
                          
-
