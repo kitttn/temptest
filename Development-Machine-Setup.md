@@ -39,7 +39,7 @@ Manifesto is a tool used to build human-readable module manifest files into thei
 ````
 cd $HOME
 go get code.google.com/p/gcfg
-git clone https://github.com/ohporter/manifesto
+git clone https://github.com/projectara/manifesto
 cd manifesto
 go build manifesto.go
 export PATH=$PATH:$HOME/manifesto/
