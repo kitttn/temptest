@@ -37,7 +37,7 @@ For simplicity, the instructions on this page will assume this naming, and assum
 
     `continue`
 
-At this point, if you have a terminal emulator open and successfully connected to the APBridge 2 console, you would see some initial output followed by an "nsh>" prompt.
+At this point, if you have a terminal emulator open and successfully connected to the APBridge 2 console, you would see some initial output on that console followed by an "nsh>" prompt.
 
 #### Loading Firmware into APBridge 1
 1. Identify the serial number of the J-Link Pro that's attached to APBridge 1.  This numeric value follows the S/N: marking on the bottom of the device.  We'll call that the "jlink_apb1_sn".
@@ -64,6 +64,6 @@ At this point, if you have a terminal emulator open and successfully connected t
 
     `continue`
 
-At this point, if you have a terminal emulator open and successfully connected to the APBridge 1 console, you would see some initial output followed by an "nsh>" prompt.  There may be some errors output regarding unsuccessful connections to certain CPorts: this is normal and anticipated.
+At this point, if you have a terminal emulator open and successfully connected to the APBridge 1 console, you would see some initial output on that console followed by an "nsh>" prompt.  There may be some errors output regarding unsuccessful connections to certain CPorts: this is normal and anticipated.
 
 Great!  You've got the example firmware built, loaded, and running in APBridge 1 and APBridge 2.  Now it's time to [Exercise the Example Firmware in the APBridges](Exercising-Example-Firmware-in-the-APBridges).
