@@ -10,6 +10,13 @@ For simplicity, the instructions on this page will assume this naming, and assum
 2. Open a separate terminal window and start the J-Link GDB server, specifying the serial number and a unique port number that GDB will use when attaching to the server (2341 in this example)
 
    `JLinkGDBServer -select usb=jlink_apb2_sn -port 2341`
+ 
+    Note that you may see diagnostics of the form:
+
+    WARNING: Failed to read memory @ address 0xFFFFFFFF   
+    WARNING: Failed to read memory @ address 0xFFFFFFFF
+
+    appear in this window while following the steps below.  These diagnostics are harmless and anticipated, and may be ignored.
 3. Open another terminal window start GDB
 
     `arm-none-eabi-gdb`  
