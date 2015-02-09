@@ -39,6 +39,8 @@ For simplicity, the instructions on this page will assume this naming, and assum
 
 At this point, if you have a terminal emulator open and successfully connected to the APBridge 2 console, you would see some initial output on that console followed by an "nsh>" prompt.
 
+Leave the windows associated with APBridge 2 open, as you move on to the next steps.
+
 #### Loading Firmware into APBridge 1
 1. Identify the serial number of the J-Link Pro that's attached to APBridge 1.  This numeric value follows the S/N: marking on the bottom of the device.  We'll call that the "jlink_apb1_sn".
 2. Open a separate terminal window and start the J-Link GDB server, specifying the serial number and a unique port number that GDB will use when attaching to the server (2331 in this example, which happens to be JLinkGDBServer's default)
