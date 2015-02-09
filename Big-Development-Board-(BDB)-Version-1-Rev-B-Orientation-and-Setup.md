@@ -22,7 +22,7 @@ You'll also want to have:
 
 As with any development board, you'll ideally want to work in an ESD-safe environment that provides a controlled path for dissipating static buildup. 
 
-#### One-Time Setupboard configuration for
+#### One-Time Setup
 
 Now what? Let's start with some setup.
 
