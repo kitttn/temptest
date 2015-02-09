@@ -26,9 +26,14 @@ As with any development board, you'll ideally want to work in an ESD-safe enviro
 
 Now what? Let's start with some setup.
 
-Please take a few moments to verify that both of your Debug Adapter Boards are configured properly for JTAG use, as documented here:
+Please take a few moments to verify that both of your Debug Adapter Boards are configured properly for JTAG use.  To enable JTAG debugging via a Debug Adapter Board Rev B, there are two essential prerequisites:
 
-[Debug Adapter Board Configuration for JTAG](Debug-Adapter-Board-Rev-B-Setup-For-JTAG)
+1. A jumper must be present between pins 1 and 2 of the header labeled JP15, located between CON2 (CPU) and CON3 (Bridge).  This provides power to the JTAG interface.  Pin 1 is denoted by a round solid dot on the board.
+
+2. The switch labeled SW5 (RST_40uS) must be be positioned **away** from the SW5 label, towards the labels 3 and 6 on the board.  This allows the ARM processor in the bridge chip to run: otherwise, it's held in reset and JTAG debugging won't be possible.
+
+The proper configuration is illustrated here:
+![Debug Adapter Board Rev B Setup](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
 We'll begin with at a bird's-eye view of the BDB1B setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
 ![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
