@@ -30,7 +30,7 @@ You'll also want GOPATH to be defined during future logins, so you'll want to ad
 ````
 export GOPATH=$HOME/go
 ````
-to your .profile or similar configuration file.
+to your .bashrc or similar configuration file.
 
 #### Manifesto
 
