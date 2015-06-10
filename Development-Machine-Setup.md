@@ -17,33 +17,17 @@ https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-
 
 To install, bunzip2, untar, and add the bin subdirectory to your PATH.
 
-#### Go
-
-Go is the language in which Manifesto (see below) is written.
-
-````
-sudo apt-get install git golang
-mkdir $HOME/go
-export GOPATH=$HOME/go
-````
-You'll also want GOPATH to be defined during future logins, so you'll want to add
-````
-export GOPATH=$HOME/go
-````
-to your .bashrc or similar configuration file.
-
 #### Manifesto
 
 Manifesto is a tool used to build human-readable module manifest files into their on-wire binary representation as defined within the Greybus Specification. These binaries are incorporated into the firmware images.
 
 ````
 cd $HOME
-go get code.google.com/p/gcfg
 git clone https://github.com/projectara/manifesto
 cd manifesto
-go build manifesto.go
 export PATH=$PATH:$HOME/manifesto/
 ````
+
 You'll also want manifesto to be on your path during future logins, so you'll want to add
 ````
 export PATH=$PATH:$HOME/manifesto/
