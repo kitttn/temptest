@@ -8,8 +8,9 @@ We're going to be updating this frequently in the coming weeks to capture a lot 
 
 [BDB1B (Big Development Board rev 1B) Orientation and Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup)
 
+<!-- commented pending 
 [BDB2A (Big Development Board rev 2A) Orientation and Setup](Big-Development-Board-(BDB)-Version-2-Rev-A-Orientation-and-Setup)
-
+-->
 [Development Machine Setup](Development-Machine-Setup)
 
 [Firmware Build](Firmware-Build)
