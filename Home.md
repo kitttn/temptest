@@ -1,6 +1,6 @@
-Welcome to the Firmware wiki!
+Welcome to the Project ARA Firmware wiki!
 
-Firmware wiki pages provide details on building, loading, and running firmware on Project Ara development boards.
+These wiki pages provide details on building, loading, and running firmware on Project Ara development boards.
 
 We're going to be updating this frequently in the coming weeks to capture a lot of internal changes to the development and build process, so you'll want to check back often.
 
