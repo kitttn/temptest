@@ -29,7 +29,7 @@ For simplicity, the instructions on this page will assume this naming, and assum
 6. Load the NuttX symbols into GDB, and load the binary into memory (answer affirmatively if asked whether this is OK)
 
     `file $HOME/nuttx.apb2`  
-    `load`
+    `restore $HOME/nuttx.apb2`
 7. Set your program counter to the NuttX reset handler
 
     `set $pc=Reset_Handler`
@@ -58,7 +58,7 @@ Leave the windows associated with APBridge 2 open, as you move on to the next st
 6. Load the NuttX symbols into GDB, and load the binary into memory (answer affirmatively if asked whether this is OK)
 
     `file $HOME/nuttx.apb1`  
-    `load`
+    `restore $HOME/nuttx.apb1`
 7. Set your program counter to the NuttX reset handler
 
     `set $pc=Reset_Handler`
