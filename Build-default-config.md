@@ -52,5 +52,3 @@ Image files are here:
 ```
 ./build/ara-bridge-es1-debug-apbridgea/image/
 ```
-
-Once you've built a firmware image, your are ready to move forward with [writing an image to flash](Flashing-images) or [debugging an image using JTAG](Debugging).
