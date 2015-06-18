@@ -24,8 +24,8 @@ As of this writing, the available defconfigs are:
 ./nuttx/configs/ara/svc/bdb1b/defconfig  
 
 There are two distinct build methods: 
-*[Build using a defconfig file](Build-using-a-defconfig-file)
-*[Build using a custom configuration file](Build-using-a-custom-configuration-file)
+- [Build using a defconfig file](Build-using-a-defconfig-file)
+- [Build using a custom configuration file](Build-using-a-custom-configuration-file)
   
 In the [defconfig method](Build-using-a-defconfig-file), you run a 
 build script and specify an existing defconfig. This is recommended 
