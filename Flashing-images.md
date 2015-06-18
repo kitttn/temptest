@@ -1,9 +1,9 @@
 This page describes how to load firmware images into flash memory.  
 
 There are 3 supported scenarios:
-* SPIROM for a bridge ASIC
-* internal flash for SVC on BDB
-* internal flash for SVC on endo
+* [SPIROM for a bridge ASIC](Flashing-images#load-firmware-image-to-spirom)
+* [SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
+* [SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
 
 
 ####Load firmware image to SPIROM
