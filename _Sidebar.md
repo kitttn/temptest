@@ -1,6 +1,5 @@
-[Home](Home)
-
-[General Information](General-Information)
+[Home](Home)  
+[General Information](General-Information)  
 [Development Hardware](Development-Hardware)  
 [Development System Setup](Development-System-Setup)  
 [Building the Code](Building-the-Code)  
