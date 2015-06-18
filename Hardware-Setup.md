@@ -1,5 +1,7 @@
 This page provides details on setting up your BDB and other hardware, to prepare for loading and debugging firmware images.
 
+The development hardware has exposed components and connectors, and is extremely ESD-sensitive. Ensure your work area is ESD-safe by using a grounded static-dissipative mat or work surface, and wearing a grounded wrist strap at all times. Do not handle boards any more than necessary, and always handle by the edges. Avoid touching components or pins.
+
 Your BDB shipment should contain the following.
 
 Qty | Item | Description
@@ -12,15 +14,15 @@ Qty | Item | Description
 1 | IJZ-IR | FPC cable for Jetson adapter
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
-![BDB1B Accessories](images/BDB1B-Accessories.png)
 
-In addition to the above items, the following are also required.
+In addition, the following items are also required.
 Qty | Item | Description
-2 | [J-Link Pro](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB1B.
-* 1 micro USB to USB A cable, to connect to your Application Processor (AP).  Don't connect the USB A end of the cable to your AP until instructed during the bring up procedure.
-* 2 micro USB to USB A cables, to provide access to the APBridge 1 and APBridge 2 consoles.
-
-As with any development board, you'll ideally want to work in an ESD-safe environment that provides a controlled path for dissipating static buildup. 
+----|------|-------------
+2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) |
+3   | cable | USB A to micro B cable
+ 
+[Hi-rez annotated picture of BDB](images/BDB1B-Board.png)
+[Hi-rez annotated picture of Accessories](images/BDB1B-Accessories.png)
 
 Verify the Debug Adapter Boards are configured for JTAG use. 
 1. JP15 header pins 1-2 has a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
