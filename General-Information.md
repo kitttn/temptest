@@ -18,19 +18,19 @@ Read access is public. Authentication for push access is controlled by
 GitHub usernames. SSH access with two-factor authentication is required.
 
 #####Firmware source
-[https://github.com/projectara/nuttx](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fprojectara%2Fnuttx&sa=D&sntz=1&usg=AFQjCNF1KVcLOgJXCYsccC-BDSqfrqqbJg)  
+[https://github.com/projectara/nuttx](https://github.com/projectara/nuttx)  
     To request push access, email Marti Bolivar
     ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)), and CC:
     Greg KH ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
+
+#####'manifesto' Manifest generator
+[https://github.com/projectara/manifesto](https://github.com/projectara/manifesto)
 
 #####'flashrom' SPI ROM programming tool
-[https://github.com/projectara/flashrom](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fprojectara%2Fflashrom&sa=D&sntz=1&usg=AFQjCNFxQIpWJusTY3ZTjY9Fz9tqjNYLjw)  
-    To request push access, email Marti Bolivar
-    ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)), and CC:
-    Greg KH ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
+[https://github.com/projectara/flashrom](https://github.com/projectara/flashrom)  
 
 #####Greybus specification
-[https://github.com/projectara/greybus-spec](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fprojectara%2Fgreybus-spec&sa=D&sntz=1&usg=AFQjCNHSaCwNWKuppwa-ThdIym54nuv4Mw)  
+[https://github.com/projectara/greybus-spec](https://github.com/projectara/greybus-spec)  
     To request push access, email Greg KH
     ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
 
