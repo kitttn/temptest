@@ -22,12 +22,13 @@ Qty | Item | Description
 2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) |
 3   | cable | USB A to micro B cable
  
-[Hi-rez annotated picture of BDB](images/BDB1B-Board.png)
-[Hi-rez annotated picture of Accessories](images/BDB1B-Accessories.png)
+[Hi-rez annotated picture of BDB](images/BDB1B-Board.png)  
+[Hi-rez annotated picture of Accessories](images/BDB1B-Accessories.png)  
 
-Verify the Debug Adapter Boards are configured for JTAG use. 
-1. JP15 header pins 1-2 has a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
-2. SW5 (RST_40uS) is positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset and JTAG debugging is not possible.
+Verify the Debug Adapter Boards are configured for JTAG use.  
+
+1. JP15 header pins 1-2 must have a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
+2. SW5 (RST_40uS) must be positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset and JTAG debugging is not possible.
 
 ![Debug Adapter Board Rev B Setup](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
