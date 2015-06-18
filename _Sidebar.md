@@ -8,7 +8,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Build custom config](Build-custom-config)  
 [Flashing images](Flashing-images)  
 [Debugging](Debugging)  
-[Running the Demos](Running-the-Demos)  
+[Running the Examples](Running-the-examples)  
 &nbsp;&nbsp;&nbsp;&nbsp;[ES1 Display Touch Demo](ES1-Display-Touch-Demo)
 [Hardware Gotchas](Hardware-Gotchas)  
 
