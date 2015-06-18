@@ -2,6 +2,12 @@ This page provides details on setting up your BDB and other hardware, to prepare
 
 The development hardware has exposed components and connectors, and is extremely ESD-sensitive. Ensure your work area is ESD-safe by using a grounded static-dissipative mat or work surface, and wearing a grounded wrist strap at all times. Do not handle boards any more than necessary, and always handle by the edges. Avoid touching components or pins.
 
+The development hardware is sensitive to power sequencing. *DO NOT CONNECT POWER SUPPLIES UNTIL REQUIRED BY THE INSTRUCTIONS!*.
+
+####STEP 1. Required Materials
+
+Verify you have everything listed in this section.
+
 Your BDB shipment should contain the following.
 
 Qty | Item | Description
@@ -14,40 +20,40 @@ Qty | Item | Description
 1 | IJZ-IR | FPC cable for Jetson adapter
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
+[Picture of BDB](images/BDB1B-Board.png)  
 
-In addition, the following items are also required:  
+The following items are also required:  
 
 Qty | Item | Description
 ----|------|-------------
-2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) |
+2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) | JTAG USB interface
 3   | cable | USB A to micro B cable
  
-[Hi-rez annotated picture of BDB](images/BDB1B-Board.png)  
-[Hi-rez annotated picture of Accessories](images/BDB1B-Accessories.png)  
+[Picture of BDB Accessories](images/BDB1B-Accessories.png)  
 
-Verify the Debug Adapter Boards are configured for JTAG use.  
+####STEP 2. Configure Debug Adapter Boards
+
+Verify the Debug Adapter Boards are correctly configured.  
 
 1. JP15 header pins 1-2 must have a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
 2. SW5 (RST_40uS) must be positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset and JTAG debugging is not possible.
 
-![Debug Adapter Board Rev B Setup](images/Debug-Adapter-Board-Rev-B-Setup.png)
+[Pciture showing JP15 and SW5 settings](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
-We'll begin with at a bird's-eye view of the BDB setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
-![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
+####STEP 3. Attach all cables
 
-Before applying power, you'll want to cable everything together:
-* Attach the micro USB end of a USB cable to the connector on the BDB1B labeled CON 28 (USB to APB1 HSIC).  Leave the other end of this cable unconnected, until instructed to attach it to your AP:
-![BDB1 AP USB Connection](images/BDB1B-AP-USB.png)
-* Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON17 (APB1 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on one of the Debug Adapter Boards:
-![BDB1B APBridge 1 JTAG and Reset](images/BDB1B-APBridge-1-JTAG-And-Reset.png)
-Please double-check that you're connecting to CON17, not to CON15, which is in the same neighborhood.  Please also verify that SW8 (APB1 RESET) on the BDB1B is in the position shown, so that APBridge 1 will be operational later on.
-* Attach one end of a Debug FPC cable (the end labeled **BDB**) to the BDB1B connector labeled CON19 (APB2 SPI/JTAG/TRACE) and the other end (labeled Debug Board) to the mating connector on the other Debug Adapter Board:
-![BDB1B APBridge 2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)
-Please verify that SW9 (APB2 RESET) on the BDB1B is in the position shown, so that APBridge 2 will be operational later on.
-* Attach the micro USB end of a USB cable to the connector labeled CON6 (UART) on each Debug Adapter Board.  These cables will provide access to the consoles for APBridge 1 and APBridge 2:
-![Debug Adapter Board Rev B](images/Debug-Adapter-Board-Rev-B-Connections.png)
-* Connect a JTAG debugger to the 20-pin connector labeled CON3 (Bridge) on the each Debug Adapter Board. **Note**: Please visually verify that you are plugging into CON3, not CON2. CON3 is shown in the image above, with a ribbon cable attached, and the CON3 label is also printed on the Debug Adapter Board itself.
-* Connect each JTAG debugger to the build machine via a direct USB connection.  The J-Link Pro JTAG Debugger also supports connections via Ethernet, but the present document assumes USB.
+*DO NOT APPLY POWER UNTIL INSTRUCTED.*  
+
+Refer to the picture and follow the steps below.  
+[Picture BDB1B Setup](images/BDB1B-Setup-Birds-Eye-View.png)
+
+1. Attach a micro USB cable to BDB CON 28 (USB to APB1 HSIC).  Leave the other end unconnected. [BDB1 AP USB Connection](images/BDB1B-AP-USB.png)  
+2. Identify the debug adapter FPC cable end labeled **BDB**. Attach this to  BDB1B CON17 (APB1 SPI/JTAG/TRACE). Attach the other end, labeled Debug Board, to the mating connector on one of the Debug Adapter Boards. Be sure you are connecting to CON17, not CON15.  Verify that BDB SW8 (APB1 RESET) is in the position shown, so that APBridge 1 will be operational later on. [BDB1B APBridge 1 JTAG and Reset](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
+3. Identify the debug adapter FPC cable end labeled **BDB** to BDB1B CON19 (APB2 SPI/JTAG/TRACE). Attach the other end, labeled Debug Board, to the mating connector on the other Debug Adapter Board. Verify that BDB SW9 (APB2 RESET) is in the position shown, so that APBridge 2 will be operational later on. 
+![BDB1B APBridge 2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
+4. Attach a micro USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Debug Adapter Board UART connections](images/Debug-Adapter-Board-Rev-B-Connections.png)
+5. Connect a JTAG interface to CON3 (Bridge) on each Debug Adapter Board. Verify that you are plugging into CON3, not CON2. 
+6. Connect each JTAG interface to your development system USB ports. 
 
 If the 2 USB console cables are connected to a PC, the APBridge 1 and APBridge 2 consoles may be accessed (when code is running) via a terminal emulator such as minicom: 115200, 8N1, no hardware flow control.
 
