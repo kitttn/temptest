@@ -1,8 +1,6 @@
-####Building NuttX firmware images
+While there are some differences between the AP/GP bridge firmware and the SVC firmware, the basic build process is the same for all. The output of the build is a binary firmware image that can be loaded and run on the microcontroller, along with an ELF format file that contains symbolic debugging information.
 
-This page describes how to build firmware images for the AP bridges, GP bridges, and SVC. There are some significant differences between the AP/GP bridge firmware and the SVC firmware, but the build process is  the same for each.
-
-Build instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
+These build instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
 i.e. 
 ```
 $HOME
@@ -12,16 +10,8 @@ $HOME
    ... etc
 ```
 
-####Firmware build configuration files
-As of this writing, the available defconfigs are:
-./nuttx/configs/ara/bridge/es2-debug-apbridgea/defconfig  
-./nuttx/configs/ara/bridge/es1-debug-apbridgea/defconfig  
-./nuttx/configs/ara/bridge/es2-debug-generic/defconfig  
-./nuttx/configs/ara/bridge/es1-debug-generic/defconfig  
-./nuttx/configs/ara/lgd/apb1/defconfig  
-./nuttx/configs/ara/lgd/apb2/defconfig  
-./nuttx/configs/ara/svc/bdb2a/defconfig  
-./nuttx/configs/ara/svc/bdb1b/defconfig  
+If you've installed the repositories in another folder, you'll need to modify the paths and commands accordingly.
+
 
 There are two distinct build methods: 
 - [Build using a default config or 'defconfig'](Build-default-config)
