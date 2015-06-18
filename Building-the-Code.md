@@ -36,9 +36,9 @@ To build using a defconfig, see [this page](Build-using-a-defconfig-file).
 
 In the [custom config](Build-using-a-custom-configuration-file) method, 
 you generate a custom configuration using 'make menuconfig'. This is 
-required if you need to configure certain runtime or debugging scenarios, 
-such as JTAG support, or need to enable specific driver functionality 
-or other options. To build using a custom configuration, see [this page](Build-using-a-custom-configuration-file).  
+required if you need to configure certain runtime or debugging scenarios, or
+enable specific driver functionality or other options. To build using a 
+custom configuration, see [this page](Build-using-a-custom-configuration-file).  
 
 
 
