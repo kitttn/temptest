@@ -1,7 +1,7 @@
 ###Workflow
-See [Firmware Review and Git Workflow HOWTO](http://projectara.com). This document explains how to develop within our git workflow, and how to submit your patch for review.
+See [Firmware Review and Git Workflow HOWTO](Private-Content). This document explains how to develop within our git workflow, and how to submit your patch for review.
 
-See the “Software Project” sections of [JIRA Workflow Standard](http://projectara.com). This document provides an explanation of how to create and move your JIRA cards along, 
+See the “Software Project” sections of [JIRA Workflow Standard](Private-Content). This document provides an explanation of how to create and move your JIRA cards along, 
 
 ###Coding Standard
 Unless otherwise noted, the [Leaflabs Coding Standard](http://leaflabs.com/docs/libmaple/coding-standard.html) should be followed by all firmware developers. 
