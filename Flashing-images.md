@@ -1,11 +1,6 @@
-#####Flashing images
+This page describes how to load firmware images into external flash memory (bridge's SPIROM) or internal flash memory (SVC).
 
-
-
-
-###Program the nuttx runtime image into SPI ROM
-
-To flash an image that was built to load from SPI ROM
+####Load firmware image into external flash (bridge's SPIROM)
 
 Run :
 
@@ -69,3 +64,24 @@ Erase/write done.
 This is OK, but it’s a good idea to check that you’re indeed programming
 the image that you had intended, rather than some previous version.
 
+####Load firmware image to internal flash on SVC
+
+The JTAG debugger can reflash the code in the STM32 internal flash. For
+this to work it is needed to specify the chipset target to the
+gdbserver.
+
+1.  Open a separate terminal window and start the JLink gdbserver
+                JLinkGDBServer -device STM32F417IG
+2.  Open another terminal window and start GDB, pointing it at the
+    “nuttx” ELF image you want to upload:
+                arm-none-eabi-gdb nuttx
+3.  Connect to your gdbserver (this and the steps that follow are
+    commands issued to GDB)
+                target remote localhost:2331
+4.  Reset your target
+                monitor reset
+5.  Load the ELF image into flash memory
+                load
+Note: if only the SVC binary image is provided, use this instead of the
+‘load’ command:
+                restore nuttx.bin binary 0x08000000
