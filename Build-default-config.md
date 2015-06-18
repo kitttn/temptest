@@ -2,7 +2,7 @@ This page describes how to build a firmware image by specifying a default config
 
 ####Default configuration files
 As of this writing, the available defconfigs are:
-
+<p style="font-size:8px">
 Path to defconfig                                         | Description
 ----------------------------------------------------------|-------------------------------
 ./nuttx/configs/ara/bridge/es2-debug-apbridgea/defconfig  | AP Bridge 'A' (connects to AP)
