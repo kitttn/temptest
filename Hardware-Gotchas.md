@@ -1,6 +1,6 @@
 This page contains various issues you may encounter with the hardware, along with tips and tricks to resolve.
 
-###AP Module Power-on Sequence
+####AP Module Power-on Sequence
 
 Hook the debug board up, and hit the ON\_KEY button to power the AP
 Module from VCONN.
