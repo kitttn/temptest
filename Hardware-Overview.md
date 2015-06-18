@@ -17,10 +17,6 @@ BDB features include:
 * Breakout connectors for SVC and bridge ASIC debugging and programming.
 * Debug breakout boards with industry-standard JTAG and USB serial connectors
 
-###Software Development Board (SDB)
-This is a smaller, more compact version of the BDB that is currently in development and
-is expected to become available to developers some time during the 2nd half of 2015. 
-
 ###Endoskeleton (Endo)
 The endoskeleton (Endo) is the physical frame that Ara modules plug into. It is electrically similar to the BDB, but realized in the Ara phone form factor. 
 
@@ -56,6 +52,6 @@ sequencing, module detection, etc.
 -   [96Boards Marvell PXA1938](https://www.96boards.org/products/)
  
 ###Additional Debugging Hardware Required
--   [Dedipro SF100 Device Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
+-   [Dediprog SF100 Device Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
 -   [Segger J-Link Pro JTAG Adapter](https://www.segger.com/jlink-pro.html)
 -   USB Micro-B Cables
