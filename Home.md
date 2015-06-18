@@ -1,20 +1,11 @@
-Welcome to the Project ARA Firmware wiki!
+Welcome to the Project Ara Firmware wiki.
 
-These wiki pages provide details on building, loading, and running the firmware on Project Ara development boards.
+This wiki is the definitive repository for collected knowledge about developing firmware for Project Ara.
+This includes provides links to important project-related documents, detailed instructions on building, loading, and running the firmware on Project Ara development boards, and a few tips and tricks to streamline developer ramp-up.
 
-We're going to be updating this frequently in the coming days to capture a lot of internal changes to the development and build process, so you'll want to check back often.
+We're going to be updating this wiki frequently in the coming days,
+to capture the latest changes to the development flow and build process,
+so check back often.
 
-#### Important Pages
-
-[BDB1B (Big Development Board rev 1B) Orientation and Setup](Big-Development-Board-(BDB)-Version-1-Rev-B-Orientation-and-Setup)
-
-<!-- commented pending 
-[BDB2A (Big Development Board rev 2A) Orientation and Setup](Big-Development-Board-(BDB)-Version-2-Rev-A-Orientation-and-Setup)
--->
-[Development Machine Setup](Development-Machine-Setup)
-
-[Firmware Build](Firmware-Build)
-
-[Loading Example Firmware into the APBridges](Loading-Example-Firmware-into-the-APBridges)
-
-[Exercising Example Firmware in the APBridges](Exercising-Example-Firmware-in-the-APBridges)
+Follow the links in the sidebar at the right.
+Click Home to come back here.
