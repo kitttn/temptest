@@ -4,12 +4,12 @@ This page describes how to build a firmware image by specifying a default config
 As of this writing, the available defconfigs are:
 <!-- <p style="font-size:8px">
 -->
-Relative path from ./nuttx/configs/ara/     | Description
+Location of defconfig relative to ./nuttx/configs/ara/     | Description
 --------------------------------------------|-------------------------------
 bridge/es2-debug-apbridgea/defconfig        | AP Bridge 'A' (connects to AP)
 bridge/es2-debug-generic/defconfig          | AP or GP Bridge
 svc/bdb2a/defconfig                         | SVC
-<~--
+<!--
 svc/bdb1b/defconfig                   | BDB1B, do not use
 bridge/es1-debug-generic/defconfig    | BDB1B, do not use
 bridge/es1-debug-apbridgea/defconfig  | BDB1B, do not use
@@ -22,16 +22,22 @@ To build a firmware image using a default configuration:
 cd $HOME/nuttx
 ./build_ara_image.sh ara \<config-name\>
 ```
-Where \<config-name\> is the relative path to the defconfig file, assuming the base path of ./nuttx/configs/ara.
+Where \<config-name\> is the relative path to the defconfig file, assuming the base path of 
+```
+./nuttx/configs/ara  
+```
+
 When the build script completes successfully, the resulting image files (binary and ELF) are placed in  
-./build/\<name-of-build\>/images/  
-Where "name-of-build" is the path to the defconfig, with the slashes replaced with dashes.
+```  
+./build/<name-of-build>/images/  
+```
+Where \<name-of-build\> is the defconfig relative path, with the slashes replaced with dashes.
 
 Example 1:
 ```
 ./build_ara_image.sh  ara svc/bdb2a
 ```
-This builds the SVC firmware for the BDB2A
+This builds the SVC firmware.    
 Image files are here:
 ```
 ./build/ara-svc-bdb2a/image/
@@ -41,8 +47,10 @@ Example 2:
 ```
 ./build_ara_image.sh  ara bridge/es2-debug-apbridgea
 ```
-This builds a debuggable image for the AP bridge on the BDB2A (which is based on ES2 silicon).
+This builds a debuggable image for the AP bridge on the BDB2A (which is based on ES2 silicon).  
 Image files are here:
 ```
 ./build/ara-bridge-es1-debug-apbridgea/image/
 ```
+
+Once you've built a firmware image, your are ready to move forward with [writing an image to flash](Flashing-images) or [debugging an image using JTAG](Debugging).
