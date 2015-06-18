@@ -82,20 +82,17 @@ Board' and 'BDB' !!
 - debug board JP15 pins 1-2 jumper installed  
 - Optional: USB cable connected to BDB CON12 (SVC console).  
 
-Software:
-1.  Open a terminal window and start the JLink gdbserver, specify the SVC device.
-                JLinkGDBServer -device STM32F417IG
-2.  Open another terminal window and start GDB, passing the
-    “nuttx” ELF image you want to upload:
-                arm-none-eabi-gdb nuttx
-3.  Connect GDB to gdbserver
-                target remote localhost:2331
-4.  Reset target
-                monitor reset
-5.  Load the ELF image into flash memory
-                load  
+Software:  
+1. Open a terminal window and start the JLink gdbserver, specify the SVC device.
+```
+JLinkGDBServer -device STM32F417IG
+```
+2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
+3. Connect GDB to gdbserver: `target remote localhost:2331`
+4.  Reset target: `monitor reset`
+5.  Load the ELF image into flash memory: `load`    
     Note: to load the SVC binary image, use the following instead of the ‘load’ command:
-                restore nuttx.bin binary 0x08000000
+   `restore nuttx.bin binary 0x08000000`
 
 
 ####Load firmware image to SVC on endo
