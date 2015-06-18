@@ -46,6 +46,4 @@ Clone the repository, checkout master, and build:
 user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make
 ```
 
-#####Next Steps
 
-Now that your development machine is set up for building firmware images, proceed with [Building the Code](Building-the-Code).  
