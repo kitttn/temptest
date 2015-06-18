@@ -9,7 +9,6 @@
 [Flashing images](Flashing-images)  
 [Debugging](Debugging)  
 [Running the Examples](Running-the-examples)  
-&nbsp;&nbsp;&nbsp;&nbsp;[ES1 Display Touch Demo](ES1-Display-Touch-Demo)
 [Hardware Gotchas](Hardware-Gotchas)  
 
 [Old Pages](Old-Pages)
