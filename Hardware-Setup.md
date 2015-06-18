@@ -15,7 +15,8 @@ Qty | Item | Description
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
 
-In addition, the following items are also required.
+In addition, the following items are also required:  
+
 Qty | Item | Description
 ----|------|-------------
 2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) |
