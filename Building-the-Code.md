@@ -61,6 +61,9 @@ Image files are here:
 ```
 
 ####Building firmware images using a custom configuration file
+
+Download this image:  [nop-loop.bin](nop-loop.bin).  
+
 (_w.i.p. hidden from view because it's ugly_)
 <!--
 #####STEP 1. a firmware build configuration.
