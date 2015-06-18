@@ -1,6 +1,6 @@
 ####NuttX
 Project Ara firmware is based on the
-[NuttX RTOS](http://www.google.com/url?q=http%3A%2F%2Fwww.nuttx.org%2F&sa=D&sntz=1&usg=AFQjCNFBq0hbWjXd3PN7pZi7iBcDm8743A).
+[NuttX RTOS](http://www.nuttx.org).
 <!-- 
 While this provides us with a number of useful features and a useful
 base of code to build on, in general we would like to minimize the
@@ -18,7 +18,8 @@ Read access is public, push access authorization is per GitHub user. SSH access 
 
 #####Firmware source
 [https://github.com/projectara/nuttx](https://github.com/projectara/nuttx)  
-To request push access, email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)), and CC: Greg KH ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
+To request push access, email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)),
+ CC: Greg KH ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
 
 #####'manifesto' Manifest generator
 [https://github.com/projectara/manifesto](https://github.com/projectara/manifesto)  
@@ -45,11 +46,11 @@ Contact Linaro for list subscription.
 
 ####Firmware team mailing list
 The firmware team runs a mailing list dedicated to firmware specific topics.
-ReviewBoard traffic also appears there. Contact [Marti Bolivar](mailto:mbolivar@leaflabs.com) for list subscription.  
+ReviewBoard traffic also appears there. Email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)) for list subscription.  
 [project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)
 
 ####JIRA issue tracker
 File bugs and track tasks here. All bugs and commits must have a Jira
 issue associated with them.  
-[https://projectara.atlassian.net](https://projectara.atlassian.ne)
+[https://projectara.atlassian.net](https://projectara.atlassian.net)
 
