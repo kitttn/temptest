@@ -80,8 +80,9 @@ Hardware setup:
 Board' and 'BDB' !!  
 - debug board SW5 positioned *away* from the SW5 label  
 - debug board JP15 pins 1-2 jumper installed  
-- USB cable connected to BDB CON12 - SVC console.  
+- Optional: USB cable connected to BDB CON12 (SVC console).  
 
+Software:
 1.  Open a terminal window and start the JLink gdbserver, specify the SVC device.
                 JLinkGDBServer -device STM32F417IG
 2.  Open another terminal window and start GDB, passing the
@@ -97,11 +98,16 @@ Board' and 'BDB' !!
                 restore nuttx.bin binary 0x08000000
 
 
-####Hardware setup for Endo
-- power to the Endo is provided by a USB charger and/or a battery
-module,
-- the JTAG connector is hooked to CON2 on the debug board (right side of
-the debug board- JP14 has a jumper in position 1-2,
-- Optional: the USB UART is connected to CON6 on the debug board. This
-is used to output the SVC UART console.
+####Load firmware image to SVC on endo
 
+Hardware setup:
+- provide power to the Endo via USB charger or battery module  
+- JTAG connected to debug board CON2
+- debug board JP14 pins 1-2 jumper installed
+- Optional: USB cable connected to debug board CON6 (SVC console).  
+
+The software steps are the same as for BDB.
+
+####Next Steps
+
+Now that we know how to load images to flash, we can do some [Debugging](Debugging).
