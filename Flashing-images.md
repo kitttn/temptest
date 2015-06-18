@@ -101,8 +101,5 @@ Hardware setup:
 - Optional: USB cable connected to debug board CON6 (SVC console).  
 
 Software:  
-Same as for [BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
+Software steps are the same as for [BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
-####Next Steps
-
-Now that we know how to load images to flash, we can do some [Debugging](Debugging).
