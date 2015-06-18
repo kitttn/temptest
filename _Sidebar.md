@@ -1,6 +1,6 @@
 [Home](Home)  
 [General Information](General-Information)  
-[Development Hardware](Development-Hardware)  
+[Hardware Overview](Hardware-Overview)  
 [Development System Setup](Development-System-Setup)  
 [Building the Code](Building-the-Code)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Build default config](Build-default-config)  
