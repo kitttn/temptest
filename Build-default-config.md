@@ -2,19 +2,21 @@ This page describes how to build a firmware image by specifying a default config
 
 ####Default configuration files
 As of this writing, the available defconfigs are:
-<p style="font-size:8px">
-Path to defconfig                                         | Description
-----------------------------------------------------------|-------------------------------
-./nuttx/configs/ara/bridge/es2-debug-apbridgea/defconfig  | AP Bridge 'A' (connects to AP)
-./nuttx/configs/ara/bridge/es2-debug-generic/defconfig    | AP or GP Bridge
-./nuttx/configs/ara/svc/bdb2a/defconfig                   | SVC
-<~--
-./nuttx/configs/ara/svc/bdb1b/defconfig                   | BDB1B, do not use
-./nuttx/configs/ara/bridge/es1-debug-generic/defconfig    | BDB1B, do not use
-./nuttx/configs/ara/bridge/es1-debug-apbridgea/defconfig  | BDB1B, do not use
-./nuttx/configs/ara/lgd/apb1/defconfig                    |
-./nuttx/configs/ara/lgd/apb2/defconfig                    |
+<!-- <p style="font-size:8px">
 -->
+Relative path from ./nuttx/configs/ara/     | Description
+--------------------------------------------|-------------------------------
+bridge/es2-debug-apbridgea/defconfig        | AP Bridge 'A' (connects to AP)
+bridge/es2-debug-generic/defconfig          | AP or GP Bridge
+svc/bdb2a/defconfig                         | SVC
+<~--
+svc/bdb1b/defconfig                   | BDB1B, do not use
+bridge/es1-debug-generic/defconfig    | BDB1B, do not use
+bridge/es1-debug-apbridgea/defconfig  | BDB1B, do not use
+lgd/apb1/defconfig                    |
+lgd/apb2/defconfig                    |
+-->
+
 To build a firmware image using a default configuration:
 ```
 cd $HOME/nuttx
