@@ -1,6 +1,12 @@
-This page describes how to load firmware images into external flash memory (bridge's SPIROM) or internal flash memory (SVC).
+This page describes how to load firmware images into flash memory.  
 
-####Load firmware image into external flash (bridge's SPIROM)
+There are 3 supported scenarios:
+* SPIROM for a bridge ASIC
+* internal flash for SVC on BDB
+* internal flash for SVC on endo
+
+
+####Load firmware image to SPIROM
 
 Run :
 
@@ -64,24 +70,38 @@ Erase/write done.
 This is OK, but it’s a good idea to check that you’re indeed programming
 the image that you had intended, rather than some previous version.
 
-####Load firmware image to internal flash on SVC
+####Load firmware image to SVC internal flash on BDB
+STM32 internal flash is written via the JTAG interface, 
+using gdb commands.
 
-The JTAG debugger can reflash the code in the STM32 internal flash. For
-this to work it is needed to specify the chipset target to the
-gdbserver.
+Hardware setup:
+- JTAG connected to debug board CON3  
+- FPC connected from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
+Board' and 'BDB' !!  
+- debug board SW5 positioned *away* from the SW5 label  
+- debug board JP15 pins 1-2 jumper installed  
+- USB cable connected to BDB CON12 - SVC console.  
 
-1.  Open a separate terminal window and start the JLink gdbserver
+1.  Open a terminal window and start the JLink gdbserver, specify the SVC device.
                 JLinkGDBServer -device STM32F417IG
-2.  Open another terminal window and start GDB, pointing it at the
+2.  Open another terminal window and start GDB, passing the
     “nuttx” ELF image you want to upload:
                 arm-none-eabi-gdb nuttx
-3.  Connect to your gdbserver (this and the steps that follow are
-    commands issued to GDB)
+3.  Connect GDB to gdbserver
                 target remote localhost:2331
-4.  Reset your target
+4.  Reset target
                 monitor reset
 5.  Load the ELF image into flash memory
-                load
-Note: if only the SVC binary image is provided, use this instead of the
-‘load’ command:
+                load  
+    Note: to load the SVC binary image, use the following instead of the ‘load’ command:
                 restore nuttx.bin binary 0x08000000
+
+
+####Hardware setup for Endo
+- power to the Endo is provided by a USB charger and/or a battery
+module,
+- the JTAG connector is hooked to CON2 on the debug board (right side of
+the debug board- JP14 has a jumper in position 1-2,
+- Optional: the USB UART is connected to CON6 on the debug board. This
+is used to output the SVC UART console.
+
