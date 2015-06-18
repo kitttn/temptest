@@ -1,15 +1,8 @@
 ####Building NuttX firmware images
 
-This page describes how to build firmware images for the AP or GP bridges, and the SVC. There are some important differences between the AP/GP bridge firmware and the SVC firmware, however the build process is essentially the same.
+This page describes how to build firmware images for the AP or GP bridges, and the SVC. There are some significant differences between the AP/GP bridge firmware and the SVC firmware, but the build process is  the same for each.
 
-There are two different ways to build the firmware: 
-* Select an existing configuration (specify a defconfig) 
-  Recommended if you're unfamiliar with the plethora of configuration options
-* Generate a custom configuration (make menuconfig)
-  Use this if you need to configure certain runtime or debugging scenarios, or 
-  enable specific functionality.
- 
-The instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
+Build instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
 i.e. 
 ```
 $HOME
@@ -30,5 +23,17 @@ As of this writing, the available defconfigs are:
 ./nuttx/configs/ara/svc/bdb2a/defconfig  
 ./nuttx/configs/ara/svc/bdb1b/defconfig  
 
-####[Build using a defconfig file](Build-using-a-defconfig-file)
-####[Build using a custom configuration file](Build-using-a-custom-configuration-file)
+There are two distinct build methods: 
+[Build using a defconfig file](Build-using-a-defconfig-file)  
+In this method, you run a build script and specify an existing 
+defconfig. This is recommended if you're just getting started, or are 
+otherwise unfamiliar with the plethora of configuration options. A
+side benefit of this method is that it builds out-of-tree, i.e. the
+repository is not "dirtied".
+
+[Build using a custom configuration file](Build-using-a-custom-configuration-file)  
+In this method, you generate a custom configuration using 'make menuconfig'. 
+This is required if you need to configure certain runtime or debugging 
+scenarios, such as JTAG support, or need to enable specific driver functionality 
+or other options.  
+
