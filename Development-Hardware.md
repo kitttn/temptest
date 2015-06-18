@@ -9,10 +9,10 @@ need to exchange it for a BDB2A.
 
 BDB features include:
 * STM32F417 Supervisory Controller (SVC)
-* UniPro network switch which allows point-to-point connection between hardware modules
+* Toshiba UniPro network switch which allows point-to-point connection between hardware modules
 * HSIC connection for an Application Processor (AP) such as the Nvidia Jetson TK1, or 96Boards Marvell PXA1938
-* AP bridge ASICs to allow an AP and display device to connect to the UniPro network
-* General Purpose (GP) bridge ASICs to allow the UniPro network to connect to various low-speed downstream interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc.
+* Toshiba AP bridge ASICs to allow an AP and display device to connect to the UniPro network
+* Toshiba General Purpose (GP) bridge ASICs to allow the UniPro network to connect to various low-speed downstream interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc.
 * SMA connectors for probing or interconnecting UniPro, D-PHY, and M-PHY
 * Breakout connectors for SVC and bridge ASIC debugging and programming pins.
 
@@ -27,9 +27,13 @@ The endoskeleton (Endo) is the physical frame that Ara modules plug into. It is 
 Modules are form-factor sized boards, plus mechanical casings, that implement the functional blocks of an Ara smartphone. Modules slide into slots in the endo to connect to power and UniPro. The BDB has a plastic fixture that allow the modules to be mounted in a similar way.
 
 ###Microcontrollers
+There are 3 types of microcontroller used on the BDB:
+- Application Processor (AP) Bridge
+- General Purpose (GP) Bridge
+- Supervisory Controller (SVC)
 
 ####Application Processor (AP) Bridge
-This chip is a full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz.
+This chip is a Toshiba full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz.
 Initial firmware is loaded to internal SRAM from an external SPIROM, or the SRAM can be loaded from JTAG for debugging scenarios. This device connects an AP Module to the
 UniPro network. It has a USB HSIC interface for the AP module, and a UniPro M-PHY 
 interface that connects to the network switch. It can also act as a DSI-1 transmitter/receiver 
