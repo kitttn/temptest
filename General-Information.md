@@ -14,7 +14,7 @@ or if we find any horrible bugs that waste our debugging time.
 -->
 
 ####Git repositories
-Read access is public, push access authorization is per GitHub user. SSH access with two-factor authentication is required for push.
+Read access is public, push access authorization is per GitHub user. SSH and two-factor authentication are required for push.
 
 #####Firmware source
 [https://github.com/projectara/nuttx](https://github.com/projectara/nuttx)  
