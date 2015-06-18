@@ -106,7 +106,8 @@ Hardware setup:
 - debug board JP14 pins 1-2 jumper installed
 - Optional: USB cable connected to debug board CON6 (SVC console).  
 
-The software steps are the same as for BDB.
+Software:
+Same as for [BDB]((Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
 ####Next Steps
 
