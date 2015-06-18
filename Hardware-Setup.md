@@ -1,41 +1,34 @@
-#### Required Hardware
+This page provides details on setting up your BDB and other hardware, to prepare for loading and debugging firmware images.
 
-Congratulations!  You've received Version 1 Rev B of the Project Ara development hardware, a "Big Development Board" as we like to call it.  We typically use the shorthand "BDB 1 Rev B" or "BDB1B":
-![BDB1B PCB](images/BDB1B-Board.png)
-Here's an alternate image of the BDB1B, this time with a PCB-BASE plate installed:
-![BDB1B PCB with PCB-BASE](images/BDB1B-Board-With-PCB-BASE.png)
-Images in this wiki may vary as to whether they show the PCB-BASE plate.
+Your BDB shipment should contain the following.
 
-Your kit should also contain:
-
-* Two Debug Adapter Boards Rev B
-* Two Debug Flat Printed Circuit (FPC) cables Rev B
-* A 12V DC power source
+Qty | Item | Description
+----|------|-------------
+1 | B6A DA0B6ATH8C0 | Big development board
+1 | ADUS01 | 12VDC power supply for BDB
+2 | DAB6ATH96B0 | Debug adapter board
+2 | B6A-DEBUG_FPC | FPC cable for debug adapter
+1 | DA0B6APB4A0 | Jetson adapter board
+1 | IJZ-IR | FPC cable for Jetson adapter
+1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
 ![BDB1B Accessories](images/BDB1B-Accessories.png)
 
-You'll also want to have:
-
-* 2 [J-Link Pro JTAG programmers](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB1B.
+In addition to the above items, the following are also required.
+Qty | Item | Description
+2 | [J-Link Pro](http://www.segger.com/jlink-pro.html) with USB cable and 20-pin JTAG cable, so that you'll be able to program and control Application Processor (AP) Bridge 1 and Bridge 2 on your BDB1B.
 * 1 micro USB to USB A cable, to connect to your Application Processor (AP).  Don't connect the USB A end of the cable to your AP until instructed during the bring up procedure.
 * 2 micro USB to USB A cables, to provide access to the APBridge 1 and APBridge 2 consoles.
 
 As with any development board, you'll ideally want to work in an ESD-safe environment that provides a controlled path for dissipating static buildup. 
 
-#### One-Time Setup
+Verify the Debug Adapter Boards are configured for JTAG use. 
+1. JP15 header pins 1-2 has a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
+2. SW5 (RST_40uS) is positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset and JTAG debugging is not possible.
 
-Now what? Let's start with some setup.
-
-Please take a few moments to verify that both of your Debug Adapter Boards are configured properly for JTAG use.  To enable JTAG debugging via a Debug Adapter Board Rev B, there are two essential prerequisites:
-
-1. A jumper must be present between pins 1 and 2 of the header labeled JP15, located between CON2 (CPU) and CON3 (Bridge).  This provides power to the JTAG interface.  Pin 1 is denoted by a round solid dot on the board.
-
-2. The switch labeled SW5 (RST_40uS) must be be positioned **away** from the SW5 label, towards the labels 3 and 6 on the board.  This allows the ARM processor in the bridge chip to run: otherwise, it's held in reset and JTAG debugging won't be possible.
-
-The proper configuration is illustrated here:
 ![Debug Adapter Board Rev B Setup](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
-We'll begin with at a bird's-eye view of the BDB1B setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
+We'll begin with at a bird's-eye view of the BDB setup, for orientation and reference.  Please, however, follow the step-by-step instructions that follow, and **wait to apply power to the BDB1B until instructed**:
 ![BDB1B Setup Bird's-Eye View](images/BDB1B-Setup-Birds-Eye-View.png)
 
 Before applying power, you'll want to cable everything together:
