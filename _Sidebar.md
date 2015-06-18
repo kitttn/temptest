@@ -1,6 +1,7 @@
 [Home](Home)  
 [General Information](General-Information)  
 [Important Documents](Important-Documents)  
+[Development Process](Development-Process)  
 [Hardware Overview](Hardware-Overview)  
 [Software Setup](Software-Setup)  
 [Hardware Setup](Hardware-Setup)  
