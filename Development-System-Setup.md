@@ -13,9 +13,9 @@ sudo apt-get install python-dev python-virtualenv
 
 #####STEP 2. Install the ARM cross tools  
 Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolchain is maintained by ARM and hosted on Launchpad.  The currently supported version is "GCC ARM Embedded 4.8-2014-q3-update"
-1. [Download the toolchain bz2 archive here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)
-2. tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-3. append these lines to your .profile:
+1. [Download the toolchain bz2 archive here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)  
+2. tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2  
+3. append these lines to your .profile:  
   ```
   # add gcc cross tools path for building NuttX firmware
   export PATH="$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:$PATH"
@@ -34,10 +34,10 @@ export PATH="$PATH:$HOME/manifesto"
 
 #####STEP 4. JTAG Setup
 These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interface may work, but you'll have to figure them out on your own. Segger J-Link software can be downloaded [here](http://www.segger.com/jlink-software.html). J-Link software includes a GDB server that can be connected to using ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.
-1. Download the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.
+1. Download the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  
 2. If this is the first time you’ve set up Git on your machine, make sure
 to set your git user.name and user.email fields [as described
-here](http://www.google.com/url?q=http%3A%2F%2Fgit-scm.com%2Fbook%2Fen%2Fv2%2FGetting-Started-First-Time-Git-Setup&sa=D&sntz=1&usg=AFQjCNFVKgAYgpxW99ZW90nsKUjMEl0p-Q).
+here](http://www.google.com/url?q=http%3A%2F%2Fgit-scm.com%2Fbook%2Fen%2Fv2%2FGetting-Started-First-Time-Git-Setup&sa=D&sntz=1&usg=AFQjCNFVKgAYgpxW99ZW90nsKUjMEl0p-Q).  
 
 #####STEP 6. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
