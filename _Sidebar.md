@@ -5,6 +5,7 @@
 [Building the Code](Building-the-Code)  
 [Build default config](Build-default-config)  
 [Build custom config](Build-custom-config)  
+[Flashing images](Flashing-images)  
 [Debugging](Debugging)  
 [Running-the-Demos](Running-the-Demos)  
 [Hardware Gotchas](Hardware-Gotchas)  
