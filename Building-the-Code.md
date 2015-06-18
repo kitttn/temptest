@@ -226,8 +226,7 @@ by sampling the SPIBOOT_N pin. Therefore, a valid firmware image is required in 
 to boot. If the SPIROM does not contain a valid firmware image, you will also be unable
 to debug via JTAG. 
 
-1.  Download this image:
-    [nop-loop.bin](https://drive.google.com/open?id=0B_FzW0vpoLvqX3R6UVM4cC1YN0U&authuser=1) (private link).
+1.  Download this image:  [nop-loop.bin](nop-loop.bin).  
     This program is loaded immediately after reset by the bridges. It
     does nothing but loop forever. This will let you connect to the ARM
     core via JTAG and load your image to internal SRAM and debug. Without 
