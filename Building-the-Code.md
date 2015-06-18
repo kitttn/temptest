@@ -1,6 +1,6 @@
 ####Building NuttX firmware images
 
-This page describes how to build firmware images for the AP or GP bridges, and the SVC. There are some significant differences between the AP/GP bridge firmware and the SVC firmware, but the build process is  the same for each.
+This page describes how to build firmware images for the AP bridges, GP bridges, and SVC. There are some significant differences between the AP/GP bridge firmware and the SVC firmware, but the build process is  the same for each.
 
 Build instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
 i.e. 
