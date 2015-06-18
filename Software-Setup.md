@@ -5,7 +5,7 @@ A number of one-time setup tasks are needed to prepare a development system for 
 sudo apt-get install libusb-dev libpci-dev build-essential 
 sudo apt-get install autoconf libtool gperf flex bison
 sudo apt-get install libncurses5-dev libncurses5:i386
-sudo apt-get install libusb-dev libpci-dev golang git
+sudo apt-get install libusb-dev libpci-dev git
 sudo apt-get install python-dev python-virtualenv
 ```
 
