@@ -56,7 +56,12 @@ Refer to the picture and follow the steps below.
 7. Connect the USB cable from the Debug Adapter Boards for AP Bridge 1 to the development system.
 8. Connect the USB cable from the Debug Adapter Boards for AP Bridge 2 to the development system.
 9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. AP Bridge 1 console should appear on  /dev/ttyUSB0 and AP Bridge 2 console on  /dev/ttyUSB1. This assumes no other USB serial devices are attached to the development system.  
-10. Recheck all connections, then apply power by attaching the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
+
+####STEP 4. Recheck all connections.
+Review the above steps and confirm all cables are secure.
+
+####STEP 5. Apply power
+Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
 
 
 
