@@ -63,10 +63,5 @@ Review the above steps and confirm all cables are secure.
 ####STEP 5. Apply power
 Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
 
-
-
-#### Next Steps
-
-The next step in bringing up your development board is to finish the [Development Machine Setup](Development-Machine-Setup).
-
-After that, you can proceed to the [Firmware Build](Firmware-Build).
+####Next Steps
+The next step in bringing up your development board is [Building-The-Code](Building-The-Code).
