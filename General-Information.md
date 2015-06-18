@@ -36,21 +36,20 @@ To request push access, email Greg KH([gregkh@google.com](mailto:gregkh@google.c
 Contact Linaro for list subscription.
 
 ####Software team IRC channel
-The software team runs a chat on IRC, where you can generally find someone
-to answer quick technical questions.  
-Contact Linaro for IRC channel login info.
+[#linaro-ara on irc.freenode.net](irc://#linaro-ara@irc.freenode.net)  
+Quick answers to technical questions. Contact Linaro for login info.
 
 ####Kernel team mailing list
 [project-ara-kernel@lists.linaro.org](mailto:project-ara-kernel@lists.linaro.org)  
 Contact Linaro for list subscription.
 
 ####Firmware team mailing list
+[project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)  
 The firmware team runs a mailing list dedicated to firmware specific topics.
 ReviewBoard traffic also appears there. Email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)) for list subscription.  
-[project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)
 
 ####JIRA issue tracker
+[https://projectara.atlassian.net](https://projectara.atlassian.net)  
 File bugs and track tasks here. All bugs and commits must have a Jira
 issue associated with them.  
-[https://projectara.atlassian.net](https://projectara.atlassian.net)
 
