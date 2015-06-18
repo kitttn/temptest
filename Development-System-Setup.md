@@ -13,9 +13,10 @@ sudo apt-get install python-dev python-virtualenv
 
 #####STEP 2. Install the ARM cross tools  
 Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolchain is maintained by ARM and hosted on Launchpad.  The currently supported version is "GCC ARM Embedded 4.8-2014-q3-update"  
-1. [Download the toolchain bz2 archive here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)  
-2. tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2  
-3. append these lines to your .profile:  
+1. Download the toolchain from [here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)  
+2. Move the downloaded archive to $HOME
+3. Extract with 'tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2'  
+3. append these lines to your .profile  
   ```
   # add gcc cross tools path for building NuttX firmware
   export PATH="$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:$PATH"
