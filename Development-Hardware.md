@@ -26,7 +26,7 @@ The endoskeleton (Endo) is the physical frame that Ara modules plug into. It is 
 ###Modules
 Modules are form-factor sized boards, plus mechanical casings, that implement the functional blocks of an Ara smartphone. Modules slide into slots in the endo to connect to power and UniPro. The BDB has a plastic fixture that allow the modules to be mounted in a similar way.
 
-###UniPro Bridge ASICs
+###Microcontrollers
 
 ####Application Processor (AP) Bridge
 This chip is a full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz.
