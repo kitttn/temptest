@@ -51,11 +51,11 @@ Contact Linaro for list subscription.
 ####Firmware team mailing list
 The firmware team runs a mailing list dedicated to firmware specific topics.
 ReviewBoard traffic also appears there.  
-Contact [mbolivar](mailto:mbolivar@leaflabs.com) for list subscription.  
+Contact [Marti Bolivar](mailto:mbolivar@leaflabs.com) for list subscription.  
 [project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)
 
 ####JIRA issue tracker
 File bugs and track tasks here. All bugs and commits must have a Jira
 issue associated with them.  
-[https://projectara.atlassian.net](https://www.google.com/url?q=https%3A%2F%2Fprojectara.atlassian.net&sa=D&sntz=1&usg=AFQjCNHwfnD5teFEccqOXW0DDhs3hGA8DA)
+[https://projectara.atlassian.net](https://projectara.atlassian.ne)
 
