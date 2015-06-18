@@ -37,19 +37,21 @@ GitHub usernames. SSH access with two-factor authentication is required.
 
 ####Software team mailing list
 [projectara-software-dev@linaro.org](mailto:projectara-software-dev@linaro.org)
+Contact Linaro for list subscription.
 
 ####Software team IRC channel
 The software team runs a chat on IRC, where you can generally find someone
 to answer quick technical questions.  
-For login info, contact [linaro.org]
+Contact Linaro for IRC channel access.
 
 ####Kernel team mailing list
 [project-ara-kernel@lists.linaro.org](mailto:project-ara-kernel@lists.linaro.org)
+Contact Linaro for list subscription.
 
 ####Firmware team mailing list
 The firmware team runs a mailing list dedicated to firmware specific topics.
-ReviewBoard traffic also appears there. To join this list, email a request to [mbolivar](mailto:mbolivar@leaflabs.com).
-
+ReviewBoard traffic also appears there.  
+Contact [mbolivar](mailto:mbolivar@leaflabs.com) for list subscription.  
 [project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)
 
 ####JIRA issue tracker
