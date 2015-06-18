@@ -18,8 +18,6 @@ Read access is public, push access authorization is per GitHub user. SSH access 
 
 #####Firmware source
 [https://github.com/projectara/nuttx](https://github.com/projectara/nuttx)  
-To request push access, email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)),
- CC: Greg KH ([gregkh@google.com](mailto:gregkh@google.com)), and include your GitHub user name.
 
 #####'manifesto' Manifest generator
 [https://github.com/projectara/manifesto](https://github.com/projectara/manifesto)  
@@ -29,27 +27,5 @@ To request push access, email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbol
 
 #####Greybus specification
 [https://github.com/projectara/greybus-spec](https://github.com/projectara/greybus-spec)  
-To request push access, email Greg KH([gregkh@google.com](mailto:gregkh@google.com)) and include your GitHub user name.
 
-####Software team mailing list
-[projectara-software-dev@linaro.org](mailto:projectara-software-dev@linaro.org)  
-Contact Linaro for list subscription.
-
-####Software team IRC channel
-[#linaro-ara on irc.freenode.net](irc://#linaro-ara@irc.freenode.net)  
-Quick answers to technical questions. Contact Linaro for login info.
-
-####Kernel team mailing list
-[project-ara-kernel@lists.linaro.org](mailto:project-ara-kernel@lists.linaro.org)  
-Contact Linaro for list subscription.
-
-####Firmware team mailing list
-[project-ara-firmware@leaflabs.com](mailto:project-ara-firmware@leaflabs.com)  
-The firmware team runs a mailing list dedicated to firmware specific topics.
-ReviewBoard traffic also appears there. Email Marti Bolivar ([mbolivar@leaflabs.com](mailto:mbolivar@leaflabs.com)) for list subscription.  
-
-####JIRA issue tracker
-[https://projectara.atlassian.net](https://projectara.atlassian.net)  
-File bugs and track tasks here. All bugs and commits must have a Jira
-issue associated with them.  
 
