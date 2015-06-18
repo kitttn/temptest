@@ -2,7 +2,7 @@ This section lists the documents that you should read, in the order you
 should read them, and technical references relevant to Project Ara
 firmware development.
 
-#####[README FIRST](https://docs.google.com/a/projectara.com/document/d/1-g9uymGyxUrVKOfuJrYCMkl2kqoMvu-GGvqIw3extPE/edit#heading=h.7520n7o73ibg) (internal link)
+#####[README FIRST](README-FIRST) 
 
 Read this document first. It introduces the project, the
 organizational structure, and higher level goals, terms, and other
