@@ -8,13 +8,14 @@ deprecated and no longer supported for development. If you have a BDB1B, you'll
 need to exchange it for a BDB2A. 
 
 BDB features include:
-* STM32F417 Supervisory Controller (SVC)
-* Toshiba UniPro network switch which allows point-to-point connection between hardware modules
-* HSIC connection for an Application Processor (AP) such as the Nvidia Jetson TK1, or 96Boards Marvell PXA1938
-* Toshiba AP bridge ASICs to allow an AP and display device to connect to the UniPro network
-* Toshiba General Purpose (GP) bridge ASICs to allow the UniPro network to connect to various low-speed downstream interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc.
-* SMA connectors for probing or interconnecting UniPro, D-PHY, and M-PHY
-* Breakout connectors for SVC and bridge ASIC debugging and programming pins.
+* ST Microelectronics [STM32F417](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN11) Supervisory Controller (SVC)
+* Toshiba T6WT0XBG UniPro network switch supporting high-speed point-to-point connectivity
+* HSIC connection for an Application Processor (AP) to connect to the BDB
+* Toshiba T6WT1XBG Application Processor (AP) bridge ASICs to connect AP and display devices to the UniPro network
+* Toshiba T6WT2XBG General Purpose (GP) bridge ASICs to connect various interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc. to the UniPro network
+* SMA connectors for probing or connecting HSIC, UniPro, D-PHY, and M-PHY
+* Breakout connectors for SVC and bridge ASIC debugging and programming.
+* Debug breakout boards with industry-standard JTAG and USB serial connectors
 
 ###Software Development Board (SDB)
 This is a smaller, more compact version of the BDB that is currently in development and
@@ -24,7 +25,7 @@ is expected to become available to developers some time during the 2nd half of 2
 The endoskeleton (Endo) is the physical frame that Ara modules plug into. It is electrically similar to the BDB, but realized in the Ara phone form factor. 
 
 ###Modules
-Modules are form-factor sized boards, plus mechanical casings, that implement the functional blocks of an Ara smartphone. Modules slide into slots in the endo to connect to power and UniPro. The BDB has a plastic fixture that allow the modules to be mounted in a similar way.
+Modules are form-factor sized boards, plus mechanical casings, that implement the functional blocks of an Ara smartphone. Modules slide into slots in the endo to connect to power and UniPro. The BDB has a plastic fixture that allow the modules to be mounted in a similar way.  Modules incorporate a UniPro bridge device to support connection to the UniPro network in the BDB or endo.
 
 ###Microcontrollers
 There are 3 types of microcontroller used on the BDB:
