@@ -37,43 +37,40 @@ Simultaneously to BDB development, software was written for form factor (FF) mod
 
 Engineering in spiral 2 is done by a variety of companies; here are some of them:
 
-*BayLibre*: also firmware for bridge ASICs, as a subcontractor to LeafLabs. 
+**BayLibre**: also firmware for bridge ASICs, as a subcontractor to LeafLabs. 
 
-*LeafLabs*: firmware in general. Marti Bolivar is the firmware lead for Project Ara, and has been involved since the beginning of the project.
+**LeafLabs**: firmware in general. Marti Bolivar is the firmware lead for Project Ara, and has been involved since the beginning of the project.
 
-*Linaro*: Linaro is doing the brunt of the Android and kernel development (Opersys is the other company involved in those areas). The main PoC at Linaro is George Grey, Glen Valante is the Linaro Project Manager for Ara.
+**Linaro**: Linaro is doing the brunt of the Android and kernel development (Opersys is the other company involved in those areas). The main PoC at Linaro is George Grey, Glen Valante is the Linaro Project Manager for Ara.
 
-*Linux Solutions*: Greg Kroah-Hartman has been working on the Greybus specification and kernel portions of the Greybus core, before being ~conned~ persuaded to be the software lead for the whole team.
-*Oxford Systems*: Olin Sibert has been involved with the UniPro working group at MIPI, and is developing the ES3 ASIC boot ROM.
+**Linux Solutions**: Greg Kroah-Hartman has been working on the Greybus specification and kernel portions of the Greybus core, before being ~conned~ persuaded to be the software lead for the whole team.
 
-*Opersys*: Karim Yaghmour is working on Android and literally wrote the book on how to design an Android system.
+**Oxford Systems**: Olin Sibert has been involved with the UniPro working group at MIPI, and is developing the ES3 ASIC boot ROM.
 
-*Quanta*: Quanta is doing all of the board layout and fab. The engineering lead at Quanta is Dexter Yeh; the PM is Philip Chen
+**Opersys**: Karim Yaghmour is working on Android and literally wrote the book on how to design an Android system.
 
-*Toshiba*: Toshiba is producing UniPro bridge ASICs. The documentation for these is in the UniPro Network workstream directory.
+**Quanta**: Quanta is doing all of the board layout and fab. The engineering lead at Quanta is Dexter Yeh; the PM is Philip Chen
 
-*X5*: Derek Linden, in concert with Quanta, is designing the antenna for the phone and WiFi. The antennas are designed by a genetic algorithm using custom software developed by X5.
+**Toshiba**: Toshiba is producing UniPro bridge ASICs. The documentation for these is in the UniPro Network workstream directory.
+
+**X5**: Derek Linden, in concert with Quanta, is designing the antenna for the phone and WiFi. The antennas are designed by a genetic algorithm using custom software developed by X5.
 
 ####Spiral 3
-Work on Spiral 3 started in January 2015. Spiral 3 is based around the ES3 Toshiba ASICs, which are still (as of February 2015) in development. The goals for spiral 3 are to reach market pilot.
+Work on Spiral 3 started in January 2015. Spiral 3 is based around the ES3 Toshiba ASICs, which are still in development. The goals for spiral 3 are to reach market pilot.
 
 ####What to Read Next
 The Software Project sections in the Project Ara JIRA Usage Guide. These describe how we use JIRA to track issues and schedule work.
 
-The Project Ara Software Architecture doc is the main reference for decisions we’ve made about software design. You should read that next, though it’s currently (8/29) incomplete or obsolete in some places and rough in others, as we are still in the design phase.
-Project Ara Module Developer’s Kit, v0.11 (MDK). BEWARE: the software sections in v0.11 are largely obsolete. New decisions get made over email and during meetings, and are written into the Software Architecture document as they are finalized. However, the industrial and mechanical design descriptions (and definitions) in the v0.11 MDK are still essentially valid, so those parts of MDK are a good next things to read.
-
-The MIPI Specs folder contains various MIPI specifications. The most relevant one for the software team in general is UniPro v1.6. There are a couple of other protocols built on top of UniPro you should be aware of:
-
-CSI-3 for cameras (its predecessor, CSI-2, is not based on UniPro, but we still use it for display and camera data in the Toshiba bridge ASICs to support existing chipsets)
-UFS (JEDEC login-wall; your @projectara.com address can get you an account)
-DSI-2 is a UniPro-based display protocol that we are not thinking about, as it didn’t get much traction.
-The Greybus Application Protocol doc is a work in progress for how modules and the supervisory controller on the endoskeleton will communicate with one another. You should look at this after the Software Architecture doc, or at least its introduction.
+- Project Ara Software Architecture: This doc is the main reference for decisions we’ve made about software design. You should read that next, though it’s currently incomplete or obsolete in some places and rough in others, as we are still in the design phase.
+- Project Ara Module Developer’s Kit (MDK): BEWARE: the software sections in v0.11 are largely obsolete. New decisions get made over email and during meetings, and are written into the Software Architecture document as they are finalized. However, the industrial and mechanical design descriptions and definitions in the v0.11 MDK are still essentially valid, so those parts of MDK are a good next things to read.
+- MIPI Specifications
+- UFS (JEDEC login-wall; your @projectara.com address can get you an account)
+- DSI-2 is a UniPro-based display protocol that we are not thinking about, as it didn’t get much traction.
+- Greybus Application Protocol: a work in progress for how modules and the supervisory controller on the endoskeleton will communicate with one another. You should look at this after the Software Architecture doc, or at least its introduction.
 
 ####Important but not covered well here (or elsewhere?)
 
-*Device drivers*:
-
+**Device drivers**:
 The Greybus Specification is part of the MDK, and describes protocols we are using to write device drivers for UniPro-based devices. The kernel implementation is on GitHub.
 The long term goal is to use “device class drivers.” This will allow a single driver within the kernel to support a variety of devices. For example, all battery modules would be supported by a single battery device class driver in the kernel.
 
@@ -81,49 +78,49 @@ There are also “bridged PHY drivers” which allow access to the various perip
 First, to allow use of existing in-kernel drivers for particular devices.
 Second, to allow userspace apps to access these PHYs for “weird and wonderful” modules that don’t fit into a device class. For example, a pollution sensor that uses SPI could be supported entirely in userspace with a custom app that uses the SPI bridged PHY driver in the kernel.
 
-Android Build
+**Android Build**
 Info on Android Build  -  here
 
 ####Glossary
 This is a (forever incomplete) collection of terms you will run into during your day-to-day. It should probably go into the MDK. Feel free to add more, but keep the list in alphabetical order!
 
-*AP*: Application Processor.  Where Linux runs, along with the rest of the Android userspace code.
+**AP**: Application Processor.  Where Linux runs, along with the rest of the Android userspace code.
 ATAP: Advanced Technology and Projects. The Google R&D department that Project Ara is part of.
 Bridge ASICs: Custom ASIC developed for Project Ara by Toshiba, which allow devices speaking existing protocols (like SoCs, baseband modules, displays, etc.) to communicate through the UniPro network. The bridge ASICs do some of this protocol conversion in firmware, and some in hardware. The allocation between which protocols are handled by firmware versus software is subject to change between ES1 and ES2.
 Bundle: Within an Interface there are CPorts, and each CPort connects to the AP, or another Interface, using a Protocol to define the data stream.  One, or more than one, CPorts together can make up a Bundle to provide a unified way to communicate between an Interface and the AP.
 
-*CPort*: A UniPro term.  It is a single “address” on a Module.
+**CPort**: A UniPro term.  It is a single “address” on a Module.
 
-*Connection*: A logical communication path between two CPorts.  A connection is defined by two (Device, CPort) tuples.  These are UniPro Device and CPort numbers associated with the AP and with a device on another module.
+**Connection**: A logical communication path between two CPorts.  A connection is defined by two (Device, CPort) tuples.  These are UniPro Device and CPort numbers associated with the AP and with a device on another module.
 
-*D@CS*: Demo at Convincing Scale. The Project Ara launch.
+**D@CS**: Demo at Convincing Scale. The Project Ara launch.
 
-*Endoskeleton* (endo for short): the metal chassis that modules plug in to.
+**Endoskeleton** (endo for short): the metal chassis that modules plug in to.
 EPM: electropermanent magnet. With a current pulse, it transitions from a weak magnet to a strong one. This is how modules attach to the endoskeleton.
 
-*ESx*: Engineering Sample x, e.g. for the Toshiba ASICs (e.g. ES1 is the first engineering sample, which we will get first silicon for during Spiral 2).
+**ESx**: Engineering Sample x, e.g. for the Toshiba ASICs (e.g. ES1 is the first engineering sample, which we will get first silicon for during Spiral 2).
 
-*GP Bridge*: Microprocessor in a module that talks to the Unipro ASIC in the module as well as the hardware on the module that does not talk Unipro.
+**GP Bridge**: Microprocessor in a module that talks to the Unipro ASIC in the module as well as the hardware on the module that does not talk Unipro.
 
-*IA*: Information Assurance, a newspeak term for what most of the world calls “computer security”. IA in Ara includes hardware security mechanisms (e.g., in the UniPro ASICs) as well as firmware/software.
+**IA**: Information Assurance, a newspeak term for what most of the world calls “computer security”. IA in Ara includes hardware security mechanisms (e.g., in the UniPro ASICs) as well as firmware/software.
 
-*Interface block*: the pins (spiral 2) and combination of pins/noncontact data transfer interfaces (spiral 3) that form the interface between the PCBs inside a module and inside the endoskeleton.  There can be more than one interface block per module.
+**Interface block**: the pins (spiral 2) and combination of pins/noncontact data transfer interfaces (spiral 3) that form the interface between the PCBs inside a module and inside the endoskeleton.  There can be more than one interface block per module.
 
-*IPT*: In-person teleconference. Basically, a video chat on Google Hangouts.
+**IPT**: In-person teleconference. Basically, a video chat on Google Hangouts.
 
-*MDK*: Module Developer’s Kit. The specification for module developers that we periodically update and release as our design progresses.
+**MDK**: Module Developer’s Kit. The specification for module developers that we periodically update and release as our design progresses.
 
-*Module*: A physical device that can be slid into the Endoskeleton.
+**Module**: A physical device that can be slid into the Endoskeleton.
 
-*Operation*: represents an RPC-like interaction using a Connection between the AP and an Interface.  See the Greybus Application Protocol for more information about Operations.
+**Operation**: represents an RPC-like interaction using a Connection between the AP and an Interface.  See the Greybus Application Protocol for more information about Operations.
 
-*Protocol*: defines the stream of bytes that pass on a single Connection in a specified form to talk to between the two ends of the connection.
+**Protocol**: defines the stream of bytes that pass on a single Connection in a specified form to talk to between the two ends of the connection.
 
-*SVC*: supervisory controller. A microcontroller in the endoskeleton that administers the power bus, controls the EPMs, controls the switch, and communicates with the AP to administer the network.
+**SVC**: supervisory controller. A microcontroller in the endoskeleton that administers the power bus, controls the EPMs, controls the switch, and communicates with the AP to administer the network.
 
-*UniPro*: the on-board network protocol used to send information between modules.
+**UniPro**: the on-board network protocol used to send information between modules.
 
-*Wake/Detect*: out-of-band (with respect to UniPro) signals used to convey hotplug and wake from sleep between modules and the endoskeleton.
+**Wake/Detect**: out-of-band (with respect to UniPro) signals used to convey hotplug and wake from sleep between modules and the endoskeleton.
 
-*Workstream*: A logical topic of work in the project. Roughly, these break down as software, electrical, mechanical, industrial design, and radio, though the boundaries are somewhat porous.
+**Workstream**: A logical topic of work in the project. Roughly, these break down as software, electrical, mechanical, industrial design, and radio, though the boundaries are somewhat porous.
 
