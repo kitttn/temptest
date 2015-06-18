@@ -1,3 +1,24 @@
+This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
+
+####AP/GP bridge firmware boot process overview
+
+Following reset, the device loads the firmware image from flash (SPIROM) 
+to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
+by sampling the SPIBOOT_N pin, which is grounded. 
+
+Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is halted, and then letting the processor run.  
+
+In either case, a valid firmware image is required in SPIROM in order
+to boot the device. BDBs are shipped with a valid firmware image in flash, but if the image
+becomes corrupted, or crashes at boot time, or fails to boot, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
+
+[Download the nop-loop.bin image](nop-loop.bin).  
+The nop-loop.bin firmware is a dummy program that does nothing but loop forever. 
+This allows the JTAG debugger to connect to the ARM core, gain control, and then you
+can load your firmware image to internal SRAM and debug. 
+
+
+<!--
 
 14. Remove power to the BDB
 15.  Undo the SPI ROM-specific configuration on your debug daughter
@@ -63,40 +84,5 @@ the make utility.
     (APBridge 1, APBridge 2, SVC), run make distclean before cd’ing to
     tools and running the configure.sh script.
 3.  Load the nuttx ELF file into memory with JTAG (see next section).
-
-
-###Flashing the SPIROM
-
-The AP and GP bridges run the firmware image by loading it from SPIROM 
-to internal SRAM, and jumping to it. This behavior is configured at reset 
-by sampling the SPIBOOT_N pin. Therefore, a valid firmware image is required in SPIROM in order
-to boot. If the SPIROM does not contain a valid firmware image, you will also be unable
-to debug via JTAG. 
-
-1.  Download this image:  [nop-loop.bin](nop-loop.bin).  
-    This program is loaded immediately after reset by the bridges. It
-    does nothing but loop forever. This will let you connect to the ARM
-    core via JTAG and load your image to internal SRAM and debug. Without 
-    this image in SPI, you will be unable to connect via JTAG.
-2.  Execute the steps below to flash this program to
-    SPIROM.
-
-####AP/GP bridge firmware boot process overview
-
-Following reset, the device loads the firmware image from flash (SPIROM) 
-to internal SRAM, and then jumps to it. This behavior is configured at reset 
-by sampling the SPIBOOT_N pin, which is grounded. 
-
-Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is halted, and then letting the processor run.  
-
-To support both of these scenarios, the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram. 
-
-In either case, a valid firmware image is required in SPIROM in order
-to boot the device. BDBs are shipped with a valid firmware image in flash, but if the image
-becomes corrupted, or crashes at boot time, or fails to boot, you will need to reprogram flash using a hardware programmer. For instructions on programming flash (SPIROM), see [this section]()
-
-To build an image that can 
-is loaded from SPI ROM at reset, you will need to run the configuration
-menu (kconfig) and set the options as described
 
 -->
