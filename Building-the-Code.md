@@ -24,16 +24,18 @@ As of this writing, the available defconfigs are:
 ./nuttx/configs/ara/svc/bdb1b/defconfig  
 
 There are two distinct build methods: 
-[Build using a defconfig file](Build-using-a-defconfig-file)  
-In this method, you run a build script and specify an existing 
-defconfig. This is recommended if you're just getting started, or are 
-otherwise unfamiliar with the plethora of configuration options. A
-side benefit of this method is that it builds out-of-tree, i.e. the
-repository is not "dirtied".
-
-[Build using a custom configuration file](Build-using-a-custom-configuration-file)  
-In this method, you generate a custom configuration using 'make menuconfig'. 
-This is required if you need to configure certain runtime or debugging 
-scenarios, such as JTAG support, or need to enable specific driver functionality 
+[Build using a defconfig file](Build-using-a-defconfig-file) and
+[Build using a custom configuration file](Build-using-a-custom-configuration-file).  
+  
+In the [defconfig method](Build-using-a-defconfig-file), you run a 
+build script and specify an existing defconfig. This is recommended 
+if you're just getting started, or are otherwise unfamiliar with the 
+plethora of configuration options. A side benefit of this method is 
+that it builds out-of-tree, i.e. the repository is not "dirtied".
+  
+In the [custom config](Build-using-a-custom-configuration-file) method, 
+you generate a custom configuration using 'make menuconfig'. This is 
+required if you need to configure certain runtime or debugging scenarios, 
+such as JTAG support, or need to enable specific driver functionality 
 or other options.  
 
