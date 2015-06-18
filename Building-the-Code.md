@@ -1,16 +1,6 @@
 ####Building NuttX firmware images
 
-This page describes how to build firmware images for the AP or GP bridges, and the SVC. There are some important differences between the AP/GP bridge firmware and the SVC firmware, however the build process is essentially the same for all.
-
-The instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
-i.e. 
-```
-$HOME
-   +--nuttx
-   +--flashrom
-   +--manifesto  
-  . . .
-```
+This page describes how to build firmware images for the AP or GP bridges, and the SVC. There are some important differences between the AP/GP bridge firmware and the SVC firmware, however the build process is essentially the same.
 
 There are two different ways to build the firmware: 
 * Select an existing configuration (specify a defconfig) 
@@ -19,6 +9,16 @@ There are two different ways to build the firmware:
   Use this if you need to configure certain runtime or debugging scenarios, or 
   enable specific functionality.
  
+The instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
+i.e. 
+```
+$HOME
+   +--nuttx
+   +--flashrom
+   +--manifesto  
+   ... etc
+```
+
 ####Firmware build configuration files
 As of this writing, the available defconfigs are:
 ./nuttx/configs/ara/bridge/es2-debug-apbridgea/defconfig  
@@ -33,9 +33,9 @@ As of this writing, the available defconfigs are:
 ####Building firmware images using a defconfig file
 ```
 cd $HOME/nuttx
-./build_ara_image.sh  ara <config-name>
+./build_ara_image.sh ara \<config-name\>
 ```
-Where \<config-name\> is the relative path to the defconfig file, against the base path of ./nuttx/configs/ara.
+Where \<config-name\> is the relative path to the defconfig file, assuming the base path of ./nuttx/configs/ara.
 When the build script completes successfully, the resulting image files (binary and ELF) are placed in  
 ./build/\<name-of-build\>/images/  
 Where "name-of-build" is the path to the defconfig, with the slashes replaced with dashes.
