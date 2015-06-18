@@ -1,4 +1,4 @@
-#####Flashing firwmare images
+#####Flashing images
 
 (todo)
 
