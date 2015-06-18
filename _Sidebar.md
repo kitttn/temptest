@@ -1,6 +1,6 @@
 [Home](Home)
 
-[General Information](General-Information)  
+[General Information](General-Information)
 <!--[Important Documents](Important-Documents)  -->
 <!--[Development Process](Development-Process)  -->
 [Development Hardware](Development-Hardware)  
