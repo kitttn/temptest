@@ -16,28 +16,27 @@ sudo apt-get install python-dev python-virtualenv
 #####STEP 2. Install the ARM cross tools  
 Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolchain is maintained by ARM and hosted on Launchpad.  The currently supported version is "GCC ARM Embedded 4.8-2014-q3-update"  
 1. Download the toolchain from [here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)  
-2. Move the downloaded archive to $HOME
-3. Extract with 'tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2'  
-3. append these lines to your .profile  
-```
-# add gcc cross tools path for building NuttX firmware
-export PATH="$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:$PATH"
-```
+2. Move the downloaded archive to $HOME  
+3. `cd home`
+4. `tar xjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2`  
+5. append these lines to your .profile  
+`# add gcc cross tools path for building NuttX firmware`  
+`export PATH="$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:$PATH"`  
+
 
 #####STEP 3. Install Manifesto (python script)
-```
-cd $HOME
-git clone https://github.com/projectara/manifesto
-```
+`cd $HOME`  
+`git clone https://github.com/projectara/manifesto`  
+
 Append these lines to your .profile:
-```
-# add manifesto path
-export PATH="$PATH:$HOME/manifesto"
-```
+`# add manifesto path`  
+`export PATH="$PATH:$HOME/manifesto"`  
+
 
 #####STEP 4. JTAG Setup
-These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interface may work, but you'll have to figure them out on your own. Segger J-Link software can be downloaded [here](http://www.segger.com/jlink-software.html). J-Link software includes a GDB server that can be connected to using ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
-1. Download the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  
+These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interfaces could be used, but you'll have to figure them out on your own. 
+
+1. Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accept connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
 2. If this is the first time you’ve set up Git on your machine, make sure
 to set your git user.name and user.email fields [as described
 here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).  
@@ -46,8 +45,5 @@ here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 Flashrom is a utility used to flash the SPIROM.
 Repository URL is [here](General-Information#flashrom-spi-rom-programming-tool)   
 Clone the repository, checkout the master branch, and rebuild with the following command:
-```
-user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make
-```
-
+`user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make`
 
