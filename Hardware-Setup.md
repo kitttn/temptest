@@ -1,6 +1,6 @@
 This page provides details on setting up your BDB and JTAG hardware. 
 
-The configuration used here is for JTAG debugging of firmware images on APB1 and APB2 bridge devices.   If you're not using JTAG, you can skip the parts about connecting the J-Link JTAG interface.  To configure for JTAG debugging on other devices, see [this page](Debugging).
+The configuration used here is for JTAG debugging of firmware images on APB1 and APB2 bridge devices.   If you're not using JTAG, you can skip the parts about connecting a JTAG interface. For details on using JTAG for debugging, see [this page](Debugging).
 
 ####General
 The development hardware has exposed components and connectors, and is extremely ESD-sensitive. Ensure your work area is ESD-safe by using a grounded static-dissipative mat or work surface, and wearing a grounded wrist strap at all times. Do not handle boards any more than necessary, and always handle by the edges. Avoid touching components or pins.
