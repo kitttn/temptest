@@ -9,7 +9,7 @@ This guide is broken into numbered sections, and each section has a numbered lis
 [SECTION 1. Set up your development computer](#section-1-set-up-your-development-computer)  
 [SECTION 2. Set up your development hardware](#section-2-set-up-your-development-hardware)  
 [SECTION 3. Build the firmware images](#section-3-build-the-firmware-images)  
-[SECTION 4. Load the firmware images](#section-4-load-the-firmware- images)  
+[SECTION 4. Load the firmware images](#section-4-load-the-firmware-images)  
 [SECTION 5. Verify operation](#section-5-verify-operation)  
 
 Ready? Here we go!
