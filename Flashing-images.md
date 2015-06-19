@@ -101,5 +101,5 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 3. Connect GDB to gdbserver: `target remote localhost:2331`
 4. Reset target: `monitor reset`
 5. Load the ELF image into flash memory: `load`
-Note: to load the SVC binary image, use the following instead of the ‘load’ command:
+Note: to load the SVC binary image, use the restore command instead of the ‘load’ command:
    `restore nuttx.bin binary 0x08000000`
