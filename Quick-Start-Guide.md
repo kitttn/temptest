@@ -66,7 +66,7 @@ For each of the firmware images listed in step 3, follow
 #####Build and load SVC firmware  
 This should not be required under most circumstances, because the SVC is shipped with firmware. This section is included *just in case* you need to reflash the SVC. 
 
-   **If you aren't sure, DON'T DO IT!**
+   If you aren't sure, *DON'T DO IT!*
 
 Build SVC firmware:
 * `cd $HOME/nuttx`
