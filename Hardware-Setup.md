@@ -6,7 +6,7 @@ The configuration used here is for JTAG debugging of firmware images on APB1 and
 The development hardware has exposed components and connectors, and is extremely ESD-sensitive. Ensure your work area is ESD-safe by using a grounded static-dissipative mat or work surface, and wearing a grounded wrist strap at all times. Do not handle boards any more than necessary, and always handle by the edges. Avoid touching components or pins.
 
 The development hardware is also sensitive to power sequencing, so...   
-##DO NOT CONNECT POWER SUPPLIES UNTIL DIRECTED BY THE INSTRUCTIONS!
+**DO NOT CONNECT POWER SUPPLIES UNTIL DIRECTED BY THE INSTRUCTIONS!**
 
 <!--
 The configuration used here is for JTAG debugging of firmware images on APB1 and APB2 bridge devices.  
