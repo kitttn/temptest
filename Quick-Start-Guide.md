@@ -38,7 +38,7 @@ Ready? Here we go!
 
 <br>
 ###Step 3. Build the firmware images
-The below steps build the firmware for the APB1 and APB2 microcontrollers
+The below steps build the firmware for APB1 and APB2
 on the BDB. There is no need to build or flash the SVC (Supervisory Controller) firmware because the 
 SVC on the BDB is preloaded with firmware prior to shipping.
 
@@ -209,8 +209,7 @@ Continue? [Y/n] Y
 ````
 Note: 
 * The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
-* “6” is the i2c bus number, which could be different on your AP (e.g. “1” rather than “6”).
-* On some APs other than the Jetson TK1, you may have to load the i2c-dev kernel module before using the i2c-tools.
+* “6” is the i2c bus number
 
 You can also use i2cget to read a specific value, e.g.:
 ````
@@ -222,7 +221,7 @@ Continue? [Y/n] y
 0x14
 ````
 Notes:
-* As with i2cdetect “6” is the i2c bus number, which could be different on your AP
+* As with i2cdetect “6” is the i2c bus number
 * 0x29 is the chip address
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
