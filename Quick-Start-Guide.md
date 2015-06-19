@@ -12,7 +12,7 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)  
 [Step 3. Build the firmware images](#step-3-build-the-firmware-images)  
 [Step 4. Load the firmware images](#step-4-load-the-firmware-images)  
-[Step 5. Configure the AP](#step-5-configure-the-ap)  
+[Step 5. Configure the Application Processor (AP)](#step-5-configure-the-application-processor-ap)  
 [Step 6. Verify operation](#step-6-verify-operation)  
 
 Ready? Here we go!
