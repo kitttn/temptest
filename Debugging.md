@@ -4,7 +4,7 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
 
-Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as **$JLINK_PORT** in the steps below.
+Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each GDB server instance. We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 
 ###How to debug AP/GP bridge firmware using JTAG
@@ -69,7 +69,7 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 
 ###How to debug SVC firmware using JTAG
 
-The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same JTAG session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
+The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same GDB session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
 #####Software steps
 
@@ -77,7 +77,7 @@ Open a terminal window and start the J-Link GDB server, specifying the SVC devic
 
 `JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT`
  
-The following steps load the SVC firmware image to flash and run it.
+The following steps load the SVC firmware image into flash and run it.
 
 * Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
 * Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
