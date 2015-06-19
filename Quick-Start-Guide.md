@@ -10,8 +10,8 @@ This guide is broken into numbered sections, and each section has a numbered lis
 [SECTION 2. Set up your development hardware](#section-2-set-up-your-development-hardware)  
 [SECTION 3. Build the firmware images](#section-3-build-the-firmware-images)  
 [SECTION 4. Load the firmware images](#section-4-load-the-firmware-images)  
-[SECTION 5. Configure the AP](#section-4-configure-the-ap)  
-[SECTION 6. Verify operation](#section-5-verify-operation)  
+[SECTION 5. Configure the AP](#section-5-configure-the-ap)  
+[SECTION 6. Verify operation](#section-6-verify-operation)  
 
 Ready? Here we go!
 
