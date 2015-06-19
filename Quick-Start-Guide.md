@@ -52,26 +52,26 @@ APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 ###Step 4. Load the firmware images
 
 #####Option 1: Load firmware image to flash
-For each of the bridge firmware images listed in step 3, follow 
+For each of the firmware images listed in step 3, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
 
 #####Option 2: Load firmware image using JTAG
-For each of the bridge firmware images listed in step 3, follow 
+For each of the firmware images listed in step 3, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
 
 ----------------------------------------
-**Optional: Build and flash SVC firmware image**  
-This section is included *just in case* you need to flash the SVC firmware. This should not be required under most circumstances, because the SVC is preloaded with firmware prior to shipping. 
+**Optional: Build and load SVC firmware**  
+This section is included *just in case* you need to reflash the SVC. This should not be required under most circumstances, because the SVC is shipped with firmware. 
 
-**If you aren't sure, don't.**
+**If you aren't sure, DON'T!**
 
-Build SVC firmware image:
+Build SVC firmware:
 * `cd $HOME/nuttx`
 * `./build_ara_image.sh ara svc/bdb2a
 
-Flash SVC firmware image:  
-Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the file `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`  
+Flash SVC firmware:  
+Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
 
 <br>
 ###Step 5. Configure the Application Processor (AP)
