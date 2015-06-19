@@ -57,18 +57,21 @@ flash the firmware image to the device.
 * `./nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
 <br>
-###Step 5. Configure the AP
+###Step 5. Configure the Application Processor (AP)
 
-In this section, you will flash the Jetson TK1 Application Processor (AP) with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
+In this section, you will flash the Jetson TK1 with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
 
+####Flash the Android image
 Download and flash the pre-built Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  There are also instructions for connecting the Jetson serial port.
 
-With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+With this image flashed to the Jetson, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
 
-**DO NOT CONNECT THE BDB TO THE AP VIA USB UNTIL INSTRUCTED.**
+####Boot and connect
+
+**DO NOT CONNECT THE BDB TO THE JETSON VIA USB UNTIL INSTRUCTED.**
 
 * Reboot the Jetson. If the Jetson serial console is unresponsive, reset it to force reboot.
-* Using the Jetson serial console, load the required kernel modules:  
+* From the Jetson serial console, load the required kernel modules:  
 ```
 su  
 cd /lib/modules`
@@ -78,7 +81,7 @@ insmod gb-es1.ko
 ```
 * Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
-If you run into problems, disconnect the AP from the BDB CON28, reboot the Jetson and retry.  If that fails, remove power from the BDB and reapply. 
+If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapplym then [retry](#boot-and-connect). 
 
 <br>
 ###Step 6. Verify operation
