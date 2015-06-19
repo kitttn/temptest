@@ -5,17 +5,7 @@ There are 3 supported scenarios:
 * [Load firmware image to SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
 * [Load firmware image to SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
 
-These instructions assume you have cloned the nuttx and related repositories into your $HOME directory,
-i.e. 
-```
-$HOME
-   +--nuttx
-   +--flashrom
-   +--manifesto  
-   ... etc
-```
 
-If you've installed the repositories in a different folder, you'll need to modify the paths and commands accordingly.
 <br>
 ####Load firmware image to SPIROM
 
