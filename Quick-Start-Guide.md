@@ -88,8 +88,6 @@ A user at the Jetson TK1 serial console is able to remotely interrogate and cont
 
 GPIO 0 on APB2 is registered on Jetson as 989.
 
-APB2 GPIOs sometimes fail to register successfully on Jetson.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. 
-
 ####Verify the USB Connection is Established
 
 The APB1 firmware will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
@@ -98,97 +96,99 @@ The APB1 firmware will output the following on its serial console when a connect
 [I] GB: AP handshake complete  	
 ```
 
-Now that the AP to APB1 link is successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
+**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#section-5-configure-the-ap).
+
+With the AP to APB1 link successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
 ####GPIO
 
-
-Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
-
-    $ cat /sys/class/gpio/gpiochip*/label
+Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled, as with APB2.  Inspect the label attribute to find the one associated with Greybus:
+'''
+$ cat /sys/class/gpio/gpiochip*/label
     tegra-gpio                                                                      
     as3722-gpio                                                                     
     greybus_gpio       
     $ cat /sys/class/gpio/gpiochip989/label  
     greybus_gpio
-
+'''
 In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
 
-
 #####GPIO Number
-The GPIO number assigned by Linux will differ from the APBridge 2 GPIO number.
-You have to apply an offset from the APBridge 2 GPIO number to get the Linux one.
-To get the offset, run:
 
-    $ cat /sys/class/gpio/gpiochip989/base  
-    989
+The device GPIO number (in this case, 0 for APB2 GPIO 0) is used as an offset to the GPIO base number assigned by Linux. 
 
-For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 989 on Linux.
+Check the gpiochip base value:
+```
+$ cat /sys/class/gpio/gpiochip989/base
+989
+```
+Thus, 989 base + 0 offset (GPIO 0 on APB2) = GPIO number 989.
 
 #####Export and Unexport a GPIO
-The first thing to do is export the gpio that you want to use.
 
-    $ echo 989 > /sys/class/gpio/export  
+The first thing to do is export the gpio number that you want to use.
+```
+$ echo 989 > /sys/class/gpio/export
+```  
 
-This command will add a new entry in /sys/class/gpio/ (usually gpion where n is the exported gpio number).
+This command adds a new entry in /sys/class/gpio/, usually gpio*n* where *n* is the exported gpio number.
 
-When you have finished using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
-    
-    $ echo 989 > /sys/class/gpio/unexport
-
+When you have finished using a GPIO, you can unexport it. This operation removes the entry from /sys/class/gpio.
+```
+$ echo 989 > /sys/class/gpio/unexport
+```
 #####Get and Set GPIO Direction
-To get the direction, just run:
 
-    $ cat /sys/class/gpio/gpio989/direction  
-    in
-
-To change the direction:
-
-    $ echo out > /sys/class/gpio/gpio989/direction
-
+To get the direction:
+```
+$ cat /sys/class/gpio/gpio989/direction
+  in
+```
+To set the direction:
+```
+$ echo out > /sys/class/gpio/gpio989/direction
+```
 
 #####Get and Set GPIO Value
-To get the value, execute:
 
-    $ cat /sys/class/gpio/gpio989/value  
-    0
+To get the value:  
+```
+$ cat /sys/class/gpio/gpio989/value  
+  0
+```
+To set the value:  
+```
+$ echo *n* > /sys/class/gpio/gpio989/value
+```
+Where *n* is either 0 or 1.
 
-To change the value:
-
-    $ echo 1 > /sys/class/gpio/gpio989/value
-Note: On the BDB, APB2 GPIO 0 (mapped on Linux as 989) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
-![BDB Pin 1 of Header J79](images/BDB1B-Header-J79.png)
-The pin should read approximately 1.8V to ground when the GPIO value is 1, and a fraction of a volt when the value is 0.
-
-    $ echo 0 > /sys/class/gpio/gpio989/value
+Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a fraction of a volt when the value is 0.
 
 ####I2C
 
 Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
 
-#####Find the I2C Adapter
-Here is some example output showing how to find the I2C adapter:
+Identify the I2C device name:
+```
+# cat /sys/class/i2c-dev/i2c-*/name
+  Tegra I2C adapter                                                               
+  Tegra I2C adapter                                                               
+  Tegra I2C adapter                                                               
+  Tegra I2C adapter                                                               
+  Tegra I2C adapter                                                               
+  Tegra I2C adapter                                                               
+  Greybus i2c adapter          
+# cat /sys/class/i2c-dev/i2c-6/name
+  Greybus i2c adapter
+```
 
-    # cat /sys/class/i2c-dev/i2c-*/name
-    Tegra I2C adapter                                                               
-    Tegra I2C adapter                                                               
-    Tegra I2C adapter                                                               
-    Tegra I2C adapter                                                               
-    Tegra I2C adapter                                                               
-    Tegra I2C adapter                                                               
-    Greybus i2c adapter          
-    # cat /sys/class/i2c-dev/i2c-6/name
-    Greybus i2c adapter
-
-So in this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
+In this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
 
 #####I2C Tools
 
-A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the [pre-built Android image for the Jetson TK1](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  If you were using a Debian-derived Linux distribution on some other AP and found that the tools weren't present, you could install the i2c-tools package as follows:
+A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the pre-built Android image for the Jetson TK1. 
 
-    $ sudo apt-get install i2c-tools  
-
-Next, use i2cdetect to test i2c. 
+Use i2cdetect to test i2c. 
 ````
 $ i2cdetect -r 6
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
@@ -210,7 +210,7 @@ Note:
 * “6” is the i2c bus number, which could be different on your AP (e.g. “1” rather than “6”).
 * On some APs other than the Jetson TK1, you may have to load the i2c-dev kernel module before using the i2c-tools.
 
-You can also use i2cget to read a specfic value, e.g.:
+You can also use i2cget to read a specific value, e.g.:
 ````
 $ i2cget 6 0x29 3 c                                 
 WARNING! This program can confuse your I2C bus, cause data loss and worse!      
@@ -220,11 +220,10 @@ Continue? [Y/n] y
 0x14
 ````
 Notes:
-* As with i2cdetect “6” is the i2c bus number, which could be different on your AP (e.g. “1”)
+* As with i2cdetect “6” is the i2c bus number, which could be different on your AP
 * 0x29 is the chip address
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
                          
-
-
+Congratulations! You've completed the Quick Start Guide! 
 
