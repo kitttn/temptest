@@ -30,19 +30,18 @@ There are 3 types of microcontroller used on the BDB:
 - Supervisory Controller (SVC)
 
 ####Application Processor (AP) Bridge
-This chip is a Toshiba full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz.
-Initial firmware is loaded to internal SRAM from an external SPIROM, or the SRAM can be loaded from JTAG for debugging scenarios. This device connects an AP Module to the
+The Toshiba T6WT1XBG UniPro AP Bridge is a full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz. Initial firmware is loaded to internal SRAM from an external SPIROM, or the SRAM can be loaded from JTAG for debugging scenarios. This device connects an AP Module to the
 UniPro network. It has a USB HSIC interface for the AP module, and a UniPro M-PHY 
 interface that connects to the network switch. It can also act as a DSI-1 transmitter/receiver 
 for interfacing with a MIPI DSI-compliant display, and a CSI-2 transmitter/receiver for
 interfacing with cameras.
 
 ####General Purpose (GP) Bridge
-This is the same core device as the AP Bridge, but with a different 
+The Toshiba T6WT2XBG UniPro GP Bridge has the same core features as the AP Bridge, but with a different 
 set of peripherals (e.g. I2C/PWM/SDIO,etc). This bridge allows other modules, including the AP, to connect to the peripheral interfaces via UniPro.
 
 ####Supervisory Controller (SVC)
-This is an off-the-shelf STM32F417IG microcontoller with 192KBytes of RAM and 1MByte
+The ST Micro STM32F417IG is a standard microcontroller with 192KBytes of RAM and 1MByte
 of flash, running at 104MHz. It coordinates the connection of modules
 and bridges to the UniPro network switch, and handles system power
 sequencing, module detection, etc.
