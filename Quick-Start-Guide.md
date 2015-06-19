@@ -95,20 +95,20 @@ GPIO 0 on APB2 is registered on Jetson as 989.
 
 APB2 GPIOs sometimes fail to register successfully on Jetson.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. 
 
-#### Check that the USB Connection is Established
+####Verify the USB Connection is Established
 
-The example firmware for APB1 will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
-````
+The APB1 firmware will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
+```
 [I] GB: MID-1 module inserted                                              	 
 [I] GB: AP handshake complete  	
-````
+```
 
 Now that the AP to APB1 link is successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
-#### GPIO
+####GPIO
 
 
-Greybus creates an entry in /sys/class/gpio/ (gpiochip999 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
+Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
 
     $ cat /sys/class/gpio/gpiochip*/label
     tegra-gpio                                                                      
@@ -120,58 +120,58 @@ Greybus creates an entry in /sys/class/gpio/ (gpiochip999 for example) when it r
 In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
 
 
-##### GPIO Number
+#####GPIO Number
 The GPIO number assigned by Linux will differ from the APBridge 2 GPIO number.
 You have to apply an offset from the APBridge 2 GPIO number to get the Linux one.
 To get the offset, run:
 
-    $ cat /sys/class/gpio/gpiochip999/base  
-    999
+    $ cat /sys/class/gpio/gpiochip989/base  
+    989
 
-For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 999 on Linux.
+For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 989 on Linux.
 
-##### Export / Unexport a GPIO
+#####Export and Unexport a GPIO
 The first thing to do is export the gpio that you want to use.
 
-    $ echo 999 > /sys/class/gpio/export  
+    $ echo 989 > /sys/class/gpio/export  
 
 This command will add a new entry in /sys/class/gpio/ (usually gpion where n is the exported gpio number).
 
 When you have finished using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
     
-    $ echo 999 > /sys/class/gpio/unexport
+    $ echo 989 > /sys/class/gpio/unexport
 
-##### GPIO Direction
+#####Get and Set GPIO Direction
 To get the direction, just run:
 
-    $ cat /sys/class/gpio/gpio999/direction  
+    $ cat /sys/class/gpio/gpio989/direction  
     in
 
 To change the direction:
 
-    $ echo out > /sys/class/gpio/gpio999/direction
+    $ echo out > /sys/class/gpio/gpio989/direction
 
 
-##### GPIO Value
+#####Get and Set GPIO Value
 To get the value, execute:
 
-    $ cat /sys/class/gpio/gpio999/value  
+    $ cat /sys/class/gpio/gpio989/value  
     0
 
 To change the value:
 
-    $ echo 1 > /sys/class/gpio/gpio999/value
-Note: On the BDB, APB2 GPIO 0 (mapped on Linux as 999) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
+    $ echo 1 > /sys/class/gpio/gpio989/value
+Note: On the BDB, APB2 GPIO 0 (mapped on Linux as 989) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
 ![BDB Pin 1 of Header J79](images/BDB1B-Header-J79.png)
 The pin should read approximately 1.8V to ground when the GPIO value is 1, and a fraction of a volt when the value is 0.
 
-    $ echo 0 > /sys/class/gpio/gpio999/value
+    $ echo 0 > /sys/class/gpio/gpio989/value
 
-#### I2C
+####I2C
 
 Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
 
-##### Find the I2C Adapter
+#####Find the I2C Adapter
 Here is some example output showing how to find the I2C adapter:
 
     # cat /sys/class/i2c-dev/i2c-*/name
@@ -187,7 +187,8 @@ Here is some example output showing how to find the I2C adapter:
 
 So in this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
 
-##### I2C Tools
+#####I2C Tools
+
 A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the [pre-built Android image for the Jetson TK1](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  If you were using a Debian-derived Linux distribution on some other AP and found that the tools weren't present, you could install the i2c-tools package as follows:
 
     $ sudo apt-get install i2c-tools  
