@@ -1,10 +1,37 @@
 This page provides details on setting up your BDB and other hardware, to prepare for flashing and debugging firmware images.
 
+####General
 The development hardware has exposed components and connectors, and is extremely ESD-sensitive. Ensure your work area is ESD-safe by using a grounded static-dissipative mat or work surface, and wearing a grounded wrist strap at all times. Do not handle boards any more than necessary, and always handle by the edges. Avoid touching components or pins.
 
 The development hardware is also sensitive to power sequencing, so...   
 ##DO NOT CONNECT POWER SUPPLIES UNTIL DIRECTED BY THE INSTRUCTIONS!
+<!--
+####Connecting with the devices
 
+Each programmable device on the BDB has a connector that mates with the Debug Adapter Board FPC and carries SPI, JTAG,and serial debug lines to the Debug Adapter Board. Each bridge device has a slide RESET switch and a slide Detect/Wake (D/W) switch. The UniPro switch has a slide RESET switch. The SVC has momentary tact switches for RESET and GPIO.
+
+The following table shows these features for each device.
+
+Device| FPC    | Reset | D/W 
+------|--------|-------|-----
+APB1  | CON17  | SW8   | SW3
+APB2  | CON19  | SW9   | SW10
+APB3  | CON16  | SW7   | SW4
+GPB1  | CON14  | SW5   | SW2
+GPB2  | CON15  | SW6   | SW1
+SVC   | CON18  | SW11  | none
+Switch| CON20  | SW12  | none
+
+The Debug Adapter Board has the following features:
+*CON6 - USB conversion of serial debug output from device
+*CON1 - SPI ROM programming header (1.8V)
+*SW5  - Reset switch
+*CON3 - JTAG for Bridge
+*CON2 - JTAG for SVC
+*JP15 - pins 1-2 jumpered = JTAG power = 1.8V from BDB
+*JP15 - pins 2-3 jumpered = JTAG power = 1.8V from Debug Adapter Board
+*JP16 - pins 1-2 jumpered = 1.8V generated from USB VBUS
+*JP16 - pins 2-3 jumpered = 1.8V generated from ?? -->
 ####Required Materials
 
 Verify you have everything listed in this section.
