@@ -28,7 +28,7 @@ Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolcha
 `cd $HOME`  
 `git clone https://github.com/projectara/manifesto`  
 
-Append these lines to your .profile:
+Append these lines to your .profile:  
 `# add manifesto path`  
 `export PATH="$PATH:$HOME/manifesto"`  
 
