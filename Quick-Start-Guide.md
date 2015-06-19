@@ -173,16 +173,17 @@ Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it rece
 
 Identify the I2C device name:
 ```
-# cat /sys/class/i2c-dev/i2c-*/name
-  Tegra I2C adapter                                                               
-  Tegra I2C adapter                                                               
-  Tegra I2C adapter                                                               
-  Tegra I2C adapter                                                               
-  Tegra I2C adapter                                                               
-  Tegra I2C adapter                                                               
-  Greybus i2c adapter          
-# cat /sys/class/i2c-dev/i2c-6/name
-  Greybus i2c adapter
+cat /sys/class/i2c-dev/i2c-*/name
+Tegra I2C adapter                                                               
+Tegra I2C adapter                                                               
+Tegra I2C adapter                                                               
+Tegra I2C adapter                                                               
+Tegra I2C adapter                                                               
+Tegra I2C adapter                                                               
+Greybus i2c adapter          
+
+cat /sys/class/i2c-dev/i2c-6/name
+Greybus i2c adapter
 ```
 
 In this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
