@@ -42,7 +42,7 @@ The below steps build the firmware for APB1 and APB2
 on the BDB. There is no need to build or flash the SVC (Supervisory Controller) firmware because the 
 SVC on the BDB is preloaded with firmware prior to shipping.
 
-* `cd $HOME/nuttx`
+* `cd $HOME/nuttx` (or wherever you cloned the nuttx git repo) 
 * `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
 * `./build_ara_image.sh ara bridge/es2-debug-generic`
 
@@ -106,12 +106,13 @@ With the AP to APB1 link successfully established, you will be able to control a
 
 Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled, as with APB2.  Inspect the label attribute to find the one associated with Greybus:
 ```
-$ cat /sys/class/gpio/gpiochip*/label
-    tegra-gpio                                                                      
-    as3722-gpio                                                                     
-    greybus_gpio       
-    $ cat /sys/class/gpio/gpiochip989/label  
-    greybus_gpio
+cat /sys/class/gpio/gpiochip*/label
+tegra-gpio                                                                      
+as3722-gpio                                                                     
+greybus_gpio       
+
+cat /sys/class/gpio/gpiochip989/label  
+greybus_gpio
 ```
 In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
 
@@ -121,7 +122,7 @@ The device GPIO number (in this case, 0 for APB2 GPIO 0) is used as an offset to
 
 Check the gpiochip base value:
 ```
-$ cat /sys/class/gpio/gpiochip989/base
+cat /sys/class/gpio/gpiochip989/base
 989
 ```
 Thus, 989 base + 0 offset (GPIO 0 on APB2) = GPIO number 989.
@@ -130,37 +131,37 @@ Thus, 989 base + 0 offset (GPIO 0 on APB2) = GPIO number 989.
 
 The first thing to do is export the gpio number that you want to use.
 ```
-$ echo 989 > /sys/class/gpio/export
+echo 989 > /sys/class/gpio/export
 ```  
 
 This command adds a new entry in /sys/class/gpio/, usually gpio*n* where *n* is the exported gpio number.
 
 When you have finished using a GPIO, you can unexport it. This operation removes the entry from /sys/class/gpio.
 ```
-$ echo 989 > /sys/class/gpio/unexport
+echo 989 > /sys/class/gpio/unexport
 ```
 #####Get and Set GPIO Direction
 
 To get the direction:
 ```
-$ cat /sys/class/gpio/gpio989/direction
-  in
+cat /sys/class/gpio/gpio989/direction
+in
 ```
 To set the direction:
 ```
-$ echo out > /sys/class/gpio/gpio989/direction
+echo out > /sys/class/gpio/gpio989/direction
 ```
 
 #####Get and Set GPIO Value
 
 To get the value:  
 ```
-$ cat /sys/class/gpio/gpio989/value  
-  0
+cat /sys/class/gpio/gpio989/value  
+0
 ```
 To set the value:  
 ```
-$ echo n > /sys/class/gpio/gpio989/value
+echo n > /sys/class/gpio/gpio989/value
 ```
 Where *n* equals 0 or 1.
 
@@ -192,7 +193,7 @@ A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump,
 
 Use i2cdetect to test i2c. 
 ````
-$ i2cdetect -r 6
+i2cdetect -r 6
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
 I will probe file /dev/i2c-6 using read byte commands.
 I will probe address range 0x03-0x77.
@@ -213,7 +214,7 @@ Note:
 
 You can also use i2cget to read a specific value, e.g.:
 ````
-$ i2cget 6 0x29 3 c                                 
+i2cget 6 0x29 3 c                                 
 WARNING! This program can confuse your I2C bus, cause data loss and worse!      
 I will read from device file /dev/i2c-6, chip address 0x29,
 data address 0x03, using write byte/read byte.                                           
