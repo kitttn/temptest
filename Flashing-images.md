@@ -12,7 +12,13 @@ There are 3 supported scenarios:
 1. REMOVE POWER FROM BDB
 2. Connect JTAG interface to debug board CON3  
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
-Board' and 'BDB'. The following table shows which BDB connector goes with which chip.
+Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
+4. Verify debug board SW5 is positioned *toward* the SW5 label  
+5. Verify jumper installed at debug board JP15 pins 1-2
+6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
+7. Optional: USB cable connected to BDB CON12 (SVC console).  
+8. Apply power to the BDB. 
+
 
 Bridge ASIC | BDB Debug Connector  
 -------------|------  
@@ -22,11 +28,6 @@ AP Bridge 3 | CON16
 GP Bridge 1 | CON14  
 GP Bridge 2 | CON15
 
-4. Verify debug board SW5 is positioned *toward* the SW5 label  
-5. Verify jumper installed at debug board JP15 pins 1-2
-6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
-7. Optional: USB cable connected to BDB CON12 (SVC console).  
-8. Apply power to the BDB. 
 
 #####Software Steps
 
