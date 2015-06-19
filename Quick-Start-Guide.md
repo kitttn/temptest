@@ -32,7 +32,7 @@ Ready? Here we go!
   * 3 or more USB micro B cables
   * USB hub
   * 2 (two!) [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
-2. Follow the instructions [on this page](Hardware-Overview)
+2. Follow the instructions [on this page](Hardware-Setup)
 
 <br>
 ###SECTION 3. Build the firmware images
