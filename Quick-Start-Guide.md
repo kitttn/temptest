@@ -101,7 +101,7 @@ The APB1 firmware will output the following on its serial console when a connect
 [I] GB: AP handshake complete  	
 ```
 
-**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#step-5-configure-the-ap).
+**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#step-5-configure-the-application-processor-ap).
 
 With the AP to APB1 link successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
