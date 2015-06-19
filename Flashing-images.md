@@ -104,7 +104,8 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 
 ###Additional Info
 
-**Debug Adapter Board SPI Header Pinout**
+**Debug Adapter Board SPI Header Pinout**  
+
 Pin|Signal|Signal|Pin
 ---|------|------|---
 1|VCC  |GND  |2
