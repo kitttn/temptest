@@ -40,41 +40,45 @@ Complete each of the following steps in order. Within each step, there are links
 Follow the steps below to build the firmware for APB1 and APB2 bridges
 on the BDB.  
 
-* `cd $HOME/nuttx` (or wherever you cloned the nuttx git repo) 
+* `cd $HOME/nuttx`
 * `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
 * `./build_ara_image.sh ara bridge/es2-debug-generic`
 
-**NOTE:**  
-The following step is informational only. You do not need to build 
-the SVC (Supervisory Controller) firmware because the 
-SVC is preloaded with firmware prior to shipping. 
-
-To build the SVC firmware:
-* `cd $HOME/nuttx` (or wherever you cloned the nuttx git repo) 
-* `./build_ara_image.sh ara svc/bdb2a
+The resulting binary image files are here:
+APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
+APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
 <br>
 ###Step 4. Load the firmware images
 
 #####Option 1: Load firmware image to flash
-For each of the firmware images listed below, follow 
+For each of the bridge firmware images listed in step 3, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
 
 #####Option 2: Load firmware image using JTAG
-For each of the firmware images listed below, follow 
+For each of the bridge firmware images listed in step 3, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
-#####Firmware images (binary image files):
-APB1:  `./nuttx/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
-APB2:  `./nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
+----------------------------------------
+**Build and flash SVC firmware image**  
+This section is included *just in case* you need to flash the SVC firmware. This should not be required under most circumstances, because the SVC is preloaded with firmware prior to shipping. If you aren't sure, don't do it.
 
-**NOTE:**  
-The following step is informational only. You do not need to flash 
-the SVC (Supervisory Controller) firmware because the 
-SVC is preloaded with firmware prior to shipping. 
+----------------------------------------
+**Optional: Build and flash SVC firmware image**  
+Normally, you should not need to flash the SVC (Supervisory Controller) 
+firmware because the SVC is preloaded with firmware prior to shipping. 
+This step is included in case you need to do that for some reason. 
 
-To flash the SVC firmware, follow [this procedure]
-(Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
+**If you aren't sure, don't do it.**
+
+Build SVC firmware image:
+* `cd $HOME/nuttx`
+* `./build_ara_image.sh ara svc/bdb2a
+The resulting ELF image file is here:
+`$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`  
+
+Flash SVC firmware image:
+Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC image listed above.
 
 <br>
 ###Step 5. Configure the Application Processor (AP)
