@@ -27,7 +27,7 @@ Also if you're using multiple JTAG interfaces, you'll need to specify a unique p
 
 `JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
  
-You may see diagnostics of the form:
+You may see diagnostics of the form:  
 `WARNING: Failed to read memory @ address 0xFFFFFFFF `  
 `WARNING: Failed to read memory @ address 0xFFFFFFFF`  
 
