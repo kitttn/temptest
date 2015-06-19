@@ -1,22 +1,48 @@
 This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
 
-####AP/GP bridge firmware boot process overview
+####AP/GP bridge firmware boot process
 
 Following reset, the device loads the firmware image from flash (SPIROM) 
 to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
 by sampling the SPIBOOT_N pin, which is grounded. 
 
-Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is halted, and then letting the processor run.  
+Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is held in reset, and then releasing the processor from reset.  
 
-In either case, a valid firmware image is required in SPIROM in order
-to boot the device. BDBs are shipped with a valid firmware image in flash, but if the image
-becomes corrupted, or crashes at boot time, or fails to boot, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
+In either of these cases, a valid firmware image is required in SPIROM in order
+to boot the device. 
 
-[Download the nop-loop.bin image](nop-loop.bin).  
-The nop-loop.bin firmware is a dummy program that does nothing but loop forever. 
-This allows the JTAG debugger to connect to the ARM core, gain control, and then you
-can load your firmware image to internal SRAM and debug. 
+If the firmware image in flash fails to respond to JTAG, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
 
+If you need a known-good firmware image to write to flash, in order to get JTAG debug working,  you can use nop-loop.bin, which is a firmware image that does nothing but loop forever. 
+
+[Download the nop-loop firmware image](nop-loop.bin).  
+
+####How to debug AP/GP bridge firmware using JTAG
+
+If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:.  We'll refer to this value as *jlink_sn* in the steps below.
+
+Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session.
+
+* Open a  terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server.  We use port number 2341 in this example.
+
+`JLinkGDBServer -select usb=*jlink_sn* -port 2341`
+ 
+You may see diagnostics of the form:
+`WARNING: Failed to read memory @ address 0xFFFFFFFF `  
+`WARNING: Failed to read memory @ address 0xFFFFFFFF`  
+
+These are harmless and it's okay to ignore them.
+
+The following steps load the firmware image to internal RAM and run it.
+
+* Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
+* Connect to the gdbserver:  `target remote localhost:2341`  
+* Reset the target device: `monitor reset`  
+* Load the symbols into GDB: `file <path-to-image-elf-file>`  
+* Load the binary image: `restore <path-to-image-binary-file>`  
+* Set the program counter to the reset handler: `set $pc=Reset_Handler`
+* Set any initial breakpoints if needed  
+* Release the processor from reset: `continue`  
 
 <!--
 
