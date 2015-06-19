@@ -15,8 +15,6 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 6. Verify operation](#step-6-verify-operation)  
 
 --------------------------------------------------------------
-
-<br>
 ###Step 1. Set up your development computer
 
 * Make sure you are running Linux 14.04. You can use a VM or a physical machine.
