@@ -1,6 +1,6 @@
 While there are some differences between the AP/GP bridge firmware and the SVC firmware, the basic build process is the same for all. The output of the build is a binary firmware image that can be loaded and run on the microcontroller, along with an ELF format file that contains symbolic debugging information.
 
-These build instructions assume you have cloned the nuttx and other related repositories into your $HOME directory,
+These build instructions assume you have cloned the nuttx and related repositories into your $HOME directory,
 i.e. 
 ```
 $HOME
