@@ -4,7 +4,7 @@ This page is intended for developers getting started for the first time with the
 
 Once you've completed this guide, you can be confident that everything is working as expected. 
 
-If you're more experienced, feel free to skip this guide and work your way through the other wiki pages listed in the box at the right.
+If you're more experienced, feel free to skip this guide and read through the other wiki pages listed in the box at the right.
 
 Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
 
@@ -15,7 +15,7 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 5. Configure the Application Processor (AP)](#step-5-configure-the-application-processor-ap)  
 [Step 6. Verify operation](#step-6-verify-operation)  
 
-Ready? Here we go!
+============================
 
 <br>
 ###Step 1. Set up your development computer
@@ -38,8 +38,8 @@ Ready? Here we go!
 
 <br>
 ###Step 3. Build the firmware images
-The below steps build the firmware for APB1 and APB2
-on the BDB. There is no need to build or flash the SVC (Supervisory Controller) firmware because the 
+The below steps build the firmware for APB1 and APB2 bridges
+on the BDB.  There is no need to build or flash the SVC (Supervisory Controller) firmware because the 
 SVC on the BDB is preloaded with firmware prior to shipping.
 
 * `cd $HOME/nuttx` (or wherever you cloned the nuttx git repo) 
