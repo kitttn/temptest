@@ -67,16 +67,11 @@ The following steps load the firmware image to internal RAM and run it.
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
 
-####How to debug SVC firmware using JTAG
-The SVC executes code from its internal flash. The JTAG interface is capable of debugging the firmware as it runs from flash. Therefore, we use the same JTAG session to flash the firmware image and debug.
+###How to debug SVC firmware using JTAG
 
-Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
+The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same JTAG session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
 #####Software steps
-
-If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as $JLINK_SN in the steps below.
-
-Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as $JLINK_PORT in the steps below.
 
 Open a terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
 
@@ -93,8 +88,7 @@ The following steps load the firmware image to internal RAM and run it.
 * Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
 * Connect to the gdbserver:  `target remote localhost:2341`  
 * Reset the target device: `monitor reset`  
-* Load the symbols into GDB: `file <path-to-image-elf-file>`  
-* Load the binary image: `restore <path-to-image-binary-file>`  
+* Load the ELF file into GDB: `file <path-to-image-elf-file>`  
 * Set the program counter to the reset handler: `set $pc=Reset_Handler`
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
