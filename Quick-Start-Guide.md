@@ -84,7 +84,7 @@ insmod gb-es1.ko
 9. Connect the Jetson main USB port to the BDB. The main USB port is circled in green :
 ![Jetson TK1 Connectors](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg)
 
-If you run into problems, disconnect the AP from the BDB, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
+If you run into problems, disconnect the AP from the BDB, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
 
 <br>
 ###SECTION 6. Verify operation
@@ -159,9 +159,9 @@ To get the value, execute:
 To change the value:
 
     $ echo 1 > /sys/class/gpio/gpio999/value
-Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 999) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
-![BDB1B Pin 1 of Header J79](images/BDB1B-Header-J79.png)
-The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
+Note: On the BDB, APB2 GPIO 0 (mapped on Linux as 999) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
+![BDB Pin 1 of Header J79](images/BDB1B-Header-J79.png)
+The pin should read approximately 1.8V to ground when the GPIO value is 1, and a fraction of a volt when the value is 0.
 
     $ echo 0 > /sys/class/gpio/gpio999/value
 
