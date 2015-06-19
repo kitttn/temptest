@@ -251,6 +251,8 @@ Notes:
 * 0x29 is the chip address
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
+
+-----------------------------------------------------------
                          
-***Congratulations! You've completed the Quick Start Guide!***
+#***Congratulations! You've completed the Quick Start Guide!***
 
