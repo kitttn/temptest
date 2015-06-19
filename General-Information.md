@@ -28,4 +28,16 @@ Read access is public, push access authorization is per GitHub user. SSH and two
 #####Greybus specification
 [https://github.com/projectara/greybus-spec](https://github.com/projectara/greybus-spec)  
 
+####Default Repository Installation Path
 
+Throughout the wiki, it is assumed you have cloned the nuttx and related repositories into your $HOME directory,
+i.e. 
+```
+$HOME
+   +--nuttx
+   +--flashrom
+   +--manifesto  
+   ... etc
+```
+
+If you install the repositories in a different location, you'll need to modify the paths and commands accordingly.
