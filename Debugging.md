@@ -13,9 +13,7 @@ to boot the device.
 
 If the firmware image in flash fails to respond to JTAG, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
 
-If you need a known-good firmware image to write to flash, in order to get JTAG debug working,  you can use nop-loop.bin, which is a firmware image that does nothing but loop forever. 
-
-[Download the nop-loop firmware image](nop-loop.bin).  
+If you need a known-good firmware image to write to flash, in order to get JTAG debug working,  you can use nop-loop.bin, which is a firmware image that does nothing but loop forever. You can download the nop-loop firmware image [here](nop-loop.bin).  
 
 ####How to debug AP/GP bridge firmware using JTAG
 
