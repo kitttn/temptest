@@ -2,9 +2,9 @@ Hello, and welcome!
 
 This page is intended for developers getting started for the first time with the Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C demo". 
 
-Once you've completed this guide, you can be confident that everything is working as expected, and you'll have familiarized yourself with the tools and techniques. 
+Once you've completed this guide, you can be confident that everything is working as expected. 
 
-If you're more experienced, feel free to skip this guide and work your way through the other wiki pages listed in the box at the right, in the order they are listed.
+If you're more experienced, feel free to skip this guide and work your way through the other wiki pages listed in the box at the right.
 
 Complete each of the following sections in order. Within each section, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
 
