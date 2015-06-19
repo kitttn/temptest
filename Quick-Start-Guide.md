@@ -105,14 +105,14 @@ With the AP to APB1 link successfully established, you will be able to control a
 ####GPIO
 
 Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled, as with APB2.  Inspect the label attribute to find the one associated with Greybus:
-'''
+```
 $ cat /sys/class/gpio/gpiochip*/label
     tegra-gpio                                                                      
     as3722-gpio                                                                     
     greybus_gpio       
     $ cat /sys/class/gpio/gpiochip989/label  
     greybus_gpio
-'''
+```
 In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
 
 #####GPIO Number
