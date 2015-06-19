@@ -1,4 +1,4 @@
-This page is intended for developers getting started for the first time with the Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C demo". 
+This page is intended for developers getting started for the first time with the Project Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C demo". 
 
 Once you've completed this guide, you can be confident that everything is working as expected. 
 
