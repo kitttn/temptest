@@ -71,18 +71,31 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 
 The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same GDB session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
+#####Hardware Setup
+
+1. REMOVE POWER FROM BDB
+2. Connect the J-Link JTAG interface to debug board CON3 and host USB
+3. Connect FPC from debug board CON9 to BDB CON18. Cable is directional. Observe FPC labeling 'side Debug
+Board' and 'BDB'.  
+4. Verify debug board SW5 is positioned *away from* the SW5 label  
+5. Verify jumper is installed on debug board JP15 pins 1-2
+6. Connect USB cable to BDB CON12 for SVC serial debug output at 115200-n-8-1 on /dev/ttyUSBx. 
+7. Apply power to the BDB.
+
 #####Software steps
 
-Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface. 
-
-`JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT`
- 
-The following steps load the SVC firmware image into flash and run it.
-
+* Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface:   `JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT`
 * Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
 * Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
-* Reset the target device: `monitor reset`  
-* Load the ELF file into GDB: `file <path-to-image-elf-file>`  
-* Set the program counter to the reset handler: `set $pc=Reset_Handler`
-* Set any initial breakpoints if needed  
+* Reset the target: `monitor reset`  
+* Specify the ELF file: `file <path-to-image-elf-file>`  
+* Load the ELF file (and write to internal flash): `load`
+* Set initial breakpoints if needed  
 * Release the processor from reset: `continue`  
+
+If you rebuild the image, you can reload the new image from the same GDB session by typing control-C, then:
+```
+monitor reset
+load
+continue
+```
