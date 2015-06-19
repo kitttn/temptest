@@ -100,3 +100,14 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 4. Reset target: `monitor reset`
 5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead:
    `restore nuttx.bin binary 0x08000000`
+
+
+###Additional Info
+
+**Debug Adapter Board SPI Header Pinout**
+Pin|Signal|Signal|Pin
+---|------|------|---
+1|VCC  |GND  |2
+3|CS   |CLK  |4
+5|MISO |MOSI |6
+7|VPP  |I/O3 |8
