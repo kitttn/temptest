@@ -10,13 +10,13 @@ There are 3 supported scenarios:
 
 #####Hardware Setup
 1. REMOVE POWER FROM BDB
-2. Connect JTAG interface to debug board CON3  
+2. Connect JTAG interface to debug board CON3 and to host USB
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
 Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
 5. Verify jumper is installed on debug board JP15 pins 1-2
 6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
-7. Optional: USB cable connected to BDB CON12 (SVC console).  
+7. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run terminal prog at 115200,  
 8. Apply power to the BDB. 
 
 
