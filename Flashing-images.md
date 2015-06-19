@@ -8,38 +8,36 @@ There are 3 supported scenarios:
 
 ####Load firmware image to SPIROM
 
-Run :
+#####Hardware Setup
+1. REMOVE POWER FROM BDB
+2. Connect JTAG interface to debug board CON3  
+3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
+Board' and 'BDB'. The following table shows which BDB connector goes with which chip.
+Bridge ASIC | BDB Debug Connector
+-------------|------
+AP Bridge 1 | CON17
+AP Bridge 2 | CON19
+AP Bridge 3 | CON16
+GP Bridge 1 | CON14
+GP Bridge 2 | CON15
+4. Verify debug board SW5 is positioned *toward* the SW5 label  
+5. Verify jumper installed at debug board JP15 pins 1-2
+6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
+8. Optional: USB cable connected to BDB CON12 (SVC console).  
+7. Apply power to the BDB. 
 
-                truncate -s 2M nuttx.bin
 
-Flashrom requires to have the same binary size as the size of the
-SPIROM, this command will create holes at the end of the file in order
-to get the same size (i.e. it will pad with 0 when read back but it
-won’t use any physical memory on your disk).
+#####Software Steps
 
-5.  Get yourself a [SF100
-    ISP](http://www.google.com/url?q=http%3A%2F%2Fwww.dediprog.com%2Fpd%2Fspi-flash-solution%2Fsf100&sa=D&sntz=1&usg=AFQjCNHXXwNK8cQ1U0qlJL8VdAxNQFqeVw) programmer
-    from Dediprog.
-6.  Build the flashrom utility from the git repository above.
-7.  Disconnect power to the BDB.
-8.  Connect your debug adapter board with a 40-pin FPC connector to the
-    bridge you are attempting to program. Be careful, the connector is
-    fragile.
-9.  Configure your debug adapter board for use with the SPI ROM chip.
+1. Run the truncate utility. The Flashrom utility expects the binary file to be the same size as the
+SPIROM it is writing to. To ensure this, we run the truncate utility on the nuttx binary image file. 
+This creates holes at the end of the file in order to get the same size (i.e. it will pad with 0 when read back but it won’t use any physical memory on your disk).
 
-1.  On Debug Board Rev A, use a jumper to jump pins 2-3 on JP10.
-2.  On Debug Board Rev B, slide the switch labeled SW5 towards the SW5
-    label on the board.
+```
+truncate -s 2M nuttx.bin
+```
+2. Run the flashrom utility. Prior to running, rebuild if needed. Refer to the README for specifics.
 
-10. Attach the grey SF100 ribbon cable that has an 8-pin connector to
-    the mating 8-pin SPIROM programming header on the debug adapter
-    board.  See the photo below for the combined result of steps 8 and
-    9.  The jumper referenced in step 9 appears two columns to the left
-    of the grey cable.  Caution: The SPIROM programming header is not
-    keyed, so pay careful attention to the position of the red wire of
-    grey ribbon cable, which denotes cd pin
-    1!![IMG\_0017.JPG](images/image00.jpg)
-11. Apply power to the BDB. Attach the USB cable.
 12. Run (root permission may be needed, e.g. as granted via a “sudo “
     prefix):
 
