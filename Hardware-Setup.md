@@ -21,6 +21,7 @@ Qty | Item | Description
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
 [Picture of BDB](images/BDB1B-Board.png)  
+[Picture of Debug Boards, FPCs, and BDB Power Supply](images/BDB1B-Accessories.png)  
 
 The following items are also required:  
 
@@ -29,8 +30,6 @@ Qty | Item | Description
 2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) | JTAG USB interface
 3   | cable | USB A to micro B cable
  
-[Picture of BDB Accessories](images/BDB1B-Accessories.png)  
-
 ####STEP 2. Configure Debug Adapter Boards
 
 Verify the Debug Adapter Boards are correctly configured.  
