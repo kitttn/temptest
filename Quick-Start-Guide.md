@@ -30,7 +30,7 @@ Complete each of the following steps in order. Within each step, there are links
   * 3 or more USB micro B cables
   * USB hub
   * 2 (two!) [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
-  * Dediprog SF100 Programmer
+  * [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
   * 9-pin USB serial adapter
 * Follow the instructions [on this page](Hardware-Setup)
 
