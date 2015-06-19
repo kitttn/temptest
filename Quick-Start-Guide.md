@@ -47,15 +47,15 @@ SVC on the BDB is preloaded with firmware prior to shipping.
 <br>
 ###Step 4. Load the firmware images
 
-#####Option 1: load firmware image to flash
+#####Option 1: Load firmware image to flash
 For each of the firmware images listed below, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
 
-#####Option 2: load and run firmware image via JTAG
+#####Option 2: Load firmware image using JTAG
 For each of the firmware images listed below, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
-#####Firmware image binary files:
+#####Firmware images (binary image files):
 APB1:  `./nuttx/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
 APB2:  `./nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
