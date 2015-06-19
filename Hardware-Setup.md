@@ -4,7 +4,7 @@ The development hardware has exposed components and connectors, and is extremely
 
 The development hardware is sensitive to power sequencing. *DO NOT CONNECT POWER SUPPLIES UNTIL REQUIRED BY THE INSTRUCTIONS!*.
 
-####STEP 1. Required Materials
+####Required Materials
 
 Verify you have everything listed in this section.
 
@@ -30,7 +30,7 @@ Qty | Item | Description
 2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) | JTAG USB interface
 3   | cable | USB A to micro B cable
  
-####STEP 2. Configure Debug Adapter Boards
+####Configure Debug Adapter Boards
 
 Verify the Debug Adapter Boards are correctly configured.  
 
@@ -39,7 +39,7 @@ Verify the Debug Adapter Boards are correctly configured.
 
 [Pciture showing JP15 and SW5 settings](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
-####STEP 3. Attach all cables
+####Attach cables
 
 *DO NOT APPLY POWER UNTIL INSTRUCTED.*  
 
@@ -54,11 +54,8 @@ Refer to the picture and follow the steps below.
 6. Connect the J-Link USB cable to the development system.  
 7. Connect the USB cable from the Debug Adapter Boards for AP Bridge 1 to the development system.
 8. Connect the USB cable from the Debug Adapter Boards for AP Bridge 2 to the development system.
-9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. AP Bridge 1 console should appear on  /dev/ttyUSB0 and AP Bridge 2 console on  /dev/ttyUSB1. This assumes no other USB serial devices are attached to the development system.  
+9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. The APB1 serial debug output should appear on /dev/ttyUSB0 and APB2 debug output on /dev/ttyUSB1. This assumes no other USB serial devices are attached to the development system.
 
-####STEP 4. Recheck all connections.
-Review the above steps and confirm all cables are secure.
-
-####STEP 5. Apply power
-Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
+####Apply power
+Review the above steps and confirm all cables are secure, then attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
 
