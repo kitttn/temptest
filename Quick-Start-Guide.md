@@ -58,13 +58,33 @@ flash the firmware image to the device.
 
 <br>
 ###SECTION 5. Configure the AP
-(todo)
+In this section, you will prepare the Jetson TK1 Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP.
+
+Project Ara provides a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform) for the Jetson TK1 development board.  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+
+**DO NOT CONNECT THE BDB TO THE AP VIA USB UNTIL INSTRUCTED.**
 
 Use May 15-era Jetson build.
 Kernel modules to load on Jetson: 
 * greybus.ko
 * gb-phy.ko
 * gb-es1.ko
+
+1. Have everything connected (JTAG to APB1, JTAG to APB2) but **DO NOT CONNECT THE AP TO THE BDB VIA USB**
+2. Reboot the AP. If the AP's console is unresponsive, reset the AP to force a reboot.
+3. On the Jetson serial console Load the required kernel modules on the Jetson:  
+```
+su  
+cd /lib/modules`
+insmod greybus.ko
+insmod gb-phy.ko
+insmod gb-es1.ko
+```
+ 
+9. Connect the Jetson main USB port to the BDB. The main USB port is circled in green :
+![Jetson TK1 Connectors](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg)
+
+If you run into problems, disconnect the AP from the BDB, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB1B and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
 
 <br>
 ###SECTION 6. Verify operation
@@ -75,8 +95,138 @@ GPIO 0 on APB2 is registered on Jetson as 989.
 
 APB2 GPIOs sometimes fail to register successfully on Jetson.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. 
 
+#### Check that the USB Connection is Established
 
-(todo)
+The example firmware for APBridge 1 will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
+````
+[I] GB: MID-1 module inserted                                              	 
+[I] GB: AP handshake complete  	
+````
+With the AP to APBridge 1 link successfully established, you'll now be able to control and monitor GPIO and I2C on APBridge 2 from your AP!
+
+#### GPIO
+
+Greybus creates an entry in /sys/class/gpio/ (gpiochip999 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
+
+    $ cat /sys/class/gpio/gpiochip*/label
+    tegra-gpio                                                                      
+    as3722-gpio                                                                     
+    greybus_gpio       
+    $ cat /sys/class/gpio/gpiochip999/label  
+    greybus_gpio
+
+In this example, gpiochip999 is associated with Greybus.  **It may be different on your machine.**
+
+
+##### GPIO Number
+The GPIO number assigned by Linux will differ from the APBridge 2 GPIO number.
+You have to apply an offset from the APBridge 2 GPIO number to get the Linux one.
+To get the offset, run:
+
+    $ cat /sys/class/gpio/gpiochip999/base  
+    999
+
+For example, to control the GPIO 0 on APBridge 2, you have to control the GPIO 999 on Linux.
+
+##### Export / Unexport a GPIO
+The first thing to do is export the gpio that you want to use.
+
+    $ echo 999 > /sys/class/gpio/export  
+
+This command will add a new entry in /sys/class/gpio/ (usually gpion where n is the exported gpio number).
+
+When you have finished using a GPIO, you can unexport it. This operation will remove the gpion entry from /sys/class/gpio.
+    
+    $ echo 999 > /sys/class/gpio/unexport
+
+##### GPIO Direction
+To get the direction, just run:
+
+    $ cat /sys/class/gpio/gpio999/direction  
+    in
+
+To change the direction:
+
+    $ echo out > /sys/class/gpio/gpio999/direction
+
+
+##### GPIO Value
+To get the value, execute:
+
+    $ cat /sys/class/gpio/gpio999/value  
+    0
+
+To change the value:
+
+    $ echo 1 > /sys/class/gpio/gpio999/value
+Note: On the BDB1B, APBridge 2’s GPIO 0 (mapped on Linux as 999) is available on pin 1 (look for a white dot on the PCB) of a header labeled J79:
+![BDB1B Pin 1 of Header J79](images/BDB1B-Header-J79.png)
+The pin should read approximately 1.8V to ground when the GPIO’s value is 1, and a fraction of a volt when the value is 0.
+
+    $ echo 0 > /sys/class/gpio/gpio999/value
+
+#### I2C
+
+Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
+
+##### Find the I2C Adapter
+Here is some example output showing how to find the I2C adapter:
+
+    # cat /sys/class/i2c-dev/i2c-*/name
+    Tegra I2C adapter                                                               
+    Tegra I2C adapter                                                               
+    Tegra I2C adapter                                                               
+    Tegra I2C adapter                                                               
+    Tegra I2C adapter                                                               
+    Tegra I2C adapter                                                               
+    Greybus i2c adapter          
+    # cat /sys/class/i2c-dev/i2c-6/name
+    Greybus i2c adapter
+
+So in this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
+
+##### I2C Tools
+A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the [pre-built Android image for the Jetson TK1](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  If you were using a Debian-derived Linux distribution on some other AP and found that the tools weren't present, you could install the i2c-tools package as follows:
+
+    $ sudo apt-get install i2c-tools  
+
+Next, use i2cdetect to test i2c. 
+````
+$ i2cdetect -r 6
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-6 using read byte commands.
+I will probe address range 0x03-0x77.
+Continue? [Y/n] Y
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --                            
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --                            
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+70: -- -- -- -- -- -- -- --                             
+````
+Note: 
+* The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
+* “6” is the i2c bus number, which could be different on your AP (e.g. “1” rather than “6”).
+* On some APs other than the Jetson TK1, you may have to load the i2c-dev kernel module before using the i2c-tools.
+
+You can also use i2cget to read a specfic value, e.g.:
+````
+$ i2cget 6 0x29 3 c                                 
+WARNING! This program can confuse your I2C bus, cause data loss and worse!      
+I will read from device file /dev/i2c-6, chip address 0x29,
+data address 0x03, using write byte/read byte.                                           
+Continue? [Y/n] y                                                           
+0x14
+````
+Notes:
+* As with i2cdetect “6” is the i2c bus number, which could be different on your AP (e.g. “1”)
+* 0x29 is the chip address
+* 3 is the data address
+* The last argument is the mode, which is write byte/read byte (“c”) in this example
+                         
 
 
 
