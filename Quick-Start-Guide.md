@@ -58,21 +58,17 @@ flash the firmware image to the device.
 
 <br>
 ###SECTION 5. Configure the AP
-In this section, you will prepare the Jetson TK1 Application Processor (AP), and build the [Greybus kernel modules](https://github.com/projectara/greybus) (greybus, gb-phy, and gb-es1) for the Linux kernel running on that AP.
 
-Project Ara provides a [pre-built Android image](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform) for the Jetson TK1 development board.  With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+In this section, you will flash the Jetson TK1 Application Processor (AP) with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
+
+Download and flash the pre-built Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  
+
+With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
 
 **DO NOT CONNECT THE BDB TO THE AP VIA USB UNTIL INSTRUCTED.**
 
-Use May 15-era Jetson build.
-Kernel modules to load on Jetson: 
-* greybus.ko
-* gb-phy.ko
-* gb-es1.ko
-
-1. Have everything connected (JTAG to APB1, JTAG to APB2) but **DO NOT CONNECT THE AP TO THE BDB VIA USB**
-2. Reboot the AP. If the AP's console is unresponsive, reset the AP to force a reboot.
-3. On the Jetson serial console Load the required kernel modules on the Jetson:  
+1. Reboot the AP. If the AP's console is unresponsive, reset the AP to force a reboot.
+2. On the Jetson serial console Load the required kernel modules:  
 ```
 su  
 cd /lib/modules`
@@ -81,10 +77,9 @@ insmod gb-phy.ko
 insmod gb-es1.ko
 ```
  
-9. Connect the Jetson main USB port to the BDB. The main USB port is circled in green :
-![Jetson TK1 Connectors](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg)
+3. Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
-If you run into problems, disconnect the AP from the BDB, and return to step 2.  A fallback if that fails to bring up the system is to remove power from the BDB and reapply power.  This fallback typically requires that the J-Link GDB servers and the GDB clients be stopped and restarted as well.
+If you run into problems, disconnect the AP from the BDB CON28, and return to step 2.  If that fails, remove power from the BDB and reapply. 
 
 <br>
 ###SECTION 6. Verify operation
@@ -230,7 +225,6 @@ Notes:
 * 3 is the data address
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
                          
-
 
 
 
