@@ -5,6 +5,7 @@ Once you've completed this guide, you can be confident that everything is workin
 If you're more experienced, feel free to skip this guide and read through the other wiki pages listed in the box at the right.
 
 --------------------------------------
+
 Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
 
 [Step 1. Set up your development computer](#step-1-set-up-your-development-computer)  
@@ -15,11 +16,14 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 6. Verify operation](#step-6-verify-operation)  
 
 --------------------------------------------------------------
+
 ###Step 1. Set up your development computer
 
 * Make sure you are running Linux 14.04. You can use a VM or a physical machine.
 * Follow the software setup instructions on [this page](Software-Setup)
+
 --------------------------------------------------------------
+
 ###Step 2. Set up your development hardware
 
 * Make sure you have the following:
@@ -32,7 +36,9 @@ Complete each of the following steps in order. Within each step, there are links
   * 1 [9-pin female-female null modem](images/nullmodem9ff.jpg) 
   * [ProjectAra MDK](http://www.projectara.com/mdk/)
 * Follow the hardware setup instructions on [this page](Hardware-Setup)
+
 --------------------------------------------------------------
+
 ###Step 3. Build the firmware images
 Follow the steps below to build the firmware for APB1 and APB2 bridges
 on the BDB.  
@@ -44,7 +50,9 @@ on the BDB.
 The resulting binary image files are here:  
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`  
+
 --------------------------------------------------------------
+
 ###Step 4. Load the firmware images
 
 #####Option 1: Load firmware image to flash
@@ -68,6 +76,7 @@ Flash SVC firmware:
 Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
 
 --------------------------------------------------------------
+
 ###Step 5. Configure the Application Processor (AP)
 
 In this section, you will flash the Jetson TK1 with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
@@ -95,6 +104,7 @@ insmod gb-es1.ko
 If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapply, then [retry](#boot-and-connect). 
 
 --------------------------------------------------------------
+
 ###Step 6. Verify operation
 
 In this section, the Jetson serial console is used to remotely interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
