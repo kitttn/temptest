@@ -1,5 +1,14 @@
 This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
 
+###General Information
+
+If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as $JLINK_SN in the steps below.
+
+Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as $JLINK_PORT in the steps below.
+
+
+###How to debug AP/GP bridge firmware using JTAG
+
 ####AP/GP bridge firmware boot process
 
 Following reset, the device loads the firmware image from flash (SPIROM) 
@@ -14,8 +23,6 @@ to boot the device.
 If the firmware image in flash fails to respond to JTAG, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
 
 If you need a known-good firmware image to write to flash, in order to get JTAG debug working,  you can use nop-loop.bin, which is a firmware image that does nothing but loop forever. You can download the nop-loop firmware image [here](nop-loop.bin).  
-
-####How to debug AP/GP bridge firmware using JTAG
 
 #####Hardware Setup
 
@@ -36,6 +43,34 @@ AP Bridge 3 | CON16
 GP Bridge 1 | CON14  
 GP Bridge 2 | CON15
 
+
+#####Software steps
+
+Open a terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
+
+`JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
+ 
+You may see diagnostics of the form:  
+`WARNING: Failed to read memory @ address 0xFFFFFFFF `  
+`WARNING: Failed to read memory @ address 0xFFFFFFFF`  
+
+These are harmless and it's okay to ignore them.
+
+The following steps load the firmware image to internal RAM and run it.
+
+* Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
+* Connect to the gdbserver:  `target remote localhost:2341`  
+* Reset the target device: `monitor reset`  
+* Load the symbols into GDB: `file <path-to-image-elf-file>`  
+* Load the binary image: `restore <path-to-image-binary-file>`  
+* Set the program counter to the reset handler: `set $pc=Reset_Handler`
+* Set any initial breakpoints if needed  
+* Release the processor from reset: `continue`  
+
+####How to debug SVC firmware using JTAG
+The SVC executes code from its internal flash. The JTAG interface is capable of debugging the firmware as it runs from flash. Therefore, we use the same JTAG session to flash the firmware image and debug.
+
+Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
 #####Software steps
 
@@ -63,4 +98,3 @@ The following steps load the firmware image to internal RAM and run it.
 * Set the program counter to the reset handler: `set $pc=Reset_Handler`
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
-
