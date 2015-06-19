@@ -60,10 +60,19 @@ flash the firmware image to the device.
 ###SECTION 5. Configure the AP
 (todo)
 
+Use May 15-era Jetson build.
+Kernel modules to load on Jetson: 
+* greybus.ko
+* gb-phy.ko
+* gb-es1.ko
+
 <br>
 ###SECTION 6. Verify operation
 
 A user at the Jetson TK1 serial console is able to remotely interrogate and control GPIO 0 on APB2, using Greybus.  Greybus requests travel from Jetson through APB1 through the switch to APB2, and responses take the reverse path.
+
+GPIO 0 on APB2 is registered on Jetson as 989
+
 
 (todo)
 
