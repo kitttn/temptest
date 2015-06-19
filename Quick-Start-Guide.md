@@ -15,7 +15,7 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 5. Configure the Application Processor (AP)](#step-5-configure-the-application-processor-ap)  
 [Step 6. Verify operation](#step-6-verify-operation)  
 
-============================
+--------------------------------------------------------------
 
 <br>
 ###Step 1. Set up your development computer
