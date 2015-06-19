@@ -17,7 +17,7 @@ Board' and 'BDB'. The table below lists which BDB connector is associate with ea
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
 5. Verify jumper is installed on debug board JP15 pins 1-2
 6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
-7. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run terminal prog at 115200,  
+7. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run terminal prog at 115200-n-8-1  
 8. Apply power to the BDB. 
 
 
@@ -32,9 +32,9 @@ GP Bridge 2 | CON15  | SW6
 
 #####Software Steps
 
-1. Run the truncate utility: `truncate -s 2M nuttx.bin`   
-The Flashrom utility expects nuttx.bin to be the same size as the SPIROM device that it is writing to. To ensure this, we run the truncate utility on the nuttx binary image file. This creates holes at the end of the file in order to get the same size (i.e. it will pad with 0 when read back but it won’t use any physical memory on your disk).
-2. Run the flashrom utility: `flashrom  --programmer dediprog -w nuttx.bin`  
+1. The Flashrom utility expects the binary image file to be the same size as the flash device. The truncate utility pads the binary image file to match the device size.
+To run the truncate utility: `truncate -s 2M <path-to-binary-image-file>`   
+2. Run the flashrom utility: `flashrom  --programmer dediprog -w <path-to-binary-image-file>`  
 If all goes well, you should see something like the following:
 ```
 flashrom v0.9.7-r1852 on Linux 3.13.0-24-generic (x86\_64)
@@ -48,8 +48,7 @@ Reading old flash chip contents... done.
 Erasing and writing flash chip... Erase/write done.
 Verifying flash... VERIFIED.
 ```
-Note: If you attempt to reprogram the same image that’s already on the
-SPIROM, you may instead see the following output:
+Note: If you attempt to reprogram the same image twice, you may see the following output instead:
 ```
 Reading old flash chip contents... done.
 Erasing and writing flash chip...
@@ -69,9 +68,9 @@ using gdb commands.
 2. Connect JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
 Board' and 'BDB'. 
-4. Verify debug board SW5 is positioned *away* from the SW5 label  
+4. Verify debug board SW5 is positioned *away* from the SW5 label, to hold the bridge ARM processor in reset while programming.  
 5. Verify jumper is installed at debug board JP15 pins 1-2  
-6. Optional: USB cable connected to BDB CON12 for SVC serial console.  
+6. Optional: USB cable connected to BDB CON12 for debug serial output.  
 7. Apply power to BDB
 
 #####Software Steps  
