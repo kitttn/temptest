@@ -6,69 +6,69 @@ Once you've completed this guide, you can be confident that everything is workin
 
 If you're more experienced, feel free to skip this guide and work your way through the other wiki pages listed in the box at the right.
 
-Complete each of the following sections in order. Within each section, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
+Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
 
-[SECTION 1. Set up your development computer](#section-1-set-up-your-development-computer)  
-[SECTION 2. Set up your development hardware](#section-2-set-up-your-development-hardware)  
-[SECTION 3. Build the firmware images](#section-3-build-the-firmware-images)  
-[SECTION 4. Load the firmware images](#section-4-load-the-firmware-images)  
-[SECTION 5. Configure the AP](#section-5-configure-the-ap)  
-[SECTION 6. Verify operation](#section-6-verify-operation)  
+[Step 1. Set up your development computer](#step-1-set-up-your-development-computer)  
+[Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)  
+[Step 3. Build the firmware images](#step-3-build-the-firmware-images)  
+[Step 4. Load the firmware images](#step-4-load-the-firmware-images)  
+[Step 5. Configure the AP](#step-5-configure-the-ap)  
+[Step 6. Verify operation](#step-6-verify-operation)  
 
 Ready? Here we go!
 
 <br>
-###SECTION 1. Set up your development computer
+###Step 1. Set up your development computer
 
-1. Make sure you are running Linux 14.04. You can use a VM or a physical machine.
-2. Follow the instructions [on this page](Software-Setup)
+* Make sure you are running Linux 14.04. You can use a VM or a physical machine.
+* Follow the instructions [on this page](Software-Setup)
  
 <br>
-###SECTION 2. Set up your development hardware
+###Step 2. Set up your development hardware
 
-1. Make sure you have the following:
+* Make sure you have the following:
   * Big Development Board version 2A (BDB2A) kit
   * Jetson TK1 DevKit (may be included with BDB2A kit)
   * 3 or more USB micro B cables
   * USB hub
   * 2 (two!) [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * Dediprog SF100 Programmer
-2. Follow the instructions [on this page](Hardware-Setup)
+  * 9-pin USB serial adapter
+* Follow the instructions [on this page](Hardware-Setup)
 
 <br>
-###SECTION 3. Build the firmware images
-Follow these steps to build the firmware images for the 
-APB1 and APB2 microcontrollers on the BDB.  There is no need
-to build or flash the SVC (Supervisory Controller) firmware because the 
+###Step 3. Build the firmware images
+The below steps build the firmware for the APB1 and APB2 microcontrollers
+on the BDB. There is no need to build or flash the SVC (Supervisory Controller) firmware because the 
 SVC on the BDB is preloaded with firmware prior to shipping.
 
-1. `cd $HOME/nuttx`
-2. `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
-3. `./build_ara_image.sh ara bridge/es2-debug-generic`
+* `cd $HOME/nuttx`
+* `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
+* `./build_ara_image.sh ara bridge/es2-debug-generic`
 
 <br>
-###SECTION 4. Load the firmware images
+###Step 4. Load the firmware images
 
 For each of the firmware images listed below, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom) to 
 flash the firmware image to the device. 
 
-1. `$HOME/nuttx/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
-2. `$HOME/nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
+* `./nuttx/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
+* `./nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
 <br>
-###SECTION 5. Configure the AP
+###Step 5. Configure the AP
 
 In this section, you will flash the Jetson TK1 Application Processor (AP) with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
 
-Download and flash the pre-built Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  
+Download and flash the pre-built Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  There are also instructions for connecting the Jetson serial port.
 
 With this image flashed to your Jetson TK1, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
 
 **DO NOT CONNECT THE BDB TO THE AP VIA USB UNTIL INSTRUCTED.**
 
-1. Reboot the AP. If the AP's console is unresponsive, reset the AP to force a reboot.
-2. On the Jetson serial console Load the required kernel modules:  
+* Reboot the Jetson. If the Jetson serial console is unresponsive, reset it to force reboot.
+* Using the Jetson serial console, load the required kernel modules:  
 ```
 su  
 cd /lib/modules`
@@ -76,15 +76,14 @@ insmod greybus.ko
 insmod gb-phy.ko
 insmod gb-es1.ko
 ```
- 
-3. Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
+* Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
-If you run into problems, disconnect the AP from the BDB CON28, and return to step 2.  If that fails, remove power from the BDB and reapply. 
+If you run into problems, disconnect the AP from the BDB CON28, reboot the Jetson and retry.  If that fails, remove power from the BDB and reapply. 
 
 <br>
-###SECTION 6. Verify operation
+###Step 6. Verify operation
 
-A user at the Jetson TK1 serial console is able to remotely interrogate and control GPIO 0 on APB2, using Greybus.  Greybus requests travel from Jetson through APB1 through the switch to APB2, and responses take the reverse path.
+In this section, the Jetson serial console is used to remotely interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
 
 GPIO 0 on APB2 is registered on Jetson as 989.
 
@@ -96,7 +95,7 @@ The APB1 firmware will output the following on its serial console when a connect
 [I] GB: AP handshake complete  	
 ```
 
-**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#section-5-configure-the-ap).
+**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#step-5-configure-the-ap).
 
 With the AP to APB1 link successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
@@ -226,4 +225,3 @@ Notes:
 * The last argument is the mode, which is write byte/read byte (“c”) in this example
                          
 Congratulations! You've completed the Quick Start Guide! 
-
