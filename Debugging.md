@@ -35,9 +35,8 @@ Board' and 'BDB'. The table below lists the BDB FPC connector associated with ea
 6. Connect USB cable to debug board CON6 for serial debug output at 115200-n-8-1 on /dev/ttyUSBx. 
 7. Apply power to the BDB.
 
-Bridge  | BDB Debug   
-ASIC    | Connector
------------|-------------------  
+Bridge | FPC Connector
+-------|--------------  
 APB1 | CON17  
 APB2 | CON19  
 APB3 | CON16  
