@@ -95,12 +95,16 @@ Refer to the picture and follow the steps below.
 3. Verify BDB SW8 (APB1 RESET) is *toward* pins 3 and 6 (left). [Picture of BDB CON17 and SW8](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
 3. Attach the FPC end labeled **BDB** to BDB CON19 (APB2 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
 4. Verify BDB SW9 (APB2 RESET) is *toward* pins 3 and 6 (up). [Picture of BDB CON19 and SW9](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
-4. Attach a micro USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Picture of CON6](images/Debug-Adapter-Board-Rev-B-Connections.png)  
+4. Attach a USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Picture of CON6](images/Debug-Adapter-Board-Rev-B-Connections.png)  
 5. Connect JTAG interface cable from J-Link to CON3 (Bridge) on a Debug Adapter Board. Repeat for the other J-Link and Debug Adapter Board [Picture of CON3](images/Debug-Adapter-Board-Rev-B-Connections.png). Verify you are connecting to CON3, not CON2!   
 6. Connect both J-Link USB cables to the development system. 
-7. Identify the Debug Adapter Board connected to APB1. Connect a USB micro B cable from CON6 to the development system.
-8. Identify the Debug Adapter Board connected to APB2. Connect a USB micro B cable from CON6 to the development system.
-9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. APB1 debug output should appear on /dev/ttyUSB0 and APB2 debug output on /dev/ttyUSB1. This assumes no other USB serial devices are attached to the development system.
+7. Identify the Debug Adapter Board connected to APB1. Connect the other end of the USB cable you attached in step 4 to the development system now.
+8. Identify the Debug Adapter Board connected to APB2. Connect the other end of the USB cable you attached in step 4 to the development system now.
+9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. APB1 debug output should appear on /dev/ttyUSB0 and APB2 debug output on /dev/ttyUSB1, assuming no other USB serial devices are attached to the development system.
 
 ####Apply power
-Review the above steps and confirm all cables are secure, then attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [Picture of BDB Power Connection](images/BDB1B-Power-Connection.png)  
+1. Review the above steps and confirm all cables are secure
+2. Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [Picture of BDB Power Connection](images/BDB1B-Power-Connection.png)  
+3. Plug the 12VDC power supply into an outlet
+
+
