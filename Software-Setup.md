@@ -36,7 +36,7 @@ Append these lines to your .profile:
 #####STEP 4. JTAG Setup
 These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interfaces could be used, but you'll have to figure them out on your own. 
 
-1. Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accept connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
+1. Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accepts connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
 2. If this is the first time you’ve set up Git on your machine, make sure
 to set your git user.name and user.email fields [as described
 here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).  
