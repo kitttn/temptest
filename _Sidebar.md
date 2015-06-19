@@ -1,5 +1,7 @@
 [Home](Home)  
-[Starting from Scratch](Starting-From-Scratch)  
+
+[Quick Start Guide](Quick-Start-Guide)  
+
 [General Information](General-Information)  
 [Important Documents](Important-Documents)  
 [Development Process](Development-Process)  
