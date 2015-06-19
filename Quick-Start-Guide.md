@@ -50,10 +50,11 @@ SVC on your BDB has been preloaded with firmware.
 ###SECTION 4. Load the firmware images
 
 For each of the firmware images listed below, follow 
-[this procedure](Flashing-images#load-firmware-image-to-spirom) to flash the firmware image to the device. 
+[this procedure](Flashing-images#load-firmware-image-to-spirom) to 
+flash the firmware image to the device. 
 
-1. ./nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin  
-2. ./nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin  
+1. `$HOME/nuttx/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
+2. `$HOME/nuttx/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
 <br>
 ###SECTION 5. Configure the AP
