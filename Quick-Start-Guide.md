@@ -4,6 +4,7 @@ Once you've completed this guide, you can be confident that everything is workin
 
 If you're more experienced, feel free to skip this guide and read through the other wiki pages listed in the box at the right.
 
+--------------------------------------
 Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
 
 [Step 1. Set up your development computer](#step-1-set-up-your-development-computer)  
