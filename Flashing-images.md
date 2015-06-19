@@ -5,7 +5,7 @@ There are 3 supported scenarios:
 * [Load image to SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
 * [Load image to SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
 
-<br><br>
+<br>
 ####Load firmware image to SPIROM
 
 #####Hardware Setup
@@ -58,7 +58,7 @@ Erase/write done.
 This is OK, but it’s a good idea to check that you’re indeed programming
 the image that you had intended, rather than some previous version.
 
-<br><br>
+<br>
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
@@ -80,7 +80,7 @@ Board' and 'BDB'.
 4. Reset target: `monitor reset`
 5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead: `restore nuttx.bin binary 0x08000000`
 
-<br><br>
+<br>
 ####Load firmware image to SVC on endo
 
 #####Hardware Setup
