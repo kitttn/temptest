@@ -26,25 +26,12 @@ GP Bridge 2 | CON15
 8. Optional: USB cable connected to BDB CON12 (SVC console).  
 7. Apply power to the BDB. 
 
-
 #####Software Steps
 
-1. Run the truncate utility. The Flashrom utility expects the binary file to be the same size as the
-SPIROM it is writing to. To ensure this, we run the truncate utility on the nuttx binary image file. 
-This creates holes at the end of the file in order to get the same size (i.e. it will pad with 0 when read back but it won’t use any physical memory on your disk).
-
-```
-truncate -s 2M nuttx.bin
-```
-2. Run the flashrom utility. Prior to running, rebuild if needed. Refer to the README for specifics.
-
-12. Run (root permission may be needed, e.g. as granted via a “sudo “
-    prefix):
-
-flashrom  --programmer dediprog -w nuttx.bin
-
+1. Run the truncate utility on the nuttx.bin file: `truncate -s 2M nuttx.bin`   
+The Flashrom utility expects nuttx.bin to be the same size as the SPIROM device that it is writing to. To ensure this, we run the truncate utility on the nuttx binary image file. This creates holes at the end of the file in order to get the same size (i.e. it will pad with 0 when read back but it won’t use any physical memory on your disk).
+2. Run the flashrom utility: `flashrom  --programmer dediprog -w nuttx.bin`  
 If all goes well, you should see something like:
-
 ```
 flashrom v0.9.7-r1852 on Linux 3.13.0-24-generic (x86\_64)
 flashrom is free software, get the source code at
@@ -67,6 +54,8 @@ Erase/write done.
 ```
 This is OK, but it’s a good idea to check that you’re indeed programming
 the image that you had intended, rather than some previous version.
+
+
 
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
