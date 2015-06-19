@@ -68,8 +68,8 @@ With this image flashed to the Jetson, ready-to-use Greybus kernel modules are a
 
 **DO NOT CONNECT THE BDB TO THE JETSON VIA USB UNTIL INSTRUCTED.**
 
-* Reboot the Jetson. If the Jetson serial console is unresponsive, reset it to force reboot.
-* From the Jetson serial console, load the required kernel modules:  
+* Reboot the Jetson. If the Jetson serial console is unresponsive, reset it.
+* Using the Jetson serial console, load the required kernel modules:  
 ```
 su  
 cd /lib/modules`
