@@ -25,14 +25,15 @@ Complete each of the following steps in order. Within each step, there are links
 ###Step 2. Set up your development hardware
 
 * Make sure you have the following:
-  * Big Development Board version 2A (BDB2A) kit
-  * Jetson TK1 DevKit (may be included with BDB2A kit)
+  * 1 [Big Development Board version 2A (BDB2A) kit](images/bdb2a_kit.jpg)
+  * 1 [Jetson TK1 DevKit](https://developer.nvidia.com/jetson-tk1) (may be included with BDB2A kit)
   * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
-  * [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
-  * 3 or more [USB A to micro B cables](images/usb-micro-b.jpg)
-  * USB serial adapter, 9-pin male
-  * 9-pin female-female null modem 
-* Follow the instructions [on this page](Hardware-Setup)
+  * 1 [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
+  * 3 [USB A to micro B cable](images/usb-micro-b.jpg)
+  * 1 [9-pin USB serial adapter](images/usb_ser.jpg)
+  * 1 [9-pin female-female null modem](images/nullmodem9pff.jpg) 
+  * [ProjectAra MDK](http://www.projectara.com/mdk/)
+* Follow the hardware setup instructions on [this page](Hardware-Setup)
 
 <br>
 ###Step 3. Build the firmware images
