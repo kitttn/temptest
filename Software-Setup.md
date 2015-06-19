@@ -1,5 +1,17 @@
 A number of one-time setup tasks are needed to prepare a development system for building and debugging firmware images. These instructions assume a 64-bit installation of Ubuntu 14.04, and only need to be applied once for a given development machine. A  physical or virtual machine can be used. Run `uname -m` on your machine and verify “x86_64” appears, indicating your system is 64-bit. 
 
+These instructions assume you will clone the nuttx and related repositories into your $HOME directory,
+i.e. 
+```
+$HOME
+   +--nuttx
+   +--flashrom
+   +--manifesto  
+   ... etc
+```
+
+If you need to install the repositories in another folder, you'll need to modify the paths and commands accordingly.
+
 #####STEP 1. Install required software packages  
 ```
 sudo apt-get install libusb-dev libpci-dev build-essential 
