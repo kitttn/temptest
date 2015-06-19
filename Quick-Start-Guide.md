@@ -1,6 +1,6 @@
 Hello, and welcome! 
 
-This guide is intended for module or kernel developers getting started for the first time with the Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C demo". 
+This page is intended for module or kernel developers getting started for the first time with the Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C demo". 
 
 Once you've completed this guide, you can be confident that everything is working as expected, and you'll have familiarized yourself with the tools and techniques. 
 
