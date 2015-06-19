@@ -108,7 +108,10 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 
 Pin|Signal|Signal|Pin
 ---|------|------|---
-1|3V   |GND  |2
+1|3V in|GND  |2
 3|CS   |CLK  |4
 5|MISO/DQ1|MOSI/DQ0 |6
 7|UART TX|UART RX |8
+
+Notes:  
+* UART signals are 1.8V logic levels.
