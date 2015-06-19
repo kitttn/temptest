@@ -47,13 +47,16 @@ APB1, APB2, and SVC microcontrollers on the BDB.
 <br>
 ###SECTION 4. Load the firmware images
 
-For each of the firmware images listed below, follow the procedure
-on [this page](Flashing-images) to flash the firmware image to the 
-device. Note the procedure is different for the SVC.
+For each of the firmware images listed below, follow the link
+to view the procedure to flash the firmware image to the 
+device. Note the procedure is different for the SVC!
 
 1. ./nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin
+   [how to flash](Flashing-images#load-firmware-image-to-spirom)
 2. ./nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin
-3. ./nuttx/build/ara-svc-bdb2a
+   [how to flash](Flashing-images#load-firmware-image-to-spirom)
+3. ./nuttx/build/ara-svc-bdb2a/images/nuttx.bin
+   [how to flash](Flashing-images#load-firmware-image-to-svc-on-bdb)
 
 <br>
 ###SECTION 5. Configure the AP
