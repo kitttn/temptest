@@ -1,9 +1,9 @@
 This page describes how to load firmware images into flash memory.  
 
 There are 3 supported scenarios:
-* [SPIROM for a bridge ASIC](Flashing-images#load-firmware-image-to-spirom)
-* [SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
-* [SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
+* [Load image to SPIROM for a bridge ASIC](Flashing-images#load-firmware-image-to-spirom)
+* [Load image to SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
+* [Load image to SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
 
 <br><br>
 ####Load firmware image to SPIROM
@@ -78,9 +78,7 @@ Board' and 'BDB'.
 2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
 3. Connect GDB to gdbserver: `target remote localhost:2331`
 4. Reset target: `monitor reset`
-5. Load the ELF image into flash memory: `load`
-Note: to load the SVC binary image, use the following instead of the ‘load’ command:
-   `restore nuttx.bin binary 0x08000000`
+5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead: `restore nuttx.bin binary 0x08000000`
 
 <br><br>
 ####Load firmware image to SVC on endo
@@ -100,6 +98,5 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
 3. Connect GDB to gdbserver: `target remote localhost:2331`
 4. Reset target: `monitor reset`
-5. Load the ELF image into flash memory: `load`
-Note: to load the SVC binary image, use the restore command instead of the ‘load’ command:
+5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead:
    `restore nuttx.bin binary 0x08000000`
