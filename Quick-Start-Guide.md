@@ -75,7 +75,8 @@ Build SVC firmware:
 * `./build_ara_image.sh ara svc/bdb2a
 
 Flash SVC firmware:  
-Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
+Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file you just built:  
+`$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
 
 --------------------------------------------------------------
 
