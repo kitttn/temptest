@@ -16,7 +16,7 @@ Qty | Item | Description
 1 | B6A DA0B6ATH8C0 | Big development board
 1 | ADUS01 | 12VDC power supply for BDB
 2 | DAB6ATH96B0 | Debug adapter board
-2 | B6A-DEBUG_FPC | FPC cable for debug adapter
+2 | B6A-DEBUG_FPC | FPC cable for debug adapter board
 1 | DA0B6APB4A0 | Jetson adapter board
 1 | IJZ-IR | FPC cable for Jetson adapter
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
@@ -38,18 +38,18 @@ Verify the Debug Adapter Boards are correctly configured.
 1. JP15 header pins 1-2 must have a jumper installed. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
 2. SW5 (RST_40uS) must be positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset and JTAG debugging is not possible.
 
-[Pciture showing JP15 and SW5 settings](images/Debug-Adapter-Board-Rev-B-Setup.png)
+[Picture of debug board JP15 and SW5 settings](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
 ####Attach cables
 
 *DO NOT APPLY POWER UNTIL INSTRUCTED.*  
 
 Refer to the picture and follow the steps below.  
-[Picture BDB1B Setup](images/BDB1B-Setup-Birds-Eye-View.png)
+[Picture of BDB cabling](images/BDB1B-Setup-Birds-Eye-View.png)
 
-1. Attach a micro USB cable to BDB CON 28 (USB to APB1 HSIC).  Leave the other end unconnected. [BDB1 AP USB Connection](images/BDB1B-AP-USB.png)  
-2. Identify the debug adapter FPC end labeled **BDB**. Attach this to  BDB1B CON17 (APB1 SPI/JTAG/TRACE). Attach the other end, labeled Debug Board, to the mating connector on one of the Debug Adapter Boards. Be sure you are connecting to CON17, not CON15.  Verify that BDB SW8 (APB1 RESET) is in the position shown, so that APBridge 1 will be operational later on. [BDB1B APBridge 1 JTAG and Reset](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
-3. Identify the debug adapter FPC end labeled **BDB** to BDB1B CON19 (APB2 SPI/JTAG/TRACE). Attach the other end, labeled Debug Board, to the mating connector on the other Debug Adapter Board. Verify that BDB SW9 (APB2 RESET) is in the position shown, so that APBridge 2 will be operational later on. [BDB1B APBridge 2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
+1. Attach a micro USB cable to BDB CON 28 (USB to APB1 HSIC).  Leave the other end unconnected. [Picture of BDB CON28](images/BDB1B-AP-USB.png)  
+2. Identify the end of the Debug Adapter Board FPC labeled **BDB**. Attach this to BDB CON17 (APB1 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. Be sure you are connecting to CON17, not CON15.  Verify that BDB SW8 (APB1 RESET) is in the position shown, so that APB1 will be operational later on. [Picture of BDB APB1 JTAG and Reset](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
+3. Identify the end of the Debug Adapter Board FPC labeled **BDB**. Attach this to BDB CON19 (APB2 SPI/JTAG/TRACE). Attach the other end to the mating connector on the other Debug Adapter Board. Verify that BDB SW9 (APB2 RESET) is in the position shown, so that APB2 will be operational later on. [Picture of APB2 JTAG and Reset](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
 4. Attach a micro USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Debug Adapter Board UART connections](images/Debug-Adapter-Board-Rev-B-Connections.png)  
 5. Connect a JTAG interface to CON3 (Bridge) on each Debug Adapter Board. Verify that you are plugging into CON3, not CON2.   
 6. Connect the J-Link USB cable to the development system.  
@@ -58,5 +58,5 @@ Refer to the picture and follow the steps below.
 9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. The APB1 serial debug output should appear on /dev/ttyUSB0 and APB2 debug output on /dev/ttyUSB1. This assumes no other USB serial devices are attached to the development system.
 
 ####Apply power
-Review the above steps and confirm all cables are secure, then attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [BDB1B Power Connection](images/BDB1B-Power-Connection.png)  
+Review the above steps and confirm all cables are secure, then attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [Picture of BDB Power Connection](images/BDB1B-Power-Connection.png)  
 
