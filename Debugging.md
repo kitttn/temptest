@@ -28,20 +28,21 @@ If you need a known-good firmware image to write to flash, in order to get JTAG 
 
 1. REMOVE POWER FROM BDB
 2. Connect the J-Link JTAG interface to debug board CON3 and host USB
-3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
-Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
+3. Connect FPC from debug board CON9 to BDB. Cable is directional. Observe FPC labeling 'side Debug
+Board' and 'BDB'. The table below lists the BDB FPC connector associated with each device.
 4. Verify debug board SW5 is positioned *away from* the SW5 label  
 5. Verify jumper is installed on debug board JP15 pins 1-2
-6. Connect USB cable to debug board CON6 for serial debug output at 115200-n-8-1 on /dev/ttyUSBx.
+6. Connect USB cable to debug board CON6 for serial debug output at 115200-n-8-1 on /dev/ttyUSBx. 
 7. Apply power to the BDB.
 
-Bridge ASIC | BDB Debug Connector  
-------------|-------------------  
-AP Bridge 1 | CON17  
-AP Bridge 2 | CON19  
-AP Bridge 3 | CON16  
-GP Bridge 1 | CON14  
-GP Bridge 2 | CON15
+Bridge  | BDB Debug   
+ASIC    | Connector
+-----------|-------------------  
+APB1 | CON17  
+APB2 | CON19  
+APB3 | CON16  
+GPB1 | CON14  
+GPB2 | CON15
 
 
 #####Software steps
