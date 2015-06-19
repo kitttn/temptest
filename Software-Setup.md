@@ -41,7 +41,7 @@ here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 #####STEP 6. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
 Repository URL is [here](General-Information#flashrom-spi-rom-programming-tool)   
-Clone the repository, checkout master, and build:
+Clone the repository, checkout the master branch, and rebuild with the following command:
 ```
 user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make
 ```
