@@ -84,14 +84,17 @@ Board' and 'BDB'.
 
 #####Software steps
 
-* Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface:   `JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT`
-* Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
-* Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
-* Reset the target: `monitor reset`  
-* Specify the ELF file: `file <path-to-image-elf-file>`  
-* Load the ELF file (and write to internal flash): `load`
-* Set initial breakpoints if needed  
-* Release the processor from reset: `continue`  
+1. Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface:  
+```
+JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT
+```
+2. Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
+3.Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
+4. Reset the target: `monitor reset`  
+5. Specify the ELF file: `file <path-to-image-elf-file>`  
+6. Load the ELF file (and write to internal flash): `load`
+7. Set initial breakpoints if needed  
+8. Release the processor from reset: `continue`  
 
 If you rebuild the image, you can reload the new image from the same GDB session by typing control-C, then:
 ```
