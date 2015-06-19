@@ -114,4 +114,5 @@ Pin|Signal|Signal|Pin
 7|UART TX|UART RX |8
 
 Notes:  
-* UART signals are 1.8V logic levels.
+* CAUTION: pins 2-8 are at 1.8V logic levels!
+* Pins 1, 7, and 8 are not required for SPI programming and should be left unconnected.
