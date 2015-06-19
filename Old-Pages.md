@@ -2,3 +2,5 @@
 [Dev Machine Setup](Development-Machine-Setup)  
 [Loading AP](Loading-Example-Firmware-into-the-APBridges)  
 [Exercising AP](Exercising-Example-Firmware-in-the-APBridges)  
+<br>
+[Running the Examples](Running-the-Examples)  
