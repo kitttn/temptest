@@ -43,7 +43,7 @@ Engineering in spiral 2 is done by a variety of companies; here are some of them
 
 **Linaro**: Linaro is doing the brunt of the Android and kernel development (Opersys is the other company involved in those areas). The main PoC at Linaro is George Grey, Glen Valante is the Linaro Project Manager for Ara.
 
-**Linux Solutions**: Greg Kroah-Hartman has been working on the Greybus specification and kernel portions of the Greybus core, before being ~conned~ persuaded to be the software lead for the whole team.
+**Linux Solutions**: Greg Kroah-Hartman has been working on the Greybus specification and kernel portions of the Greybus core, before being ~~conned~~ persuaded to be the software lead for the whole team.
 
 **Oxford Systems**: Olin Sibert has been involved with the UniPro working group at MIPI, and is developing the ES3 ASIC boot ROM.
 
