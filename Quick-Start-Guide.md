@@ -19,8 +19,7 @@ Complete each of the following steps in order. Within each step, there are links
 
 * Make sure you are running Linux 14.04. You can use a VM or a physical machine.
 * Follow the software setup instructions on [this page](Software-Setup)
- 
-<br>
+--------------------------------------------------------------
 ###Step 2. Set up your development hardware
 
 * Make sure you have the following:
@@ -33,8 +32,7 @@ Complete each of the following steps in order. Within each step, there are links
   * 1 [9-pin female-female null modem](images/nullmodem9ff.jpg) 
   * [ProjectAra MDK](http://www.projectara.com/mdk/)
 * Follow the hardware setup instructions on [this page](Hardware-Setup)
-
-<br>
+--------------------------------------------------------------
 ###Step 3. Build the firmware images
 Follow the steps below to build the firmware for APB1 and APB2 bridges
 on the BDB.  
@@ -46,8 +44,7 @@ on the BDB.
 The resulting binary image files are here:  
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`  
-
-<br>
+--------------------------------------------------------------
 ###Step 4. Load the firmware images
 
 #####Option 1: Load firmware image to flash
@@ -58,8 +55,6 @@ For each of the firmware images listed in step 3, follow
 For each of the firmware images listed in step 3, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
-
-----------------------------------------
 **Optional: Build and load SVC firmware**  
 This section is included *just in case* you need to reflash the SVC. This should not be required under most circumstances, because the SVC is shipped with firmware. 
 
@@ -72,7 +67,7 @@ Build SVC firmware:
 Flash SVC firmware:  
 Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
 
-<br>
+--------------------------------------------------------------
 ###Step 5. Configure the Application Processor (AP)
 
 In this section, you will flash the Jetson TK1 with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
@@ -99,7 +94,7 @@ insmod gb-es1.ko
 
 If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapply, then [retry](#boot-and-connect). 
 
-<br>
+--------------------------------------------------------------
 ###Step 6. Verify operation
 
 In this section, the Jetson serial console is used to remotely interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
