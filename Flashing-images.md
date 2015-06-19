@@ -14,7 +14,7 @@ There are 3 supported scenarios:
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
 Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
-5. Verify jumper installed at debug board JP15 pins 1-2
+5. Verify jumper is installed on debug board JP15 pins 1-2
 6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
 7. Optional: USB cable connected to BDB CON12 (SVC console).  
 8. Apply power to the BDB. 
@@ -31,10 +31,10 @@ GP Bridge 2 | CON15
 
 #####Software Steps
 
-1. Run the truncate utility on the nuttx.bin file: `truncate -s 2M nuttx.bin`   
+1. Run the truncate utility: `truncate -s 2M nuttx.bin`   
 The Flashrom utility expects nuttx.bin to be the same size as the SPIROM device that it is writing to. To ensure this, we run the truncate utility on the nuttx binary image file. This creates holes at the end of the file in order to get the same size (i.e. it will pad with 0 when read back but it won’t use any physical memory on your disk).
 2. Run the flashrom utility: `flashrom  --programmer dediprog -w nuttx.bin`  
-If all goes well, you should see something like:
+If all goes well, you should see something like the following:
 ```
 flashrom v0.9.7-r1852 on Linux 3.13.0-24-generic (x86\_64)
 flashrom is free software, get the source code at
@@ -64,32 +64,37 @@ the image that you had intended, rather than some previous version.
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
 
-Hardware setup:
-- JTAG connected to debug board CON3  
-- FPC connected from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
-Board' and 'BDB' !!  
-- debug board SW5 positioned *away* from the SW5 label  
-- debug board JP15 pins 1-2 jumper installed  
-- Optional: USB cable connected to BDB CON12 (SVC console).  
+#####Hardware Setup
+1. REMOVE POWER FROM BDB
+2. Connect JTAG interface to debug board CON3  
+3. Connect FPC from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
+Board' and 'BDB'. 
+4. Verify debug board SW5 is positioned *away* from the SW5 label  
+5. Verify jumper is installed at debug board JP15 pins 1-2  
+6. Optional: USB cable connected to BDB CON12 (SVC console).  
 
-Software:  
+#####Software Steps  
 1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
 2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
 3. Connect GDB to gdbserver: `target remote localhost:2331`
-4.  Reset target: `monitor reset`
-5.  Load the ELF image into flash memory: `load`    
-    Note: to load the SVC binary image, use the following instead of the ‘load’ command:
+4. Reset target: `monitor reset`
+5. Load the ELF image into flash memory: `load`
+Note: to load the SVC binary image, use the following instead of the ‘load’ command:
    `restore nuttx.bin binary 0x08000000`
 
 
 ####Load firmware image to SVC on endo
 
-Hardware setup:  
-- provide power to the Endo via USB charger or battery module  
-- JTAG connected to debug board CON2  
-- debug board JP14 pins 1-2 jumper installed  
-- Optional: USB cable connected to debug board CON6 (SVC console).  
-
-Software:  
+#####Hardware Setup
+  
+1. REMOVE POWER TO THE ENDO. Power is supplied via USB charger or battery module.  
+2. Connect JTAG interface to debug board CON2 (remove masking tape) 
+3. Connect FPC from debug board CON9 to Endo (CON??). Observe FPC labeling 'side Debug
+Board' and 'BDB'. 'BDB' end goes to Endo.
+4. Verify jumper installed at debug board JP14 pins 1-2  
+5. Optional: USB cable connected to debug board CON6 (SVC console).  
+6. Apply power to Endo.
+ 
+#####Software Steps  
 Software steps are the same as for [BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
