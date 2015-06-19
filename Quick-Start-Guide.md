@@ -160,9 +160,9 @@ $ cat /sys/class/gpio/gpio989/value
 ```
 To set the value:  
 ```
-$ echo *n* > /sys/class/gpio/gpio989/value
+$ echo n > /sys/class/gpio/gpio989/value
 ```
-Where *n* is either 0 or 1.
+Where *n* equals 0 or 1.
 
 Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a fraction of a volt when the value is 0.
 
