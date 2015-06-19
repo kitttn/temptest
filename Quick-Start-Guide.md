@@ -81,7 +81,7 @@ insmod gb-es1.ko
 ```
 * Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
-If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapplym then [retry](#boot-and-connect). 
+If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapply, then [retry](#boot-and-connect). 
 
 <br>
 ###Step 6. Verify operation
