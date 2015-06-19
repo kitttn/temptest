@@ -71,7 +71,9 @@ Kernel modules to load on Jetson:
 
 A user at the Jetson TK1 serial console is able to remotely interrogate and control GPIO 0 on APB2, using Greybus.  Greybus requests travel from Jetson through APB1 through the switch to APB2, and responses take the reverse path.
 
-GPIO 0 on APB2 is registered on Jetson as 989
+GPIO 0 on APB2 is registered on Jetson as 989.
+
+APB2 GPIOs sometimes fail to register successfully on Jetson.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. 
 
 
 (todo)
