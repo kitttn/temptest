@@ -2,9 +2,9 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 ###General Information
 
-If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as $JLINK_SN in the steps below.
+If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
 
-Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as $JLINK_PORT in the steps below.
+Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 
 ###How to debug AP/GP bridge firmware using JTAG
