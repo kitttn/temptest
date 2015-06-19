@@ -46,7 +46,7 @@ GP Bridge 2 | CON15
 
 #####Software steps
 
-Open a terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
+Open a terminal window and start the J-Link GDB server, specifying the serial number and port number for the J-Link JTAG interface. 
 
 `JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
  
@@ -56,10 +56,10 @@ You may see diagnostics of the form:
 
 These are harmless and it's okay to ignore them.
 
-The following steps load the firmware image to internal RAM and run it.
+The following steps load the AP/GP bridge firmware image to internal RAM and run it.
 
 * Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
-* Connect to the gdbserver:  `target remote localhost:2341`  
+* Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
 * Reset the target device: `monitor reset`  
 * Load the symbols into GDB: `file <path-to-image-elf-file>`  
 * Load the binary image: `restore <path-to-image-binary-file>`  
@@ -73,20 +73,14 @@ The SVC executes code from its internal flash, and supports debugging the firmwa
 
 #####Software steps
 
-Open a terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
+Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface. 
 
-`JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
+`JLinkGDBServer  -device STM32F417IG -select usb=$JLINK_SN -port $JLINK_PORT`
  
-You may see diagnostics of the form:  
-`WARNING: Failed to read memory @ address 0xFFFFFFFF `  
-`WARNING: Failed to read memory @ address 0xFFFFFFFF`  
-
-These are harmless and it's okay to ignore them.
-
-The following steps load the firmware image to internal RAM and run it.
+The following steps load the SVC firmware image to flash and run it.
 
 * Open a second terminal window and start GDB:  `arm-none-eabi-gdb`   
-* Connect to the gdbserver:  `target remote localhost:2341`  
+* Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
 * Reset the target device: `monitor reset`  
 * Load the ELF file into GDB: `file <path-to-image-elf-file>`  
 * Set the program counter to the reset handler: `set $pc=Reset_Handler`
