@@ -31,7 +31,7 @@ Read access is public, push access authorization is per GitHub user. SSH and two
 <br>
 ####Default Paths
 
-The [Software Setup(Software-Setup) has instructions for installing the nuttx and related repositories into your $HOME directory,
+Throughout the wiki, it is assumed the nuttx and related repositories are under your $HOME directory,
 i.e. 
 ```
 $HOME
@@ -41,4 +41,4 @@ $HOME
    ... etc
 ```
 
-Throughout the wiki, these locations are assumed. If you install the repositories in a different location, you'll need to modify the paths and commands accordingly.
+If you install the repositories in a different location, you'll need to modify the paths and commands accordingly.
