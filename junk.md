@@ -1,3 +1,5 @@
+<html>
+<head>
 <style> 
 div {
     width: 100px;
@@ -29,3 +31,11 @@ div {
 }
 </style>
 </head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div></div>
+
+</body>
+</html>
