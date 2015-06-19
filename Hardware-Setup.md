@@ -59,14 +59,14 @@ Qty | Item | Description
 ----|------|-------------
 1 | B6A DA0B6ATH8C0 | Big development board
 1 | ADUS01 | 12VDC power supply for BDB
-2 | DAB6ATH96B0 | Debug adapter board
-2 | B6A-DEBUG_FPC | FPC cable for debug adapter board
+2 | DAB6ATH96B0 | Debug adapter board (aka 'debug board')
+2 | B6A-DEBUG_FPC | FPC cable for debug board
 1 | DA0B6APB4A0 | Jetson adapter board
 1 | IJZ-IR | FPC cable for Jetson adapter
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
 [Picture of BDB](images/BDB1B-Board.png)  
-[Picture of Debug Boards, FPCs, and BDB Power Supply](images/BDB1B-Accessories.png)  
+[Picture of debug boards, debug board FPC, and BDB Power Supply](images/BDB1B-Accessories.png)  
 
 The following items are also required:  
 
@@ -77,8 +77,8 @@ Qty | Item | Description
  
 ####Configure Debug Adapter Boards
 
-1. Verify jumper is installed at JP15 pins 1-2. JP15 is located between CON2 (CPU) and CON3 (Bridge). This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
-2. Verify SW5 (RST_40uS) is positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset.
+1. Verify jumper is installed at JP15 pins 1-2. This provides power to the JTAG interface. Pin 1 is denoted by a round solid dot on the board.
+2. Verify SW5 is positioned *away* from the SW5 label on the silkscreen. This allows the ARM processor in the bridge chip to run. If SW5 is in the other position, the processor is held in reset.
 
 [Picture of debug board JP15 and SW5 settings](images/Debug-Adapter-Board-Rev-B-Setup.png)
 
@@ -90,21 +90,20 @@ Qty | Item | Description
 Refer to the picture and follow the steps below.  
 [Picture of BDB cabling](images/BDB1B-Setup-Birds-Eye-View.png)
 
-1. Attach a USB cable to BDB CON 28 (USB to APB1 HSIC).  Leave the other end unconnected. [Picture of BDB CON28](images/BDB1B-AP-USB.png)  
-2. Attach the FPC end labeled **BDB** to BDB CON17 (APB1 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
-3. Verify BDB SW8 (APB1 RESET) is *toward* pins 3 and 6 (left). [Picture of BDB CON17 and SW8](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
+1. Attach the FPC end labeled **BDB** to BDB CON17 (APB1 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
+2. Verify BDB SW8 (APB1 RESET) is *toward* pins 3 and 6 (left). [Picture of BDB CON17 and SW8](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
 3. Attach the FPC end labeled **BDB** to BDB CON19 (APB2 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
 4. Verify BDB SW9 (APB2 RESET) is *toward* pins 3 and 6 (up). [Picture of BDB CON19 and SW9](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
-4. Attach a USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Picture of CON6](images/Debug-Adapter-Board-Rev-B-Connections.png)  
-5. Connect JTAG interface cable from J-Link to CON3 (Bridge) on a Debug Adapter Board. Repeat for the other J-Link and Debug Adapter Board [Picture of CON3](images/Debug-Adapter-Board-Rev-B-Connections.png). Verify you are connecting to CON3, not CON2!   
+5. Attach a USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Picture of CON6](images/Debug-Adapter-Board-Rev-B-Connections.png)  
+6. Connect JTAG interface cable from J-Link to CON3 (Bridge) on a Debug Adapter Board. Repeat for the other J-Link and Debug Adapter Board [Picture of CON3](images/Debug-Adapter-Board-Rev-B-Connections.png). Verify you are connecting to CON3, not CON2!   
 6. Connect both J-Link USB cables to the development system. 
 7. Identify the Debug Adapter Board connected to APB1. Connect the other end of the USB cable you attached in step 4 to the development system now.
 8. Identify the Debug Adapter Board connected to APB2. Connect the other end of the USB cable you attached in step 4 to the development system now.
 9. On the development system, run a terminal emulator such as minicom, and configure for 115200, 8N1, no hardware flow control. APB1 debug output should appear on /dev/ttyUSB0 and APB2 debug output on /dev/ttyUSB1, assuming no other USB serial devices are attached to the development system.
+10. Attach a USB cable to BDB CON 28 (USB to APB1 HSIC). Leave the free end disconnected for now. This cable will connect the AP to the BDB.  [Picture of BDB CON28](images/BDB1B-AP-USB.png)  
 
 ####Apply power
 1. Review the above steps and confirm all cables are secure
 2. Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [Picture of BDB Power Connection](images/BDB1B-Power-Connection.png)  
 3. Plug the 12VDC power supply into an outlet
-
 
