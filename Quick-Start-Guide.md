@@ -40,7 +40,7 @@ Ready? Here we go!
 Follow these steps to build the firmware images for the 
 APB1 and APB2 microcontrollers on the BDB.  There is no need
 to build or flash the SVC (Supervisory Controller) firmware because the 
-SVC on your BDB has been preloaded with firmware.
+SVC on the BDB is preloaded with firmware prior to shipping.
 
 1. `cd $HOME/nuttx`
 2. `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
