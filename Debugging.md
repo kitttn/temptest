@@ -21,7 +21,7 @@ If you're using multiple J-Link JTAG interfaces, you'll need to identify each by
 
 Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as $JLINK_PORT in the steps below.
 
-* Open a  terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
+Open a terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server. 
 
 `JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
  
