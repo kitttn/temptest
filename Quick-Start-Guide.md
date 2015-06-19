@@ -27,11 +27,10 @@ Complete each of the following steps in order. Within each step, there are links
 * Make sure you have the following:
   * Big Development Board version 2A (BDB2A) kit
   * Jetson TK1 DevKit (may be included with BDB2A kit)
-  * 3 or more [USB A to micro B cables](images/usb-micro-b.jpg)
-  * USB hub
   * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
-  * 9-pin USB serial adapter
+  * 3 or more [USB A to micro B cables](images/usb-micro-b.jpg)
+  * USB serial adapter, 9-pin male
   * 9-pin female-female null modem 
 * Follow the instructions [on this page](Hardware-Setup)
 
