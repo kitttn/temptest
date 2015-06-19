@@ -104,11 +104,11 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 
 ###Additional Info
 
-**Debug Adapter Board SPI Header Pinout**  
+**Debug Adapter Board CON1 SPI ROM Header Pinout**  
 
 Pin|Signal|Signal|Pin
 ---|------|------|---
-1|VCC  |GND  |2
+1|3V   |GND  |2
 3|CS   |CLK  |4
-5|MISO |MOSI |6
-7|VPP  |I/O3 |8
+5|MISO/DQ1|MOSI/DQ0 |6
+7|UART TX|UART RX |8
