@@ -10,7 +10,7 @@ There are 3 supported scenarios:
 
 #####Hardware Setup
 1. REMOVE POWER FROM BDB
-2. Connect JTAG interface to debug board CON3 and to host USB
+2. Connect JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
 Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
@@ -60,18 +60,23 @@ the image that you had intended, rather than some previous version.
 
 
 
+
+
+
+
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
 
 #####Hardware Setup
 1. REMOVE POWER FROM BDB
-2. Connect JTAG interface to debug board CON3  
+2. Connect JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
 Board' and 'BDB'. 
 4. Verify debug board SW5 is positioned *away* from the SW5 label  
 5. Verify jumper is installed at debug board JP15 pins 1-2  
 6. Optional: USB cable connected to BDB CON12 for SVC serial console.  
+7. Apply power to BDB
 
 #####Software Steps  
 1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
@@ -81,6 +86,8 @@ Board' and 'BDB'.
 5. Load the ELF image into flash memory: `load`
 Note: to load the SVC binary image, use the following instead of the ‘load’ command:
    `restore nuttx.bin binary 0x08000000`
+
+
 
 
 ####Load firmware image to SVC on endo
