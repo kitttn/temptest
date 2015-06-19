@@ -102,3 +102,22 @@ monitor reset
 load
 continue
 ```
+
+###Additional Info
+
+Debug Adapter Board CON3 JTAG Pinout
+
+Pin|Signal|Comments
+---|------|--------
+1 | Vtgt | 1.8V
+3 | TRST |
+5 | TDI |
+7 | TMS |
+9 | TCK |
+11 | NC |
+13 | TDO  |
+15 | SRESET | RESET_40uS
+17 | NC |
+19 | NC |
+2  | Vtgt |(thru 0 ohm) 
+4-20 |GND| Even pins only
