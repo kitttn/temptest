@@ -6,15 +6,21 @@ Note: If you're more experienced, feel free to skip this guide and work your way
 
 This guide is broken into numbered sections, and each section has a numbered list of steps. Complete each section in order, and complete the steps in order. Within each section, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser to come back to where you left off, or click the 'Quick Start Guide' link in the page menu on the right.
 
-[SECTION 1. Set up your development computer](#section-1-set-up-your-development-computer)
-[SECTION 2. Set up your development hardware](#section-2-set-up-your-development-hardware)
+[SECTION 1. Set up your development computer](#section-1-set-up-your-development-computer)  
+[SECTION 2. Set up your development hardware](#section-2-set-up-your-development-hardware)  
+[SECTION 3. Build the firmware images](#section-3-build-the-firmware-images)  
+[SECTION 4. Load the firmware images](#section-4-load-the-firmware- images)  
+[SECTION 5. Verify operation](#section-5-verify-operation)  
 
 Ready? Here we go!
+
+<br>
 ###SECTION 1. Set up your development computer
 
 1. Make sure you are running Linux 14.04. You can use a VM or a physical machine.
 2. Follow the instructions [on this page](Software-Setup) to set up the software
  
+<br>
 ###SECTION 2. Set up your development hardware
 
 1. Make sure you have the following:
@@ -24,8 +30,8 @@ Ready? Here we go!
   4. USB hub
   5. 2 (two!) [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
 2. Follow the instructions [on this page](Hardware-Overview) to set up the hardware
-3. take a break, you've earned it.
 
+<br>
 ###SECTION 3. Build the firmware images
 
 On your development machine:
@@ -40,7 +46,11 @@ When the build script completes successfully, the resulting image files (binary 
 ./build/<name-of-build>/images/  
 ```
 Where \<name-of-build\> is the defconfig relative path, with the slashes replaced with dashes.
-###SECTION 4. Load firmware images into the hardware
+
+<br>
+###SECTION 4. Load the firmware images
+
+<br>
 ###SECTION 5. Verify operation
 
  
