@@ -13,7 +13,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Build custom config](Build-custom-config)  
 [Flashing images](Flashing-images)  
 [Debugging](Debugging)  
-[Running the Examples](Running-the-examples)  
 [Hardware Gotchas](Hardware-Gotchas)  
 
 [Old Pages](Old-Pages)
