@@ -32,31 +32,28 @@ Ready? Here we go!
   * 3 or more USB micro B cables
   * USB hub
   * 2 (two!) [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
+  * Dediprog SF100 Programmer
 2. Follow the instructions [on this page](Hardware-Setup)
 
 <br>
 ###SECTION 3. Build the firmware images
 Follow these steps to build the firmware images for the 
-APB1, APB2, and SVC microcontrollers on the BDB.
+APB1 and APB2 microcontrollers on the BDB.  There is no need
+to build or flash the SVC (Supervisory Controller) firmware because the 
+SVC on your BDB has been preloaded with firmware.
 
 1. `cd $HOME/nuttx`
 2. `./build_ara_image.sh ara bridge/es2-debug-apbridgea`
 3. `./build_ara_image.sh ara bridge/es2-debug-generic`
-4. `./build_ara_image.sh ara svc/bdb2a`  
 
 <br>
 ###SECTION 4. Load the firmware images
 
-For each of the firmware images listed below, follow the link
-to view the procedure to flash the firmware image to the 
-device. Note the procedure is different for the SVC!
+For each of the firmware images listed below, follow 
+[this procedure](Flashing-images#load-firmware-image-to-spirom) to flash the firmware image to the device. 
 
 1. ./nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin  
-   [how to flash](Flashing-images#load-firmware-image-to-spirom)
 2. ./nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin  
-   [how to flash](Flashing-images#load-firmware-image-to-spirom)
-3. ./nuttx/build/ara-svc-bdb2a/images/nuttx.bin  
-   [how to flash](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
 
 <br>
 ###SECTION 5. Configure the AP
