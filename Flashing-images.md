@@ -11,7 +11,7 @@ There are 3 supported scenarios:
 
 #####Hardware Setup
 1. REMOVE POWER FROM BDB
-2. Connect JTAG interface to debug board CON3 and host USB
+2. Connect the JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
 Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
@@ -21,13 +21,13 @@ Board' and 'BDB'. The table below lists which BDB connector is associate with ea
 8. Apply power to the BDB. 
 
 
-Bridge ASIC | BDB Debug Connector  
-------------|-------------------  
-AP Bridge 1 | CON17  
-AP Bridge 2 | CON19  
-AP Bridge 3 | CON16  
-GP Bridge 1 | CON14  
-GP Bridge 2 | CON15
+Bridge ASIC | BDB Debug Connector | Reset Switch 
+------------|---------------------|-------------
+AP Bridge 1 | CON17  | SW8
+AP Bridge 2 | CON19  | SW9
+AP Bridge 3 | CON16  | SW7
+GP Bridge 1 | CON14  | SW5
+GP Bridge 2 | CON15  | SW6
 
 
 #####Software Steps
