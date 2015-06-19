@@ -97,14 +97,16 @@ APB2 GPIOs sometimes fail to register successfully on Jetson.  When this happens
 
 #### Check that the USB Connection is Established
 
-The example firmware for APBridge 1 will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
+The example firmware for APB1 will output the following on its serial console when a connection is established with the AP and a successful Greybus handshake has occurred:
 ````
 [I] GB: MID-1 module inserted                                              	 
 [I] GB: AP handshake complete  	
 ````
-With the AP to APBridge 1 link successfully established, you'll now be able to control and monitor GPIO and I2C on APBridge 2 from your AP!
+
+Now that the AP to APB1 link is successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
 #### GPIO
+
 
 Greybus creates an entry in /sys/class/gpio/ (gpiochip999 for example) when it receives a manifest with GPIO Protocol enabled.  If there are several gpiochips, you can use the label attribute to find the one associated with Greybus:
 
@@ -112,10 +114,10 @@ Greybus creates an entry in /sys/class/gpio/ (gpiochip999 for example) when it r
     tegra-gpio                                                                      
     as3722-gpio                                                                     
     greybus_gpio       
-    $ cat /sys/class/gpio/gpiochip999/label  
+    $ cat /sys/class/gpio/gpiochip989/label  
     greybus_gpio
 
-In this example, gpiochip999 is associated with Greybus.  **It may be different on your machine.**
+In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
 
 
 ##### GPIO Number
