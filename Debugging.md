@@ -19,13 +19,13 @@ If you need a known-good firmware image to write to flash, in order to get JTAG 
 
 ####How to debug AP/GP bridge firmware using JTAG
 
-If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:.  We'll refer to this value as *jlink_sn* in the steps below.
+If you're using multiple J-Link JTAG interfaces, you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:.  We'll refer to this value as $JLINK_SN in the steps below.
 
-Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session.
+Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each JTAG session. We'll refer to this value as $JLINK_PORT in the steps below.
 
 * Open a  terminal window and start the J-Link GDB server, specifying the serial number and port number that GDB will use when attaching to the server.  We use port number 2341 in this example.
 
-`JLinkGDBServer -select usb=*jlink_sn* -port 2341`
+`JLinkGDBServer -select usb=$JLINK_SN -port $JLINK_PORT`
  
 You may see diagnostics of the form:
 `WARNING: Failed to read memory @ address 0xFFFFFFFF `  
