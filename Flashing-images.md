@@ -21,7 +21,7 @@ Board' and 'BDB'. The table below lists which BDB connector is associate with ea
 
 
 Bridge ASIC | BDB Debug Connector  
--------------|------  
+------------|-------------------  
 AP Bridge 1 | CON17  
 AP Bridge 2 | CON19  
 AP Bridge 3 | CON16  
@@ -71,7 +71,7 @@ using gdb commands.
 Board' and 'BDB'. 
 4. Verify debug board SW5 is positioned *away* from the SW5 label  
 5. Verify jumper is installed at debug board JP15 pins 1-2  
-6. Optional: USB cable connected to BDB CON12 (SVC console).  
+6. Optional: USB cable connected to BDB CON12 for SVC serial console.  
 
 #####Software Steps  
 1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
@@ -92,9 +92,14 @@ Note: to load the SVC binary image, use the following instead of the ‘load’ 
 3. Connect FPC from debug board CON9 to Endo (CON??). Observe FPC labeling 'side Debug
 Board' and 'BDB'. 'BDB' end goes to Endo.
 4. Verify jumper installed at debug board JP14 pins 1-2  
-5. Optional: USB cable connected to debug board CON6 (SVC console).  
+5. Optional: USB cable connected to debug board CON6 for SVC serial console.  
 6. Apply power to Endo.
  
 #####Software Steps  
-Software steps are the same as for [BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb).
-
+1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
+2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
+3. Connect GDB to gdbserver: `target remote localhost:2331`
+4. Reset target: `monitor reset`
+5. Load the ELF image into flash memory: `load`
+Note: to load the SVC binary image, use the following instead of the ‘load’ command:
+   `restore nuttx.bin binary 0x08000000`
