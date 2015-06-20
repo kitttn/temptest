@@ -1,8 +1,4 @@
-This page is intended for developers getting started for the first time with the Project Ara MDK and development hardware. This provides a step-by-step guide to setting up your hardware and computer, and building and running the "GPIO and I2C over Greybus" demo. 
-
-Once you've completed this guide, you can be confident that everything is working as expected. 
-
-If you're more experienced, feel free to skip this guide and read through the other wiki pages listed in the box at the right.
+This page is intended for developers getting started for the first time with the Project Ara MDK and development hardware. This provides a step-by-step guide to get set up, build the firmware, load it onto the hardware, and verify everything is working by twiddling GPIO and I2C over Greybus. 
 
 --------------------------------------
 
