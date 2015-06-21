@@ -114,7 +114,7 @@ If you run into problems:
 If that fails:
 * Unplug the USB cable between the Jetson and the BDB
 * Cycle power to the BDB 
-* If you used the JTAG method for booting the BDB bridge firmware, you'll need to repeat [those steps](option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
+* If you used the JTAG method for booting the BDB bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
 * [Reboot Jetson and retry](#reboot-the-jetson). 
 
 --------------------------------------------------------------
