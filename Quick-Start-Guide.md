@@ -89,6 +89,7 @@ Download and flash the prebuilt Android image by following the instructions [on 
 When you've finished flashing the Jetson, reset it and observe the serial console output.  You should see the following:
 ```
 (todo - paste tail of Jetson console output)
+shell@jetson:/ $ 
 ```
 
 ####Install Greybus kernel modules on Jetson
