@@ -80,17 +80,21 @@ Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flas
 
 In this section, you will flash the Jetson TK1 with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
 
-####Flash the Android image
-Download and flash the pre-built Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).  There are also instructions for connecting the Jetson serial port.
+**NOTE: DO NOT CONNECT THE JETSON TO THE BDB VIA USB UNTIL INSTRUCTED.**
 
-With this image flashed to the Jetson, ready-to-use Greybus kernel modules are available in the /lib/modules directory.
+####Flash Jetson with the prebuilt Android image
+Download and flash the prebuilt Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform). The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port J1A2 UART4, which we will use as a console.
 
-####Boot and connect
+####Reboot the Jetson
+When you've finished flashing the Jetson, reset the Jetson and observe the serial console output.  You should see the following:
+```
+(todo - paste tail of Jetson console output)
+```
 
-**DO NOT CONNECT THE BDB TO THE JETSON VIA USB UNTIL INSTRUCTED.**
+####Install Greybus kernel modules on Jetson
 
-* Reboot the Jetson. If the Jetson serial console is unresponsive, reset it.
-* Using the Jetson serial console, load the required kernel modules:  
+The prebuilt Android image includes Greybus kernel modules are in the /lib/modules directory. To install them:
+  
 ```
 su  
 cd /lib/modules`
@@ -98,9 +102,16 @@ insmod greybus.ko
 insmod gb-phy.ko
 insmod gb-es1.ko
 ```
-* Connect the Jetson main USB port to BDB CON28.  The main USB port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
-If you run into problems, disconnect the Jetson from the BDB CON28, reboot it, and [retry](#boot-and-connect).  If that fails, remove power from the BDB and reapply, then [retry](#boot-and-connect). 
+####Connect the Jetson to the BDB via USB cable
+
+Connect the Jetson USB2 port to BDB CON28.  The main USB port is J1C2 USB2, which is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
+
+If you run into problems:
+* Unplug the USB cable between the Jetson and the BDB
+* [Reboot and retry](#reboot-the-jetson). 
+
+If that fails, cycle power on the BDB and [retry](#reboot-the-jetson). NOTE: if you used the JTAG method for booting the BDB bridge firmware, (above) you'll need to repeat [those steps](option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
 
 --------------------------------------------------------------
 
@@ -251,4 +262,3 @@ Notes:
 -----------------------------------------------------------
                          
 #***Congratulations! You've completed the Quick Start Guide!***
-
