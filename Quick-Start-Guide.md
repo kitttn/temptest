@@ -83,12 +83,17 @@ In this section, you will flash the Jetson TK1 with a prebuilt Android image, bo
 **NOTE: DO NOT CONNECT THE JETSON TO THE BDB VIA USB UNTIL INSTRUCTED.**
 
 ####Flash Jetson with the prebuilt Android image
-Download and flash the prebuilt Android image by following the instructions [on this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform). The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port, which we will use as a console in the following steps.
+The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port, which we will use as a console in the following steps.
+
+Complete the instructions through the end of the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform), then come back here.
 
 ####Reboot the Jetson
-When you've finished flashing the Jetson, reset it and observe the serial console output.  You should see the following:
+When you've finished flashing the Jetson, unplug the USB micro B cable, reset by pressing the RESET button, and observe the serial console output.  You should see something like the following:  
 ```
 (todo - paste tail of Jetson console output)
+```
+Press Enter and the Jetson command prompt should appear:  
+```
 shell@jetson:/ $ 
 ```
 
