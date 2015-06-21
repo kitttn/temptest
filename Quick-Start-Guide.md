@@ -51,7 +51,7 @@ APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
 ###Step 4. Load the firmware images
 
-#####Option 1: Load firmware image to flash
+#####Option 1: Load firmware image to flash (RECOMMENDED)
 For each of the firmware images listed in step 3, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
 
@@ -59,7 +59,7 @@ For each of the firmware images listed in step 3, follow
 For each of the firmware images listed in step 3, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
-#####Build and load SVC firmware  
+#####Build and load SVC firmware (OPTIONAL) 
 **NOTE:** This should *NOT* be required under most circumstances, because the SVC is 
 loaded with the latest firmware prior to shipping the BDB. This section is 
 included *just in case* you need to reflash the SVC. 
@@ -83,23 +83,30 @@ In this section, you will flash the Jetson TK1 with a prebuilt Android image, bo
 **NOTE: DO NOT CONNECT THE JETSON TO THE BDB VIA USB UNTIL INSTRUCTED.**
 
 ####Flash Jetson with the prebuilt Android image
-The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port, which we will use as a console in the following steps.
+The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port, which we will use as a console in later steps.
 
 Complete the instructions through the end of the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform), then come back here.
 
 ####Reboot the Jetson
-When you've finished flashing the Jetson, unplug the USB micro B cable, reset by pressing the RESET button, and observe the serial console output.  You should see something like the following:  
+When you've finished flashing the Jetson, unplug the USB micro B cable, reset by pressing the RESET button, and observe the (copious) serial console output. Eventually the output will settle down, and you should see something like the following:  
 ```
-(todo - paste tail of Jetson console output)
+[   33.975986] lowmemorykiller: oom_adj 15 => oom_score_adj 1000
+[   36.142876] acc_open
+[   36.145126] acc_release
+[   37.015533] r8169 0000:01:00.0 eth0: link down
+[   37.020376] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   40.408747] binder: undelivered transaction 4331
 ```
 Press Enter and the Jetson command prompt should appear:  
 ```
 shell@jetson:/ $ 
 ```
 
+This is the "Jetson console" that we use in the next step.
+
 ####Install Greybus kernel modules on Jetson
 
-The prebuilt Android image includes Greybus kernel modules, where are in the /lib/modules directory. To install them:
+The prebuilt Android image includes Greybus kernel modules, where are in the /lib/modules directory. To install them, enter the following commands on the Jetson console:
   
 ```
 su  
@@ -108,8 +115,18 @@ insmod greybus.ko
 insmod gb-phy.ko
 insmod gb-es1.ko
 ```
+Upon loading gb-phy.ko, you should see a number of greybus messages about registering protocols.  Upon loading gb-es1.ko, you should see a message from usbcore about registering a new interface.
 
 ####Connect the Jetson to the BDB via USB cable
+
+At this point, you should have 3 serial terminal sessions open: 
+* BDB bridge APB1 debug output
+* BDB bridge APB2 debug output
+* Jetson console
+
+The APB1 and APB2 windows should show the "nsh>" nutshell prompt, and the Jetson console should show "shell@jetson:/ #"
+
+Position and resize these windows so you can monitor the debug output from all of them at once. 
 
 Connect the Jetson USB2 host port to the BDB at CON28 "USB1 to APB1 HSIC" which is in the upper left corner of the BDB.  The Jetson USB host port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
 
@@ -122,6 +139,13 @@ If that fails:
 * Cycle power to the BDB 
 * If you used the JTAG method for booting the BDB bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
 * [Reboot Jetson and retry](#reboot-the-jetson). 
+
+Errors:
+[   67.360980] usb 2-1: new high-speed USB device number 62 using tegra-ehci
+[   67.835994] usb 2-1: device not accepting address 62, error -71
+[   68.641988] usb 2-1: new high-speed USB device number 67 using tegra-ehci
+[   69.119068] usb 2-1: device not accepting address 67, error -71
+
 
 --------------------------------------------------------------
 
