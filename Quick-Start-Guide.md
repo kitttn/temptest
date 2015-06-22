@@ -90,7 +90,7 @@ Follow the steps on [this page](https://github.com/projectara/Android-wiki/wiki/
 
 ###Step 7. Load Greybus modules and connect Jetson to BDB
 
-**NOTE: DO NOT CONNECT THE JETSON TO THE BDB VIA USB UNTIL INSTRUCTED.**
+**DO NOT CONNECT THE JETSON TO THE BDB UNTIL INSTRUCTED.**
 
 Reboot the Jetson and wait for console output to settle down. Press Enter in the console and the command prompt should appear:  
 ```
@@ -108,22 +108,18 @@ insmod gb-es2.ko
 ```
 Upon loading gb-phy.ko, you should see a number of greybus messages about registering protocols.  Upon loading gb-es1.ko, you should see a usbcore message about registering a new interface driver.
 
-####Connect the Jetson to the BDB via USB cable
-
 At this point, you should have 3 serial terminal sessions open: 
 * BDB bridge APB1 debug output
 * BDB bridge APB2 debug output
 * Jetson console
 
-The APB1 and APB2 windows should show the "nsh>" nutshell prompt, and the Jetson console should show "shell@jetson:/ #"
+The APB1 and APB2 windows should show the nutshell prompt `nsh>`, and the Jetson console should show `shell@jetson:/ #`. You may wish to position and resize these windows so you can monitor the debug output from all of them at the same time. 
 
-You may wish to position and resize these windows so you can monitor the debug output from all of them at the same time. 
+The Jetson USB host port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg). BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.  
 
-The Jetson USB host port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).
+Connect a USB 2.0 hub to the Jetson USB2 host port.
 
-BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.  
-
-Connect the Jetson USB2 host port to BDB CON28.  You should see the following on the Jetson console:
+Connect the hub to BDB CON28.  You should see the following on the Jetson console:
 
 ```
 [ 219.520574] usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
@@ -140,23 +136,22 @@ You should also see the following on the APB1 debug output:
 [I] GB: AP handshake complete  	
 ```
 
-With the AP to APB1 link successfully established, you will be able to go on to the next section, where you will control and monitor GPIO and I2C on APB2 using commands on the Jetson console.
+This indicates the AP to APB1 link was successfully established. If so, continue with [Step 8](#step-8-verify-gpio).
 
-Sometimes the APB1 debug messages do not appear, indicating the GPIOs failed to register successfully. If this happens, or you run into other problems:  
+If the APB1 debug messages did not appear, indicating the GPIOs failed to register successfully, or if you have other problems, retry as follows:    
 * Unplug the USB cable between the Jetson and the BDB
 * Cycle power to the BDB (Note - If you used the JTAG method for loading the bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB).  
-* [Reboot Jetson and retry](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).  
-
+* [Go back to this step](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).  
 
 --------------------------------------------------------------
 
 ###Step 8. Verify GPIO
 
-In this section, we'll use commands from the Jetson serial console to interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
+In this section, we'll issue some commands to access GPIO 0 on APB2 over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
-####GPIO
+####GPIO device file system
 
-Greybus creates an entry in /sys/class/gpio/ (gpiochip989 for example) when it receives a manifest with GPIO Protocol enabled, as with APB2.  Inspect the label attribute to find the one associated with Greybus:
+Greybus creates entries in /sys/class/gpio/ when it receives a manifest with GPIO Protocol enabled, as it does with APB2.  Inspect the label attributes to find the one associated with Greybus:
 ```
 cat /sys/class/gpio/gpiochip*/label
 tegra-gpio                                                                      
@@ -166,11 +161,11 @@ greybus_gpio
 cat /sys/class/gpio/gpiochip989/label  
 greybus_gpio
 ```
-In this example, gpiochip989 is associated with Greybus.  **It may be different on your machine.**
+This indicates that gpiochip989 is associated with Greybus.  
 
 #####GPIO Number
 
-The device GPIO number (in this case, 0 for APB2 GPIO 0) is used as an offset to the GPIO base number assigned by Linux. 
+The device GPIO number is used as an offset to the GPIO base number assigned by Linux. 
 
 Check the gpiochip base value:
 ```
@@ -181,7 +176,7 @@ Thus, 989 base + 0 offset (GPIO 0 on APB2) = GPIO number 989.
 
 #####Export and Unexport a GPIO
 
-The first thing to do is export the gpio number that you want to use.
+The first thing to do is export the gpio number that you want to use, in this case, 989.
 ```
 echo 989 > /sys/class/gpio/export
 ```  
@@ -221,9 +216,9 @@ Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB 
 
 ###Step 9. Verify I2C
 
-In this section, we'll use commands on the Jetson console to examine I2C devices that are connected via Greybus.
+In this section, we'll issue some commands to examine I2C devices over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
-Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
+Greybus creates entries in /sys/class/i2c-dev/ when it receives a manifest with the I2C Protocol enabled. 
 
 Identify the I2C device name:
 ```
@@ -244,9 +239,10 @@ In this case, the I2C device is /dev/i2c-6. **It may be different on your machin
 
 #####I2C Tools
 
-A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are already incuded in the pre-built Android image for the Jetson TK1. 
+A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are included in the image. 
 
-Use i2cdetect to test i2c. 
+Use i2cdetect to test i2c bus number 6, which is the .
+ 
 ````
 i2cdetect -r 6
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
