@@ -46,4 +46,9 @@ Flashrom is a utility used to flash the SPIROM.
 Repository URL is [here](General-Information#flashrom-spi-rom-programming-tool)   
 Clone the repository, checkout the master branch, and rebuild with the following command:
 `user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make`
+If you want to use flashtool without root permission:
+`user@mymachine:~/flashrom$ sudo cp util/z60_flashrom.rules /etc/udev/rules.d/`
+`user@mymachine:~/flashrom$ sudo udevadm control --reload`
+`user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER`
+Reload your session. You should able to run flashtool without sudo.
 
