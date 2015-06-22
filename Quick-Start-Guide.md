@@ -140,11 +140,13 @@ If that fails:
 * If you used the JTAG method for booting the BDB bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
 * [Reboot Jetson and retry](#reboot-the-jetson). 
 
+```
 Errors:
 [   67.360980] usb 2-1: new high-speed USB device number 62 using tegra-ehci
 [   67.835994] usb 2-1: device not accepting address 62, error -71
 [   68.641988] usb 2-1: new high-speed USB device number 67 using tegra-ehci
 [   69.119068] usb 2-1: device not accepting address 67, error -71
+```
 
 
 --------------------------------------------------------------
