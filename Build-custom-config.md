@@ -19,13 +19,11 @@ Examples:                
 - ara/svc/bdb2a - SVC for BDB2
 
 #####STEP 2. run 'make menuconfig'
-```
-make menuconfig
--  Select System Type
--  Select Boot Mode
--  Select Boot from FLASH but copy to ram
--  Save and Exit.
-```
+
+`make menuconfig`
+
+Use the config menu system to select custom options.
+When finished, Save and Exit.
 
 #####STEP 3. Rebuild the image (in tree):
 ```
