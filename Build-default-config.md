@@ -20,7 +20,7 @@ lgd/apb2/defconfig                    |
 To build a firmware image using a default configuration:
 ```
 cd $HOME/nuttx
-./build_ara_image.sh ara \<config-name\>
+./build_ara_image.sh ara <config-name>  
 ```
 Where \<config-name\> is the relative path to the defconfig file, assuming the base path of 
 ```
