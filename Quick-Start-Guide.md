@@ -133,7 +133,8 @@ Connect the Jetson USB2 host port to the BDB at CON28 "USB1 to APB1 HSIC" which 
 
 If you run into problems:
 * Unplug the USB cable between the Jetson and the BDB
-* [Reboot Jetson and retry](#reboot-the-jetson). 
+* Cycle power to the BDB 
+* If you used the JTAG method for booting the BDB bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB.
 
 If that fails:
 * Unplug the USB cable between the Jetson and the BDB
