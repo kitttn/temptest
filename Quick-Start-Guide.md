@@ -8,7 +8,7 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)  
 [Step 3. Build the firmware images](#step-3-build-the-firmware-images)  
 [Step 4. Load the firmware images](#step-4-load-the-firmware-images)  
-[Step 5. Flash Jetson with Android image](#flash-jetson-with-android-image)  
+[Step 5. Flash Jetson with Android image](#step-5-flash-jetson-with-android-image)  
 [Step 6. Rebuild Jetson kernel](#step-6-rebuild-jetson-kernel)  
 [Step 7. Boot Jetson and Load Greybus modules](#step-7-boot-jetson-and-load-greybus-modules)  
 [Step 8. Connect Jetson to BDB](#step-8-connect-jetson-to-bdb)    
