@@ -48,7 +48,9 @@ Example 2:
 ./build_ara_image.sh  ara bridge/es2-debug-apbridgea
 ```
 This builds a debuggable image for the AP bridge on the BDB2A (which is based on ES2 silicon).  
-Image files are here:
+Image files are output here:
 ```
-./build/ara-bridge-es1-debug-apbridgea/image/
+./build/ara-bridge-es2-debug-apbridgea/image/nuttx
+./build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin
+
 ```
