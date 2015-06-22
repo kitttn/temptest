@@ -11,8 +11,8 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 5. Flash Jetson with Android image](#step-5-flash-jetson-with-android-image)  
 [Step 6. Rebuild Jetson kernel](#step-6-rebuild-jetson-kernel)  
 [Step 7. Load Greybus modules and connect Jetson to BDB](#step-7-load-greybus-modules-and-connect-jetson-to-bdb)  
-[Step 8. Connect Jetson to BDB](#step-8-connect-jetson-to-bdb)    
-[Step 9. Verify GPIO and I2C](#step-9-verify-gpio-and-i2c)    
+[Step 8. Verify GPIO](#step-8-verify-gpio)    
+[Step 9. Verify I2C](#step-9-verify-i2c)    
 
 --------------------------------------------------------------
 
@@ -150,7 +150,7 @@ Sometimes the APB1 debug messages do not appear, indicating the GPIOs failed to 
 
 --------------------------------------------------------------
 
-###Step 8. Verify GPIO and I2C]
+###Step 8. Verify GPIO
 
 In this section, we'll use commands from the Jetson serial console to interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
 
@@ -219,7 +219,9 @@ Where *n* equals 0 or 1.
 
 Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a fraction of a volt when the value is 0.
 
-####I2C
+###Step 9. Verify I2C
+
+In this section, we'll use commands on the Jetson console to examine I2C devices that are connected via Greybus.
 
 Greybus creates an entry in /sys/class/i2c-dev/ (i2c-6 for example) when it receives a manifest with the I2C Protocol enabled. 
 
