@@ -10,7 +10,7 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 4. Load the firmware images](#step-4-load-the-firmware-images)  
 [Step 5. Flash Jetson with Android image](#step-5-flash-jetson-with-android-image)  
 [Step 6. Rebuild Jetson kernel](#step-6-rebuild-jetson-kernel)  
-[Step 7. Boot Jetson and Load Greybus modules](#step-7-boot-jetson-and-load-greybus-modules)  
+[Step 7. Load Greybus modules and connect Jetson to BDB](#step-7-load-greybus-modules-and-connect-jetson-to-bdb)  
 [Step 8. Connect Jetson to BDB](#step-8-connect-jetson-to-bdb)    
 [Step 9. Verify GPIO and I2C](#step-9-verify-gpio-and-i2c)    
 
