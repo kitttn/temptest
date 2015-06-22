@@ -31,6 +31,7 @@ Complete each of the following steps in order. Within each step, there are links
   * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * 1 [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
   * 3 [USB A to micro B cable](images/usb-micro-b.jpg)
+  * 1 USB 2.0 hub
   * 1 [9-pin USB serial adapter](images/usb_ser.jpg)
   * 1 [9-pin female-female null modem](images/nullmodem9ff.jpg) 
   * [ProjectAra MDK](http://www.projectara.com/mdk/)
