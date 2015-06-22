@@ -8,8 +8,11 @@ Complete each of the following steps in order. Within each step, there are links
 [Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)  
 [Step 3. Build the firmware images](#step-3-build-the-firmware-images)  
 [Step 4. Load the firmware images](#step-4-load-the-firmware-images)  
-[Step 5. Configure the Application Processor (AP)](#step-5-configure-the-application-processor-ap)  
-[Step 6. Verify operation](#step-6-verify-operation)  
+[Step 5. Flash Jetson with Android image(#flash-jetson-with-android-image)  
+[Step 6. Rebuild Jetson kernel(#step-6-rebuild-jetson-kernel)  
+[Step 7. Load Greybus modules](#step-7-load-greybus-modules)  
+[Step 8. Connect Jetson to BDB](#step-8-connect-jetson-to-bdb)    
+[Step 9. Verify GPIO and I2C](#step-9-verify-gpio-and-i2c)    
 
 --------------------------------------------------------------
 
@@ -64,7 +67,7 @@ For each of the firmware images listed in step 3, follow
 loaded with the latest firmware prior to shipping the BDB. This section is 
 included *just in case* you need to reflash the SVC. 
 
-   So...if you aren't sure...*DON'T DO IT!*
+   So...if you aren't sure...*don't do it.*
 
 Build SVC firmware:
 * `cd $HOME/nuttx`
@@ -76,16 +79,23 @@ Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flas
 
 --------------------------------------------------------------
 
-###Step 5. Configure the Application Processor (AP)
+###Step 5. Flash Jetson with Android image
 
-In this section, you will flash the Jetson TK1 with a prebuilt Android image, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
+The Android image is packaged as the "Android_for_Jetson NVFlash Package". Follow the instructions through the end of the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform), then come back here. There are also instructions there for connecting to the Jetson serial port, which we will use as a console in later steps.
+
+###Step 6. Rebuild Jetson kernel
+
+Follow the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
+
+--------------------------------------------------------------
+
+###Step 7. Load Greybus modules and connect Jetson to BDB
+
+In this section, you will flash the Jetson TK1 with the Android image built in the previous step, boot it, and load the [Greybus](https://github.com/projectara/greybus) kernel modules for the Linux kernel, using the Jetson serial console.
 
 **NOTE: DO NOT CONNECT THE JETSON TO THE BDB VIA USB UNTIL INSTRUCTED.**
 
-####Flash Jetson with the prebuilt Android image
-The prebuilt Android image is part of the "Android_for_Jetson NVFlash Package". There are also instructions here for connecting to the Jetson serial port, which we will use as a console in later steps.
 
-Complete the instructions through the end of the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform), then come back here.
 
 ####Reboot the Jetson
 When you've finished flashing the Jetson, unplug the USB micro B cable, reset by pressing the RESET button, and observe the (copious) serial console output. Eventually the output will settle down, and you should see something like the following:  
@@ -154,7 +164,7 @@ Errors:
 
 --------------------------------------------------------------
 
-###Step 6. Verify operation
+###Step 8. Verify GPIO and I2C]
 
 In this section, the Jetson serial console is used to remotely interrogate and control GPIO 0 on APB2, using Greybus. Greybus requests travel from Jetson through APB1 through the UniPro switch to APB2, and responses take the reverse path.
 
@@ -168,7 +178,7 @@ The APB1 firmware will output the following on its serial console when a connect
 [I] GB: AP handshake complete  	
 ```
 
-**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#step-5-configure-the-application-processor-ap).
+**NOTE:** The APB2 GPIOs sometimes fail to register successfully.  When this happens, the message "GB: AP handshake complete" does not appear on the APB1 console. In that case, remove all power and go back to [Configure the AP](#step-6-configure-the-application-processor-ap).
 
 With the AP to APB1 link successfully established, you will be able to control and monitor GPIO and I2C on APB2 from the AP.
 
