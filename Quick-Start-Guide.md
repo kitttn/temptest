@@ -141,7 +141,7 @@ This indicates the AP to APB1 link was successfully established. If so, continue
 If the APB1 debug messages did not appear, indicating the GPIOs failed to register successfully, or if you have other problems, retry as follows:    
 * Unplug the USB cable between the Jetson and the BDB
 * Cycle power to the BDB (Note - If you used the JTAG method for loading the bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB).  
-* [Go back to this step](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).  
+* [Go back to this step](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).
 
 --------------------------------------------------------------
 
