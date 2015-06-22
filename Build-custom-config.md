@@ -31,7 +31,7 @@ make menuconfig
 ```
 make
 ```
-The resulting images files are placed under ./nuttx:
-./nuttx/nuttx.bin - raw binary
-./nuttx/nuttx     - ELF (includes debug info)
+The resulting images files are placed under ./nuttx:  
+`./nuttx/nuttx.bin` - raw binary  
+`./nuttx/nuttx    ` - ELF (includes debug info)
 
