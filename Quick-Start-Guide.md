@@ -115,6 +115,7 @@ insmod greybus.ko
 insmod gb-phy.ko
 insmod gb-vibrator.ko
 insmod gb-es1.ko
+insmod gb-es2.ko
 ```
 Upon loading gb-phy.ko, you should see a number of greybus messages about registering protocols.  Upon loading gb-es1.ko, you should see a message from usbcore about registering a new interface.
 
