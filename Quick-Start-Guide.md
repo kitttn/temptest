@@ -145,7 +145,7 @@ With the AP to APB1 link successfully established, you will be able to go on to 
 Sometimes the APB1 debug messages do not appear, indicating the GPIOs failed to register successfully. If this happens, or you run into other problems:  
 * Unplug the USB cable between the Jetson and the BDB
 * Cycle power to the BDB (Note - If you used the JTAG method for loading the bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB).  
-* [Reboot Jetson and retry](#step-7-boot-jetson-and-load-greybus-modules).  
+* [Reboot Jetson and retry](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).  
 
 
 --------------------------------------------------------------
