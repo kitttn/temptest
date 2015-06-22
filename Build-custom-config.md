@@ -5,7 +5,7 @@ After the configuration step is complete, the firmware is built in-tree by runni
 #####STEP 1. run configuration script
 ```
 cd nuttx/tools
-./configure.sh \<configs subdir\>
+./configure.sh <configs subdir>
 cd ..
 ```
 where \<configs subdir\> is the relative path to the desired configuration, versus the assumed base 
