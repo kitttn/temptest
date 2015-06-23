@@ -18,7 +18,7 @@ Complete each of the following steps in order. Within each step, there are links
 
 ###Step 1. Set up your development computer
 
-* Make sure you are running Linux 14.04. You can use a VM or a physical machine.
+* Instructions are tested on Ubuntu 14.04. You can use a VM or a physical machine.
 * Follow the software setup instructions on [this page](Software-Setup)
 
 --------------------------------------------------------------
