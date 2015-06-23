@@ -268,8 +268,9 @@ Use i2cdetect to enumerate the i2c devices. The -y argument suppresses prompting
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
 70: -- -- -- -- -- -- -- --                             
 ````
-The output shows that a device has responded at address 0x29. This corresponds to U72, a TCA6408 I2C expander. <!-- (TCA6408 is actually address 0x20, why is this 0x29?) -->
+The output shows that a device has responded at address 0x29. This corresponds to U72, a TCA6408 I2C expander. 
 
+<!-- (TCA6408 is actually address 0x20, why is this 0x29?) -->
 Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the bus number, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read.
 ````
 # i2cget -y 6 0x29 3 c                                 
