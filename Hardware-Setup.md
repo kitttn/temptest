@@ -88,7 +88,7 @@ Qty | Item | Description
 **DO NOT APPLY POWER UNTIL INSTRUCTED.**  
 
 Refer to the picture and follow the steps below.  
-[Picture of BDB cabling](images/BDB1B-Setup-Birds-Eye-View.png)
+[Picture of BDB](images/BDB2A.jpg)
 
 1. Attach the FPC end labeled **BDB** to BDB CON17 (APB1 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
 2. Verify BDB SW8 (APB1 RESET) is positioned *toward* pins 3 and 6 (left). [Picture of BDB CON17 and SW8](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
