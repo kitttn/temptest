@@ -149,7 +149,7 @@ If the above output did not appear, or if you have other problems, retry as foll
 
 In this section, we'll issue some commands to access GPIO 0 on APB2 over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
-####GPIO device file system
+####GPIO files
 
 Greybus creates entries in /sys/class/gpio/ when it receives a manifest with GPIO Protocol enabled, as it does with APB2.  Inspect the label attributes to find the one associated with Greybus:
 ```
@@ -161,35 +161,44 @@ greybus_gpio
 cat /sys/class/gpio/gpiochip989/label  
 greybus_gpio
 ```
-This indicates that gpiochip989 is associated with Greybus.  
+This confirms that gpiochip989 is associated with Greybus.  
 
 #####GPIO Number
 
-The device GPIO number is used as an offset to the GPIO base number assigned by Linux. 
-
-Check the gpiochip base value:
+The GPIO base number is used as an offset for all GPIOs associated with the device. Examine the gpiochip base value:  
 ```
 cat /sys/class/gpio/gpiochip989/base
 989
 ```
-Thus, 989 base + 0 offset (GPIO 0 on APB2) = GPIO number 989.
+Thus, 989 base + 0 offset (for GPIO 0 on APB2) = GPIO number 989.
 
 #####Export and Unexport a GPIO
 
-The first thing to do is export the gpio number that you want to use, in this case, 989.
+In order to manipulate GPIOs using device files, it is first necessary to export the gpio number that you want to use, in this case, 989:
 ```
 echo 989 > /sys/class/gpio/export
 ```  
 
-This command adds a new entry in /sys/class/gpio/, usually gpio*n* where *n* is the exported gpio number.
-
-When you have finished using a GPIO, you can unexport it. This operation removes the entry from /sys/class/gpio.
+This command adds a new entry in /sys/class/gpio/, gpio*n*, where *n* is the exported gpio number.
+```
+ls /sys/class/gpio
+export
+gpio143
+gpio989
+gpiochip0
+gpiochip1016
+gpiochip989
+unexport
+shell@jetson:/lib/modules # 
+```
+When you have finished using a GPIO, you unexport it, which removes the entry from /sys/class/gpio:
 ```
 echo 989 > /sys/class/gpio/unexport
 ```
+
 #####Get and Set GPIO Direction
 
-To get the direction:
+To get the currently configured GPIO direction:
 ```
 cat /sys/class/gpio/gpio989/direction
 in
@@ -212,7 +221,7 @@ echo n > /sys/class/gpio/gpio989/value
 ```
 Where *n* equals 0 or 1.
 
-Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a fraction of a volt when the value is 0.
+Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a small fraction of a volt when the value is 0.
 
 ###Step 9. Verify I2C
 
@@ -220,7 +229,7 @@ In this section, we'll issue some commands to examine I2C devices over Greybus. 
 
 Greybus creates entries in /sys/class/i2c-dev/ when it receives a manifest with the I2C Protocol enabled. 
 
-Identify the I2C device name:
+Identify the I2C bus name:
 ```
 cat /sys/class/i2c-dev/i2c-*/name
 Tegra I2C adapter                                                               
@@ -235,20 +244,15 @@ cat /sys/class/i2c-dev/i2c-6/name
 Greybus i2c adapter
 ```
 
-In this case, the I2C device is /dev/i2c-6. **It may be different on your machine.**
+In this case, the I2C device is /dev/i2c-6. 
 
 #####I2C Tools
 
 A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are included in the image. 
 
-Use i2cdetect to test i2c bus number 6, which is the .
- 
+Use i2cdetect to enumerate i2c devices on bus number 6. The -y argument suppresses prompting, -r probes using the read method, and 6 is the i2c bus number.
 ````
-i2cdetect -r 6
-WARNING! This program can confuse your I2C bus, cause data loss and worse!
-I will probe file /dev/i2c-6 using read byte commands.
-I will probe address range 0x03-0x77.
-Continue? [Y/n] Y
+i2cdetect -y -r 6
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --                            
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
@@ -259,24 +263,12 @@ Continue? [Y/n] Y
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
 70: -- -- -- -- -- -- -- --                             
 ````
-Note: 
-* The “-r” argument forces i2cdetect to probe i2c devices using the read method (actually, the only method supported).
-* “6” is the i2c bus number
-
-You can also use i2cget to read a specific value, e.g.:
+Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the busnumber, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read width.
 ````
-i2cget 6 0x29 3 c                                 
-WARNING! This program can confuse your I2C bus, cause data loss and worse!      
-I will read from device file /dev/i2c-6, chip address 0x29,
-data address 0x03, using write byte/read byte.                                           
-Continue? [Y/n] y                                                           
+i2cget -y 6 0x29 3 c                                 
 0x14
 ````
-Notes:
-* As with i2cdetect “6” is the i2c bus number
-* 0x29 is the chip address
-* 3 is the data address
-* The last argument is the mode, which is write byte/read byte (“c”) in this example
+
 
 -----------------------------------------------------------
                          
