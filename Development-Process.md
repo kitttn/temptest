@@ -7,7 +7,7 @@ See the “Software Project” sections of [JIRA Workflow Standard](Private-Cont
 Unless otherwise noted, the [Leaflabs Coding Standard](http://leaflabs.com/docs/libmaple/coding-standard.html) should be followed by all firmware developers. 
 
 ###Copyright Notices
-1. Existing copyright notices shall be preserved unless removal is authorized.
+1. Existing copyright notices shall be preserved.
 2. All modified source files must include the following 3-clause BSD License:
 ```
 /*
