@@ -2,7 +2,7 @@ This page is intended for developers getting started for the first time with the
 
 --------------------------------------
 
-Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. When you are finished with those pages, you can either click the back button in your browser, or click the 'Quick Start Guide' link in the page menu on the right.
+Complete each of the following steps in order. Within each step, there are links to other pages that contain additional information. You may find it helpful to leave this page open and open the other pages in a new tab or window.
 
 [Step 1. Set up your development computer](#step-1-set-up-your-development-computer)  
 [Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)  
