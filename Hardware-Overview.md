@@ -43,7 +43,7 @@ set of peripherals (e.g. I2C/PWM/SDIO,etc). This bridge allows other modules, in
 
 ####Supervisory Controller (SVC)
 The ST Micro STM32F417IG is a standard microcontroller with 192KBytes of RAM and 1MByte
-of flash, running at 104MHz. It coordinates the connection of modules
+of flash, running at 168MHz. It coordinates the connection of modules
 and bridges to the UniPro network switch, and handles system power
 sequencing, module detection, etc.
 
