@@ -53,5 +53,6 @@ user@mymachine:~/flashrom$ sudo cp util/z60_flashrom.rules /etc/udev/rules.d/
 user@mymachine:~/flashrom$ sudo udevadm control --reload
 user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER
 ```
-Reload your session. You should able to run flashtool without sudo.
+
+Then log out and log back in. You should able to run flashrom without sudo.
 
