@@ -65,7 +65,7 @@ Qty | Item | Description
 1 | IJZ-IR | FPC cable for Jetson adapter
 1 | Jetson TK1 AP Devkit | Includes PSU, USB cable, etc
 
-[Picture of BDB](images/BDB1B-Board.png)  
+[Picture of BDB](images/BDB2A.jpg)  
 [Picture of debug boards, debug board FPC, and BDB Power Supply](images/BDB1B-Accessories.png)  
 
 The following items are also required:  
