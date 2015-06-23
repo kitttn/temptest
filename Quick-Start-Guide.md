@@ -26,7 +26,7 @@ Complete each of the following steps in order. Within each step, there are links
 ###Step 2. Set up your development hardware
 
 * Make sure you have the following:
-  * 1 [Big Development Board version 2A (BDB2A) kit](images/bdb2a_kit.jpg)
+  * 1 [Big Development Board version 2A (BDB2A) kit](images/bdb2a.jpg)
   * 1 [Jetson TK1 DevKit](https://developer.nvidia.com/jetson-tk1) (may be included with BDB2A kit)
   * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * 1 [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
