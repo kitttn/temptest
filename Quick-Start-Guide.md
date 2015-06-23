@@ -93,7 +93,7 @@ Rebuild the Jetson kernel and Greybus modules, and update the Jetson board with 
 
 **DO NOT CONNECT THE JETSON TO THE BDB UNTIL INSTRUCTED.**
 
-Reboot the Jetson and wait for console output to settle down. Press Enter in the console and the command prompt should appear:  
+Reboot the Jetson and wait for console output to settle down. Press Enter and the command prompt should appear:  
 ```
 shell@jetson:/ $ 
 ```
