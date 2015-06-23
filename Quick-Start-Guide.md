@@ -150,16 +150,16 @@ If the above output did not appear, or if you have other problems, retry as foll
 
 In this section, we'll issue some commands to access GPIO 0 on APB2 over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
-####GPIO files
+#####GPIO files
 
 Greybus creates entries in /sys/class/gpio/ when it receives a manifest with GPIO Protocol enabled, as it does with APB2.  Inspect the label attributes to find the one associated with Greybus:
 ```
 cat /sys/class/gpio/gpiochip*/label
-tegra-gpio                                                                      
-as3722-gpio                                                                     
-greybus_gpio       
+tegra-gpio
+as3722-gpio
+**greybus_gpio**
 
-cat /sys/class/gpio/gpiochip989/label  
+cat /sys/class/gpio/gpiochip989/label
 greybus_gpio
 ```
 This confirms that gpiochip989 is associated with Greybus.  
@@ -188,7 +188,7 @@ gpio143
 gpio989
 gpiochip0
 gpiochip1016
-gpiochip989
+**gpiochip989**
 unexport
 shell@jetson:/lib/modules # 
 ```
@@ -213,7 +213,7 @@ echo out > /sys/class/gpio/gpio989/direction
 
 To get the value:  
 ```
-cat /sys/class/gpio/gpio989/value  
+cat /sys/class/gpio/gpio989/value
 0
 ```
 To set the value:  
@@ -222,7 +222,7 @@ echo n > /sys/class/gpio/gpio989/value
 ```
 Where *n* equals 0 or 1.
 
-Measure the APB2 GPIO 0 output voltage on the BDB at J79 pin 1. [Picture of BDB showing J79 pin 1](images/BDB1B-Header-J79.png). A white dot indicates pin 1. This pin should read approximately 1.8V above GND when the GPIO value is 1, and a small fraction of a volt when the value is 0.
+Measure the voltage on the BDB at J79 pin 1. [Here's a picture of J79](images/BDB1B-Header-J79.png). You should read approximately 1.8V above GND when the GPIO value is 1, and very close to 0.0 when the value is 0.  For an easy GND connection, use any of the standoff mounting holes at the corners of the BDB.
 
 ###Step 9. Verify I2C
 
