@@ -85,7 +85,7 @@ The Android image is part of the "Android_for_Jetson NVFlash Package". Download 
 
 ###Step 6. Rebuild Jetson kernel
 
-Rebuild the Jetson kernel and Greybus modules, and update the Jetson board with "newboot.img, by following the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
+Rebuild the Jetson kernel and Greybus modules, and update the Jetson with newboot.img, by following the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
 
 --------------------------------------------------------------
 
@@ -264,7 +264,7 @@ i2cdetect -y -r 6
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
 70: -- -- -- -- -- -- -- --                             
 ````
-Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the busnumber, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read width.
+Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the bus number, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read.
 ````
 i2cget -y 6 0x29 3 c                                 
 0x14
