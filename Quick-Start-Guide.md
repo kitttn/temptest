@@ -79,12 +79,13 @@ Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flas
 
 ###Step 5. Flash Jetson with Android image
 
-The Android image is packaged as the "Android_for_Jetson NVFlash Package". Follow the instructions through the end of the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform). There are also instructions there for connecting to the Jetson serial port, which we will use as a console in later steps.
+Jetson has a 9-pin serial port which is used for the u-boot console, boot log, and kernel console. Connect a 9-pin female-female null modem and USB serial adapter. [Picture of Jetson serial port, circled in orange](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg).  Run a terminal program on the host at 115200-n-8-1.
+
+The Android image is part of the "Android_for_Jetson NVFlash Package". Download the 5.1.0 release package from [here](http://releases-ara-mdk.linaro.org/jetson-5.1.0-open/nvidia-jetson-ara-android-lmy47z.tgz), and follow the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).
 
 ###Step 6. Rebuild Jetson kernel
 
-Rebuild the Jetson kernel and Greybus modules, and update the Jetson board with "newboot.img.
-Follow the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
+Rebuild the Jetson kernel and Greybus modules, and update the Jetson board with "newboot.img, by following the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
 
 --------------------------------------------------------------
 
