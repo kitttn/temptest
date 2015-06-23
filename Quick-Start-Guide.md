@@ -98,17 +98,28 @@ Reboot the Jetson and wait for console output to settle down. Press Enter and th
 shell@jetson:/ $ 
 ```
 
-Load the Greybus kernel modules from /lib/modules as follows:
+Load the Greybus kernel modules from /lib/modules as follows. Prompt strings and time stamps removed for clarity.
 ```
-su  
-cd /lib/modules`
-insmod greybus.ko
-insmod gb-phy.ko
-insmod gb-vibrator.ko
-insmod gb-es2.ko
+$ su
+# cd /lib/modules
+# insmod greybus.ko
+# insmod gb-phy.ko                                   
+greybus: Registered gpio protocol.
+greybus: Registered pwm protocol.
+greybus: Registered uart protocol.
+greybus: Registered sdio protocol.
+greybus: Registered usb protocol.
+greybus: Registered i2c protocol.
+greybus: Registered spi protocol.
+greybus: Registered hid protocol.
+greybus: Registered gb_audio_mgmt protocol.
+greybus: Registered gb_audio_data protocol.
+# insmod gb-vibrator.ko                              
+greybus: Registered vibrator protocol.
+# insmod gb-es2.ko
+usbcore: registered new interface driver es2_ap_driver
+#
 ```
-Upon loading gb-phy.ko, you should see a number of greybus messages about registering protocols.  Upon loading gb-es1.ko, you should see a usbcore message about registering a new interface driver.
-
 At this point, you should have 3 serial terminal sessions open: 
 * BDB bridge APB1 debug output
 * BDB bridge APB2 debug output
@@ -123,13 +134,14 @@ Connect a USB 2.0 hub to the Jetson USB2 host port.
 Connect the hub to BDB CON28.  You should see the following on the Jetson console:
 
 ```
-[ 219.520574] usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
-[ 219.527647] usb 2-1.2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[ 219.535162] usb 2-1.2.1: Product: APBridge
-[ 219.539275] usb 2-1.2.1: Manufacturer: Toshiba
-[ 219.543733] usb 2-1.2.1: SerialNumber: 0
-[ 219.849844] gpiochip_add: registered GPIOs 989 to 1015 on device: greybus_gpio
+usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
+usb 2-1.2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+usb 2-1.2.1: Product: APBridge
+usb 2-1.2.1: Manufacturer: Toshiba
+usb 2-1.2.1: SerialNumber: 0
+gpiochip_add: registered GPIOs 989 to 1015 on device: greybus_gpio
 ```
+Note the GPIO base listed by gpiochip_add is 989. This value *could* be different on your build, in which case, you'll need to substitute your base value for 989 in your console commands.
 
 You should also see the following on the APB1 debug output:
 ```
@@ -154,12 +166,12 @@ In this section, we'll issue some commands to access GPIO 0 on APB2 over Greybus
 
 Greybus creates entries in /sys/class/gpio/ when it receives a manifest with GPIO Protocol enabled, as it does with APB2.  Inspect the label attributes to find the one associated with Greybus:
 ```
-cat /sys/class/gpio/gpiochip*/label
+# cat /sys/class/gpio/gpiochip*/label
 tegra-gpio
 as3722-gpio
 **greybus_gpio**
 
-cat /sys/class/gpio/gpiochip989/label
+#cat /sys/class/gpio/gpiochip989/label
 greybus_gpio
 ```
 This confirms that gpiochip989 is associated with Greybus.  
@@ -168,7 +180,7 @@ This confirms that gpiochip989 is associated with Greybus.
 
 The GPIO base number is used as an offset for all GPIOs associated with the device. Examine the gpiochip base value:  
 ```
-cat /sys/class/gpio/gpiochip989/base
+# cat /sys/class/gpio/gpiochip989/base
 989
 ```
 Thus, 989 base + 0 offset (for GPIO 0 on APB2) = GPIO number 989.
@@ -177,12 +189,12 @@ Thus, 989 base + 0 offset (for GPIO 0 on APB2) = GPIO number 989.
 
 In order to manipulate GPIOs using device files, it is first necessary to export the gpio number that you want to use, in this case, 989:
 ```
-echo 989 > /sys/class/gpio/export
+# echo 989 > /sys/class/gpio/export
 ```  
 
 This command adds a new entry in /sys/class/gpio/, gpio*n*, where *n* is the exported gpio number.
 ```
-ls /sys/class/gpio
+# ls /sys/class/gpio
 export
 gpio143
 gpio989
@@ -190,35 +202,34 @@ gpiochip0
 gpiochip1016
 **gpiochip989**
 unexport
-shell@jetson:/lib/modules # 
 ```
 When you have finished using a GPIO, you unexport it, which removes the entry from /sys/class/gpio:
 ```
-echo 989 > /sys/class/gpio/unexport
+# echo 989 > /sys/class/gpio/unexport
 ```
 
 #####Get and Set GPIO Direction
 
 To get the currently configured GPIO direction:
 ```
-cat /sys/class/gpio/gpio989/direction
+# cat /sys/class/gpio/gpio989/direction
 in
 ```
 To set the direction:
 ```
-echo out > /sys/class/gpio/gpio989/direction
+# echo out > /sys/class/gpio/gpio989/direction
 ```
 
 #####Get and Set GPIO Value
 
 To get the value:  
 ```
-cat /sys/class/gpio/gpio989/value
+# cat /sys/class/gpio/gpio989/value
 0
 ```
 To set the value:  
 ```
-echo n > /sys/class/gpio/gpio989/value
+# echo n > /sys/class/gpio/gpio989/value
 ```
 Where *n* equals 0 or 1.
 
@@ -232,20 +243,21 @@ Greybus creates entries in /sys/class/i2c-dev/ when it receives a manifest with 
 
 Identify the I2C bus name:
 ```
-cat /sys/class/i2c-dev/i2c-*/name
-Tegra I2C adapter                                                               
-Tegra I2C adapter                                                               
-Tegra I2C adapter                                                               
-Tegra I2C adapter                                                               
-Tegra I2C adapter                                                               
-Tegra I2C adapter                                                               
-Greybus i2c adapter          
-
-cat /sys/class/i2c-dev/i2c-6/name
+# cat /sys/class/i2c-dev/i2c-*/name
+Tegra I2C adapter
+Tegra I2C adapter
+Tegra I2C adapter
+Tegra I2C adapter
+Tegra I2C adapter
+Tegra I2C adapter
 Greybus i2c adapter
 ```
-
-In this case, the I2C device is /dev/i2c-6. 
+Greybus i2c is the 7th, so the bus number is 6, and the device path is `/dev/i2c-6`. 
+Confirm this by examination:
+```
+# cat /sys/class/i2c-dev/i2c-6/name
+Greybus i2c adapter
+```
 
 #####I2C Tools
 
@@ -253,7 +265,7 @@ A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump,
 
 Use i2cdetect to enumerate i2c devices on bus number 6. The -y argument suppresses prompting, -r probes using the read method, and 6 is the i2c bus number.
 ````
-i2cdetect -y -r 6
+# i2cdetect -y -r 6
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --                            
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
@@ -266,7 +278,7 @@ i2cdetect -y -r 6
 ````
 Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the bus number, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read.
 ````
-i2cget -y 6 0x29 3 c                                 
+# i2cget -y 6 0x29 3 c                                 
 0x14
 ````
 
@@ -274,3 +286,4 @@ i2cget -y 6 0x29 3 c
 -----------------------------------------------------------
                          
 #***Congratulations! You've completed the Quick Start Guide!***
+
