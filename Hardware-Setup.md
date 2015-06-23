@@ -91,9 +91,9 @@ Refer to the picture and follow the steps below.
 [Picture of BDB](images/BDB2A.jpg)
 
 1. Attach the FPC end labeled **BDB** to BDB CON17 (APB1 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
-2. Verify BDB SW8 (APB1 RESET) is positioned *toward* pins 3 and 6 (left). [Picture of BDB CON17 and SW8](images/BDB1B-APBridge-1-JTAG-And-Reset.png)  
+2. Verify BDB SW8 (APB1 RESET) is positioned *toward* pins 3 and 6 (left).  
 3. Attach the FPC end labeled **BDB** to BDB CON19 (APB2 SPI/JTAG/TRACE). Attach the other end to the mating connector on a Debug Adapter Board. 
-4. Verify BDB SW9 (APB2 RESET) is positioned *toward* pins 3 and 6 (up). [Picture of BDB CON19 and SW9](images/BDB1B-APBridge-2-JTAG-And-Reset.png)  
+4. Verify BDB SW9 (APB2 RESET) is positioned *toward* pins 3 and 6 (up).  
 5. Attach a USB cable to each Debug Adapter Board at CON6 (UART). Leave the other end unconnected. [Picture of CON6](images/Debug-Adapter-Board-Rev-B-Connections.png)  
 6. Connect JTAG interface cable from J-Link to CON3 (Bridge) on a Debug Adapter Board. Repeat for the other J-Link and Debug Adapter Board [Picture of CON3](images/Debug-Adapter-Board-Rev-B-Connections.png). Verify you are connecting to CON3, not CON2!   
 6. Connect both J-Link USB cables to the development system. 
