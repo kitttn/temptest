@@ -169,7 +169,7 @@ Greybus creates entries in /sys/class/gpio/ when it receives a manifest with GPI
 # cat /sys/class/gpio/gpiochip*/label
 tegra-gpio
 as3722-gpio
-**greybus_gpio**
+greybus_gpio
 
 #cat /sys/class/gpio/gpiochip989/label
 greybus_gpio
