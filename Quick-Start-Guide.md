@@ -240,31 +240,22 @@ Measure the voltage on the BDB at J79 pin 1. [Here's a picture of J79](images/BD
 
 In this section, we'll issue some commands to examine I2C devices over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
-Greybus creates entries in /sys/class/i2c-dev/ when it receives a manifest with the I2C Protocol enabled. 
+We will use the i2c-tools utilities: i2cdetect, i2cdump, i2cget, and i2cset. These are included in the image. Also note that Greybus creates entries in /sys/class/i2c-dev/ in a similar fashion as GPIO.  
 
-Identify the I2C bus name:
+Use i2cdetect to enumerate i2c adapters, with the -l argument:
+````
+# i2cdetect -l
+i2c-0	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-1	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-2	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-3	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-4	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-5	i2c       	Tegra I2C adapter               	I2C adapter
+i2c-6	i2c       	Greybus i2c adapter             	I2C adapter
 ```
-# cat /sys/class/i2c-dev/i2c-*/name
-Tegra I2C adapter
-Tegra I2C adapter
-Tegra I2C adapter
-Tegra I2C adapter
-Tegra I2C adapter
-Tegra I2C adapter
-Greybus i2c adapter
-```
-Greybus i2c is the 7th item listed, so the bus number is 6, and the device path is `/dev/i2c-6`. 
-Confirm this by examination:
-```
-# cat /sys/class/i2c-dev/i2c-6/name
-Greybus i2c adapter
-```
+Greybus is adapter (bus) number 6. 
 
-#####I2C Tools
-
-A quick way to test i2c is to use i2c-tools, which comprises i2cdetect, i2cdump, i2cget, and i2cset.  These tools are included in the image. 
-
-Use i2cdetect to enumerate i2c devices on bus number 6. The -y argument suppresses prompting, -r probes using the read method, and 6 is the i2c bus number.
+Use i2cdetect to enumerate the i2c devices. The -y argument suppresses prompting, -r probes using the read method, and 6 is the i2c bus number.
 ````
 # i2cdetect -y -r 6
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f                            
@@ -277,6 +268,8 @@ Use i2cdetect to enumerate i2c devices on bus number 6. The -y argument suppress
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
 70: -- -- -- -- -- -- -- --                             
 ````
+The output shows that a device has responded at address 0x29. This corresponds to U72, a TCA6408 I2C expander. <!-- (TCA6408 is actually address 0x20, why is this 0x29?) -->
+
 Use i2cget to read a value from a specific device. Arguments: -y suppresses prompting, 6 is the bus number, 0x29 is the i2c device address, 3 is the byte address, and 'c' indicates 8 bit read.
 ````
 # i2cget -y 6 0x29 3 c                                 
