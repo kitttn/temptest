@@ -65,8 +65,8 @@ For each of the firmware images listed in step 3, follow
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
 #####Build and load SVC firmware (OPTIONAL) 
-The SVC is loaded with the latest firmware prior to shipping the BDB, 
-these steps are included *just in case* you need to reflash the SVC. 
+The SVC is loaded with the latest firmware prior to shipping the BDB. 
+These steps are included *just in case* you need to reflash the SVC. 
 
 Build SVC firmware:
 * `cd $HOME/nuttx`
