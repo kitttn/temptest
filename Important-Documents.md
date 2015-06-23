@@ -2,17 +2,6 @@ This section lists the documents that you should read, in the order you
 should read them, and technical references relevant to Project Ara
 firmware development.
 
-#####[README FIRST](README-FIRST) 
-
-Read this document first. It introduces the project, the
-organizational structure, and higher level goals, terms, and other
-things you should know about Project Ara.
-
-<!-- #####[MIPI UniPro v1.6 Specifications brief](Private-Content)
-
-MIPI UniPro is the common interconnect and communications standard used by components on
-Project Ara. 
--->
 #####[Greybus Specification](https://github.com/projectara/greybus-spec)
 
 Greybus is an ISO Application layer protocol for communicating over UniPro. 
