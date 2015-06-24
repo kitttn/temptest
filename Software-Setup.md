@@ -47,7 +47,10 @@ Repository URL is [here](General-Information#flashrom-spi-rom-programming-tool)
 Clone the repository, checkout the master branch, and rebuild with the following command:
 `user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make`
 
-If you want to use flashtool without root permission:
+Install flashrom and the manpage into /usr/local:
+`user@mymachine:~/flashrom$ make install`
+
+If you want to use flashrom without root permission:
 ```
 user@mymachine:~/flashrom$ sudo cp util/z60_flashrom.rules /etc/udev/rules.d/
 user@mymachine:~/flashrom$ sudo udevadm control --reload
