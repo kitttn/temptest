@@ -11,9 +11,8 @@ There are 3 supported scenarios:
 
 #####Hardware Setup
 1. REMOVE POWER FROM BDB
-2. Connect the JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
-Board' and 'BDB'. The table below lists which BDB connector is associate with each device.
+Board' and 'BDB'. The table below lists which BDB connector is associated with each device.
 4. Verify debug board SW5 is positioned *toward* the SW5 label  
 5. Verify jumper is installed on debug board JP15 pins 1-2
 6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
@@ -32,7 +31,7 @@ GP Bridge 2 | CON15  | SW6
 
 #####Software Steps
 
-1. The Flashrom utility expects the binary image file to be the same size as the flash device. The truncate utility pads the binary image file to match the device size.
+1. The Flashrom utility expects the binary image file to be the same size as the flash device. The truncate utility pads the binary image file to match the device size. If the nuttx.bin file size is smaller than 2097152 bytes, run the truncate utility to pad the image to 2M, otherwise skip this step.
 To run the truncate utility: `truncate -s 2M <path-to-binary-image-file>`   
 2. Run the flashrom utility: `flashrom  --programmer dediprog -w <path-to-binary-image-file>`  
 If all goes well, you should see something like the following:
