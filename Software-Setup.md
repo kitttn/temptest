@@ -12,6 +12,9 @@ sudo apt-get install libncurses5-dev libncurses5:i386
 sudo apt-get install libusb-dev libpci-dev git
 sudo apt-get install python-dev python-virtualenv
 ```
+Note: If this is the first time you’ve set up Git on your machine, make sure
+to set your git user.name and user.email fields [as described
+here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).  
 
 #####STEP 2. Install the ARM cross tools  
 Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolchain is maintained by ARM and hosted on Launchpad.  The currently supported version is "GCC ARM Embedded 4.8-2014-q3-update"  
@@ -36,10 +39,8 @@ Append these lines to your .profile:
 #####STEP 4. JTAG Setup
 These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interfaces could be used, but you'll have to figure them out on your own. 
 
-1. Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accepts connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
-2. If this is the first time you’ve set up Git on your machine, make sure
-to set your git user.name and user.email fields [as described
-here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).  
+Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accepts connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
+
 
 #####STEP 6. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
