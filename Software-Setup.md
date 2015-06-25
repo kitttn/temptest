@@ -11,7 +11,6 @@ sudo apt-get install autoconf libtool gperf flex bison
 sudo apt-get install libncurses5-dev libncurses5:i386
 sudo apt-get install libusb-dev libpci-dev git
 sudo apt-get install python-dev python-virtualenv
-sudo apt-get install libusb-dev libpci-dev
 ```
 Note: If this is the first time you’ve set up Git on your machine, make sure
 to set your git user.name and user.email fields [as described
