@@ -34,6 +34,11 @@ Select a predefined Manifest (Loopback)  --->
 ( ) GPIO, I2C, and Vibrator
 ( ) Custom manifest
 ```
+If you are configuring the SVC, you must also configure the device id:
+```
+(2) destination device id
+```
+The device id is used by SVC to know which Bridge must be setup in routing table.
 
 If you select a custom manifest:
 ```
