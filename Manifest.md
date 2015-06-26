@@ -52,3 +52,25 @@ Select a predefined Manifest (Loopback)  --->
 (device_id,your_custom_module)    manifest name (NEW)
 ```
 The manifest must be present in nuttx/apps/greybus-utils/manifests. The manifest name must not contain the extension. device_id is the device id of the bridge you want to use with this manifest.
+
+### Multiple modules
+By default, firmware are build with only one manifest (and then only one module support).
+If you want to use more modules, you have to build SVC and APBridgeA firmware with several manifests.
+
+To select several manifests for APBridgeA and SVC firmwares:
+```
+make menuconfig
+Application Configuration  --->
+	Greybus utility  --->
+Select a predefined Manifest (Loopback)  --->
+( ) GPIO
+( ) I2C
+( ) I2C and GPIO
+( ) Battery, GPIO and I2C
+( ) Loopback
+( ) Vibrator
+( ) GPIO, I2C, and Vibrator
+(X) Custom manifest
+(device_id_1,your_custom_module_1;device_id_2,your_custom_module_2)    manifest name (NEW)
+```
+Each device id and manifest name must be separated by semicolon. 
