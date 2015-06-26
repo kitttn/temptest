@@ -74,3 +74,62 @@ Select a predefined Manifest (Loopback)  --->
 (device_id_1,your_custom_module_1;device_id_2,your_custom_module_2)    manifest name (NEW)
 ```
 Each device id and manifest name must be separated by semicolon. 
+
+**Note:**
+If SVC and APBridgeA are configured to support several modules, all modules configured in SVC and APBridgeA must be operational. Otherwise, it will disturb the routing table and the enumeration process.
+
+#### Example
+In this example, we want to have gpio, i2c and vibrate on APBridge2 and the loopback in APBridge3.
+
+First configure APBridge2 to use gpio-i2c-vibrator manifest:
+```
+make menuconfig
+Application Configuration  --->
+	Greybus utility  --->
+Select a predefined Manifest (GPIO, I2C, and Vibrator)  --->
+( ) GPIO
+( ) I2C
+( ) I2C and GPIO
+( ) Battery, GPIO and I2C
+( ) Loopback
+( ) Vibrator
+(X) GPIO, I2C, and Vibrator
+( ) Custom manifest
+```
+Then you can built firmware and flash the Bridge.
+
+After configure APBridge3 to use loopback manifest:
+```
+make menuconfig
+Application Configuration  --->
+	Greybus utility  --->
+Select a predefined Manifest (GPIO, I2C, and Vibrator)  --->
+( ) GPIO
+( ) I2C
+( ) I2C and GPIO
+( ) Battery, GPIO and I2C
+(X) Loopback
+( ) Vibrator
+( ) GPIO, I2C, and Vibrator
+( ) Custom manifest
+```
+Then you can built firmware and flash the Bridge.
+
+Now, configure SVC and APBridgeA to use several manifests:
+```
+make menuconfig
+Application Configuration  --->
+	Greybus utility  --->
+Select a predefined Manifest (GPIO, I2C, and Vibrator)  --->
+( ) GPIO
+( ) I2C
+( ) I2C and GPIO
+( ) Battery, GPIO and I2C
+( ) Loopback
+( ) Vibrator
+( ) GPIO, I2C, and Vibrator
+(X) Custom manifest
+(2,simple-gpio-i2c-vibrator-module;3,simple-loopback-module)    manifest name (NEW)
+```
+2 is the device id of APBridge2 and 3 the one of APBridge3.
+The current configuration tell to SVC and APBridgeA to use gpio-i2c-vibrator manifest for APBridge2 and loopback manifest for APBridge3. These information will be used to create the routing table and send hotplug events to AP.
