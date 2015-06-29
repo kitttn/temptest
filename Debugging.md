@@ -15,12 +15,12 @@ Following reset, the device loads the firmware image from flash (SPIROM)
 to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
 by sampling the SPIBOOT_N pin, which is grounded. 
 
-** IMPORTANT: If you do not program the flash with a default program, you will be unable to JTAG debug the bridges. DO NOT FOLLOW THESE INSTRUCTIONS FOR THE SVC! **
-
 Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is held in reset, and then releasing the processor from reset.  
 
 In either of these cases, a valid firmware image is required in SPIROM in order
 to boot the device. 
+
+#####IMPORTANT: If you do not program the flash with a default program, you will be unable to JTAG debug the bridges. DO NOT FOLLOW THESE INSTRUCTIONS FOR THE SVC!
 
 If the firmware image in flash fails to respond to JTAG, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
 
