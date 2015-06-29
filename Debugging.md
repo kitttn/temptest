@@ -15,19 +15,6 @@ Also if you're using multiple JTAG interfaces, you'll need to specify a unique p
 
 ###How to debug AP/GP bridge firmware using JTAG
 
-####JTAG vs. SPI ROM boot details
-
-Following reset, the device loads the firmware image from flash (SPIROM) 
-to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
-by sampling the SPIBOOT_N pin, which is grounded. 
-
-Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is held in reset, and then releasing the processor from reset.  
-
-In either of these cases, a valid firmware image is required in SPIROM in order
-to boot the device.
-
-If the firmware image in flash fails to respond to JTAG, you will need to [reprogram flash](Flashing-images) using a hardware programmer.
-
 #####Hardware Setup
 
 1. REMOVE POWER FROM BDB
@@ -109,7 +96,7 @@ continue
 
 ###Additional Info
 
-Debug Adapter Board CON3 JTAG Pinout
+####Debug Adapter Board CON3 JTAG Pinout
 
 Pin|Signal|Comments
 ---|------|--------
@@ -126,7 +113,20 @@ Pin|Signal|Comments
 2  | Vtgt |(thru 0 ohm) 
 4-20 |GND| Even pins only
 
-###Using Semihosting
+####JTAG vs. SPI ROM boot details
+
+Following reset, the device loads the firmware image from flash (SPIROM) 
+to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
+by sampling the SPIBOOT_N pin, which is grounded. 
+
+Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is held in reset, and then releasing the processor from reset.  
+
+In either of these cases, a valid firmware image is required in SPIROM in order
+to boot the device.
+
+If the firmware image in flash fails to respond to JTAG, you will need to [reprogram flash](Flashing-images) using a hardware programmer.
+
+####Using Semihosting
 
 If you want to ship debug output out over JTAG instead of a UART, you can use ARM semihosting.
 
