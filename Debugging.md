@@ -6,6 +6,8 @@ Because of implementation details in the bridge ASIC boot process, there must be
 
 [nop-loop.bin](https://github.com/projectara/Firmware-wiki/raw/master/nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
 
+**Don't try to flash nop-loop.bin to the SVC. It's for bridge ASICs only.**
+
 ###How To Use Multiple J-Link Dongles
 
 If you're using multiple J-Link JTAG dongles (e.g. to debug two bridges at once, or a bridge and the SVC), you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
