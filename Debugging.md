@@ -121,3 +121,32 @@ Pin|Signal|Comments
 19 | NC |
 2  | Vtgt |(thru 0 ohm) 
 4-20 |GND| Even pins only
+
+###Using Semihosting
+
+If you want to ship debug output out over JTAG instead of a UART, you can use ARM semihosting.
+
+Step 1: activate the semihosting on the JTAG by running this in a GDB session:
+
+```
+gdb> monitor semihosting enable
+```
+
+Step 2: make sure the semihosting options are enabled in your build .config:
+
+```
+CONFIG_ARM_SEMIHOSTING=y
+CONFIG_ARM_SEMIHOSTING_CONSOLE=y
+```
+
+Step 3: make sure that your .config’s uart driver will not try to register itself as /dev/console:
+
+```
+CONFIG_16550_NO_SERIAL_CONSOLE=y
+```
+
+To connect to the semihosting console where everything is printed:
+
+```
+$ telnet localhost 2333
+```
