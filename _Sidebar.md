@@ -12,7 +12,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Build default config](Build-default-config)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Build custom config](Build-custom-config)  
 [Flashing images](Flashing-images)  
-[Manifest](Manifest)  
+[Module Manifest HOWTO](Module Manifest HOWTO)  
 [Debugging](Debugging)  
 [Hardware Gotchas](Hardware-Gotchas)  
 
