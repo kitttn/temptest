@@ -44,8 +44,12 @@ Download the Segger J-Link software [here](http://www.segger.com/jlink-software.
 
 #####STEP 6. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
-Repository URL is [here](General-Information#flashrom-spi-rom-programming-tool)   
-Clone the repository, checkout the master branch, and rebuild with the following command:  
+
+**DO NOT USE FLASHROM OBTAINED FROM ANYWHERE OTHER THAN THE PROJECT ARA GITHUB.**
+
+Recent versions of the Dediprog SF-100 are not working with mainline flashrom. You **must** use the Project Ara Flashrom Repository.
+
+Clone the [Project Ara flashrom repository](General-Information#flashrom-spi-rom-programming-tool), checkout the master branch, and rebuild with the following command:  
 `user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make`
 
 Install flashrom and the manpage into /usr/local:  
