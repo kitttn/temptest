@@ -4,7 +4,7 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 Because of implementation details in the bridge ASIC boot process, there must be a valid image flashed into SPI ROM for JTAG to work on BDB.
 
-[nop-loop.bin](nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
+[nop-loop.bin](https://github.com/projectara/Firmware-wiki/raw/master/nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
 
 ###How To Use Multiple J-Link Dongles
 
