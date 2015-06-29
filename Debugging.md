@@ -1,5 +1,11 @@
 This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
 
+###Important: Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
+
+Because of implementation details in the bridge ASIC boot process, there must be a valid image flashed into SPI ROM for JTAG to work on BDB.
+
+[nop-loop.bin](nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
+
 ###How To Use Multiple J-Link Dongles
 
 If you're using multiple J-Link JTAG dongles (e.g. to debug two bridges at once, or a bridge and the SVC), you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
@@ -9,7 +15,7 @@ Also if you're using multiple JTAG interfaces, you'll need to specify a unique p
 
 ###How to debug AP/GP bridge firmware using JTAG
 
-####AP/GP bridge firmware boot process
+####JTAG vs. SPI ROM boot details
 
 Following reset, the device loads the firmware image from flash (SPIROM) 
 to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
@@ -18,13 +24,9 @@ by sampling the SPIBOOT_N pin, which is grounded.
 Firmware images can also be loaded and debugged via JTAG, by using GDB to load the image into internal SRAM while the processor is held in reset, and then releasing the processor from reset.  
 
 In either of these cases, a valid firmware image is required in SPIROM in order
-to boot the device. 
+to boot the device.
 
-#####IMPORTANT: If you do not program the flash with a default program, you will be unable to JTAG debug the bridges. DO NOT FOLLOW THESE INSTRUCTIONS FOR THE SVC!
-
-If the firmware image in flash fails to respond to JTAG, you will need to reprogram flash using a hardware programmer. For instructions on loading firmware into flash, see [this page](Flashing-images)
-
-If you need a known-good firmware image to write to flash, in order to get JTAG debug working,  you can use nop-loop.bin, which is a firmware image that does nothing but loop forever. You can download the nop-loop firmware image [here](nop-loop.bin).  
+If the firmware image in flash fails to respond to JTAG, you will need to [reprogram flash](Flashing-images) using a hardware programmer.
 
 #####Hardware Setup
 
