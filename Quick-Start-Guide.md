@@ -39,7 +39,9 @@ Complete each of the following steps in order. Within each step, there are links
 * Follow the hardware setup instructions on [this page](Hardware-Setup)
 
 Here's a picture of the BDB. Click the image for a larger version.
-[[images/BDB2A.jpg|width=640px]]
+<!-- [![alt text](image link)](web link) -->
+
+[[images/BDB2A.jpg|width=640px]](images/BDB2A.jpg)
 
 --------------------------------------------------------------
 
