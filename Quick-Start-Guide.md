@@ -41,7 +41,8 @@ Complete each of the following steps in order. Within each step, there are links
 Here's a picture of the BDB. Click the image for a larger version.
 <!-- https://github.com/projectara/Firmware-wiki/wiki/images/ -->
 
-[![Picture of BDB](/images/BDB2A.jpg|width=640px "Picture of BDB") ](images/BDB2A.jpg)
+[[/images/BDB2A.jpg|width=640px] "Picture of BDB") ](/images/BDB2A.jpg)
+
 [![Picture of BDB][/images/BDB2A.jpg "Picture of BDB"]][images/BDB2A.jpg|width=640px]
 
 
