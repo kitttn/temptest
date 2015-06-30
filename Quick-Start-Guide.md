@@ -41,15 +41,6 @@ Complete each of the following steps in order. Within each step, there are links
 Here's a picture of the BDB. Click the image for a larger version.
 <a href="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg" width="640">
 
-<!-- https://github.com/projectara/Firmware-wiki/wiki/images/ -->
-
-[[/images/BDB2A.jpg|width=640px] "Picture of BDB") ](/images/BDB2A.jpg)
-
-[![Picture of BDB][/images/BDB2A.jpg "Picture of BDB"]][images/BDB2A.jpg|width=640px]
-
-
-
-
 --------------------------------------------------------------
 
 ###Step 3. Build the firmware images
@@ -252,7 +243,12 @@ To set the value:
 ```
 Where *n* equals 0 or 1.
 
-Measure the voltage on the BDB at J79 pin 1. [Here's a picture of J79](images/BDB1B-Header-J79.png). You should read approximately 1.8V above GND when the GPIO value is 1, and very close to 0.0 when the value is 0.  For an easy GND connection, use any of the standoff mounting holes at the corners of the BDB.
+Measure the voltage on the BDB at J79 pin 1. 
+
+Here's a picture of J79. Click the image for a larger version.
+<a href="https://github.com/projectara/Firmware-wiki/wiki/images/BDB1B-Header-J79.png"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/BDB1B-Header-J79.png" width="640">
+
+You should read approximately 1.8V above GND when the GPIO value is 1, and very close to 0.0 when the value is 0.  For an easy GND connection, use any of the standoff mounting holes at the corners of the BDB.
 
 ###Step 9. Verify I2C
 
