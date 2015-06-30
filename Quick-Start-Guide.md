@@ -81,7 +81,8 @@ Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flas
 ###Step 5. Flash Jetson with Android image
 
 Jetson has a 9-pin serial port which is used for the u-boot console, boot log, and kernel console. Connect a 9-pin female-female null modem and USB serial adapter. Run a terminal program on the host at 115200 baud, 8n1. The Jetson serial port is circled in orange in the following image. Click the image for a larger version.
-<img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="96">
+
+<a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
 
 The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Build-and-Boot-Instructions-for-Jetson-reference-platform).
 
