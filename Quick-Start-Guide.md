@@ -39,6 +39,8 @@ Complete each of the following steps in order. Within each step, there are links
 * Follow the hardware setup instructions on [this page](Hardware-Setup)
 
 Here's a picture of the BDB. Click the image for a larger version.
+<a href="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg" width="640">
+
 <!-- https://github.com/projectara/Firmware-wiki/wiki/images/ -->
 
 [[/images/BDB2A.jpg|width=640px] "Picture of BDB") ](/images/BDB2A.jpg)
