@@ -130,7 +130,11 @@ At this point, you should have 3 serial terminal sessions open:
 
 The APB1 and APB2 windows should show the nutshell prompt `nsh>`, and the Jetson console should show `shell@jetson:/ #`. You may wish to position and resize these windows so you can monitor the debug output from all of them at the same time. 
 
-The Jetson USB host port is circled in green in [this picture](http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg). BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.  
+The Jetson serial port is circled in orange in the following image. Click the image for a larger version.
+
+<a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
+
+The BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.  
 
 Connect a USB 2.0 hub to the Jetson USB2 host port.
 
