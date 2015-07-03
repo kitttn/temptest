@@ -1,4 +1,4 @@
-The Manifest is a contiguous block of data that includes a Manifest Header and a set of Descriptors. When read, a Manifest is transferred in its entirety. This allows the Interface to be described to the AP Module all at once, alleviating the need for multiple communication messages during the enumeration phase of the Interface.
+The interface manifest is a contiguous block of data that includes a Manifest Header and a set of Descriptors. When read, a Manifest is transferred in its entirety. This allows the Interface to be described to the AP Module all at once, alleviating the need for multiple communication messages during the enumeration phase of the Interface.
 
 ### Current Limitations
 Currently, the SVC protocol is not yet operational.
@@ -7,12 +7,13 @@ For this reason:
 * SVC protocol is emulated by APBridgeA (send hotplug event by example)
 * SVC routing table is static
 
-In order to be have Greybus working from AP to Bridges, we have to build manifest in every firmwares (APBridgeA, Bridges, SVC):
-* APBridgeA require it to send a hotplug event
-* SVC require it to generate the routing table
-* Bridge require it for registering Greybus drivers and to transmit it AP for enumeration
+In order to support working Greybus protocols, we build manifests in every firmware image (APBridgeA, Bridges, SVC):
 
-When SVC prtocol will be operational then only Bridge will have to use manifest.
+* The APBridgeA requires a manifest send hotplug events and emulate the SVC
+* The SVC requires it to generate the routing table
+* Other Bridges require it for registering Greybus drivers and to transmit it to the AP for enumeration
+
+When the SVC protocol is done, only non-APBridgeA bridges will need manifests.
 
 ### Select a manifest:
 Currently, nuttx come with tools to manage manifest and some manifest examples.
