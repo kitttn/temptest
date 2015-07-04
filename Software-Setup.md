@@ -69,7 +69,7 @@ Then log out and log back in. You should able to run flashrom without sudo.
 `git clone https://github.com/projectara/nuttx`  
 `cd nuttx`
 
-#####SETP 7. Build and install kconfig support
+#####STEP 7. Build and install kconfig support
 ```
 cd misc/tools/kconfig-frontends
 ./bootstrap
