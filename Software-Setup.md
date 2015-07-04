@@ -7,7 +7,7 @@ paths and commands accordingly.
 #####STEP 1. Install required software packages  
 ```
 sudo apt-get install libusb-dev libpci-dev build-essential 
-sudo apt-get install autoconf libtool gperf flex bison
+sudo apt-get install autoconf pkg-config libtool gperf flex bison
 sudo apt-get install libncurses5-dev libncurses5:i386
 sudo apt-get install libusb-dev libpci-dev git
 sudo apt-get install python-dev python-virtualenv
@@ -80,4 +80,3 @@ sudo ldconfig
 cd ../../..
 ```
 Note: The above instructions assume that /usr/local exists on your system, and is referenced by the system path and by the dynamic linker configuration database.
-
