@@ -42,7 +42,7 @@ These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pr
 Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accepts connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
 
 
-#####STEP 6. Install and Build the Flashrom Utility 
+#####STEP 5. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
 
 **DO NOT USE FLASHROM OBTAINED FROM ANYWHERE OTHER THAN THE PROJECT ARA GITHUB.**
@@ -63,4 +63,21 @@ user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER
 ```
 
 Then log out and log back in. You should able to run flashrom without sudo.
+
+#####STEP 6. Clone the firmware git repository
+`cd $HOME`  
+`git clone https://github.com/projectara/nuttx`  
+`cd nuttx`
+
+#####SETP 7. Build and install kconfig support
+```
+cd misc/tools/kconfig-frontends
+./bootstrap
+./configure --enable-mconf
+make
+sudo make install
+sudo ldconfig
+cd ../../..
+```
+Note: The above instructions assume that /usr/local exists on your system, and is referenced by the system path and by the dynamic linker configuration database.
 
