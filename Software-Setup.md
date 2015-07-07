@@ -13,11 +13,14 @@ sudo apt-get install libncurses5-dev libncurses5:i386
 sudo apt-get install libusb-dev libpci-dev git
 sudo apt-get install python-dev python-virtualenv
 ```
-Note: If this is the first time you’ve set up Git on your machine, make sure
+
+#####STEP 2. Make sure Git is set up correctly
+
+If this is the first time you’ve set up Git on your machine, make sure
 to set your git user.name and user.email fields [as described
 here](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).  
 
-#####STEP 2. Install the ARM cross tools  
+#####STEP 3. Install the ARM cross tools  
 Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolchain is maintained by ARM and hosted on Launchpad.  The currently supported version is "GCC ARM Embedded 4.8-2014-q3-update"  
 1. Download the toolchain from [here](https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2)  
 2. Move the downloaded archive to $HOME  
@@ -28,7 +31,7 @@ Firmware is built using a prebuilt ‘arm-none-eabi-*’ toolchain. This toolcha
 `export PATH="$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:$PATH"`  
 
 
-#####STEP 3. Install Manifesto (python script)
+#####STEP 4. Install Manifesto (python script)
 `cd $HOME`  
 `git clone https://github.com/projectara/manifesto`  
 
@@ -37,13 +40,13 @@ Append these lines to your .profile:
 `export PATH="$PATH:$HOME/manifesto"`  
 
 
-#####STEP 4. JTAG Setup
+#####STEP 5. JTAG Setup
 These instructions assume the [Segger J-Link Pro](http://www.segger.com/jlink-pro.html) is used. Other JTAG interfaces could be used, but you'll have to figure them out on your own. 
 
 Download the Segger J-Link software [here](http://www.segger.com/jlink-software.html). Select the DEB Installer for the "Software And Documentation Pack" for 64-bit Linux.  The download from Segger will typically open in the Ubuntu Software Center, and offer the option to Install the package, which should be accepted.  The J-Link software includes a GDB server that accepts connections from ‘arm-none-eabi-gdb’ which is included with the prebuilt toolchain installed above.  
 
 
-#####STEP 5. Install and Build the Flashrom Utility 
+#####STEP 6. Install and Build the Flashrom Utility 
 Flashrom is a utility used to flash the SPIROM.
 
 **DO NOT USE FLASHROM OBTAINED FROM ANYWHERE OTHER THAN THE PROJECT ARA GITHUB.**
@@ -65,11 +68,11 @@ user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER
 
 Then log out and log back in. You should able to run flashrom without sudo.
 
-#####STEP 6. Clone the firmware git repository
+#####STEP 7. Clone the firmware git repository
 `cd $HOME`  
 `git clone https://github.com/projectara/nuttx`  
 
-#####STEP 7. Build and install kconfig support
+#####STEP 8. Build and install kconfig support
 ```
 cd $HOME
 cd nuttx/misc/tools/kconfig-frontends
