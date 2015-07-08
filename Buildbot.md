@@ -25,9 +25,7 @@ performs the builds, and reports the status back to master.  Upon completion of 
 ####Buildbot web interface
 The web interface is served by master here: http://ara-buildbot.leaflabs.com/
 
-#####Brief tour of the Buildbot web interface
-
-The home page is basically a jump page with links to several sub-pages. Perhaps the most useful of these is the waterfall. 
+The home page is basically a jump page with links to several sub-pages. The following sections provide a brief description of each page. 
 
 ######Waterfall
 
@@ -61,7 +59,7 @@ Console view shows a list of change sets down the left side, and allows a develo
 
 ######Builders
 
-Self-explanatory - builders, latest result, and current status.
+Self-explanatory - lists builders, latest build result, and current builder status.
 
 ######Recent Builds
 
@@ -77,6 +75,6 @@ Shows info on the "GitPoller" change source, which detects changes to the github
 
 ######About
 
-Shows version info for Buildbot components.
+Shows version info buildbot software components.
 
 
