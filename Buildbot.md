@@ -27,9 +27,9 @@ The web interface is served by master here: http://ara-buildbot.leaflabs.com/
 
 #####Brief tour of the Buildbot web interface
 
-The home page is basically a jump page with links to several sub-pages. Perhaps the most useful of these is the waterfall display. 
+The home page is basically a jump page with links to several sub-pages. Perhaps the most useful of these is the waterfall. 
 
-######Waterfall display
+######Waterfall
 
 Here's a picture of the waterfall display. Click the image for a larger version.
 
@@ -51,14 +51,32 @@ Just above the row containing the build names, the builder status is shown. Norm
 
 Across the top is a row showing build names and the status of the most recent build for each.
 
-######Grid and T-Grid display
+######Grid and T-Grid
 
-This page lists each of the build names down the left side, and in a column for each change set detected, the status of the build. The T-Grid shows the same information, transposed about the diagonal.
+This page lists each of the build names down the left side, and in a column for each change set detected, the status of the build. The T-Grid shows the same information, transposed along the diagonal.
 
-######Console display
+######Console
 
 Console view shows a list of change sets down the left side, and allows a developer to quickly see the status of each builder for the build including his or her change. A green box means that the change didn't break any of the builds. A red box means the change broke the build in some way.  A yellow box means the build is in progress.
 
-######Builders display
+######Builders
+
+Self-explanatory - builders, latest result, and current status.
+
+######Recent Builds
+
+Self-explanatory, see column headings.
+
+######Buildslaves
+
+Shows basic status info for the build slave.
+
+######Changesources
+
+Shows info on the "GitPoller" change source, which detects changes to the github repository and triggers the fwbuild builder.
+
+######About
+
+Shows version info for Buildbot components.
 
 
