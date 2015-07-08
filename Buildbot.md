@@ -27,4 +27,8 @@ The web interface is served by master here: http://ara-buildbot.leaflabs.com/
 
 ##### Brief tour of the Buildbot web interface
 
-![buildbot waterfall](images/waterfall.jpg)
+The home page is basically a jump page with links to several sub-pages.
+Perhaps the most useful is the waterfall display. 
+
+Here's a picture of the waterfall. Click the image for a larger version.
+<a href="https://github.com/projectara/Firmware-wiki/wiki/images/waterfall.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/waterfall.jpg" width="640">
