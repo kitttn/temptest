@@ -15,5 +15,6 @@
 [Module Manifest HOWTO](Module Manifest HOWTO)  
 [Debugging](Debugging)  
 [Hardware Gotchas](Hardware-Gotchas)  
+[Buildbot](Buildbot)  
 
 [Old Pages](Old-Pages)
