@@ -55,7 +55,7 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 * Connect to the gdbserver:  `target remote localhost:$JLINK_PORT`  
 * Reset the target device: `monitor reset`  
 * Load the symbols into GDB: `file <path-to-image-elf-file>`  
-* Load the binary image: `restore <path-to-image-binary-file>`  
+* Load the binary image: `restore <path-to-image-binary-file> binary`  
 * Set the program counter to the reset handler: `set $pc=Reset_Handler`
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
