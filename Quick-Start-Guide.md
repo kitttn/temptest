@@ -55,7 +55,7 @@ The resulting binary image files are here:
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
-For more information on the build process, you may wish to consult [building the code](Building-the-Code).
+The build instructions provided in this Quick Start guide are sufficient for basic use of your BDB.  For additional information regarding the firmware build process, you can consult [building the code](Building-the-Code).
 
 --------------------------------------------------------------
 
