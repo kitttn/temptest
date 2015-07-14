@@ -55,31 +55,30 @@ The resulting binary image files are here:
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
 
-The build instructions provided in this Quick Start guide are sufficient for basic use of your BDB.  For additional information regarding the firmware build process, you can consult [building the code](Building-the-Code).
+Although the SVC may have been loaded with firmware prior to shipping the BDB, you'll want to build the latest version:
+
+* `cd $HOME/nuttx`
+* `./build_ara_image.sh ara svc/bdb2a`
+
+The resulting ELF file for the SVC will be generated here:  
+`$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`
+
+While the build instructions provided in this Quick Start guide are sufficient for basic use of your BDB, for additional information regarding the firmware build process, you can consult [building the code](Building-the-Code).
 
 --------------------------------------------------------------
 
 ###Step 4. Load the firmware images
 
-#####Option 1: Load firmware image to flash (RECOMMENDED)  
-For each of the firmware images listed in step 3, follow 
+#####Option 1 for the Bridges: Load firmware image to flash (RECOMMENDED)  
+For each of the bridge firmware images listed in step 3, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
 
-#####Option 2: Load firmware image using JTAG
-For each of the firmware images listed in step 3, follow 
+#####Option 2 for the Bridges: Load firmware image using JTAG
+For each of the bridge firmware images listed in step 3, follow 
 [this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
-#####Build and load SVC firmware (OPTIONAL) 
-The SVC is loaded with the latest firmware prior to shipping the BDB. 
-These steps are included *just in case* you need to reflash the SVC. 
-
-Build SVC firmware:
-* `cd $HOME/nuttx`
-* `./build_ara_image.sh ara svc/bdb2a
-
-Flash SVC firmware:  
-Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the ELF  file you just built:  
-`$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`. 
+#####Flash SVC firmware
+Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC ELF  file you just built during step 3.
 
 --------------------------------------------------------------
 
