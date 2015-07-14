@@ -26,8 +26,8 @@ Complete each of the following steps in order. Within each step, there are links
 ###Step 2. Set up your development hardware
 
 * Make sure you have the following:
-  * 1 [Big Development Board version 2A (BDB2A) kit](images/BDB2A.jpg)
-  * 1 [Jetson TK1 DevKit](https://developer.nvidia.com/jetson-tk1) (may be included with BDB2A kit)
+  * 1 [Big Development Board version 2A (BDB2A) or version 2B (BDB2B) kit](images/BDB2A.jpg)
+  * 1 [Jetson TK1 DevKit](https://developer.nvidia.com/jetson-tk1) (may be included with BDB2A or BDB2B kit)
   * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * 1 [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
   * 3 [USB A to micro B cable](images/usb-micro-b.jpg)
@@ -44,8 +44,7 @@ Here's a picture of the BDB. Click the image for a larger version.
 --------------------------------------------------------------
 
 ###Step 3. Build the firmware images
-Follow the steps below to build the firmware for APB1 and APB2 bridges
-on the BDB.  
+Follow the steps below to build the firmware for APB1 and APB2 bridges on the BDB.  
 
 * `cd $HOME/nuttx`  
 * `./build_ara_image.sh ara bridge/es2-debug-apbridgea`  
