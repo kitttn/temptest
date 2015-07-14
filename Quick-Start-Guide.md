@@ -62,7 +62,7 @@ Although the SVC may have been loaded with firmware prior to shipping the BDB, y
 The resulting ELF file for the SVC will be generated here:  
 `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`
 
-While the build instructions provided in this Quick Start guide are sufficient for basic use of your BDB, for additional information regarding the firmware build process, you can consult [building the code](Building-the-Code).
+While the build instructions provided in this Quick Start guide are sufficient for basic use of your BDB, for additional information regarding the firmware build process you can consult [building the code](Building-the-Code).
 
 --------------------------------------------------------------
 
