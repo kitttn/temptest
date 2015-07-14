@@ -53,7 +53,9 @@ on the BDB.
 
 The resulting binary image files are here:  
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
-APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`  
+APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
+
+For more information on the build process, you may wish to consult [building the code](Building-the-Code).
 
 --------------------------------------------------------------
 
