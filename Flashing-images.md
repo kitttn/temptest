@@ -94,7 +94,7 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
  
 #####Software Steps  
 1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
-2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb nuttx`
+2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb <path-to-svc-nuttx>`. For example, if you used build_ara_image.sh, the BDB2 SVC image is build/ara-svc-bdb2a/image/nuttx.
 3. Connect GDB to gdbserver: `target remote localhost:2331`
 4. Reset target: `monitor reset`
 5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead:
