@@ -1,4 +1,4 @@
-This page describes how to load firmware images into flash memory.  
+This page describes how to load firmware images into flash memory.  Instructions for [[building firmware images|Building-the-Code]] and for [[obtaining prebuilt binaries from Buildbot|Buildbot]] are available.
 
 There are 3 supported scenarios:
 * [Load firmware image to SPIROM for a bridge ASIC on BDB](Flashing-images#load-firmware-image-to-spirom)
@@ -30,33 +30,38 @@ GP Bridge 2 | CON15  | SW6
 
 #####Software Steps
 
-1. The Flashrom utility expects the binary image file to be the same size as the flash device. The truncate utility pads the binary image file to match the device size. If the nuttx.bin file size is smaller than 2097152 bytes, run the truncate utility to pad the image to 2M, otherwise skip this step.
-To run the truncate utility: `truncate -s 2M <path-to-binary-image-file>`   
-2. Run the flashrom utility: `flashrom  --programmer dediprog -w <path-to-binary-image-file>`  
-If all goes well, you should see something like the following:
-```
-flashrom v0.9.7-r1852 on Linux 3.13.0-24-generic (x86\_64)
-flashrom is free software, get the source code at
-http://www.flashrom.org
-Calibrating delay loop... delay loop is unreliable, trying to continue
-OK.
-Found Winbond flash chip "W25Q16.W" (2048 kB, SPI) on dediprog.
-[...bunch of blah blah here, omitted for clarity...]
-Reading old flash chip contents... done.
-Erasing and writing flash chip... Erase/write done.
-Verifying flash... VERIFIED.
-```
-Note: If you attempt to reprogram the same image twice, you may see the following output instead:
-```
-Reading old flash chip contents... done.
-Erasing and writing flash chip...
-Warning: Chip content is identical to the requested image.
-Erase/write done.
-```
-This is OK, but it’s a good idea to check that you’re indeed programming
-the image that you had intended, rather than some previous version.
+1. The Flashrom utility expects the binary image file to be the same size as the flash device. Run the truncate utility to pad the image to 2M:
 
-<br>
+   `truncate -s 2M <path-to-nuttx-binary-image>.bin` 
+  
+2. Run the flashrom utility:
+
+   `flashrom  --programmer dediprog -w <path-to-nuttx-binary-image>.bin`
+
+   If all goes well, you should see something like the following:
+
+   ```
+   flashrom v0.9.7-r1852 on Linux 3.13.0-24-generic (x86_64)
+   flashrom is free software, get the source code at
+   http://www.flashrom.org
+   Calibrating delay loop... delay loop is unreliable, trying to continue
+   OK.
+   Found Winbond flash chip "W25Q16.W" (2048 kB, SPI) on dediprog.
+   [...bunch of blah blah here, omitted for clarity...]
+   Reading old flash chip contents... done.
+   Erasing and writing flash chip... Erase/write done.
+   Verifying flash... VERIFIED.
+   ```
+
+   *Note*: If you attempt to reprogram the same image twice, you may see the following output instead:
+
+   ```
+   Reading old flash chip contents... done.
+   Erasing and writing flash chip...
+   Warning: Chip content is identical to the requested image.
+   Erase/write done.
+   ```
+
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
@@ -72,13 +77,38 @@ Board' and 'BDB'.
 7. Apply power to BDB
 
 #####Software Steps  
-1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
-2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb <path-to-svc-nuttx>`. For example, if you used "build_ara_image.sh all" from the NuttX top level directory to build all binary images, the BDB2 SVC image is build/ara-svc-bdb2a/image/nuttx.
-3. Connect GDB to gdbserver: `target remote localhost:2331`
-4. Reset target: `monitor reset`
-5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead: `restore nuttx.bin binary 0x08000000`
+1. Open a terminal window and start the JLink gdbserver, specifying the SVC device:
 
-<br>
+   `JLinkGDBServer -device STM32F417IG`
+
+2. Open another terminal window and start GDB, passing the nuttx ELF image you want to upload:
+
+   `arm-none-eabi-gdb <path-to-svc-nuttx>`.
+
+   For example, if you used "build_ara_image.sh ara svc/bdb2a" from the NuttX top level directory to build an SVC image for BDB2 (either BDB2A or BDB2B, **note the confusing name**), the BDB2 SVC image is build/ara-svc-bdb2a/image/nuttx.
+
+3. Connect GDB to gdbserver:
+
+   `target remote localhost:2331`
+
+4. Reset target:
+
+   `monitor reset`
+
+5. Load the ELF image into flash memory. It will be stored there permanently.
+
+   `load`
+
+   *Note*: to load the SVC binary image (nuttx.bin), use the 'restore' command instead:
+
+   `restore nuttx.bin binary 0x08000000`
+
+6. Run the ELF image.
+
+   `continue`
+
+   You can use control-C to break execution, set breakpoints, etc. Another `monitor reset` / `continue` will restart the image from its reset vector.
+
 ####Load firmware image to SVC on endo
 
 #####Hardware Setup
@@ -92,13 +122,37 @@ Board' and 'BDB'. 'BDB' end goes to Endo.
 6. Apply power to Endo.
  
 #####Software Steps  
-1. Open a terminal window and start the JLink gdbserver, specifying the SVC device: `JLinkGDBServer -device STM32F417IG`
-2.  Open another terminal window and start GDB, passing the nuttx ELF image you want to upload: `arm-none-eabi-gdb <path-to-svc-nuttx>`. An [SVC image binary](http://ara-buildbot.leaflabs.com:8011/images/endo-svc.b4b29bdfc51281dbb30172d8625a2cb2deb51047/nuttx) you can use is available on the Google I/O demo buildbot. 
-3. Connect GDB to gdbserver: `target remote localhost:2331`
-4. Reset target: `monitor reset`
-5. Load the ELF image into flash memory: `load`. Note: to load the SVC binary image, use the 'restore' command instead:
+1. Open a terminal window and start the JLink gdbserver, specifying the SVC device:
+
+   `JLinkGDBServer -device STM32F417IG`
+
+2. Open another terminal window and start GDB, passing the nuttx ELF image you want to upload:
+
+   `arm-none-eabi-gdb <path-to-svc-nuttx>`.
+
+   An [SVC image binary](http://ara-buildbot.leaflabs.com:8011/images/endo-svc.b4b29bdfc51281dbb30172d8625a2cb2deb51047/nuttx) you can use is available on the Google I/O demo buildbot.
+
+3. Connect GDB to gdbserver:
+
+   `target remote localhost:2331`
+
+4. Reset target:
+
+   `monitor reset`
+
+5. Load the ELF image into flash memory:
+
+   `load`.
+
+   *Note*: to load the SVC binary image (nuttx.bin), use the 'restore' command instead:
+
    `restore nuttx.bin binary 0x08000000`
 
+6. Run the ELF image.
+
+   `continue`
+
+   You can use control-C to break execution, set breakpoints, etc. Another `monitor reset` / `continue` will restart the image from its reset vector.
 
 ###Additional Info
 
