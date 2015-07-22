@@ -10,6 +10,11 @@ There are 3 supported scenarios:
 ####Load firmware image to SPIROM
 
 #####Hardware Setup
+
+The final debug board configuration should look like this. Click the image for a larger version.
+
+<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/Debug-Adapter-Board-Rev-B-Dediprog-Setup.jpg"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/Debug-Adapter-Board-Rev-B-Dediprog-Setup.jpg" width=640/></a>
+
 1. REMOVE POWER FROM BDB.
 2. Connect FPC from BDB debug board connector CON9 to the corresponding bridge ASIC connector on the BDB; the table below lists which BDB connector corresponds to each bridge. The FPC has labels 'side Debug Board' and 'BDB'; you must connect the boards according to those labels.
 3. Verify debug board switch SW5 is positioned *toward* the SW5 label  
@@ -62,11 +67,18 @@ GP Bridge 2 | CON15  | SW6
    Erase/write done.
    ```
 
+3. Unplug the debug board FPC from the BDB. The SPI ROM is now flashed, and will run when the bridge is next taken out of reset.
+
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
 
 #####Hardware Setup
+
+The final debug board configuration should look like this. Click the image for a larger version.
+
+<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/Debug-Adapter-Board-Rev-B-Setup.png"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/Debug-Adapter-Board-Rev-B-Setup.png" width=640/></a>
+
 1. REMOVE POWER FROM BDB
 2. Connect JTAG interface to debug board CON3 and host USB
 3. Connect FPC from debug board CON9 to BDB CON18. Observe FPC labeling 'side Debug
