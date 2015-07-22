@@ -35,7 +35,6 @@ Complete each of the following steps in order. Within each step, there are links
   * 1 [9-pin USB serial adapter](images/usb_ser.jpg)
   * 1 [9-pin female-female null modem](images/nullmodem9ff.jpg) 
   * 1 Multimeter for reading GPIO pin voltage
-  * [ProjectAra MDK](http://www.projectara.com/mdk/)
 * Follow the hardware setup instructions on [this page](Hardware-Setup)
 
 Here's a picture of the BDB. Click the image for a larger version.
