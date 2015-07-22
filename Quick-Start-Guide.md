@@ -53,8 +53,8 @@ Follow the steps below to build the firmware for APB1 and APB2 bridges on the BD
 * `./build_ara_image.sh ara bridge/es2-debug-generic`  
 
 The resulting binary image files are here:  
-APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/images/nuttx.bin`  
-APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/images/nuttx.bin`
+APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`  
+APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`
 
 Although the SVC may have been loaded with firmware prior to shipping the BDB, you'll want to build the latest version:
 
