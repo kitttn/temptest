@@ -46,23 +46,19 @@ Here's a picture of the debug boards that come with the BDB, with labels in whit
 --------------------------------------------------------------
 
 ###Step 3. Build the firmware images
-Follow the steps below to build the firmware for APB1 and APB2 bridges on the BDB. Look at the picture of the BDB above to see where those bridges are on the board.
+Follow the steps below to build the firmware for the SVC, as well as the APB1 and APB2 bridges on the BDB. Look at the picture of the BDB above to see where those are on the board.
 
 * `cd $HOME/nuttx`  
 * `./build_ara_image.sh ara bridge/es2-debug-apbridgea`  
-* `./build_ara_image.sh ara bridge/es2-debug-generic`  
+* `./build_ara_image.sh ara bridge/es2-debug-generic`
+* `./build_ara_image.sh ara svc/bdb2a`
 
 The resulting binary image files are here:  
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`
 
-Although the SVC may have been loaded with firmware prior to shipping the BDB, you'll want to build the latest version:
-
-* `cd $HOME/nuttx`
-* `./build_ara_image.sh ara svc/bdb2a`
-
-The resulting ELF file for the SVC will be generated here:  
-`$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`
+The SVC ELF image is here:
+SVC:   `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`
 
 For more about the firmware build process, see [building the code](Building-the-Code).
 
