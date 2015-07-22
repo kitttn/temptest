@@ -10,14 +10,13 @@ There are 3 supported scenarios:
 ####Load firmware image to SPIROM
 
 #####Hardware Setup
-1. REMOVE POWER FROM BDB
-3. Connect FPC from debug board CON9 to BDB. Observe FPC labeling 'side Debug
-Board' and 'BDB'. The table below lists which BDB connector is associated with each device.
-4. Verify debug board SW5 is positioned *toward* the SW5 label  
-5. Verify jumper is installed on debug board JP15 pins 1-2
-6. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
-7. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run terminal prog at 115200-n-8-1  
-8. Apply power to the BDB. 
+1. REMOVE POWER FROM BDB.
+2. Connect FPC from BDB debug board connector CON9 to the corresponding bridge ASIC connector on the BDB; the table below lists which BDB connector corresponds to each bridge. The FPC has labels 'side Debug Board' and 'BDB'; you must connect the boards according to those labels.
+3. Verify debug board switch SW5 is positioned *toward* the SW5 label  
+4. Verify jumper is installed on debug board JP15 pins 1-2
+5. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
+6. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run a terminal program at 115200 baud, 8N1.
+7. Apply power to the BDB. 
 
 
 Bridge ASIC | BDB Debug Connector | Reset Switch 
