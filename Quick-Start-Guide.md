@@ -53,11 +53,13 @@ Follow the steps below to build the firmware for the SVC, as well as the APB1 an
 * `./build_ara_image.sh ara bridge/es2-debug-generic`
 * `./build_ara_image.sh ara svc/bdb2a`
 
-The resulting binary image files are here:  
+The resulting binary image files are here:
+
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`
 
 The SVC ELF image is here:
+
 SVC:   `$HOME/nuttx/build/ara-svc-bdb2a/image/nuttx`
 
 For more about the firmware build process, see [building the code](Building-the-Code).
