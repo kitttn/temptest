@@ -43,7 +43,7 @@ Here's a picture of the BDB. Click the image for a larger version.
 --------------------------------------------------------------
 
 ###Step 3. Build the firmware images
-Follow the steps below to build the firmware for APB1 and APB2 bridges on the BDB.  
+Follow the steps below to build the firmware for APB1 and APB2 bridges on the BDB. Look at the picture of the BDB above to see where those bridges are on the board.
 
 * `cd $HOME/nuttx`  
 * `./build_ara_image.sh ara bridge/es2-debug-apbridgea`  
