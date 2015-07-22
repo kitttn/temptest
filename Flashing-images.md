@@ -107,7 +107,7 @@ Board' and 'BDB'.
 
    `monitor reset`
 
-5. Load the ELF image into flash memory. It will be stored there permanently.
+5. Load the ELF image into flash memory. It will be stored there permanently (until you next reprogram it).
 
    `load`
 
@@ -120,6 +120,8 @@ Board' and 'BDB'.
    `continue`
 
    You can use control-C to break execution, set breakpoints, etc. Another `monitor reset` / `continue` will restart the image from its reset vector.
+
+7. You can now disconnect the debug board FPC from the BDB. The SVC firmware image you just flashed will run whenever you power cycle the BDB.
 
 ####Load firmware image to SVC on endo
 
