@@ -58,7 +58,7 @@ APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`
 
 The SVC ELF image is here:
-SVC:   `$HOME/nuttx/build/ara-svc-bdb2a/images/nuttx`
+SVC:   `$HOME/nuttx/build/ara-svc-bdb2a/image/nuttx`
 
 For more about the firmware build process, see [building the code](Building-the-Code).
 
