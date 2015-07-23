@@ -115,27 +115,28 @@ insmod gb-vibrator.ko
 insmod gb-es2.ko
 ```
 
-Here is the expected output. Prompt strings and time stamps removed for clarity.
+Here is some example output.
 ```
-$ su
-# cd /lib/modules
-# insmod greybus.ko
-# insmod gb-phy.ko                                   
-greybus: Registered gpio protocol.
-greybus: Registered pwm protocol.
-greybus: Registered uart protocol.
-greybus: Registered sdio protocol.
-greybus: Registered usb protocol.
-greybus: Registered i2c protocol.
-greybus: Registered spi protocol.
-greybus: Registered hid protocol.
-greybus: Registered gb_audio_mgmt protocol.
-greybus: Registered gb_audio_data protocol.
-# insmod gb-vibrator.ko                              
-greybus: Registered vibrator protocol.
-# insmod gb-es2.ko
-usbcore: registered new interface driver es2_ap_driver
-#
+shell@jetson:/ $ su
+shell@jetson:/ # cd /lib/modules
+shell@jetson:/lib/modules # insmod greybus.ko
+[   58.819982] greybus: Registered control protocol.
+[   58.824785] greybus: Registered svc protocol.
+shell@jetson:/lib/modules # insmod gb-phy.ko
+[   58.873229] greybus: Registered gpio protocol.
+[   58.877783] greybus: Registered pwm protocol.
+[   58.882197] greybus: Registered uart protocol.
+[   58.886700] greybus: Registered sdio protocol.
+[   58.891195] greybus: Registered usb protocol.
+[   58.895626] greybus: Registered i2c protocol.
+[   58.900029] greybus: Registered spi protocol.
+[   58.904441] greybus: Registered hid protocol.
+[   58.908852] greybus: Registered gb_audio_mgmt protocol.
+[   58.914141] greybus: Registered gb_audio_data protocol.
+shell@jetson:/lib/modules # insmod gb-vibrator.ko
+[   58.953700] greybus: Registered vibrator protocol.
+shell@jetson:/lib/modules # insmod gb-es2.ko
+[   60.124416] usbcore: registered new interface driver es2_ap_driver
 ```
 At this point, you should have 3 serial terminal sessions open: 
 * BDB bridge APB1 debug output
