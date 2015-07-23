@@ -104,7 +104,18 @@ Reboot the Jetson and wait for console output to settle down. Press Enter and th
 shell@jetson:/ $ 
 ```
 
-Load the Greybus kernel modules from /lib/modules as follows. Prompt strings and time stamps removed for clarity.
+Load the Greybus kernel modules from /lib/modules as follows.
+
+```
+su
+cd /lib/modules
+insmod greybus.ko
+insmod gb-phy.ko
+insmod gb-vibrator.ko
+insmod gb-es2.ko
+```
+
+Here is the expected output. Prompt strings and time stamps removed for clarity.
 ```
 $ su
 # cd /lib/modules
