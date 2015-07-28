@@ -47,3 +47,7 @@ struct cport_to_ep {
 * cport_id: any cport between 0 and 44 except 16 and 17 reserved for cdsi
 * endpoint_in: any odd number between 3 and 15
 * endpoint_out: any even number between 2 and 14
+
+#### Known limitations:
+* by default, all cports are muxed on endpoints 2 and 3
+* cports can not be muxed on another endpoints (legacy, I will remove this limitation soon)
