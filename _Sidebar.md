@@ -16,5 +16,5 @@
 [Debugging](Debugging)  
 [Hardware Gotchas](Hardware-Gotchas)  
 [Buildbot](Buildbot)  
-
+[USB Vendor Request](APBridgeA-USB-Vendor-Request)  
 [Old Pages](Old-Pages)
