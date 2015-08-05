@@ -54,7 +54,7 @@ Flashrom is a utility used to flash the SPIROM.
 Recent versions of the Dediprog SF-100 are not working with mainline flashrom. You **must** use the Project Ara Flashrom Repository.
 
 Clone the [Project Ara flashrom repository](General-Information#flashrom-spi-rom-programming-tool), checkout the master branch, and rebuild with the following command:  
-`user@mymachine:~/flashrom$ CONFIG_DEDIPROG=yes make`
+`user@mymachine:~/flashrom$ make`
 
 Install flashrom and the manpage into /usr/local:  
 `user@mymachine:~/flashrom$ sudo make install`
