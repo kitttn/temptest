@@ -23,3 +23,17 @@ If GPB1 is not powered, then HUB will not work:
 * HUB removes the HSIC device
 
 To keep APB1 USB HUB working: never power off GPB1.
+
+####APBridge1 HUB (power?) issue
+
+Issue on BDB2A, BDB2B with debug board rev b.
+
+A debug board can disturb APBridge1 HUB.
+If the issue happen and APBridge1 can not workaround it then HUB does not enumerate correctly.
+The issue is caused by UART TX (from debug board). This signal seems to inject power in board even if the power was removed. Then, even without power, +VAPB1_1P8_IO voltage is almost 1V.
++VAPB1_1P8_IO is used to power the HUB and I suspect this voltage keep HUB in bad state causing enumeration issue.
+
+Workaround:
+* Remove debug board or Unplug and plug debug board on BDB power cycles
+* Plug USB cable only few seconds after (let time to APBridge1 to reset HUB).
+* Add resistor between UART signals from debug board and BDB (>= 10K)
