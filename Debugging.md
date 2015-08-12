@@ -156,3 +156,36 @@ To connect to the semihosting console where everything is printed:
 ```
 $ telnet localhost 2333
 ```
+
+####Greybus Taping
+It can often be useful for debug to record Greybus operations on a bridge and be able to replay them. Greybus Taping will enable you to save all greybus operations received by a bridge and saves them in a file in your computer thanks to ARM Semihosting. At a later time you can replay them without needing an AP.
+
+Step 1: enable GB Taping and the controlling application
+
+```
+CONFIG_GREYBUS_TAPE_ARM_SEMIHOSTING=y
+CONFIG_ARA_GB_TAPE=y
+```
+
+Step 2: activate semihosting in JLink's GDBServer by running this in a GDB session on the bridge where you will record the operations.
+
+```
+gdb> monitor semihosting enable
+```
+
+Step3: start taping the communication on the bridge
+
+```
+nsh> gb_tape -r filename.gb
+```
+
+Step4: stop taping the communication on the bridge
+
+```
+nsh> gb_tape -s
+```
+Step5: reset bridge FW and replay your GB Session
+
+```
+nsh> gb_tape -p filename.gb
+```
