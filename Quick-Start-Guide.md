@@ -87,7 +87,7 @@ Jetson has a 9-pin serial port which is used for the u-boot console, boot log, a
 
 <a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
 
-The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Getting-Started-with-the-Jetson-reference-platform#android_for_jetson-nvflash-package)
+The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Getting-Started-with-the-Jetson-reference-platform#instructions-for-using-the-nvflash-package)
 
 ###Step 6. Rebuild Jetson kernel
 
