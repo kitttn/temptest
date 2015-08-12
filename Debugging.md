@@ -173,18 +173,18 @@ Step 2: activate semihosting in JLink's GDBServer by running this in a GDB sessi
 gdb> monitor semihosting enable
 ```
 
-Step3: start taping the communication on the bridge
+Step 3: start taping the communication on the bridge
 
 ```
 nsh> gb_tape -r filename.gb
 ```
 
-Step4: stop taping the communication on the bridge
+Step 4: stop taping the communication on the bridge
 
 ```
 nsh> gb_tape -s
 ```
-Step5: reset bridge FW and replay your GB Session
+Step 5: reset bridge FW, enable semihosting, and then replay your GB Session using the following command:
 
 ```
 nsh> gb_tape -p filename.gb
