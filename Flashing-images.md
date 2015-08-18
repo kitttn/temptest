@@ -32,6 +32,7 @@ AP Bridge 3 | CON16  | SW7
 GP Bridge 1 | CON14  | SW5
 GP Bridge 2 | CON15  | SW6
 
+All of the above switches should be positioned *away* from pin 1.
 
 #####Software Steps
 
