@@ -75,7 +75,7 @@ Set up your BDB2 and debug board to flash it by connecting the debug board to CO
 
 <img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb1-debug-board-setup.jpg"/>
 
-Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
+Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom) to flash the APB1 firmware image.
 
 ##### Flash APB2 firmware
 
@@ -85,7 +85,7 @@ Set up your BDB2 and debug board to flash it by connecting the debug board to CO
 
 <img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb2-debug-board-setup.jpg"/>
 
-Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
+Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom) to flash the APB2 firmware image.
 
 #####Flash SVC firmware
 Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC ELF  file you just built during step 3.
