@@ -67,9 +67,25 @@ For more about the firmware build process, see [building the code](Building-the-
 
 ###Step 4. Load the firmware images
 
-##### Flash APB1 and APB2 firmware  
-For each of the APB1 and APB2 firmware binary image files listed in step 3, follow 
-[this procedure](Flashing-images#load-firmware-image-to-spirom).
+##### Flash APB1 firmware
+
+The APB1 firmware image you built in step 3 is in `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`.
+
+Set up your BDB2 and debug board to flash it by connecting the debug board to CON17 on the BDB2:
+
+<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb1-debug-board-setup.jpg"></a>
+
+Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
+
+##### Flash APB2 firmware
+
+The APB2 firmware image you built in step 3 is in `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`.
+
+Set up your BDB2 and debug board to flash it by connecting the debug board to CON19 on the BDB2:
+
+<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb2-debug-board-setup.jpg"></a>
+
+Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
 
 #####Flash SVC firmware
 Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC ELF  file you just built during step 3.
