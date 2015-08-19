@@ -72,7 +72,7 @@ The following items are also required:
 
 Qty | Item | Description
 ----|------|-------------
-2   | [J-Link Pro](http://www.segger.com/jlink-pro.html) | JTAG USB interface
+1   | [J-Link Pro](http://www.segger.com/jlink-pro.html) | JTAG USB interface
 3   | cable | USB A to micro B cable
  
 ####Configure Debug Adapter Boards
