@@ -72,7 +72,7 @@ Then log out and log back in. You should able to run flashrom without sudo.
 cd $HOME
 git clone https://github.com/projectara/nuttx
 cd nuttx
-git config commit.template tools/git-commit-template
+git config commit.template nuttx/tools/git-commit-template
 ```
 
 
