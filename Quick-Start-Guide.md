@@ -68,13 +68,9 @@ For more about the firmware build process, see [building the code](Building-the-
 
 ###Step 4. Load the firmware images
 
-#####Option 1 for the Bridges: Load firmware image to flash (RECOMMENDED)  
-For each of the bridge firmware images listed in step 3, follow 
+##### Flash APB1 and APB2 firmware  
+For each of the APB1 and APB2 firmware binary image files listed in step 3, follow 
 [this procedure](Flashing-images#load-firmware-image-to-spirom).
-
-#####Option 2 for the Bridges: Load firmware image using JTAG
-For each of the bridge firmware images listed in step 3, follow 
-[this procedure](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag). 
 
 #####Flash SVC firmware
 Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC ELF  file you just built during step 3.
