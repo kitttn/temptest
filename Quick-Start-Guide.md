@@ -73,7 +73,7 @@ The APB1 firmware image you built in step 3 is in `$HOME/nuttx/build/ara-bridge-
 
 Set up your BDB2 and debug board to flash it by connecting the debug board to CON17 on the BDB2:
 
-<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb1-debug-board-setup.jpg"></a>
+<img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb1-debug-board-setup.jpg"/>
 
 Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
 
@@ -83,7 +83,7 @@ The APB2 firmware image you built in step 3 is in `$HOME/nuttx/build/ara-bridge-
 
 Set up your BDB2 and debug board to flash it by connecting the debug board to CON19 on the BDB2:
 
-<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb2-debug-board-setup.jpg"></a>
+<img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-apb2-debug-board-setup.jpg"/>
 
 Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom).
 
