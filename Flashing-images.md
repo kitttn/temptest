@@ -24,13 +24,15 @@ The final debug board configuration should look like this. Click the image for a
 7. Apply power to the BDB. 
 
 
-Bridge ASIC | BDB Debug Connector 
-------------|--------------------
-AP Bridge 1 | CON17
-AP Bridge 2 | CON19
-AP Bridge 3 | CON16
-GP Bridge 1 | CON14
-GP Bridge 2 | CON15
+Bridge ASIC | BDB Debug Connector | Reset Switch 
+------------|---------------------|-------------
+AP Bridge 1 | CON17  | SW8
+AP Bridge 2 | CON19  | SW9
+AP Bridge 3 | CON16  | SW7
+GP Bridge 1 | CON14  | SW5
+GP Bridge 2 | CON15  | SW6
+
+All of the above switches should be positioned *away* from pin 1.
 
 #####Software Steps
 
