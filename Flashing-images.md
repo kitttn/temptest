@@ -9,6 +9,18 @@ There are 3 supported scenarios:
 <br>
 ####Load firmware image to SPIROM
 
+#####Bridge ASIC debug board connectors and reset switches
+
+The following table shows which connectors (on the BDB) to connect the debug board FPC cable to. You'll need it in later steps.
+
+Bridge ASIC | BDB Debug Connector | Reset Switch 
+------------|---------------------|-------------
+APB1        | CON17               | SW8
+APB2        | CON19               | SW9
+APB3        | CON16               | SW7
+GPB1        | CON14               | SW5
+GPB2        | CON15               | SW6
+
 #####Hardware Setup
 
 The final debug board configuration should look like this. Click the image for a larger version.
@@ -17,22 +29,11 @@ The final debug board configuration should look like this. Click the image for a
 
 1. REMOVE POWER FROM BDB.
 2. Connect FPC from BDB debug board connector CON9 to the corresponding bridge ASIC connector on the BDB; the table below lists which BDB connector corresponds to each bridge. The FPC has labels 'side Debug Board' and 'BDB'; you must connect the boards according to those labels.
-3. Verify debug board switch SW5 is positioned *toward* the SW5 label  
-4. Verify jumper is installed on debug board JP15 pins 1-2
+3. Verify jumper is installed on debug board JP15 pins 1-2
+4. Make sure all bridge ASIC reset switches (see table above) are *TOWARDS* pin 1.
 5. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
 6. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run a terminal program at 115200 baud, 8N1.
 7. Apply power to the BDB. 
-
-
-Bridge ASIC | BDB Debug Connector | Reset Switch 
-------------|---------------------|-------------
-AP Bridge 1 | CON17  | SW8
-AP Bridge 2 | CON19  | SW9
-AP Bridge 3 | CON16  | SW7
-GP Bridge 1 | CON14  | SW5
-GP Bridge 2 | CON15  | SW6
-
-All of the above switches should be positioned *away* from pin 1.
 
 #####Software Steps
 
@@ -68,7 +69,9 @@ All of the above switches should be positioned *away* from pin 1.
    Erase/write done.
    ```
 
-3. Unplug the debug board FPC from the BDB. The SPI ROM is now flashed, and will run when the bridge is next taken out of reset.
+3. Unplug the SF-100. **Leaving it connected when the bridges are taken out of reset can cause hardware damage**.
+
+4. Take all bridges out of reset by moving their reset switches *AWAY* from pin 1.
 
 ####Load firmware image to SVC internal flash on BDB
 STM32 internal flash is written via the JTAG interface, 
