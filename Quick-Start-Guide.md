@@ -88,7 +88,14 @@ Set up your BDB2 and debug board to flash it by connecting the debug board to CO
 Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom) to flash the APB2 firmware image.
 
 #####Flash SVC firmware
-Follow [this procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) using the SVC ELF  file you just built during step 3.
+
+The SVC firmware image you built in step 3 is in `$HOME/nuttx/build/ara-svc-bdb2a/image/nuttx`.
+
+Set up your BDB2 and debug board to flash it by connecting the debug board to CON18:
+
+<img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/bdb2b-svc-jtag-setup.jpg"/>
+
+Next, follow the [SVC programming procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) to flash the SVC ELF image.
 
 --------------------------------------------------------------
 
