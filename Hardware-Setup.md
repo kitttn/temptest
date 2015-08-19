@@ -8,7 +8,6 @@ The development hardware has exposed components and connectors, and is extremely
 The development hardware is also sensitive to power sequencing, so...   
 **DO NOT CONNECT POWER SUPPLIES UNTIL DIRECTED BY THE INSTRUCTIONS!**
 
-<!--
 The configuration used here is for JTAG debugging of firmware images on APB1 and APB2 bridge devices.  
 
 To configure for JTAG debugging the SVC firmware, see [this page](Debugging#how-to-debug-svc-firmware-using-jtag)
@@ -48,7 +47,7 @@ The Debug Adapter Board has the following features:
 *JP15 - pins 1-2 jumpered = JTAG power = 1.8V from BDB
 *JP15 - pins 2-3 jumpered = JTAG power = 1.8V from Debug Adapter Board
 *JP16 - pins 1-2 jumpered = 1.8V generated from USB VBUS
-*JP16 - pins 2-3 jumpered = 1.8V generated from ?? -->
+*JP16 - pins 2-3 jumpered = 1.8V generated from ??
 ####Required Materials
 
 Verify you have everything listed in this section.
