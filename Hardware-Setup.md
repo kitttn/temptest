@@ -14,19 +14,11 @@ To configure for JTAG debugging the SVC firmware, see [this page](Debugging#how-
 
 To configure for JTAG debugging on other bridge devices, see [this page](Debugging#how-to-debug-apgp-bridge-firmware-using-jtag).
 
-Device| Debug FPC | Reset Sw
-------|--------|------
-APB1  | CON17  | SW8
-APB2  | CON19  | SW9
-APB3  | CON16  | SW7
-GPB1  | CON14  | SW5
-GPB2  | CON15  | SW6
-
 ####Connecting with the devices
 
 Each programmable device on the BDB has a connector that mates with the Debug Adapter Board FPC and carries SPI, JTAG,and serial debug lines to the Debug Adapter Board. Each bridge device has a slide RESET switch and a slide Detect/Wake (D/W) switch. The UniPro switch has a slide RESET switch. The SVC has momentary tact switches for RESET and GPIO.
 
-The following table shows these features for each device.
+The following table shows these features for each device. Ensure that the Reset switch associated with each device is positioned *away* from pin 1.
 
 Device| FPC    | Reset | D/W 
 ------|--------|-------|-----
@@ -37,6 +29,7 @@ GPB1  | CON14  | SW5   | SW2
 GPB2  | CON15  | SW6   | SW1
 SVC   | CON18  | SW11  | none
 Switch| CON20  | SW12  | none
+
 
 The Debug Adapter Board has the following features:
 *CON6 - USB conversion of serial debug output from device
