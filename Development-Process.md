@@ -42,4 +42,4 @@ Unless otherwise noted, the [Leaflabs Coding Standard](http://leaflabs.com/docs/
 ###JIRA References
 Please mark known bugs with a Jira issue number. For example:
 
-        // JIRA (SW-123)
+        /* JIRA (SW-123) */
