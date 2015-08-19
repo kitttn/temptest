@@ -68,8 +68,13 @@ user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER
 Then log out and log back in. You should able to run flashrom without sudo.
 
 #####STEP 7. Clone the firmware git repository
-`cd $HOME`  
-`git clone https://github.com/projectara/nuttx`  
+```
+cd $HOME
+git clone https://github.com/projectara/nuttx
+cd nuttx
+git config commit.template tools/git-commit-template
+```
+
 
 #####STEP 8. Build and install kconfig support
 ```
