@@ -28,10 +28,10 @@ Complete each of the following steps in order. Within each step, there are links
 * Make sure you have the following:
   * 1 Big Development Board (BDB) version 2A (BDB2A) or version 2B (BDB2B) kit, which should include 1 BDB and 2 debug boards (see below)
   * 1 [Jetson TK1 DevKit](https://developer.nvidia.com/jetson-tk1) (may be included with BDB2A or BDB2B kit)
-  * 2 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
+  * 1 [J-Link Pro JTAG interfaces](http://www.segger.com/jlink-pro.html)
   * 1 [Dediprog SF100 Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100)
   * 3 [USB A to micro B cable](images/usb-micro-b.jpg)
-  * 1 USB 2.0 hub
+  * 1 USB 2.0 hub (or a computer with 3 USB 2.0 connectors)
   * 1 [9-pin USB serial adapter](images/usb_ser.jpg)
   * 1 [9-pin female-female null modem](images/nullmodem9ff.jpg) 
   * 1 Multimeter for reading GPIO pin voltage
