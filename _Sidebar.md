@@ -1,6 +1,6 @@
 [Home](Home)  
 
-[Quick Start Guide](Quick-Start-Guide)  
+[BDB2 Quick Start Guide](BDB2-Quick-Start-Guide)  
 
 [General Information](General-Information)  
 [Important Documents](Important-Documents)  
