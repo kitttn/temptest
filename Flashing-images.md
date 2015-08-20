@@ -69,7 +69,7 @@ The final debug board configuration should look like this. Click the image for a
    Erase/write done.
    ```
 
-3. Unplug the SF-100. **Leaving it connected when the bridges are taken out of reset can cause hardware damage**.
+3. At this point, you can unplug the SF-100. However, leaving it connected will not cause any harm, as the SF-100 lines are high impedance except during programming.
 
 4. Take all bridges out of reset by moving their reset switches *AWAY* from pin 1.
 
