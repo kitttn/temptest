@@ -25,7 +25,7 @@ that it builds out-of-tree, i.e. the repository is not "dirtied".
 To build using this method, see [this page](Build-default-config).
 
 In the [custom config](Build-custom-config) method, 
-you generate a custom configuration using 'make menuconfig'. This is 
+you generate a custom firmware configuration, optionally by basing it on an existing defconfig. This is 
 required if you need to configure certain runtime or debugging scenarios, or
 enable specific driver functionality or other options. To build using a 
 custom configuration, see [this page](Build-custom-config).  
