@@ -8,7 +8,7 @@ Jetson has a 9-pin serial port which is used for the u-boot console, boot log, a
 
 ### Step 2. Flash Jetson with base Android image
 
-The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the ["Instructions for using the NVflash package" section of these instructions](https://github.com/projectara/Android-wiki/wiki/Getting-Started-with-the-Jetson-reference-platform#instructions-for-using-the-nvflash-package)
+The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the ["Instructions for using the NVflash package" section of these instructions](https://github.com/projectara/Android-wiki/wiki/Getting-Started-with-the-Jetson-reference-platform#instructions-for-using-the-nvflash-package).
 
 ### Step 3. Reflash Jetson with Greybus support 
 
