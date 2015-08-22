@@ -24,21 +24,36 @@ There are 3 types of microcontroller used on the BDB:
 - Supervisory Controller (SVC)
 
 ####Application Processor (AP) Bridge
-The Toshiba T6WT1XBG UniPro AP Bridge is a full-custom ASIC with a Cortex-M3 microcontroller running at 96MHz. Initial firmware is loaded to internal SRAM from an external SPIROM, or the SRAM can be loaded from JTAG for debugging scenarios. This device connects an AP Module to the
-UniPro network. It has a USB HSIC interface for the AP module, and a UniPro M-PHY 
-interface that connects to the network switch. It can also act as a DSI-1 transmitter/receiver 
-for interfacing with a MIPI DSI-compliant display, and a CSI-2 transmitter/receiver for
-interfacing with cameras.
+
+The Toshiba AP Bridge is an ASIC custom-developed for Project Ara, with a Cortex-M3 microcontroller running at 96MHz.
+
+Despite being named "AP Bridge", this device is used for three use cases for Project Ara:
+
+1. To connect an AP without UniPro to the UniPro network, via USB (technically USB HSIC).
+2. To connect camera devices using the MIPI CSI-2 protocol to the UniPro network.
+3. To connect display devices using the MIPI DSI protocol to the UniPro network.
+
+When the AP Bridge is used to connect an AP to UniPro, it is called "**APBridgeA**" ("A" for "AP"). This is sometimes shortened to "APBA". The APBridgeA also connects APs with MIPI CSI-2 or DSI interfaces to cameras and displays on the UniPro network.
+
+When the AP Bridge is used to connect a camera or display device to UniPro, it is called "**APBridgeE**" ("E" for "endpoint"). This is sometimes shortened to "APBE".
+
+Initial firmware is loaded into AP Bridge internal SRAM from an external SPI ROM, or the SRAM can be loaded from JTAG for debugging scenarios.
 
 ####General Purpose (GP) Bridge
-The Toshiba T6WT2XBG UniPro GP Bridge has the same core features as the AP Bridge, but with a different 
-set of peripherals (e.g. I2C/PWM/SDIO,etc). This bridge allows other modules, including the AP, to connect to the peripheral interfaces via UniPro.
+
+The Toshiba GP Bridge has the same core features as the AP Bridge, with a few differences:
+
+1. GP Bridge doesn't have CSI-2 or DSI like AP Bridge.
+2. GP Bridge has an SDIO peripheral, unlike AP Bridge.
+3. GP Bridge has fewer UniPro CPorts than AP Bridge.
+
+The GP Bridge allows chips using various existing protocols to connect to the UniPro network.
 
 ####Supervisory Controller (SVC)
-The ST Micro STM32F417IG is a standard microcontroller with 192KBytes of RAM and 1MByte
-of flash, running at 168MHz. It coordinates the connection of modules
-and bridges to the UniPro network switch, and handles system power
-sequencing, module detection, etc.
+
+Chips from the ST Microelectronics STM32F4 series are used as the Supervisory Controller (SVC) for the current implementation of the Project Ara platform.
+
+The SVC coordinates the connection of modules and bridges to the UniPro network switch, and handles system power sequencing, module detection, and various other functions.
 
 ###Supported AP Boards
 -   [NVIDIA Jetson TK1](https://developer.nvidia.com/jetson-tk1)
