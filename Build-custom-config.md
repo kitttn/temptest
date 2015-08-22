@@ -26,7 +26,9 @@ nuttx
 ├── nuttx
 │   ├── [...]
 │   ├── configs
-│   │   ├── ara     <----- <configs-subdir> is any ara/foo/bar/ you find here
+│   │   ├── ara     <----- <configs-subdir> can be any ara/foo/bar/
+                           you find here that contains a "defconfig"
+                           file.
 │   │   └── [...]
 └── NxWidgets
     └── [...]
