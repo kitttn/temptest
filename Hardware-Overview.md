@@ -49,7 +49,7 @@ The Toshiba GP Bridge has the same core features as the AP Bridge, with a few di
 
 The GP Bridge allows chips using various existing protocols to connect to the UniPro network.
 
-####Supervisory Controller (SVC)
+###Supervisory Controller (SVC)
 
 Chips from the ST Microelectronics STM32F4 series are used as the Supervisory Controller (SVC) for the current implementation of the Project Ara platform.
 
