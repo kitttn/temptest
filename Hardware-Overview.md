@@ -87,7 +87,7 @@ Changes from BDB to SDB include:
 - significant developer-friendliness improvements to the silkscreen and component placement 
 - more breakout connectors for bridge ASIC peripherals
 - inclusion of an ARM standard [Cortex Debug+ETM connector](http://infocenter.arm.com/help/topic/com.arm.doc.faqs/attached/13634/cortex_debug_connectors.pdf) for JTAG and trace macrocell debugging, replacing the custom connector to a debug board used in BDB.
-- support for opening all 7 debug UARTs from a single USB connector, unlike BDB's requirement to use one USB cable per debug UART
+- support for opening all 7 debug UARTs (five bridges, SVC, and AP) from a single USB connector, unlike BDB's requirement to use one USB cable per debug UART
 - support for connecting any AP development board complying with the [Linaro 96Boards](https://www.96boards.org/) standard, unlike requirement of custom adapters needed for BDB.
 - an on/off button (yes, really)
 - the removal of the connectors used in the spiral 2 design of a Project Ara module interface block
