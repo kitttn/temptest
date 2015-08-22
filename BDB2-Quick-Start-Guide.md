@@ -107,7 +107,7 @@ Next, follow the [SVC programming procedure](Flashing-images#load-firmware-image
 
 Follow the [NVidia Jetson Setup](NVidia-Jetson-Setup) instructions to get an Android image with Greybus support running on Jetson.
 
-**DO NOT CONNECT THE JETSON TO SDB UNTIL INSTRUCTED.**
+**DO NOT CONNECT THE JETSON TO BDB UNTIL INSTRUCTED.**
 
 --------------------------------------------------------------
 
