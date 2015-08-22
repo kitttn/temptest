@@ -74,7 +74,7 @@ BDB's features include:
 
 # Software Development Board (SDB)
 
-The Software Development Board is a printed circuit board that serves a similar function to the [Big Development Board (BDB)](#big-development-board-bdb), but with various improvements and without the connectors for the spiral 2 design of a Project Ara module interface block.
+The Software Development Board is a printed circuit board that serves a similar function to the [Big Development Board (BDB)](#big-development-board-bdb). Changes from BDB include various electrical improvements, a more developer-friendly silkscreen, and the removal of the connectors for the spiral 2 design of a Project Ara module interface block.
 
 <a href="https://github.com/projectara/Firmware-wiki/wiki/images/SDB.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/SDB.jpg" width="640"/></a>
 
