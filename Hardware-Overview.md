@@ -9,7 +9,7 @@ by just calling it "BDB".
 Note: A previous version of the BDB, the "BDB2A", is also in use. If you have one, it should have been reworked as necessary to make it work with any BDB2B instructions in this wiki. 
 
 BDB features include:
-* ST Microelectronics [STM32F417](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN11) Supervisory Controller (SVC)
+* An ST Microelectronics [STM32F417](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN11) MCU, which acts as Supervisory Controller (**SVC**) to the UniPro network on the board.
 * A Toshiba UniPro **switch** (T6WT0XBG), supporting high-speed point-to-point connectivity
 * USB and HSIC connections for an Application Processor (AP) to connect to the BDB
 * Toshiba "APBridge" bridge ASIC (T6WT1XBG), which connects AP, camera, and display devices to the UniPro network. There are 3 of these devices on the BDB; they're named **APB1**, **APB2**, **APB3**.
