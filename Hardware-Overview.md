@@ -2,12 +2,11 @@
 The Big Development Board (BDB) is the canonical development platform
 for firmware developers. It is a large printed circuit board that incorporates 
 most of the circuitry for a Project Ara phone, along with a plethora of connectors, 
-jumpers, and switches. The current BDB revision is 2A, which is referred to 
-in documents and discussions as "BDB2A". In this wiki, we try to keep it simple 
+jumpers, and switches. The current BDB revision is 2B, which is referred to 
+in documents and discussions as "BDB2B". In this wiki, we try to keep it simple 
 by just calling it "BDB". 
 
-Note: A previous version of the BDB, the "BDB1B", is no longer supported for development. 
-If you have a BDB1B, you'll need to exchange it for a BDB2A. 
+Note: A previous version of the BDB, the "BDB2A", is also in use. If you have one, it should have been reworked as necessary to make it work with any BDB2B instructions in this wiki. 
 
 BDB features include:
 * ST Microelectronics [STM32F417](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN11) Supervisory Controller (SVC)
