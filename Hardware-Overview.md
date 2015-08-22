@@ -10,7 +10,7 @@ Note: A previous version of the BDB, the "BDB2A", is also in use. If you have on
 
 BDB features include:
 * ST Microelectronics [STM32F417](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN11) Supervisory Controller (SVC)
-* Toshiba UniPro Switch (T6WT0XBG), supporting high-speed point-to-point connectivity
+* A Toshiba UniPro **switch** (T6WT0XBG), supporting high-speed point-to-point connectivity
 * USB and HSIC connections for an Application Processor (AP) to connect to the BDB
 * Toshiba "APBridge" bridge ASIC (T6WT1XBG), which connects AP, camera, and display devices to the UniPro network. There are 3 of these devices on the BDB; they're named **APB1**, **APB2**, **APB3**.
 * Toshiba "GPBridge" (T6WT2XBG), which connects various interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc. to the UniPro network. There are 2 of these devices on the BDB; they're named **GPB1** and **GPB2**.
