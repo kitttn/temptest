@@ -17,13 +17,7 @@ BDB features include:
 * SMA connectors for probing or connecting HSIC, UniPro, D-PHY, and M-PHY to the switch or bridge ASICs.
 * Breakout connectors for device JTAG, serial debug output, and flash programming.
 
-###Endoskeleton (Endo)
-The endoskeleton (Endo) is the physical frame that Ara modules plug into. It is electrically similar to the BDB, but realized in the Ara phone form factor. 
-
-###Modules
-Modules are form-factor sized boards, plus mechanical casings, that implement the functional blocks of an Ara smartphone. Modules slide into slots in the endo to connect to power and UniPro. The BDB has a plastic fixture that allow the modules to be mounted in a similar way.
-
-###Microcontrollers
+###Microcontrollers on BDB
 There are 3 types of microcontroller used on the BDB:
 - Application Processor (AP) Bridge
 - General Purpose (GP) Bridge
