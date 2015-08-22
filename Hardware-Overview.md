@@ -59,7 +59,7 @@ The final BDB revision is 2B, which is referred to in documents and discussions 
 
 Notes:
 
-- A previous version of the BDB, the "BDB2A", is also in use. If you have one, it should have been reworked as necessary to make it work with any BDB2B instructions in this wiki. 
+- A previous version of the BDB, the "BDB2A", is also in use. If you have one, it should have been reworked as necessary to make it work the same as BDB2B. 
 - Older versions of the BDB, BDB1A and BDB1B, are no longer supported.
 
 BDB's features include:
