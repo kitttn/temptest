@@ -17,19 +17,19 @@ BDB features include:
 * SMA connectors for probing or connecting HSIC, UniPro, D-PHY, and M-PHY to the switch or bridge ASICs.
 * Breakout connectors for device JTAG, serial debug output, and flash programming.
 
-###Microcontrollers on BDB
-There are 3 types of microcontroller used on the BDB:
-- Application Processor (AP) Bridge
-- General Purpose (GP) Bridge
-- Supervisory Controller (SVC)
+###Toshiba Bridge ASICs
+
+Two types of bridge ASIC are used for Project Ara:
+1. AP Bridge
+2. GP Bridge
 
 ####Application Processor (AP) Bridge
 
 The Toshiba AP Bridge is an ASIC custom-developed for Project Ara, with a Cortex-M3 microcontroller running at 96MHz.
 
-Despite being named "AP Bridge", this device is used for three use cases for Project Ara:
+The term "AP Bridge" is something of a misnomer. This device is actually used for three use cases for Project Ara:
 
-1. To connect an AP without UniPro to the UniPro network, via USB (technically USB HSIC).
+1. To connect an application processor (AP) without UniPro to the UniPro network, via USB (technically USB HSIC).
 2. To connect camera devices using the MIPI CSI-2 protocol to the UniPro network.
 3. To connect display devices using the MIPI DSI protocol to the UniPro network.
 
