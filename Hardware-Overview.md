@@ -71,14 +71,28 @@ BDB's features include:
 * Toshiba "GP Bridge" (T6WT2XBG, or revision "ES2" of the GP Bridge), which connects various interfaces such as GPIO, PWM, I2C, I2S, USB, SDIO, UART, etc. to the UniPro network. There are 2 of these devices on the BDB; they're named **GPB1** and **GPB2**.
 * SMA connectors for probing or connecting HSIC, UniPro, D-PHY, and M-PHY to the switch or bridge ASICs.
 * Breakout connectors for device JTAG, serial debug output, and flash programming.
+* Support for power measurement of various loads in the system through connection of various [TI INA230](http://www.ti.com/product/ina230) power measurement ICs to the SVC
 
 # Software Development Board (SDB)
 
-The Software Development Board is a printed circuit board that serves a similar function to the [Big Development Board (BDB)](#big-development-board-bdb). Changes from BDB include various electrical improvements, a more developer-friendly silkscreen, increased support for bridge ASIC peripheral breakout, and the removal of the connectors for the spiral 2 design of a Project Ara module interface block.
+The Software Development Board is a printed circuit board that serves a similar function to the [Big Development Board (BDB)](#big-development-board-bdb).
 
 <a href="https://github.com/projectara/Firmware-wiki/wiki/images/SDB.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/SDB.jpg" width="640"/></a>
 
 The [SDB Quick Start Guide](SDB-Quick-Start-Guide) is a tutorial for getting an SDB up and running for firmware development.
+
+Changes from BDB to SDB include:
+
+- various electrical improvements for UniPro signal integrity
+- significant developer-friendliness improvements to the silkscreen and component placement 
+- more breakout connectors for bridge ASIC peripherals
+- inclusion of an ARM standard [Cortex Debug+ETM connector](http://infocenter.arm.com/help/topic/com.arm.doc.faqs/attached/13634/cortex_debug_connectors.pdf) for JTAG and trace macrocell debugging, replacing the custom connector to a debug board used in BDB.
+- support for opening all 7 debug UARTs from a single USB connector, unlike BDB's requirement to use one USB cable per debug UART
+- support for connecting any AP development board complying with the [Linaro 96Boards](https://www.96boards.org/) standard, unlike requirement of custom adapters needed for BDB.
+- an on/off button (yes, really)
+- the removal of the connectors used in the spiral 2 design of a Project Ara module interface block
+- replacement of the spiral 2 design of the Project Ara wake/detect circuit with simple switches, for ease of use when developing software
+- support for power measurement from either the SVC or the AP
 
 SDB's features include:
 
@@ -93,6 +107,7 @@ SDB's features include:
 * Two banks of SMA connectors for connecting external UniPro interfaces to the switch.
 * Two banks of headers for connecting external module development boards to the SVC etc.
 * Breakout connectors for device JTAG, serial debug output, and flash programming.
+* Support for power measurement of various loads in the system through connection of various [TI INA230](http://www.ti.com/product/ina230) power measurement ICs to either the SVC or the AP (through the 96Boards low-speed connector)
 
 # Supported AP Boards
 
