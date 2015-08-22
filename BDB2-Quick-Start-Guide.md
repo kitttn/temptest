@@ -12,11 +12,10 @@ Complete each of the following steps in order. Within each step, there are links
 - [Step 2. Set up your development hardware](#step-2-set-up-your-development-hardware)
 - [Step 3. Build the firmware images](#step-3-build-the-firmware-images)
 - [Step 4. Load the firmware images](#step-4-load-the-firmware-images)
-- [Step 5. Flash Jetson with Android image](#step-5-flash-jetson-with-android-image)
-- [Step 6. Rebuild Jetson kernel](#step-6-rebuild-jetson-kernel)
-- [Step 7. Load Greybus modules and connect Jetson to BDB](#step-7-load-greybus-modules-and-connect-jetson-to-bdb)
-- [Step 8. Verify GPIO](#step-8-verify-gpio)
-- [Step 9. Verify I2C](#step-9-verify-i2c)
+- [Step 5. Set up Android on Jetson](#step-5-set-up-android-on-jetson)
+- [Step 6. Load Greybus modules and connect Jetson to BDB](#step-6-load-greybus-modules-and-connect-jetson-to-bdb)
+- [Step 7. Verify GPIO](#step-7-verify-gpio)
+- [Step 8. Verify I2C](#step-8-verify-i2c)
 
 --------------------------------------------------------------
 
@@ -51,12 +50,12 @@ Here's a picture of the debug boards that come with the BDB, with labels in whit
 ###Step 3. Build the firmware images
 Follow the steps below to build the firmware for the SVC, as well as the APB1 and APB2 bridges on the BDB. Look at the picture of the BDB above to see where those are on the board.
 
-* `cd $HOME/nuttx`  
-* `./build_ara_image.sh ara bridge/es2-debug-apbridgea`  
-* `./build_ara_image.sh ara bridge/es2-debug-generic`
-* `./build_ara_image.sh ara svc/bdb2a`
+```
+cd $HOME/nuttx
+./build_ara_image.sh all
+```
 
-The resulting binary image files are here:
+If the above succeeds, the binary image files you will use for APB1 and APB2 are here:
 
 APB1:  `$HOME/nuttx/build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin`  
 APB2:  `$HOME/nuttx/build/ara-bridge-es2-debug-generic/image/nuttx.bin`
@@ -103,25 +102,21 @@ Next, follow the [SVC programming procedure](Flashing-images#load-firmware-image
 
 --------------------------------------------------------------
 
-###Step 5. Flash Jetson with Android image
 
-Jetson has a 9-pin serial port which is used for the u-boot console, boot log, and kernel console. Connect a 9-pin female-female null modem and USB serial adapter. Run a terminal program on the host at 115200 baud, 8n1. The Jetson serial port is circled in orange in the following image. Click the image for a larger version.
+###Step 5. Set up Android on Jetson
 
-<a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
+Follow the [NVidia Jetson Setup](NVidia-Jetson-Setup) instructions to get an Android image with Greybus support running on Jetson.
 
-The Android image is part of the "Android_for_Jetson NVFlash Package". Flash Jetson with the Android image by following the "Instructions for using the NVflash package" section on [this page](https://github.com/projectara/Android-wiki/wiki/Getting-Started-with-the-Jetson-reference-platform#instructions-for-using-the-nvflash-package)
-
-###Step 6. Rebuild Jetson kernel
-
-Rebuild the Jetson kernel and Greybus modules, and update the Jetson with newboot.img, by following the steps on [this page](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
+**DO NOT CONNECT THE JETSON TO SDB UNTIL INSTRUCTED.***
 
 --------------------------------------------------------------
 
-###Step 7. Load Greybus modules and connect Jetson to BDB
+###Step 6. Load Greybus modules and connect Jetson to BDB
 
 **DO NOT CONNECT THE JETSON TO THE BDB UNTIL INSTRUCTED.**
 
 Reboot the Jetson and wait for console output to settle down. Press Enter and the command prompt should appear:
+
 ```
 shell@jetson:/ $
 ```
@@ -137,45 +132,13 @@ insmod gb-vibrator.ko
 insmod gb-es2.ko
 ```
 
-Here is some example output.
-```
-shell@jetson:/ $ su
-shell@jetson:/ # cd /lib/modules
-shell@jetson:/lib/modules # insmod greybus.ko
-[   58.819982] greybus: Registered control protocol.
-[   58.824785] greybus: Registered svc protocol.
-shell@jetson:/lib/modules # insmod gb-phy.ko
-[   58.873229] greybus: Registered gpio protocol.
-[   58.877783] greybus: Registered pwm protocol.
-[   58.882197] greybus: Registered uart protocol.
-[   58.886700] greybus: Registered sdio protocol.
-[   58.891195] greybus: Registered usb protocol.
-[   58.895626] greybus: Registered i2c protocol.
-[   58.900029] greybus: Registered spi protocol.
-[   58.904441] greybus: Registered hid protocol.
-[   58.908852] greybus: Registered gb_audio_mgmt protocol.
-[   58.914141] greybus: Registered gb_audio_data protocol.
-shell@jetson:/lib/modules # insmod gb-vibrator.ko
-[   58.953700] greybus: Registered vibrator protocol.
-shell@jetson:/lib/modules # insmod gb-es2.ko
-[   60.124416] usbcore: registered new interface driver es2_ap_driver
-```
-At this point, you should have 3 serial terminal sessions open:
-* BDB bridge APB1 debug output
-* BDB bridge APB2 debug output
-* Jetson console
-
-The APB1 and APB2 windows should show the nutshell prompt `nsh>`, and the Jetson console should show `shell@jetson:/ #`. You may wish to position and resize these windows so you can monitor the debug output from all of them at the same time.
-
 The Jetson USB host port is circled in green in the following image. Click the image for a larger version.
 
 <a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
 
 The BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.
 
-Connect a USB 2.0 hub to the Jetson USB host port.
-
-Connect the hub to BDB CON28.  You should see the following on the Jetson console:
+Connect the Jetson USB host port to BDB CON28 with a micro-B USB cable.  A lot of debug output should be printed. This output should include the following lines:
 
 ```
 usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
@@ -183,27 +146,37 @@ usb 2-1.2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
 usb 2-1.2.1: Product: APBridge
 usb 2-1.2.1: Manufacturer: Toshiba
 usb 2-1.2.1: SerialNumber: 0
+```
+
+That output means the AP successfully enumerated APB1 over USB.
+
+The debug output should also include a line that looks like this:
+
+```
 gpiochip_add: registered GPIOs 989 to 1015 on device: greybus_gpio
+
+                               ^^^
                                ^^^ note this value!
-```
-**Note**: The GPIO base listed here by gpiochip_add is 989. If your reported value is different, you'll need to substitute that value in the console commands.
-
-You should also see the following on the APB1 debug output:
-```
-[I] GB: MID-1 module inserted                                              	 
-[I] GB: AP handshake complete  	
+                               ^^^
 ```
 
-This indicates the AP to APB1 link was successfully established. If so, continue with [Step 8](#step-8-verify-gpio).
+That output means the GPIO-over-UniPro on APB2 was successfully discovered. The values "989" and "1015" could be different on your system.
+
+**Note**: The GPIO base listed here by gpiochip_add is 989. If your reported value is different, you'll need to substitute that value in the console commands in the following sections.
+
+If APB1 was enumerated and APB2 was successfully discovered, continue to the next section.
 
 If the above output did not appear, or if you have other problems, retry as follows:
-* Unplug the USB cable between the Jetson and the BDB
-* Cycle power to the BDB (Note - If you used the JTAG method for loading the bridge firmware, you'll need to repeat [those steps](#option-2-load-firmware-image-using-jtag) after cycling power to the BDB).
-* [Go back to this step](#step-7-load-greybus-modules-and-connect-jetson-to-bdb).
+
+* Unplug the USB cable between the Jetson and the BDB.
+* Power-cycle the BDB.
+* Retry the instructions in this step.
+
+If that still doesn't work, please report the problem. Including SVC, APB1, APB2, and Jetson console logs will make it easier to support you.
 
 --------------------------------------------------------------
 
-###Step 8. Verify GPIO
+###Step 7. Verify GPIO
 
 In this section, we'll issue some commands to access GPIO 0 on APB2 over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
@@ -295,7 +268,7 @@ Here's a picture of J79. Click the image for a larger version.
 
 You should read approximately 1.8V above GND when the GPIO value is 1, and very close to 0.0 when the value is 0.  For an easy GND connection, use any of the standoff mounting holes at the corners of the BDB.
 
-###Step 9. Verify I2C
+###Step 8. Verify I2C
 
 In this section, we'll issue some commands to examine I2C devices over Greybus. Greybus requests travel from Jetson to APB2, passing through APB1 and the UniPro switch. Responses take the reverse path.
 
