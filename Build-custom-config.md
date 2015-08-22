@@ -34,26 +34,30 @@ nuttx
     └── [...]
 ```
 
-This step sets up the environment and copies some of the configuration files to ./nuttx so they are available to the make utility.
+This step sets up the environment and copies some of the configuration files to ./nuttx so the build system can use them.
 
-Example "configs subdir" values:
+Some important `<configs-subdir>` values are:
 
 - ara/bridge/es2-debug-apbridgea - [APBridgeA](Hardware-Overview#toshiba-bridge-asics)
 - ara/bridge/es2-debug-generic   - A "generic" image suitable for any [APBridgeE or GPBridge](Hardware-Overview#toshiba-bridge-asics), which exposes various Greybus protocols to the AP in its interface manifest.
 - ara/svc/bdb2a - SVC firmware for BDB2
 - ara/svc/sdb - SVC firmware for SDB
 
-#####STEP 2. run 'make menuconfig'
+## STEP 2. run 'make menuconfig'
 
 `make menuconfig`
 
 Use the config menu system to select custom options.
 When finished, Save and Exit.
 
-#####STEP 3. Rebuild the image (in tree):
+## STEP 3. Rebuild the image (in tree):
+
+Just run make (**"make -j N" does not work**):
+
 ```
 make
 ```
+
 The resulting images files are placed under ./nuttx:  
 `./nuttx/nuttx.bin` - raw binary  
 `./nuttx/nuttx    ` - ELF (includes debug info)
