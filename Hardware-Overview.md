@@ -53,7 +53,7 @@ most of the circuitry for the "spiral 2" iteration of the Project Ara platform d
 
 <a href="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg"><img src="https://github.com/projectara/Firmware-wiki/wiki/images/BDB2A.jpg" width="640"/></a>
 
-The [BDB Quick Start Guide](BDB-Quick-Start-Guide) is a tutorial for getting a BDB up and running for firmware development.
+The [BDB Quick Start Guide](BDB2-Quick-Start-Guide) is a tutorial for getting a BDB up and running for firmware development.
 
 The final BDB revision is 2B, which is referred to in documents and discussions as "BDB2B". In this wiki, we try to keep it simple by just calling it "BDB". 
 
