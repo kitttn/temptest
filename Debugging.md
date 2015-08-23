@@ -19,7 +19,7 @@ Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi
 
 ## Don't try to flash nop-loop.bin to the SVC.
 
-Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC.  It's for **[bridge ASICs](Hardware-Overview#toshiba-bridge-asics) only**.
+Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC.  It's for **ES2 [bridge ASICs](Hardware-Overview#toshiba-bridge-asics) only**.
 
 ## J-Link Serial Numbers and GDB Server Ports
 
