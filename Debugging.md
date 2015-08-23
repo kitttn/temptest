@@ -3,17 +3,18 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 # Contents
 
 - [Important Notes](#important-notes)
-- [How to debug AP/GP bridge firmware using JTAG](#how-to-debug-ap-gp-bridge-firmware-using-jtag)
-- [How to debug SVC firmware using JTAG](#how-to-debug-svc-firmware-using-jtag)
-- [Debug Adapter Board CON3 JTAG Pinout](#debug-adapter-board-con3-jtag-pinout)
-- [JTAG vs. SPI ROM boot details](#jtag-vs-spi-rom-boot-details)
+- [AP/GP bridge firmware JTAG debugging on BDB](#ap-gp-bridge-firmware-jtag-debugging-on-bdb)
+- [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
+- [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
+- [ES2 Bridge JTAG vs. SPI ROM boot details](#es2-bridge-jtag-vs-spi-rom-boot-details)
+- [Using Semihosting](#using-semihosting)
 - [Greybus Taping](#greybus-taping)
 
 # Important Notes
 
 ## Mandatory ES2 Bridge ASIC JTAG Setup
 
-Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi-rom-boot-details), there must be a valid image flashed into SPI ROM for JTAG to work on the ES2 versions of the [Toshiba bridge ASICs](Hardware-Overview#toshiba-bridge-asics).
+Because of [implementation details in the bridge ASIC boot process](#es2-bridge-jtag-vs-spi-rom-boot-details), there must be a valid image flashed into SPI ROM for JTAG to work on the ES2 versions of the [Toshiba bridge ASICs](Hardware-Overview#toshiba-bridge-asics).
 
 [nop-loop.bin](https://github.com/projectara/Firmware-wiki/raw/master/nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
 
@@ -33,7 +34,7 @@ These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two b
 
 - Choose a port number for each J-Link's GDB server.  They can be any value from 1111 to 9999, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
 
-# How to debug AP/GP bridge firmware using JTAG
+# AP/GP bridge firmware JTAG debugging on BDB
 
 ## Hardware Setup
 
@@ -77,7 +78,7 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
 
-# How to debug SVC firmware using JTAG
+# SVC firmware JTAG debugging on BDB
 
 The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same GDB session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
@@ -113,9 +114,7 @@ load
 continue
 ```
 
-# Additional Info
-
-## Debug Adapter Board CON3 JTAG Pinout
+# BDB Debug Board CON3 JTAG Pinout
 
 Pin|Signal|Comments
 ---|------|--------
@@ -132,7 +131,7 @@ Pin|Signal|Comments
 2  | Vtgt |(thru 0 ohm) 
 4-20 |GND| Even pins only
 
-## JTAG vs. SPI ROM boot details
+# ES2 Bridge JTAG vs. SPI ROM boot details
 
 Following reset, the device loads the firmware image from flash (SPIROM) 
 to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
@@ -145,7 +144,7 @@ to boot the device.
 
 If the firmware image in flash fails to respond to JTAG, you will need to [reprogram flash](Flashing-images) using a hardware programmer.
 
-##Using Semihosting
+# Using Semihosting
 
 If you want to ship debug output out over JTAG instead of a UART, you can use ARM semihosting.
 
@@ -174,7 +173,8 @@ To connect to the semihosting console where everything is printed:
 $ telnet localhost 2333
 ```
 
-## Greybus Taping
+# Greybus Taping
+
 It can often be useful for debug to record Greybus operations on a bridge and be able to replay them. Greybus Taping will enable you to save all greybus operations received by a bridge and saves them in a file in your computer thanks to ARM Semihosting. At a later time you can replay them without needing an AP.
 
 Step 1: enable GB Taping and the controlling application
