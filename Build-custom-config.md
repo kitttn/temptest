@@ -66,6 +66,8 @@ The resulting images files are placed under ./nuttx:
 `./nuttx/nuttx.bin` - raw binary  
 `./nuttx/nuttx    ` - ELF (includes debug info)
 
+[Flash your image](#Flashing-images) to your target and [debug](#Debugging) it.
+
 ## STEP 4. (Optional) Save your config
 
 If you are happy with your configuration, you can save your work so that it can be built as a defconfig.
