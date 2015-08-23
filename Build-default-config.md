@@ -55,7 +55,9 @@ Example 1:
 This builds the SVC firmware.    
 Image files are here:
 ```
-./build/ara-svc-bdb2a/image/
+./build/ara-svc-bdb2a/image/nuttx      # ELF file
+./build/ara-svc-bdb2a/image/nuttx.bin  # Raw binary
+./build/ara-svc-bdb2a/image/System.map # Symbol table
 ```
 
 Example 2:
@@ -65,7 +67,7 @@ Example 2:
 This builds a debuggable image for the AP bridge on the BDB2A (which is based on ES2 silicon).  
 Image files are output here:
 ```
-./build/ara-bridge-es2-debug-apbridgea/image/nuttx
-./build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin
-
+./build/ara-bridge-es2-debug-apbridgea/image/nuttx      # ELF file
+./build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin  # Raw binary
+./build/ara-bridge-es2-debug-apbridgea/image/System.map # Symbol table
 ```
