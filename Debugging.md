@@ -11,7 +11,7 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 # Important Notes
 
-## ES2 Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
+## Mandatory ES2 Bridge ASIC JTAG Setup
 
 Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi-rom-boot-details), there must be a valid image flashed into SPI ROM for JTAG to work on the ES2 versions of the [Toshiba bridge ASICs](Hardware-Overview#toshiba-bridge-asics).
 
