@@ -1,12 +1,26 @@
 This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
 
-#Important: Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
+# Contents
 
-Because of implementation details in the bridge ASIC boot process, there must be a valid image flashed into SPI ROM for JTAG to work on BDB.
+- [Important Notes](#important-notes)
+- [How To Use Multiple J-Link Dongles](#how-to-use-multiple-j-link-dongles)
+- [How to debug AP/GP bridge firmware using JTAG](#how-to-debug-ap-gp-bridge-firmware-using-jtag)
+- [How to debug SVC firmware using JTAG](#how-to-debug-svc-firmware-using-jtag)
+- [Debug Adapter Board CON3 JTAG Pinout](#debug-adapter-board-con3-jtag-pinout)
+- [JTAG vs. SPI ROM boot details](#jtag-vs-spi-rom-boot-details)
+- [Greybus Taping](#greybus-taping)
+
+# Important Notes
+
+## Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
+
+Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi-rom-boot-details), there must be a valid image flashed into SPI ROM for JTAG to work on the [Toshiba bridge ASICs](Hardware-Overview#toshiba-bridge-asics).
 
 [nop-loop.bin](https://github.com/projectara/Firmware-wiki/raw/master/nop-loop.bin) is a known-good firmware image you can [[write to flash|Flashing-images]] in order to get JTAG debug working.
 
-**Don't try to flash nop-loop.bin to the SVC. It's for bridge ASICs only.**
+## Don't try to flash nop-loop.bin to the SVC.
+
+Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC.  It's for **[bridge ASICs](Hardware-Overview#toshiba-bridge-asics) only**.
 
 # How To Use Multiple J-Link Dongles
 
