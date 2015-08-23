@@ -3,7 +3,7 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 # Contents
 
 - [Important Notes](#important-notes)
-- BDB JTAG debugging
+- [BDB JTAG debugging](#bdb-jtag-debugging)
   - [AP/GP bridge firmware JTAG debugging on BDB](#ap-gp-bridge-firmware-jtag-debugging-on-bdb)
   - [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
   - [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
@@ -35,9 +35,11 @@ These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two b
 
 - Choose a port number for each J-Link's GDB server.  They can be any value from 1111 to 9999, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
 
-# AP/GP bridge firmware JTAG debugging on BDB
+# BDB JTAG Debugging
 
-## Hardware Setup
+## AP/GP bridge firmware JTAG debugging on BDB
+
+### Hardware Setup
 
 1. REMOVE POWER FROM BDB
 2. Connect the J-Link JTAG interface to debug board CON3 and host USB
@@ -56,7 +58,7 @@ APB3 | CON16
 GPB1 | CON14  
 GPB2 | CON15
 
-## Software steps
+### Software steps
 
 Open a terminal window and start the J-Link GDB server, specifying the serial number and port number for the J-Link JTAG interface. 
 
@@ -79,11 +81,11 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
 
-# SVC firmware JTAG debugging on BDB
+## SVC firmware JTAG debugging on BDB
 
 The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same GDB session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
-## Hardware Setup
+### Hardware Setup
 
 1. REMOVE POWER FROM BDB
 2. Connect the J-Link JTAG interface to debug board CON3 and host USB
@@ -94,7 +96,7 @@ Board' and 'BDB'.
 6. Connect USB cable to BDB CON12 for SVC serial debug output at 115200-n-8-1 on /dev/ttyUSBx. 
 7. Apply power to the BDB.
 
-## Software steps
+### Software steps
 
 1. Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface:  
 ```
@@ -115,7 +117,7 @@ load
 continue
 ```
 
-# BDB Debug Board CON3 JTAG Pinout
+## BDB Debug Board CON3 JTAG Pinout
 
 Pin|Signal|Comments
 ---|------|--------
