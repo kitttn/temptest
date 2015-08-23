@@ -50,7 +50,8 @@ All Project Ara defconfigs will be built. Output images will be in `build/*/imag
 
 ## Examples
 
-Example 1:
+**Example 1**
+
 ```
 ./build_ara_image.sh  ara svc/bdb2a
 ```
@@ -63,7 +64,7 @@ This builds the SVC firmware for BDB2. The build outputs are:
 ./build/ara-svc-bdb2a/image/System.map # Symbol table
 ```
 
-Example 2:
+**Example 2**
 
 ```
 ./build_ara_image.sh  ara bridge/es2-debug-apbridgea
