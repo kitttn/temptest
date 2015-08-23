@@ -1,10 +1,9 @@
 This page describes how to build the firmware by generating a custom configuration file, .config.
 
-The summary of steps is:
-
-- First, nuttx is set up to build in-tree by setting a .config that matches an existing [defconfig](Build-default-config).
-- Then, `make menuconfig` is run, and the user modifies the configuration as required.  On completion, the generated configuration file is in `nuttx/.config`, relative to the root directory of the nuttx repository.
-- The firmware is then built in-tree by running `make`.
+- [STEP 1. Select a defconfig to start from](#step-1-select-a-defconfig-to-start-from)
+- [STEP 2. Make your changes](#step-2-make-your-changes)
+- [STEP 3. Build and debug firmware images in-tree](#step-3-build-and-debug-firmware-images-in-tree)
+- [STEP 4. (Optional) Save your config](#step-4-optional-save-your-config)
 
 ## STEP 1. Select a defconfig to start from
 
@@ -67,7 +66,7 @@ The resulting images files are placed under ./nuttx:
 `./nuttx/nuttx.bin` - raw binary  
 `./nuttx/nuttx    ` - ELF (includes debug info)
 
-## Step 4. [Optional] Save your config
+## STEP 4. (Optional) Save your config
 
 If you are happy with your configuration, you can save your work so that it can be built as a defconfig.
 
