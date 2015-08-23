@@ -7,21 +7,15 @@ This page describes how to build a firmware image by specifying a default config
 
 ## Default configuration files (defconfigs)
 
-As of this writing, the available defconfigs are:
-<!-- <p style="font-size:8px">
--->
-Location of defconfig relative to ./nuttx/configs/ara/     | Description
---------------------------------------------|-------------------------------
-bridge/es2-debug-apbridgea/defconfig        | AP Bridge 'A' (connects to AP)
-bridge/es2-debug-generic/defconfig          | AP or GP Bridge
-svc/bdb2a/defconfig                         | SVC
-<!--
-svc/bdb1b/defconfig                   | BDB1B, do not use
-bridge/es1-debug-generic/defconfig    | BDB1B, do not use
-bridge/es1-debug-apbridgea/defconfig  | BDB1B, do not use
-lgd/apb1/defconfig                    |
-lgd/apb2/defconfig                    |
--->
+As of this writing, the available defconfigs are as follows.
+
+Location of defconfig relative to ./nuttx/configs/ara/   | Description
+---------------------------------------------------------|-------------------------------
+bridge/es2-debug-apbridgea/defconfig                     | APBridgeA for debugging use
+bridge/es2-debug-bringup/defconfig                       | Use only during board bringup
+bridge/es2-debug-generic/defconfig                       | "Generic" base image for non-APBridgeA
+svc/bdb2a/defconfig                                      | SVC for BDB2A or BDB2B
+svc/sdb/defconfig                                        | SVC for SDB
 
 ## Building a defconfig
 
