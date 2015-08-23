@@ -1,4 +1,8 @@
-The interface manifest is a contiguous block of data that includes a Manifest Header and a set of Descriptors. When read, a Manifest is transferred in its entirety. This allows the Interface to be described to the AP Module all at once, alleviating the need for multiple communication messages during the enumeration phase of the Interface.
+All Project Ara modules must declare an interface manifest for each of their UniPro links.
+
+The interface manifest is a contiguous block of data that includes a Manifest Header and a set of Descriptors. The AP reads a module's interface manifests using the Greybus Control Protocol. (The SVC sends the AP hotplug notifications when modules come and go, so the AP knows when to read manifests, and when the modules with those manifests leave).
+
+When read, a Manifest is transferred in its entirety. This allows the Interface to be described to the AP Module all at once, alleviating the need for multiple communication messages during the enumeration phase of the Interface.
 
 ### Current Limitations
 Currently, the SVC protocol is not yet operational.
