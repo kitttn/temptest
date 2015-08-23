@@ -3,7 +3,6 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 # Contents
 
 - [Important Notes](#important-notes)
-- [How To Use Multiple J-Link Dongles](#how-to-use-multiple-j-link-dongles)
 - [How to debug AP/GP bridge firmware using JTAG](#how-to-debug-ap-gp-bridge-firmware-using-jtag)
 - [How to debug SVC firmware using JTAG](#how-to-debug-svc-firmware-using-jtag)
 - [Debug Adapter Board CON3 JTAG Pinout](#debug-adapter-board-con3-jtag-pinout)
@@ -22,7 +21,7 @@ Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi
 
 Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC.  It's for **[bridge ASICs](Hardware-Overview#toshiba-bridge-asics) only**.
 
-# J-Link Serial Number and Port
+## J-Link Serial Numbers and GDB Server Ports
 
 These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two bridges at once, or a bridge and the SVC. To make that happen, you'll need to identify each dongle by its serial number, and open each of their GDB servers on a unique port.
 
