@@ -3,9 +3,10 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 # Contents
 
 - [Important Notes](#important-notes)
-- [AP/GP bridge firmware JTAG debugging on BDB](#apgp-bridge-firmware-jtag-debugging-on-bdb)
-- [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
-- [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
+- BDB JTAG debugging
+  - [AP/GP bridge firmware JTAG debugging on BDB](#ap-gp-bridge-firmware-jtag-debugging-on-bdb)
+  - [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
+  - [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
 - [ES2 Bridge JTAG vs. SPI ROM boot details](#es2-bridge-jtag-vs-spi-rom-boot-details)
 - [Using Semihosting](#using-semihosting)
 - [Greybus Taping](#greybus-taping)
