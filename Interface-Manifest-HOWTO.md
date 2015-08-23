@@ -1,3 +1,5 @@
+*** FIXME: the manifest selection examples are out of date. NuttX needs some more examples for module developers (along with info on how to integrate with Greybus and the physical peripherals etc.) **
+
 All Project Ara modules must declare an interface manifest for each of their UniPro links.
 
 This page tells you how to build manifests into your module's bridge ASIC firmware images, so that it can be properly enumerated by the AP.
