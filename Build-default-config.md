@@ -31,7 +31,7 @@ Where \<config-name\> is the relative path to the defconfig file, assuming the b
 
 When the build script completes successfully, the resulting image files (binary and ELF) are placed in  
 ```  
-./build/<name-of-build>/images/  
+./build/<name-of-build>/image/  
 ```
 Where \<name-of-build\> is the defconfig relative path, with the slashes replaced with dashes.
 
@@ -44,7 +44,7 @@ cd $HOME/nuttx
 ./build_ara_image.sh all
 ```
 
-All Project Ara defconfigs will be built. Output images will be in `build/*/images/`.
+All Project Ara defconfigs will be built. Output images will be in `build/*/image/`.
 
 ## Examples
 
