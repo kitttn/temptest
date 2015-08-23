@@ -4,6 +4,7 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 - [Important Notes](#important-notes)
 - [BDB JTAG debugging](#bdb-jtag-debugging)
+
   - [AP/GP bridge firmware JTAG debugging on BDB](#apgp-bridge-firmware-jtag-debugging-on-bdb)
   - [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
   - [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
@@ -36,8 +37,6 @@ These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two b
 - Choose a port number for each J-Link's GDB server.  They can be any value from 1111 to 9999, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 # BDB JTAG Debugging
-
-## AP/GP bridge firmware JTAG debugging on BDB
 
 This section provides details on setting up your BDB and JTAG hardware.
 
@@ -158,6 +157,8 @@ Switch| (undocumented here)   | (undocumented) | none
 1. Attach the 12VDC power supply to BDB CON27 (DC Jack 12V). [Picture of BDB Power Connection](images/BDB1B-Power-Connection.png)
 
 2. Plug the 12VDC power supply into an outlet
+
+## AP/GP bridge firmware JTAG debugging on BDB
 
 ### Software steps
 
