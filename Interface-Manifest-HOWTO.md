@@ -1,4 +1,4 @@
-*** FIXME: the manifest selection examples are out of date. NuttX needs some more examples for module developers (along with info on how to integrate with Greybus and the physical peripherals etc.) **
+**FIXME: the manifest selection examples are out of date. NuttX needs some more examples for module developers (along with info on how to integrate with Greybus and the physical peripherals etc.)**
 
 All Project Ara modules must declare an interface manifest for each of their UniPro links.
 
