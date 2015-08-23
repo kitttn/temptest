@@ -29,10 +29,12 @@ Where \<config-name\> is the relative path to the defconfig file, assuming the b
 ./nuttx/configs/ara  
 ```
 
-When the build script completes successfully, the resulting image files (binary and ELF) are placed in  
+When the build script completes successfully, the resulting image files (binary and ELF) are placed along with a symbol able (System.map) in  
+
 ```  
 ./build/<name-of-build>/image/  
 ```
+
 Where \<name-of-build\> is the defconfig relative path, with the slashes replaced with dashes.
 
 ## Building all defconfigs
