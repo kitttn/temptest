@@ -22,12 +22,17 @@ Because of [implementation details in the bridge ASIC boot process](#jtag-vs-spi
 
 Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC.  It's for **[bridge ASICs](Hardware-Overview#toshiba-bridge-asics) only**.
 
-# How To Use Multiple J-Link Dongles
+# J-Link Serial Number and Port
 
-If you're using multiple J-Link JTAG dongles (e.g. to debug two bridges at once, or a bridge and the SVC), you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
+These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two bridges at once, or a bridge and the SVC. To make that happen, you'll need to identify each dongle by its serial number, and open each of their GDB servers on a unique port.
 
-Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each GDB server instance. We'll refer to this value as **$JLINK_PORT** in the steps below.
+- The serial number of the J-Link Pro is on a label on the bottom. Copy the numeric value following "S/N:".
 
+  <img src="https://github.com/projectara/Firmware-wiki/wiki/images/JLink-Serial-Number.jpg"/>
+
+  We'll refer to this value as **$JLINK_SN** in the steps below.
+
+- Choose a port number for each J-Link's GDB server.  They can be any value 9999 or less, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 # How to debug AP/GP bridge firmware using JTAG
 
