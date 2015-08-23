@@ -25,7 +25,7 @@ Don't try to flash nop-loop.bin, mentioned in the previous section, onto the SVC
 
 These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two bridges at once, or a bridge and the SVC. To make that happen, you'll need to identify each dongle by its serial number, and open each of their GDB servers on a unique port.
 
-- The serial number of the J-Link Pro is on a label on the bottom. Copy the numeric value following "S/N:".
+- The serial number of the J-Link Pro is on a label on the bottom. Copy the numeric value following "S/N". Here is an example, with the serial number underlined in green:
 
   <img src="https://github.com/projectara/Firmware-wiki/wiki/images/JLink-Serial-Number.jpg"/>
 
