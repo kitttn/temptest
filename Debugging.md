@@ -1,6 +1,6 @@
 This page contains information on debugging AP/GP bridge and SVC firmware images using the [Segger J-Link Pro JTAG interface](http://www.segger.com/jlink-pro.html). 
 
-###Important: Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
+#Important: Bridge ASIC JTAG Won't Work Without An Image Flashed to SPI ROM
 
 Because of implementation details in the bridge ASIC boot process, there must be a valid image flashed into SPI ROM for JTAG to work on BDB.
 
@@ -8,16 +8,16 @@ Because of implementation details in the bridge ASIC boot process, there must be
 
 **Don't try to flash nop-loop.bin to the SVC. It's for bridge ASICs only.**
 
-###How To Use Multiple J-Link Dongles
+# How To Use Multiple J-Link Dongles
 
 If you're using multiple J-Link JTAG dongles (e.g. to debug two bridges at once, or a bridge and the SVC), you'll need to identify each by their serial number. The serial number of the J-Link Pro is on a label on the bottom.  Copy the numeric value following "S/N:".  We'll refer to this value as **$JLINK_SN** in the steps below.
 
 Also if you're using multiple JTAG interfaces, you'll need to specify a unique port when launching the J-Link GDB server.  This port number can be any value 9999 or less, but it has to be unique for each GDB server instance. We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 
-###How to debug AP/GP bridge firmware using JTAG
+# How to debug AP/GP bridge firmware using JTAG
 
-#####Hardware Setup
+## Hardware Setup
 
 1. REMOVE POWER FROM BDB
 2. Connect the J-Link JTAG interface to debug board CON3 and host USB
@@ -36,8 +36,7 @@ APB3 | CON16
 GPB1 | CON14  
 GPB2 | CON15
 
-
-#####Software steps
+## Software steps
 
 Open a terminal window and start the J-Link GDB server, specifying the serial number and port number for the J-Link JTAG interface. 
 
@@ -60,11 +59,11 @@ The following steps load the AP/GP bridge firmware image to internal RAM and run
 * Set any initial breakpoints if needed  
 * Release the processor from reset: `continue`  
 
-###How to debug SVC firmware using JTAG
+# How to debug SVC firmware using JTAG
 
 The SVC executes code from its internal flash, and supports debugging the firmware as it runs from flash. Therefore, the same GDB session is used to both flash and debug the firmware. Flashing the SVC firmware is described [here](Flashing-Images#load-firmware-image-to-svc-internal-flash-on-bdb).
 
-#####Hardware Setup
+## Hardware Setup
 
 1. REMOVE POWER FROM BDB
 2. Connect the J-Link JTAG interface to debug board CON3 and host USB
@@ -75,7 +74,7 @@ Board' and 'BDB'.
 6. Connect USB cable to BDB CON12 for SVC serial debug output at 115200-n-8-1 on /dev/ttyUSBx. 
 7. Apply power to the BDB.
 
-#####Software steps
+## Software steps
 
 1. Open a terminal window and start the J-Link GDB server, specifying the SVC device type, and the serial number and port number for the J-Link JTAG interface:  
 ```
@@ -96,9 +95,9 @@ load
 continue
 ```
 
-###Additional Info
+# Additional Info
 
-####Debug Adapter Board CON3 JTAG Pinout
+## Debug Adapter Board CON3 JTAG Pinout
 
 Pin|Signal|Comments
 ---|------|--------
@@ -115,7 +114,7 @@ Pin|Signal|Comments
 2  | Vtgt |(thru 0 ohm) 
 4-20 |GND| Even pins only
 
-####JTAG vs. SPI ROM boot details
+## JTAG vs. SPI ROM boot details
 
 Following reset, the device loads the firmware image from flash (SPIROM) 
 to internal SRAM. (the firmware image contains startup logic to skip the copy to internal SRAM if the code is already running from ram.), and then jumps to it. This behavior is configured at reset 
@@ -128,7 +127,7 @@ to boot the device.
 
 If the firmware image in flash fails to respond to JTAG, you will need to [reprogram flash](Flashing-images) using a hardware programmer.
 
-####Using Semihosting
+##Using Semihosting
 
 If you want to ship debug output out over JTAG instead of a UART, you can use ARM semihosting.
 
@@ -157,7 +156,7 @@ To connect to the semihosting console where everything is printed:
 $ telnet localhost 2333
 ```
 
-####Greybus Taping
+## Greybus Taping
 It can often be useful for debug to record Greybus operations on a bridge and be able to replay them. Greybus Taping will enable you to save all greybus operations received by a bridge and saves them in a file in your computer thanks to ARM Semihosting. At a later time you can replay them without needing an AP.
 
 Step 1: enable GB Taping and the controlling application
