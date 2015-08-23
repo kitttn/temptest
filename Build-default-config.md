@@ -54,8 +54,9 @@ Example 1:
 ```
 ./build_ara_image.sh  ara svc/bdb2a
 ```
-This builds the SVC firmware.    
-Image files are here:
+
+This builds the SVC firmware for BDB2. The build outputs are:
+
 ```
 ./build/ara-svc-bdb2a/image/nuttx      # ELF file
 ./build/ara-svc-bdb2a/image/nuttx.bin  # Raw binary
@@ -63,11 +64,13 @@ Image files are here:
 ```
 
 Example 2:
+
 ```
 ./build_ara_image.sh  ara bridge/es2-debug-apbridgea
 ```
-This builds a debuggable image for the AP bridge on the BDB2A (which is based on ES2 silicon).  
-Image files are output here:
+
+This builds a debuggable image for the APBridgeA for ES2 bridge ASICs, which will work on either BDB2 or SDB. The build outputs are:
+
 ```
 ./build/ara-bridge-es2-debug-apbridgea/image/nuttx      # ELF file
 ./build/ara-bridge-es2-debug-apbridgea/image/nuttx.bin  # Raw binary
