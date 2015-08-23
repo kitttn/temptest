@@ -31,7 +31,7 @@ These instructions let you use multiple J-Link JTAG dongles, e.g. to debug two b
 
   We'll refer to this value as **$JLINK_SN** in the steps below.
 
-- Choose a port number for each J-Link's GDB server.  They can be any value 9999 or less, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
+- Choose a port number for each J-Link's GDB server.  They can be any value from 1111 to 9999, but must be unique for each GDB server instance.  We'll refer to this value as **$JLINK_PORT** in the steps below.
 
 # How to debug AP/GP bridge firmware using JTAG
 
