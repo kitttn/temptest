@@ -1,6 +1,12 @@
-This page describes how to build a firmware image by specifying a default configuration, or 'defconfig'. The defconfig is passed as a parameter to a script that builds the image out-of-tree, thus preserving the state of your working copy. 
+This page describes how to build a firmware image by specifying a default configuration, or 'defconfig'. The defconfig is passed as a parameter to a script that builds the image out-of-tree, thus preserving the state of your working copy.
 
-####Default configuration files
+- [Default configuration files (defconfigs)](#default-configuration-files-defconfigs)
+- [Building a defconfig](#building-a-defconfig)
+- [Building all defconfigs](#building-all-defconfigs)
+- [Examples](#examples)
+
+## Default configuration files (defconfigs)
+
 As of this writing, the available defconfigs are:
 <!-- <p style="font-size:8px">
 -->
@@ -17,6 +23,8 @@ lgd/apb1/defconfig                    |
 lgd/apb2/defconfig                    |
 -->
 
+## Building a defconfig
+
 To build a firmware image using a default configuration:
 ```
 cd $HOME/nuttx
@@ -32,6 +40,19 @@ When the build script completes successfully, the resulting image files (binary 
 ./build/<name-of-build>/images/  
 ```
 Where \<name-of-build\> is the defconfig relative path, with the slashes replaced with dashes.
+
+## Building all defconfigs
+
+To build all Project Ara firmware images:
+
+```
+cd $HOME/nuttx
+./build_ara_image.sh all
+```
+
+All Project Ara defconfigs will be built. Output images will be in `build/*/images/`.
+
+## Examples
 
 Example 1:
 ```
