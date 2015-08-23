@@ -4,7 +4,12 @@ This page contains information on debugging AP/GP bridge and SVC firmware images
 
 - [Important Notes](#important-notes)
 - [BDB JTAG debugging](#bdb-jtag-debugging)
-
+  - [Hardware Setup Summary](#hardware-setup-summary)
+  - [Hardware Setup Details](#hardware-setup-details)
+       - [BDB Debug Hardware](#bdb-debug-hardware)
+       - [Debug Adapter Board Configuration](#debug-adapter-board-configuration)
+       - [Debug Board / BDB Connection Procedure](#debug-board-bdb-connection-procedure)
+       - [Apply power](#apply-power)
   - [AP/GP bridge firmware JTAG debugging on BDB](#apgp-bridge-firmware-jtag-debugging-on-bdb)
   - [SVC firmware JTAG debugging on BDB](#svc-firmware-jtag-debugging-on-bdb)
   - [BDB Debug Board CON3 JTAG Pinout](#bdb-debug-board-con3-jtag-pinout)
