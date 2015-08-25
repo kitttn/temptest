@@ -107,6 +107,8 @@ Next, follow the [SVC programming procedure](Flashing-images#load-firmware-image
 
 Follow the [NVidia Jetson Setup](NVidia-Jetson-Setup) instructions to get an Android image with Greybus support running on Jetson.
 
+**MAKE SURE TO USE "sudo fastboot flash boot newboot.img", AND NOT "sudo fastboot boot newboot.img" WHEN REFLASHING JETSON, OR YOUR BOOT IMAGE WILL BE LOST AT REBOOT.**
+
 **DO NOT CONNECT THE JETSON TO BDB UNTIL INSTRUCTED.**
 
 --------------------------------------------------------------
@@ -138,7 +140,11 @@ The Jetson USB host port is circled in green in the following image. Click the i
 
 The BDB CON28 "USB1 to APB1 HSIC" is in the upper left corner of the BDB.
 
-Connect the Jetson USB host port to BDB CON28 with a micro-B USB cable.  A lot of debug output should be printed. This output should include the following lines:
+Connect the Jetson USB host port to BDB CON28 with a micro-B USB cable.  A lot of debug output should be printed.
+
+**NOTE ON "A LOT OF DEBUG OUTPUT": ERROR MESSAGES DOESN'T MEAN IT DIDN'T WORK. KEEP GOING AND LOOK FOR THE LINES DESCRIBED IN THIS SECTION.**
+
+This output should include the following lines:
 
 ```
 usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
