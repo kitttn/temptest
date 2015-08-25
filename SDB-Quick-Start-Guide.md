@@ -119,7 +119,9 @@ Now that you've flashed both bridges you are interested in, you can take them ou
 
 Follow the [NVidia Jetson Setup](NVidia-Jetson-Setup) instructions to get an Android image with Greybus support running on Jetson.
 
-**DO NOT CONNECT THE JETSON TO SDB UNTIL INSTRUCTED.***
+**MAKE SURE TO USE "sudo fastboot flash boot newboot.img", AND NOT "sudo fastboot boot newboot.img" WHEN REFLASHING JETSON, OR YOUR BOOT IMAGE WILL BE LOST AT REBOOT.**
+
+**DO NOT CONNECT THE JETSON TO SDB UNTIL INSTRUCTED.**
 
 --------------------------------------------------------------
 
@@ -147,7 +149,11 @@ The Jetson USB host port is circled in green in the following image. Click the i
 
 <a href="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg"><img src="http://releases-ara-mdk.linaro.org/static/wiki-images/Ports.jpg" width="640">
 
-Connect the Jetson USB host port to SDB CON1001 with a micro-B USB cable.  A lot of debug output should be printed. This output should include the following lines:
+Connect the Jetson USB host port to SDB CON1001 with a micro-B USB cable.  A lot of debug output should be printed.
+
+**NOTE ON "A LOT OF DEBUG OUTPUT": ERROR MESSAGES DOESN'T MEAN IT DIDN'T WORK. KEEP GOING AND LOOK FOR THE LINES DESCRIBED IN THIS SECTION.**
+
+This output should include the following lines:
 
 ```
 usb 2-1.2.1: New USB device found, idVendor=ffff, idProduct=0002
