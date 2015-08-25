@@ -3,9 +3,9 @@
 
 ***
 
-* [Step 1: Use the bootrom-tools to construct a TFTF firmware package formatted for the Linux firmware subsystem](#Step-1-Using-bootrom-tools-to-construct-a-Trusted-Firmware-Transfer-Format-package)
-* [Step 2: Add the TFTF package to the firmware subsystem on Jetson](#Step-2-Adding-a-TFTF-package-to-the-Ara-Android-kernels-firmware-framework-on-Jetson)
-* Step 3: Prepare either the [BDB2](#step-3-Preparing-the-BDB2-to-boot-its-bridge-modules-over-UniPro) or the [SDB](#Preparing-the-SDB-to-boot-its-bridge-modules-over-UniPro) to boot over UniPro, and exercise the Greybus Firmware protocol.
+* [Step 1. Use the bootrom-tools to construct a TFTF firmware package formatted for the Linux firmware subsystem](#step-1-use-the-bootrom-tools-to-construct-a-tftf-firmware-package-formatted-for-the-linux-firmware-subsystem)
+* [Step 2: Add the TFTF package to the firmware subsystem on Jetson](#step-2-add-the-tftf-package-to-the-firmware-subsystem-on-jetson)
+* Step 3: Prepare either the [BDB2](#preparing-the-bdb2-to-boot-its-bridge-modules-over-unipro) or the [SDB](#preparing-the-sdb-to-boot-its-bridge-modules-over-unipro) to boot over UniPro, and exercise the Greybus Firmware protocol.
 
 ***
 
@@ -18,11 +18,15 @@ Developers intending to test their firmware through Boot-Over-Unipro will need t
 * Hardware attribute values for the module they intend to boot over UniPro: the UniPro vendor and product ID numbers, and the Ara vendor and product ID numbers.  At this time, the dummy Ara VID and PID numbers returned by the SVC for all modules are: `0xdead` and `0xbeef`.
 * [A Jetson board with up-to-date Greybus support](NVidia-Jetson-Setup) in its Android kernel.
 
-##Step 1: Using bootrom-tools to construct a Trusted Firmware Transfer Format package
+--------------------------------------------------------------
+
+##Step 1. Use the bootrom-tools to construct a TFTF firmware package formatted for the Linux firmware subsystem
 
 Follow the instructions for [building TFTF packages using bootrom-tools](Building-TFTF-bootrom-tools), making sure *not* to pass the `--out` option to `create-tftf` so that it will write the package to a filename formatted for the Linux kernel's firmware framework.
 
-##Step 2: Adding a TFTF package to the Ara Android kernel's firmware framework on Jetson
+--------------------------------------------------------------
+
+##Step 2. Add the TFTF package to the firmware subsystem on Jetson
 
 Follow the instructions for [adding a TFTF firmware package to the Jetson's firmware framework](TFTF-Firmware-Jetson), then follow the instructions to [flash Jetson with the resulting disk image](https://github.com/projectara/Android-wiki/wiki/Kernel-Only-Build-Instructions-for-Jetson-reference-platform).
 
