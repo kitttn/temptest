@@ -6,6 +6,6 @@ We will now add this file to the firmware-loading framework of the Linux kernel 
 
     ~ $ cd $JKB_HOME/boot-files/ramdisk/lib
     $JKB_HOME/boot-files/ramdisk/lib $ mkdir firmware
-    $JKB_HOME/boot-files/ramdisk/lib $ mv ~/ara:$UNIPRO_VID:$UNIPRO_PID:$ARA_VID:$ARA_PID:0002.tftf firmware/ara:$UNIPRO_VID:$UNIPRO_PID:$ARA_VID:$ARA_PID:0002.fw
+    $JKB_HOME/boot-files/ramdisk/lib $ mv ~/ara:$UNIPRO_VID:$UNIPRO_PID:$ARA_VID:$ARA_PID:0002.tftf firmware/
 
 The firmware blob now resides in the correct format and location for Greybus Firmware to find it when booting the module.
