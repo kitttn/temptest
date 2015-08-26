@@ -21,7 +21,7 @@ APB3        | CON16               | SW7
 GPB1        | CON14               | SW5
 GPB2        | CON15               | SW6
 
-#####Hardware Setup
+#####Hardware Setup for BDB
 
 The final debug board configuration should look like this. Click the image for a larger version.
 
@@ -34,6 +34,22 @@ The final debug board configuration should look like this. Click the image for a
 5. Connect the Dediprog SF100 8-pin IDC to debug board CON1 "SPI ROM" header. Note, this header is not keyed. Visually ensure that the red wire of the cable aligns with the pin 1 dot and the "M" of "ROM" on the debug board silkscreen.
 6. Optional: Connect USB cable to debug board CON6 for bridge serial debug output. Run a terminal program at 115200 baud, 8N1.
 7. Apply power to the BDB. 
+
+#####Hardware Setup for SDB
+
+1. USE POWER SWITCH TO REMOVE POWER FROM SDB.
+2. Make sure all bridge ASIC reset switches are *TOWARDS* pin 3.
+
+    <a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-Bridge-Reset.jpg"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-Bridge-Reset.jpg" width=640/></a>
+
+3. Connect the Dediprog SF100 8-in IDC to the CON1 "SPI ROM" header.  Note, this header is not keyed.  Visually ensure that the red wire of the cable aligns with the white pin-1 dot.  Otherwise, your SF-100 can and will be damaged.
+
+    <a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-APB1-SPI-ROM-OK.jpg"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-APB1-SPI-ROM-OK.jpg" width=640/></a>
+    
+    <a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-APB2-SPI-ROM-OK.jpg"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-APB2-SPI-ROM-OK.jpg" width=640/></a>
+
+6. Optional: Connect USB cable to the Debug USB port for bridge serial debug output. Run a terminal program at 115200 baud, 8N1.
+7. Apply power to the SDB via the power-on switch. 
 
 #####Software Steps
 
