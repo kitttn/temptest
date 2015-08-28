@@ -99,7 +99,7 @@ Set up your SDB for programming the APB2 SPI ROM by connecting the SF-100 to the
 
 Next, follow the [SPI ROM programming procedure](Flashing-images#load-firmware-image-to-spirom) to flash the APB2 firmware image.
 
-#####Flash SVC firmware
+#####Flash SVC firmware with JTAG
 
 The SVC firmware image you built in step 3 is in `$HOME/nuttx/build/ara-svc-bdb2a/image/nuttx`.
 
@@ -108,6 +108,12 @@ Set up your SDB flash it by connecting the J-Link Pro through its adapter board 
 <img src="https://github.com/projectara/Firmware-wiki/wiki/images/SDB-SVC-JTAG.jpg"/>
 
 Next, follow the [SVC programming procedure](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb) to flash the SVC ELF image.
+
+#####Flash SVC firmware with STM32 bootrom
+
+The SVC firmware image you built in step 3 is in `$HOME/nuttx/build/ara-svc-sdb/image/nuttx.bin`.
+
+Next, follow the [SVC programming procedure on SDB with STM32 bootrom](Flashing-images#load-firmware-image-to-svc-internal-flash-on-sdb-via-embedded-bootrom) to flash the SVC binary image.
 
 #####Take APB1 and APB2 out of reset
 

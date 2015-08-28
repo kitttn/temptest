@@ -1,8 +1,9 @@
 This page describes how to load firmware images into flash memory.  Instructions for [[building firmware images|Building-the-Code]] and for [[obtaining prebuilt binaries from Buildbot|Buildbot]] are available.
 
-There are 3 supported scenarios:
+There are 4 supported scenarios:
 * [Load firmware image to SPIROM for a bridge ASIC on BDB](Flashing-images#load-firmware-image-to-spirom)
-* [Load firmware image to SVC internal flash on BDB](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
+* [Load firmware image to SVC internal flash on BDB/SDB with JTAG](Flashing-images#load-firmware-image-to-svc-internal-flash-on-bdb)
+* [Load firmware image to SVC internal flash on SDB with STM32 bootrom](Flashing-images#load-firmware-image-to-svc-internal-flash-on-sdb-via-embedded-bootrom)
 * [Load firmware image to SVC internal flash on endo](Flashing-images#load-firmware-image-to-svc-on-endo)
 
 
@@ -89,7 +90,7 @@ The final debug board configuration should look like this. Click the image for a
 
 4. Take all bridges out of reset by moving their reset switches *AWAY* from pin 1.
 
-####Load firmware image to SVC internal flash on BDB
+####Load firmware image to SVC internal flash on BDB/SDB with JTAG
 STM32 internal flash is written via the JTAG interface, 
 using gdb commands.
 
@@ -142,6 +143,73 @@ Board' and 'BDB'.
    You can use control-C to break execution, set breakpoints, etc. Another `monitor reset` / `continue` will restart the image from its reset vector.
 
 7. You can now disconnect the debug board FPC from the BDB. The SVC firmware image you just flashed will run whenever you power cycle the BDB.
+
+####Load firmware image to SVC internal flash on SDB via embedded bootrom
+SDB supports programming of the SVC internal flash over UART.
+This is accomplished by placing the STM32 into it's on-chip embedded bootloader mode and then using the stm32ld utility to load firmware into the SVC.
+
+#####Hardware Setup
+
+The final debug board configuration should look like this. Click the image for a larger version.
+
+<a href="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-BOOT-TYPE-SYSTEM-MEM.png"><img src="https://raw.githubusercontent.com/wiki/projectara/Firmware-wiki/images/SDB-BOOT-TYPE-SYSTEM-MEM.png" width=640/></a>
+
+1. REMOVE POWER FROM SDB
+2. Verify jumper is installed at BOOT0 pins 1-2
+3. Verify jumper is installed at BOOT1 pins 2-3
+4. Connect a USB cable to SDB Debug USB port
+5. Apply power to SDB
+
+#####Software Steps
+1. Open a terminal window and determine which tty port is the SVC Port:
+
+  `dmesg | grep tty`
+
+   usb 1-1.2.2: FTDI USB Serial Device converter now attached to ttyUSB0
+
+   usb 1-1.2.2: FTDI USB Serial Device converter now attached to ttyUSB1
+
+   usb 1-1.2.2: FTDI USB Serial Device converter now attached to ttyUSB2
+
+   usb 1-1.2.2: FTDI USB Serial Device converter now attached to ttyUSB3
+
+   usb 1-1.2.3: FTDI USB Serial Device converter now attached to ttyUSB4
+
+   usb 1-1.2.3: FTDI USB Serial Device converter now attached to ttyUSB5
+
+   usb 1-1.2.3: FTDI USB Serial Device converter now attached to ttyUSB6
+
+   usb 1-1.2.3: FTDI USB Serial Device converter now attached to ttyUSB7
+
+   The USB debug hardware on SDB provides eight different UART-to-USB interfaces with the
+   SVC USART1 wired into the first slot on the FT4232H, which means that 'ttyUSB0' above
+   is the correct tty device for the next step. Note if you have other USB serial devices
+   already connected and enumerated with your host system the ttyUSBX number will likely
+   be different.
+
+2. Run the stm32ld utility to upload the SVC binary image :
+
+   `stm32ld <port-no> <baud-rate> <path-to-svc-nuttx.bin>`.
+
+   Minimum BAUD rate is 1200 BAUD
+   Maximum BAUD rate is 115200 BAUD
+   Port-no should be the lowest new ttyUSBx identified after connecting the USB to SDB's USB debug port
+
+   Example:
+   $ stm32ld /dev/ttyUSB0 115200 build/ara-svc-sdb/image/nuttx.bin
+   Found bootloader version: 3.1
+   Chip ID: 0413
+   Cleared write protection.
+   Starting Extended Erase of FLASH memory. This will take some time ... Please be patient ...
+   Extended Erased FLASH memory.
+   Programming flash ... 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+   Done.
+
+3. You can now power down the SDB and revert jumper positions
+
+   Power down SDB
+   Verify jumper is installed at BOOT0 pins 2-3
+   Verify jumper is installed at BOOT1 pins 1-2
 
 ####Load firmware image to SVC on endo
 
