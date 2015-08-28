@@ -67,7 +67,21 @@ user@mymachine:~/flashrom$ sudo usermod -a -G plugdev $USER
 
 Then log out and log back in. You should able to run flashrom without sudo.
 
-#####STEP 7. Clone the firmware git repository
+#####STEP 7. Build and install the stm32ld utility
+
+Clone https://github.com/jsnyder/stm32ld
+
+Build with the following command:
+```
+user@mymachine:~/stm32ld$ gcc -o stm32ld main.c stm32ld.c serial_posix.c
+```
+
+Install by copying to /usr/local:
+```
+user@mymachine:~/stm32ld$ sudo cp stm32ld /usr/local/bin
+```
+
+#####STEP 8. Clone the firmware git repository
 ```
 cd $HOME
 git clone https://github.com/projectara/nuttx
@@ -76,7 +90,7 @@ git config commit.template nuttx/tools/git-commit-template
 ```
 
 
-#####STEP 8. Build and install kconfig support
+#####STEP 9. Build and install kconfig support
 ```
 cd $HOME
 cd nuttx/misc/tools/kconfig-frontends
